@@ -1,0 +1,21 @@
+[
+  "tests/test_artifact_schema.py::test_pending_result_schema_is_valid",
+  "tests/test_artifact_schema.py::test_result_schema_rejects_unknown_status",
+  "tests/test_experiment_runner.py::test_evaluate_pragmatic_records_from_joined_predictions",
+  "tests/test_experiment_runner.py::test_no_finetune_suite_writes_results_with_heuristic",
+  "tests/test_gold_builder.py::test_build_gold_after_annotation_auto_agreement",
+  "tests/test_label_mapping.py::test_canonicalize_labels_keeps_unset_fields_null",
+  "tests/test_label_mapping.py::test_label_aliases_map_to_canonical_names",
+  "tests/test_metrics.py::test_binary_macro_f1",
+  "tests/test_metrics.py::test_ece_bins",
+  "tests/test_metrics.py::test_pragmatic_f1_returns_macro_key",
+  "tests/test_pii_cleaning.py::test_clean_pii_replaces_email_phone_handle_url_and_preserves_sarcasm_marker",
+  "tests/test_schema.py::test_adjudicated_record_schema_is_valid",
+  "tests/test_schema.py::test_adjudicated_requires_full_labels",
+  "tests/test_schema.py::test_invalid_binary_label_is_rejected",
+  "tests/test_source_type.py::test_annotation_input_preserves_source_split_and_type",
+  "tests/test_source_type.py::test_source_type_public_dataset_follows_split",
+  "tests/test_source_type.py::test_source_type_visobert_is_null_even_when_unassigned",
+  "tests/test_split_no_overlap.py::test_assign_splits_preserves_existing_split",
+  "tests/test_split_no_overlap.py::test_find_split_overlap_detects_duplicate_id_across_splits"
+]
