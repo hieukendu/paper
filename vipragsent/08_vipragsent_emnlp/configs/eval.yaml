@@ -1,0 +1,3 @@
+paper: ViPragSent
+metrics: macro-F1, class-wise F1, calibration error, sarcasm/implicit-sentiment gap, explanation usefulness, inter-annotator agreement, and adjudication rate.
+confidence_intervals: paired_bootstrap_when_applicable

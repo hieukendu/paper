@@ -1,0 +1,57 @@
+{
+  "blocked_reason": "Ablation rows require fine-tuned run summaries or imported prediction metrics.",
+  "created_at": "2026-06-29T04:10:26.253309+00:00",
+  "experiment": "q2_multitask_ablation",
+  "provenance": {
+    "allow_silver_gold": false,
+    "fine_tuning": "excluded",
+    "note": "This runner evaluates imported predictions and no-train baselines only.",
+    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "record_limit": null,
+    "runner": "vipragsent.experiments.runner"
+  },
+  "rows": {
+    "explanation_augmented_inference": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "full": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "hard_label_distillation": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "no_emotion_auxiliary": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "no_explanation_cot_auxiliary": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "no_multitask": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "no_ordinary_sentiment_auxiliary": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    },
+    "no_task_uncertainty_weighting": {
+      "expected_source": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\multitask_ablation\\summary.json",
+      "reason": "missing multitask ablation summary",
+      "status": "blocked"
+    }
+  },
+  "schema_version": "1.0",
+  "status": "blocked"
+}

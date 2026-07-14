@@ -1,0 +1,58 @@
+[
+  {
+    "name": "ViPragSent full",
+    "macro_prag_f1": 66.1,
+    "ord_sent_f1": 64.8,
+    "ece": 22.4,
+    "rel_cost": 1.0
+  },
+  {
+    "name": "- emotion auxiliary",
+    "macro_prag_f1": 64.6,
+    "ord_sent_f1": 64.2,
+    "ece": 23.8,
+    "rel_cost": 0.96
+  },
+  {
+    "name": "- ordinary-sentiment auxiliary",
+    "macro_prag_f1": 63.4,
+    "ord_sent_f1": 60.9,
+    "ece": 25.1,
+    "rel_cost": 0.95
+  },
+  {
+    "name": "- explanation/CoT auxiliary",
+    "macro_prag_f1": 63.1,
+    "ord_sent_f1": 64.5,
+    "ece": 23.6,
+    "rel_cost": 0.91
+  },
+  {
+    "name": "- multi-task (single-task only)",
+    "macro_prag_f1": 59.7,
+    "ord_sent_f1": 61.7,
+    "ece": 28.3,
+    "rel_cost": 0.84
+  },
+  {
+    "name": "- task-uncertainty weighting",
+    "macro_prag_f1": 64.0,
+    "ord_sent_f1": 64.6,
+    "ece": 25.9,
+    "rel_cost": 0.99
+  },
+  {
+    "name": "Explanation-augmented inference only",
+    "macro_prag_f1": 64.4,
+    "ord_sent_f1": 64.7,
+    "ece": 24.0,
+    "rel_cost": 1.08
+  },
+  {
+    "name": "Hard-label distillation from GPT-4o",
+    "macro_prag_f1": 62.2,
+    "ord_sent_f1": 64.5,
+    "ece": 26.6,
+    "rel_cost": 1.06
+  }
+]

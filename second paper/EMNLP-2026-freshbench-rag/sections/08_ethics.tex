@@ -1,0 +1,10 @@
+\section{Ethics Statement}
+\label{sec:ethics}
+
+\textbf{Source content and licensing.} All document sources used in \method{} are drawn from publicly accessible news feeds (Reuters, BBC, AP) and Wikipedia. Reuters and AP content is used under their respective academic research licenses; BBC content is accessed under the BBC Open Data policy. We do not redistribute raw article text; the released artifact contains only question-answer pairs, source URLs, and document metadata. Wikipedia content is used under the Creative Commons Attribution-ShareAlike 4.0 license.
+
+\textbf{Annotator welfare.} Human annotators who performed the quality-verification spot-check for the human-verified subset were recruited through a university participant pool, compensated at \$18/hour (above local living wage), and provided with explicit content warnings before encountering any news articles covering conflict, disaster, or sensitive events. Annotators were permitted to skip any example they found distressing without penalty.
+
+\textbf{Potential harms of temporal evaluation.} A rolling freshness benchmark could, in principle, be misused to identify when a commercial model's knowledge cutoff occurred or to probe for training data memorization in ways that violate model provider terms of service. We have designed the contamination detection component to surface memorization rather than exploit it, and we recommend that any downstream use of \method{} respect API usage policies.
+
+\textbf{Representation and bias.} Because our document sources are English-language Western news agencies, our benchmark may embed geopolitical and editorial biases characteristic of those outlets. Conclusions about temporal degradation should not be generalized to non-English or non-Western news domains without additional validation.

@@ -1,0 +1,49 @@
+schema_version: "1.0"
+mode: no_finetuning
+api_baseline:
+  provider: azure_openai
+  deployment_env: AZURE_OPENAI_DEPLOYMENT_LABEL
+  default_deployment: gpt-4.1-mini
+  system_prefix_env: VIPRAGSENT_API_SYSTEM_PREFIX
+  default_system_prefix: gpt41_mini
+gold:
+  annotation_inputs:
+    batches_dir: data/annotation/batches
+    reviewer_1_dir: data/annotation/reviewer_01
+    reviewer_2_dir: data/annotation/reviewer_02
+    adjudicated_dir: data/annotation/adjudicated
+    disagreements_output: data/annotation/disagreements/all_disagreements.jsonl
+    report_output: data/manifest/gold_build_report.json
+  vipragsent_test_candidates:
+    - data/processed/vipragsent_test.jsonl
+    - data/processed/vipragsent/test.jsonl
+    - data/processed/all_unified.jsonl
+  public_data: data/processed/all_unified.jsonl
+prediction_layout:
+  root: results/predictions
+  main_pragmatic: results/predictions/main_pragmatic/{system}/{seed}.jsonl
+  ordinary_sentiment: results/predictions/ordinary_sentiment/{dataset}/{system}/{seed}.jsonl
+  low_resource_sarcasm: results/predictions/low_resource_sarcasm/{budget}/{system}/{seed}.jsonl
+  multitask_ablation_summary: results/predictions/multitask_ablation/summary.json
+  learning_curves_summary: results/predictions/learning_curves/summary.json
+metrics:
+  bootstrap_resamples: 1000
+  ci: 0.95
+  ece_bins: 10
+  primary: macro_pragmatic_f1
+systems:
+  main_pragmatic:
+    - phobert_single_task
+    - phobert_finetune
+    - xlmr_large
+    - sailor_7b_sft
+    - vistral_7b_sft
+    - gpt41_mini_zero_shot
+    - gpt41_mini_8_shot
+    - vipragsent_full
+  optional_smoke:
+    - heuristic_local
+notes:
+  - Fine-tuned/SFT systems are evaluated only from imported prediction JSONL files.
+  - The no-train runner never creates model checkpoints.
+  - Use --allow-silver-gold only for smoke tests, never for final paper claims.

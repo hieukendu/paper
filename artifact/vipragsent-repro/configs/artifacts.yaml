@@ -1,0 +1,19 @@
+status: dryrun_pending
+results_dir: results
+pending_dir: results/pending
+figures_dir: figures
+tables_dir: tables
+claim_ledger: results/claim_ledger.csv
+required_result_files:
+  - main_pragmatic.json
+  - ordinary_sentiment.json
+  - multitask_ablation.json
+  - low_resource_sarcasm.json
+  - error_confusion.json
+  - calibration.json
+  - cost_breakdown.json
+  - learning_curves.json
+dryrun_policy:
+  allow_pending_results: true
+  mark_mock_values: true
+  forbid_final_claims: true

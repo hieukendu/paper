@@ -1,0 +1,28 @@
+\section{Method}
+\label{sec:method}
+
+\method{} is a rolling evaluation protocol that constructs time-stamped benchmark slices from fresh documents, generates grounded questions, evaluates retrieval-augmented systems, and tracks how evaluation metrics evolve over successive monthly snapshots. The four stages of the protocol are described below, followed by a formalization of the core temporal degradation measure.
+
+\paragraph{Stage 1: Monthly corpus construction.}
+At the beginning of each evaluation month $m$, we harvest documents from three sources: (i) RSS feeds from Reuters, BBC World Service, and the Associated Press covering the calendar month $m{-}1$; (ii) Wikipedia articles that received substantive edits (defined as a diff adding or removing $\geq$50 tokens) during month $m{-}1$; and (iii) the BEIR corpus subsets whose documents carry publication metadata, filtered to retain only documents timestamped within $m{-}1$. For each source, we apply a deduplication pass using MinHash LSH~\citep{leskovec2020minhash} with a Jaccard threshold of 0.8, removing near-duplicate articles across outlets. The resulting document pool $\mathcal{D}_m$ is indexed as a flat BM25 corpus~\citep{robertson2009bm25} and separately as a dense index using sentence-transformers~\citep{reimers2019sentencetransformers} embeddings (model: \mbox{\texttt{all-MiniLM-L6-v2}}) with FAISS~\citep{johnson2021faiss} approximate nearest-neighbor search to support both sparse and dense retrieval experiments.
+
+\paragraph{Stage 2: Question generation and grounding verification.}
+For each document $d \in \mathcal{D}_m$, we prompt GPT-4o with a structured template (see Appendix~B) to generate up to three factoid questions whose answers are extractable spans from $d$. Each generated question must satisfy three criteria: (a) the answer span appears verbatim in $d$; (b) the question cannot be answered by a model with training cutoff prior to $d$'s publication date (verified by a second GPT-4o prompt acting as a judge); and (c) the question-document pair passes a semantic overlap check using BERTScore~\citep{zhang2020bertscore} $F_1 \geq 0.72$ to ensure that the question is genuinely grounded in the passage rather than hallucinated. Questions failing any criterion are discarded. Each retained question $q_i$ is stored with its answer span $a_i$, the source document $d_i$, the document publication date $t_i$, and the month index $m$.
+
+\paragraph{Stage 3: Temporal contamination detection.}
+To guard against inadvertent data contamination, we apply a three-tier filtering procedure. First, for each question $q_i$, we compute the maximum 8-gram overlap between $q_i$ and a 5\% sample of the Common Crawl C4 corpus \citep{raffel2020t5}, which approximates the pretraining data distribution of the models we evaluate. Questions with overlap $\geq$0.4 are flagged as \emph{potentially contaminated} and excluded from main-metric computation, though retained for a separate contamination analysis. Second, we query each baseline model in a \emph{closed-book} setting (no retrieved context) and record whether it answers correctly; correct closed-book answers for which the retrieval-augmented answer is also correct are tagged as \emph{parametric hits} and excluded from citation faithfulness measurement, since such examples cannot distinguish retrieval from memorization. Third, we apply a human spot-check to a random 5\% sample of each monthly slice, resolving disagreements by majority vote among three annotators. The post-filtering contamination rate across our 12-month evaluation window is 6.3\% (see Table~\ref{tab:dataset-matrix}).
+
+\paragraph{Stage 4: Evaluation and temporal degradation modeling.}
+Each RAG system $s$ is evaluated on each monthly slice $\mathcal{Q}_m$ under fixed prompts and retrieval settings. We compute exact match (EM), token-level F1, citation precision $P_{\text{cite}}$, and citation recall $R_{\text{cite}}$ for each $(s, m)$ pair. To quantify temporal degradation, we fit a linear regression of each metric $\mu$ against the elapsed months $\Delta m = m - m_0$ (where $m_0$ is the first evaluation month):
+\begin{equation}
+  \hat{\mu}(s, m) = \alpha_s + \beta_s \cdot \Delta m,
+  \label{eq:degradation}
+\end{equation}
+where $\beta_s < 0$ indicates performance decay. We call $\beta_s$ the \emph{temporal degradation slope} for system $s$ on metric $\mu$. Statistical significance is assessed via a one-sided $t$-test on the OLS residuals with Benjamini-Hochberg correction for multiple comparisons across systems and metrics.
+
+Rank instability is measured by the Kendall $\tau$ rank correlation between the system ordering at month $m$ and the ordering on a reference static BEIR split:
+\begin{equation}
+  \rho_{\tau}(m) = \tau\!\left(\mathbf{r}_{\text{static}},\, \mathbf{r}_{m}\right),
+  \label{eq:rank-tau}
+\end{equation}
+where $\mathbf{r}_{\text{static}}$ and $\mathbf{r}_{m}$ are rank vectors over all evaluated systems. Values of $\rho_\tau$ below 0.8 indicate non-trivial rank disagreement; we observe a mean $\rho_\tau = 0.61$ across our 12-month window, confirming substantial rank instability.

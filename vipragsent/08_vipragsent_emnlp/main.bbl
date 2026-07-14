@@ -1,0 +1,412 @@
+\begin{thebibliography}{58}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{{AIVIVN Organisers}(2019)}]{aivivn2019}
+{AIVIVN Organisers}. 2019.
+\newblock \href {https://www.aivivn.com/contests/1} {Aivivn 2019: Vietnamese
+  sentiment analysis challenge}.
+\newblock AI competition release.
+
+\bibitem[{Barbieri et~al.(2020)Barbieri, Camacho-Collados, Espinosa-Anke, and
+  Neves}]{barbieri2020tweeteval}
+Francesco Barbieri, Jose Camacho-Collados, Luis Espinosa-Anke, and Leonardo
+  Neves. 2020.
+\newblock \href {https://aclanthology.org/2020.findings-emnlp.148/}
+  {{TweetEval}: Unified benchmark and comparative evaluation for tweet
+  classification}.
+\newblock In \emph{Findings of EMNLP}.
+
+\bibitem[{Bender and Friedman(2018)}]{bender2018datastatements}
+Emily~M. Bender and Batya Friedman. 2018.
+\newblock \href {https://aclanthology.org/Q18-1041/} {Data statements for
+  natural language processing: Toward mitigating system bias and enabling
+  better science}.
+\newblock \emph{Transactions of the ACL}.
+
+\bibitem[{Bender et~al.(2021)Bender, Gebru, McMillan-Major, and
+  Shmitchell}]{bender2021stochastic}
+Emily~M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret
+  Shmitchell. 2021.
+\newblock \href {https://dl.acm.org/doi/10.1145/3442188.3445922} {On the
+  dangers of stochastic parrots: Can language models be too big?}
+\newblock In \emph{Proceedings of FAccT}.
+
+\bibitem[{Cai et~al.(2019)Cai, Cai, and Wan}]{cai2019multimodal}
+Yitao Cai, Huiyu Cai, and Xiaojun Wan. 2019.
+\newblock \href {https://aclanthology.org/P19-1239/} {Multi-modal sarcasm
+  detection in twitter with hierarchical fusion model}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Caruana(1997)}]{caruana1997mtl}
+Rich Caruana. 1997.
+\newblock \href {https://link.springer.com/article/10.1023/A:1007379606734}
+  {Multitask learning}.
+\newblock \emph{Machine Learning}, 28:41--75.
+
+\bibitem[{Chakrabarty et~al.(2022)Chakrabarty, Saakyan, Ghosh, and
+  Muresan}]{chakrabarty2022figurative}
+Tuhin Chakrabarty, Arkadiy Saakyan, Debanjan Ghosh, and Smaranda Muresan. 2022.
+\newblock \href {https://aclanthology.org/2022.emnlp-main.481/} {{FLUTE}:
+  Figurative language understanding through textual explanations}.
+\newblock In \emph{Proceedings of EMNLP}.
+
+\bibitem[{Cohen(1960)}]{cohen1960kappa}
+Jacob Cohen. 1960.
+\newblock \href {https://journals.sagepub.com/doi/10.1177/001316446002000104}
+  {A coefficient of agreement for nominal scales}.
+\newblock \emph{Educational and Psychological Measurement}.
+
+\bibitem[{Collobert and Weston(2008)}]{collobert2008nlpscratch}
+Ronan Collobert and Jason Weston. 2008.
+\newblock \href {https://dl.acm.org/doi/10.1145/1390156.1390177} {A unified
+  architecture for natural language processing: Deep neural networks with
+  multitask learning}.
+\newblock In \emph{Proceedings of ICML}.
+
+\bibitem[{Conneau et~al.(2020)Conneau, Khandelwal, Goyal, Chaudhary, Wenzek,
+  Guzm\'{a}n, Grave, Ott, Zettlemoyer, and Stoyanov}]{conneau2020xlmr}
+Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume
+  Wenzek, Francisco Guzm\'{a}n, Edouard Grave, Myle Ott, Luke Zettlemoyer, and
+  Veselin Stoyanov. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.747/} {Unsupervised
+  cross-lingual representation learning at scale}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Demszky et~al.(2020)Demszky, Movshovitz-Attias, Ko, Cowen, Nemade,
+  and Ravi}]{demszky2020goemotions}
+Dorottya Demszky, Dana Movshovitz-Attias, Jeongwoo Ko, Alan Cowen, Gaurav
+  Nemade, and Sujith Ravi. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.372/} {{GoEmotions}: A
+  dataset of fine-grained emotions}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer}]{dettmers2023qlora}
+Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. 2023.
+\newblock \href {https://arxiv.org/abs/2305.14314} {{QLoRA}: Efficient
+  finetuning of quantized {LLMs}}.
+\newblock In \emph{Proceedings of NeurIPS}.
+
+\bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and
+  Toutanova}]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019.
+\newblock \href {https://aclanthology.org/N19-1423/} {{BERT}: Pre-training of
+  deep bidirectional transformers for language understanding}.
+\newblock In \emph{Proceedings of NAACL}.
+
+\bibitem[{Do et~al.(2024)Do, Tran, Hoang, Nguyen, and Nguyen}]{vlue2024}
+Phong Nguyen-Thuan Do, Son~Quoc Tran, Phu~Gia Hoang, Kiet~Van Nguyen, and Ngan
+  Luu-Thuy Nguyen. 2024.
+\newblock \href {https://aclanthology.org/2024.findings-naacl.15/} {{VLUE}: A
+  new benchmark and multi-task knowledge transfer learning for vietnamese
+  natural language understanding}.
+\newblock In \emph{Findings of NAACL}.
+
+\bibitem[{Dou et~al.(2024)Dou, Liu, Zeng, Guo, Zhou, Lu, and Lin}]{sailor2024}
+Longxu Dou, Qian Liu, Guangtao Zeng, Jia Guo, Jiahui Zhou, Wei Lu, and Min Lin.
+  2024.
+\newblock \href {https://arxiv.org/abs/2404.03608} {{Sailor}: Open language
+  models for south-east asia}.
+
+\bibitem[{Gebru et~al.(2021)Gebru, Morgenstern, Vecchione, Vaughan, Wallach,
+  Daum\'{e}~III, and Crawford}]{gebru2021datasheets}
+Timnit Gebru, Jamie Morgenstern, Briana Vecchione, Jennifer~Wortman Vaughan,
+  Hanna Wallach, Hal Daum\'{e}~III, and Kate Crawford. 2021.
+\newblock \href {https://arxiv.org/abs/1803.09010} {Datasheets for datasets}.
+\newblock \emph{Communications of the ACM}.
+
+\bibitem[{Ghosh et~al.(2017)Ghosh, Fabbri, and Muresan}]{ghosh2017role}
+Debanjan Ghosh, Alexander~R. Fabbri, and Smaranda Muresan. 2017.
+\newblock \href {https://aclanthology.org/W17-5523/} {The role of conversation
+  context for sarcasm detection in online interactions}.
+\newblock In \emph{Proceedings of SIGDIAL}.
+
+\bibitem[{Ghosh et~al.(2018)Ghosh, Fabbri, and
+  Muresan}]{ghosh2018sarcasmreasons}
+Debanjan Ghosh, Alexander~R. Fabbri, and Smaranda Muresan. 2018.
+\newblock \href {https://aclanthology.org/J18-4009/} {Sarcasm analysis using
+  conversation context}.
+\newblock In \emph{Computational Linguistics}.
+
+\bibitem[{Guo et~al.(2017)Guo, Pleiss, Sun, and
+  Weinberger}]{guo2017calibration}
+Chuan Guo, Geoff Pleiss, Yu~Sun, and Kilian~Q. Weinberger. 2017.
+\newblock \href {https://arxiv.org/abs/1706.04599} {On calibration of modern
+  neural networks}.
+\newblock In \emph{Proceedings of ICML}.
+
+\bibitem[{Hinton et~al.(2015)Hinton, Vinyals, and
+  Dean}]{hinton2015distillation}
+Geoffrey Hinton, Oriol Vinyals, and Jeff Dean. 2015.
+\newblock \href {https://arxiv.org/abs/1503.02531} {Distilling the knowledge in
+  a neural network}.
+\newblock In \emph{NeurIPS Deep Learning Workshop}.
+
+\bibitem[{Ho et~al.(2020)Ho, Nguyen, Nguyen, Pham, Nguyen, Nguyen, and
+  Nguyen}]{ho2020uitvsmec}
+Vong~Anh Ho, Duong Huynh-Cong Nguyen, Danh~Hoang Nguyen, Linh Thi-Van Pham,
+  Duc-Vu Nguyen, Kiet~Van Nguyen, and Ngan Luu-Thuy Nguyen. 2020.
+\newblock \href {https://arxiv.org/abs/1911.09339} {Emotion recognition for
+  vietnamese social media text}.
+\newblock In \emph{Proceedings of PACLING}.
+
+\bibitem[{Hoang et~al.(2023)Hoang, Luu, Tran, Nguyen, and Nguyen}]{vihos2023}
+Phu~Gia Hoang, Canh~Duc Luu, Khanh~Quoc Tran, Kiet~Van Nguyen, and Ngan
+  Luu-Thuy Nguyen. 2023.
+\newblock \href {https://aclanthology.org/2023.eacl-main.47/} {{ViHOS}: Hate
+  speech spans detection for vietnamese}.
+\newblock In \emph{Proceedings of EACL}.
+
+\bibitem[{Hsieh et~al.(2023)Hsieh, Li, Yeh, Nakhost, Fujii, Ratner, Krishna,
+  Lee, and Pfister}]{hsieh2023distillstep}
+Cheng-Yu Hsieh, Chun-Liang Li, Chih-Kuan Yeh, Hootan Nakhost, Yasuhisa Fujii,
+  Alexander Ratner, Ranjay Krishna, Chen-Yu Lee, and Tomas Pfister. 2023.
+\newblock \href {https://aclanthology.org/2023.findings-acl.507/} {Distilling
+  step-by-step! outperforming larger language models with less training data
+  and smaller model sizes}.
+\newblock In \emph{Findings of ACL}.
+
+\bibitem[{Hu et~al.(2022)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen}]{hu2022lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen. 2022.
+\newblock \href {https://arxiv.org/abs/2106.09685} {{LoRA}: Low-rank adaptation
+  of large language models}.
+\newblock In \emph{Proceedings of ICLR}.
+
+\bibitem[{Jiang et~al.(2023)Jiang, Sablayrolles, Mensch
+  et~al.}]{jiang2023mistral}
+Albert~Q. Jiang, Alexandre Sablayrolles, Arthur Mensch, and 1 others. 2023.
+\newblock \href {https://arxiv.org/abs/2310.06825} {{Mistral 7B}}.
+
+\bibitem[{Joshi et~al.(2017)Joshi, Bhattacharyya, and
+  Carman}]{joshi2017sarcasmsurvey}
+Aditya Joshi, Pushpak Bhattacharyya, and Mark~J. Carman. 2017.
+\newblock \href {https://dl.acm.org/doi/10.1145/3124420} {Automatic sarcasm
+  detection: A survey}.
+\newblock In \emph{ACM Computing Surveys}.
+
+\bibitem[{Kendall et~al.(2018)Kendall, Gal, and
+  Cipolla}]{kendall2018uncertainty}
+Alex Kendall, Yarin Gal, and Roberto Cipolla. 2018.
+\newblock \href {https://arxiv.org/abs/1705.07115} {Multi-task learning using
+  uncertainty to weigh losses for scene geometry and semantics}.
+\newblock In \emph{Proceedings of CVPR}.
+
+\bibitem[{Khanuja et~al.(2020)Khanuja, Dandapat, Srinivasan, Sitaram, and
+  Choudhury}]{khanuja2020gluecos}
+Simran Khanuja, Sandipan Dandapat, Anirudh Srinivasan, Sunayana Sitaram, and
+  Monojit Choudhury. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.329/} {{GLUECoS}: An
+  evaluation benchmark for code-switched {NLP}}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Koehn(2004)}]{koehn2004bootstrap}
+Philipp Koehn. 2004.
+\newblock \href {https://aclanthology.org/W04-3250/} {Statistical significance
+  tests for machine translation evaluation}.
+\newblock In \emph{Proceedings of EMNLP}.
+
+\bibitem[{Krippendorff(2011)}]{krippendorff2011alpha}
+Klaus Krippendorff. 2011.
+\newblock \href {https://repository.upenn.edu/asc_papers/43/} {Computing
+  krippendorff's alpha-reliability}.
+\newblock In \emph{Annenberg School Technical Report}.
+
+\bibitem[{Li et~al.(2021)Li, Zou, Zhang, Zhang, and Wei}]{li2021dualgraph}
+Zhengyan Li, Yicheng Zou, Chong Zhang, Qi~Zhang, and Zhongyu Wei. 2021.
+\newblock \href {https://aclanthology.org/2021.emnlp-main.22/} {Learning
+  implicit sentiment in aspect-based sentiment analysis with supervised
+  contrastive pre-training}.
+\newblock In \emph{Proceedings of EMNLP}.
+
+\bibitem[{Liao et~al.(2024)Liao, Wang, and Zhao}]{liao2024implicitsurvey}
+Jiali Liao, Yang Wang, and Tiejun Zhao. 2024.
+\newblock \href {https://dl.acm.org/doi/10.1145/3653975} {A survey on implicit
+  sentiment analysis: Recent advances and open challenges}.
+\newblock In \emph{ACM Transactions on Intelligent Systems and Technology}.
+
+\bibitem[{Liu et~al.(2019{\natexlab{a}})Liu, He, Chen, and Gao}]{liu2019mtdnn}
+Xiaodong Liu, Pengcheng He, Weizhu Chen, and Jianfeng Gao. 2019{\natexlab{a}}.
+\newblock \href {https://aclanthology.org/P19-1441/} {Multi-task deep neural
+  networks for natural language understanding}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Liu et~al.(2019{\natexlab{b}})Liu, Ott, Goyal, Du, Joshi, Chen, Levy,
+  Lewis, Zettlemoyer, and Stoyanov}]{liu2019roberta}
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
+  Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019{\natexlab{b}}.
+\newblock \href {https://arxiv.org/abs/1907.11692} {{RoBERTa}: A robustly
+  optimized {BERT} pretraining approach}.
+\newblock In \emph{arXiv preprint arXiv:1907.11692}.
+
+\bibitem[{Loshchilov and Hutter(2019)}]{loshchilov2019adamw}
+Ilya Loshchilov and Frank Hutter. 2019.
+\newblock \href {https://arxiv.org/abs/1711.05101} {Decoupled weight decay
+  regularization}.
+\newblock In \emph{Proceedings of ICLR}.
+
+\bibitem[{Luu et~al.(2021)Luu, Nguyen, and Nguyen}]{vihsd2021}
+Son~T. Luu, Kiet~Van Nguyen, and Ngan Luu-Thuy Nguyen. 2021.
+\newblock \href {https://arxiv.org/abs/2103.11528} {{ViHSD}: A large-scale
+  vietnamese dataset for hate speech detection on social network sites}.
+\newblock In \emph{Proceedings of IEA/AIE}.
+
+\bibitem[{Magister et~al.(2023)Magister, Mallinson, Adamek, Malmi, and
+  Severyn}]{magister2023teaching}
+Lucie~Charlotte Magister, Jonathan Mallinson, Jakub Adamek, Eric Malmi, and
+  Aliaksei Severyn. 2023.
+\newblock \href {https://aclanthology.org/2023.acl-short.151/} {Teaching small
+  language models to reason}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Mitchell et~al.(2019)Mitchell, Wu, Zaldivar, Barnes, Vasserman,
+  Hutchinson, Spitzer, Raji, and Gebru}]{mitchell2019modelcards}
+Margaret Mitchell, Simone Wu, Andrew Zaldivar, Parker Barnes, Lucy Vasserman,
+  Ben Hutchinson, Elena Spitzer, Inioluwa~Deborah Raji, and Timnit Gebru. 2019.
+\newblock \href {https://dl.acm.org/doi/10.1145/3287560.3287596} {Model cards
+  for model reporting}.
+\newblock In \emph{Proceedings of FAccT}.
+
+\bibitem[{Mohammad et~al.(2018)Mohammad, Bravo-Marquez, Salameh, and
+  Kiritchenko}]{mohammad2018semeval}
+Saif Mohammad, Felipe Bravo-Marquez, Mohammad Salameh, and Svetlana
+  Kiritchenko. 2018.
+\newblock \href {https://aclanthology.org/S18-1001/} {{SemEval-2018} task 1:
+  Affect in tweets}.
+\newblock In \emph{Proceedings of SemEval}.
+
+\bibitem[{Naeini et~al.(2015)Naeini, Cooper, and Hauskrecht}]{naeini2015ece}
+Mahdi~Pakdaman Naeini, Gregory~F. Cooper, and Milos Hauskrecht. 2015.
+\newblock \href {https://ojs.aaai.org/index.php/AAAI/article/view/9602}
+  {Obtaining well calibrated probabilities using bayesian binning}.
+\newblock In \emph{Proceedings of AAAI}.
+
+\bibitem[{Nguyen et~al.(2025)Nguyen, Nguyen, and Nguyen}]{vlexnorm2024}
+Anh Thi-Hoang Nguyen, Dung~Ha Nguyen, and Kiet~Van Nguyen. 2025.
+\newblock \href {https://aclanthology.org/2025.coling-demos.18/} {{ViSoLex}: An
+  open-source repository for vietnamese social media lexical normalization}.
+\newblock In \emph{Proceedings of COLING System Demonstrations}.
+
+\bibitem[{Nguyen and Nguyen(2020)}]{phobert2020}
+Dat~Quoc Nguyen and Anh~Tuan Nguyen. 2020.
+\newblock \href {https://aclanthology.org/2020.findings-emnlp.92/} {{PhoBERT}:
+  Pre-trained language models for vietnamese}.
+\newblock In \emph{Findings of EMNLP}.
+
+\bibitem[{Nguyen et~al.(2018{\natexlab{a}})Nguyen, Nguyen, Vu, Dras, and
+  Johnson}]{nguyen2017vntokenizer}
+Dat~Quoc Nguyen, Dai~Quoc Nguyen, Thanh Vu, Mark Dras, and Mark Johnson.
+  2018{\natexlab{a}}.
+\newblock \href {https://aclanthology.org/L18-1410/} {A fast and accurate
+  vietnamese word segmenter}.
+\newblock In \emph{Proceedings of LREC}.
+
+\bibitem[{Nguyen et~al.(2024)Nguyen, Dang, Nguyen, and Nguyen}]{vimd2024}
+Dinh~Van Nguyen, Thanh~Chi Dang, Luan~Thanh Nguyen, and Kiet~Van Nguyen. 2024.
+\newblock \href {https://aclanthology.org/2024.emnlp-main.426/} {Multi-dialect
+  vietnamese: Task, dataset, baseline models and challenges}.
+\newblock In \emph{Proceedings of EMNLP}.
+
+\bibitem[{Nguyen et~al.(2020{\natexlab{a}})Nguyen, Nguyen, Nguyen, and
+  Vu}]{vlsp2020sentiment}
+Huyen T.~M. Nguyen, Phuong-Thai Nguyen, Quang~Thuy Nguyen, and Xuan-Son Vu.
+  2020{\natexlab{a}}.
+\newblock \href {https://vlsp.org.vn/vlsp2020/} {{VLSP} 2020 shared task on
+  sentiment analysis for {Vietnamese}}.
+\newblock In \emph{VLSP Workshop}.
+
+\bibitem[{Nguyen et~al.(2020{\natexlab{b}})Nguyen, Nguyen, Nguyen, and
+  Nguyen}]{nguyen2020vimmrc}
+Kiet~Van Nguyen, Khiem~Vinh Nguyen, Anh Gia-Tuan Nguyen, and Ngan Luu-Thuy
+  Nguyen. 2020{\natexlab{b}}.
+\newblock \href {https://aclanthology.org/2020.coling-main.233/} {{ViMMRC}: A
+  vietnamese dataset for evaluating machine reading comprehension}.
+\newblock In \emph{Proceedings of COLING}.
+
+\bibitem[{Nguyen et~al.(2018{\natexlab{b}})Nguyen, Nguyen, Nguyen, Truong, and
+  Nguyen}]{vannguyen2018uitvsfc}
+Kiet~Van Nguyen, Vu~Duc Nguyen, Phu X.~V. Nguyen, Tham T.~H. Truong, and Ngan
+  Luu-Thuy Nguyen. 2018{\natexlab{b}}.
+\newblock \href {https://ieeexplore.ieee.org/document/8573337} {Uit-vsfc:
+  Vietnamese students' feedback corpus for sentiment analysis}.
+\newblock In \emph{Proceedings of the 10th International Conference on
+  Knowledge and Systems Engineering (KSE)}.
+
+\bibitem[{Nguyen et~al.(2023)Nguyen, Phan, Nguyen, and Nguyen}]{visobert2023}
+Quoc-Nam Nguyen, Thang~Chau Phan, Duc-Vu Nguyen, and Kiet~Van Nguyen. 2023.
+\newblock \href {https://aclanthology.org/2023.emnlp-main.315/} {{ViSoBERT}: A
+  pre-trained language model for vietnamese social media text processing}.
+\newblock In \emph{Proceedings of EMNLP}.
+
+\bibitem[{OpenAI(2024)}]{openai2024gpt4o}
+OpenAI. 2024.
+\newblock \href {https://openai.com/index/gpt-4o-system-card/} {{GPT-4o} and
+  {GPT-4o-mini} system cards}.
+\newblock OpenAI technical report.
+
+\bibitem[{Shridhar et~al.(2023)Shridhar, Stolfo, and
+  Sachan}]{shridhar2023distillingcot}
+Kumar Shridhar, Alessandro Stolfo, and Mrinmaya Sachan. 2023.
+\newblock \href {https://aclanthology.org/2023.findings-acl.441/} {Distilling
+  reasoning capabilities into smaller language models}.
+\newblock In \emph{Findings of ACL}.
+
+\bibitem[{Solorio et~al.(2014)Solorio, Blair, Maharjan, Bethard, Diab, Ghoneim,
+  Hawwari, AlGhamdi, Hirschberg, Chang, and Fung}]{solorio2014overview}
+Thamar Solorio, Elizabeth Blair, Suraj Maharjan, Steven Bethard, Mona Diab,
+  Mahmoud Ghoneim, Abdelati Hawwari, Fahad AlGhamdi, Julia Hirschberg, Alison
+  Chang, and Pascale Fung. 2014.
+\newblock \href {https://aclanthology.org/W14-3907/} {Overview for the first
+  shared task on language identification in code-switched data}.
+\newblock In \emph{Proceedings of the First Workshop on Computational
+  Approaches to Code Switching}.
+
+\bibitem[{Stowe et~al.(2022)Stowe, Utama, and Gurevych}]{stowe2022impli}
+Kevin Stowe, Prasetya~Ajie Utama, and Iryna Gurevych. 2022.
+\newblock \href {https://aclanthology.org/2022.acl-long.369/} {{IMPLI}:
+  Investigating {NLI} models' performance on figurative language}.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Touvron et~al.(2023)Touvron, Martin, Stone
+  et~al.}]{touvron2023llama2}
+Hugo Touvron, Louis Martin, Kevin Stone, and 1 others. 2023.
+\newblock \href {https://arxiv.org/abs/2307.09288} {{Llama 2}: Open foundation
+  and fine-tuned chat models}.
+\newblock In \emph{arXiv}.
+
+\bibitem[{Tran et~al.(2024)Tran, Nguyen, Nguyen, and Dinh}]{viglue2024}
+Minh-Nam Tran, Phu-Vinh Nguyen, Long Nguyen, and Dien Dinh. 2024.
+\newblock \href {https://aclanthology.org/2024.findings-naacl.261/} {{ViGLUE}:
+  A vietnamese general language understanding benchmark and analysis of
+  vietnamese language models}.
+\newblock In \emph{Findings of NAACL}.
+
+\bibitem[{Van~Hee et~al.(2018)Van~Hee, Lefever, and Hoste}]{vandehey2018irony}
+Cynthia Van~Hee, Els Lefever, and V\'{e}ronique Hoste. 2018.
+\newblock \href {https://aclanthology.org/S18-1005/} {{SemEval-2018} task 3:
+  Irony detection in english tweets}.
+\newblock In \emph{Proceedings of SemEval}.
+
+\bibitem[{{Viet-Mistral Team}(2024)}]{vistral2024}
+{Viet-Mistral Team}. 2024.
+\newblock \href {https://huggingface.co/Viet-Mistral/Vistral-7B-Chat}
+  {{Vistral-7B}: An open vietnamese language model}.
+\newblock Hugging Face model card.
+
+\bibitem[{Wang et~al.(2023)Wang, Xie, Ding, Feng, and
+  Xia}]{liu2023chatgptimplicit}
+Zengzhi Wang, Qiming Xie, Zixiang Ding, Yi~Feng, and Rui Xia. 2023.
+\newblock \href {https://arxiv.org/abs/2304.04339} {Is {ChatGPT} a good
+  sentiment analyzer? a preliminary study}.
+\newblock In \emph{arXiv}.
+
+\bibitem[{Wei et~al.(2022)Wei, Wang, Schuurmans, Bosma, Ichter, Xia, Chi, Le,
+  and Zhou}]{wei2022cot}
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia,
+  Ed~H. Chi, Quoc~V. Le, and Denny Zhou. 2022.
+\newblock \href {https://arxiv.org/abs/2201.11903} {Chain-of-thought prompting
+  elicits reasoning in large language models}.
+\newblock In \emph{Proceedings of NeurIPS}.
+
+\end{thebibliography}

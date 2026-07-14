@@ -1,0 +1,73 @@
+\section{Annotation Rubric and Prompts}
+\label{app:annotation}
+
+\paragraph{Annotation schema.}
+Each comment is tagged with nine fields. Six \emph{binary pragmatic}
+fields:
+\begin{itemize}\itemsep1pt
+  \item \textbf{Implicit sentiment} ($1$ if the comment expresses
+    sentiment without using sentiment-bearing lexical items, e.g.\
+    via metaphor, rhetorical question, or comparison).
+  \item \textbf{Sarcasm} ($1$ if the comment's surface polarity is
+    the opposite of the intended polarity).
+  \item \textbf{Irony} ($1$ if the comment expresses incongruity
+    between expectation and reality, without necessarily flipping
+    polarity).
+  \item \textbf{Idiom / figurative} ($1$ if the comment uses a fixed
+    Vietnamese idiomatic chunk or non-literal expression).
+  \item \textbf{Code-switching} ($1$ if the comment contains at least
+    one English content word other than universally adopted
+    abbreviations such as ``OK'', ``Internet'').
+  \item \textbf{Mocking} ($1$ if the comment ridicules a person,
+    group, or behaviour; can co-occur with sarcasm).
+\end{itemize}
+Plus one \emph{intended polarity} field (positive / neutral /
+negative) and one \emph{emotion} field on the UIT-VSMEC-7 scale.
+
+\paragraph{Annotation prompt to annotators.}
+Annotators received a 4-page rubric with $36$ illustrative comments
+($6$ per pragmatic phenomenon) and a flowchart that asks them to
+work outside-in: first decide intended polarity, then mark sarcasm
+and irony if the intended polarity differs from the surface,
+then mark mocking, then mark idiom and code-switching as orthogonal
+form features. Annotators were instructed to leave a free-text
+rationale if they marked sarcasm or mocking.
+
+\paragraph{Rationale-generation prompt to GPT-4o-mini.}
+\begin{quote}\itshape\small
+You are a Vietnamese pragmatic-sentiment annotator. Given a
+Vietnamese social-media comment and its gold labels (intended
+polarity, six pragmatic flags), write a 1--2 sentence Vietnamese
+explanation that names the lexical or contextual cues that justify
+the labels. Do not repeat the comment verbatim. If the comment is
+sarcastic, explicitly name the cue (e.g.\ trailing ``=))'',
+exaggerated praise, lexical contrast with the discourse context).
+Output only the explanation; do not output the labels.
+\end{quote}
+
+\paragraph{GPT-4o-mini classification prompt (8-shot).}
+The prompt contains a fixed task description, eight in-context
+demonstrations (one per common phenomenon plus two control
+positives and one control negative), and the test comment. The
+in-context demonstrations are drawn from the \method{} \emph{training}
+set with adjudicated labels and are held fixed across all test
+comments to make the baseline reproducible.
+
+\paragraph{Inter-annotator agreement.}
+Krippendorff's $\alpha$ by field:
+implicit $0.72$, sarcasm $0.74$, irony $0.66$, idiom $0.69$,
+code-switching $0.84$, mocking $0.61$.
+Cohen's $\kappa$ on the polarity-after-sarcasm-flip decision is
+$0.69$. Adjudication touched $14\%$ of comments overall, with the
+adjudicator agreeing with the majority of the two annotators
+$92\%$ of the time and overruling both annotators $1.3\%$ of the
+time (rare but non-zero).
+
+\paragraph{Annotator compensation and consent.}
+Three annotators (two reviewers and one adjudicator) were L1
+Vietnamese speakers paid \$15/hour for a $14$-week annotation pass.
+Annotators provided written informed consent that included a
+description of the dataset's intended research use and the option to
+withdraw before publication; no annotator withdrew. The annotation
+protocol was reviewed by the authors' institutional ethics office
+before annotation began.

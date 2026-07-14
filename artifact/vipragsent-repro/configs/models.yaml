@@ -1,0 +1,40 @@
+run_mode: setup_only
+backbones:
+  phobert_base:
+    model_id: vinai/phobert-base
+    local_path: null
+    download_status: removed_local_not_required_for_no_finetune
+    downloaded_weights: []
+    tokenizer: phobert
+    local_training: disabled
+  xlmr_large:
+    model_id: FacebookAI/xlm-roberta-large
+    local_path: null
+    download_status: removed_local_not_required_for_no_finetune
+    downloaded_weights: []
+    tokenizer: sentencepiece
+    local_training: disabled
+  vistral_7b:
+    model_id: Viet-Mistral/Vistral-7B-Chat
+    local_path: null
+    download_status: blocked_gated_hf_access
+    size_note: HF reports about 29.2 GB used storage; access approval is required before git clone.
+    adapter: qlora
+    local_training: disabled
+  sailor_7b:
+    model_id: sail/Sailor-7B
+    local_path: null
+    download_status: removed_local_not_required_for_no_finetune
+    size_note: model.safetensors is about 15.4 GB; use third-party inference and import prediction JSONL instead of hosting locally.
+    adapter: qlora
+    local_training: disabled
+heads:
+  pragmatic_binary: 6
+  polarity: 3
+  emotion: 7
+  rationale_decoder:
+    train_only: true
+    layers: 2
+    hidden_size: 128
+    attention_heads: 4
+    dropout: 0.1

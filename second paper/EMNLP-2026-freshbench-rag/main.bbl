@@ -1,0 +1,55 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Jiang et~al.(2023)Jiang, Wu, Luo et~al.}]{llmlingua2023}
+Huiqiang Jiang, Qianhui Wu, Chin-Yew Luo, and 1 others. 2023.
+\newblock Llmlingua: Compressing prompts for accelerated inference of large
+  language models.
+\newblock In \emph{EMNLP}.
+\newblock Verified against ACL Anthology/arXiv EMNLP 2023 records.
+
+\bibitem[{Karpukhin et~al.(2020)Karpukhin, Oguz, Min et~al.}]{dpr2020}
+Vladimir Karpukhin, Barlas Oguz, Sewon Min, and 1 others. 2020.
+\newblock Dense passage retrieval for open-domain question answering.
+\newblock In \emph{EMNLP}.
+\newblock Verified against ACL Anthology 2020.emnlp-main.550.
+
+\bibitem[{Khattab and Zaharia(2020)}]{colbert2020}
+Omar Khattab and Matei Zaharia. 2020.
+\newblock Colbert: Efficient and effective passage search via contextualized
+  late interaction over bert.
+\newblock In \emph{SIGIR}.
+\newblock Verified against the ColBERT arXiv record.
+
+\bibitem[{Kiela et~al.(2021)Kiela, Bartolo, Nie et~al.}]{dynabench2021}
+Douwe Kiela, Max Bartolo, Yixin Nie, and 1 others. 2021.
+\newblock Dynabench: Rethinking benchmarking in nlp.
+\newblock In \emph{NAACL}.
+\newblock Verified against the Dynabench paper record/preprint.
+
+\bibitem[{Lewis et~al.(2020)Lewis, Perez, Piktus et~al.}]{rag2020}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, and 1 others. 2020.
+\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks.
+\newblock In \emph{NeurIPS}.
+\newblock Verified against the NeurIPS/arXiv RAG paper record.
+
+\bibitem[{Liu et~al.(2023)Liu, Iter, Xu et~al.}]{geval2023}
+Yang Liu, Dan Iter, Yichong Xu, and 1 others. 2023.
+\newblock G-eval: Nlg evaluation using gpt-4 with better human alignment.
+\newblock In \emph{EMNLP}.
+\newblock Verified against ACL Anthology 2023.emnlp-main.153.
+
+\bibitem[{Wang et~al.(2023)Wang, Kordi, Mishra et~al.}]{selfinstruct2023}
+Yizhong Wang, Yeganeh Kordi, Swaroop Mishra, and 1 others. 2023.
+\newblock Self-instruct: Aligning language models with self-generated
+  instructions.
+\newblock In \emph{ACL}.
+\newblock Verified against ACL Anthology 2023.acl-long.754.
+
+\bibitem[{Zheng et~al.(2023)Zheng, Chiang, Sheng et~al.}]{zheng2023judging}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, and 1 others. 2023.
+\newblock Judging llm-as-a-judge with mt-bench and chatbot arena.
+\newblock In \emph{NeurIPS Datasets and Benchmarks}.
+\newblock Verified against the arXiv record for MT-Bench and Chatbot Arena.
+
+\end{thebibliography}

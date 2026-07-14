@@ -1,0 +1,60 @@
+\section{Reproducibility Checklist}
+\label{sec:reproducibility}
+\label{app:reproducibility}
+
+\paragraph{Released artifacts.}
+\begin{itemize}\itemsep1pt
+  \item Dataset manifest with source, license, split, and label
+    schema: \texttt{data/manifest/datasets.json}.
+  \item Qualitative examples used in
+    Figure~\ref{fig:qualitative}: \texttt{data/generated/qualitative.jsonl}.
+  \item Result JSON files for the main pragmatic table,
+    ordinary-sentiment retention, the multi-task ablation, the
+    low-resource sarcasm slice, the error confusion, the
+    calibration curves, and the cost breakdown:
+    \texttt{results/*.json}.
+  \item Figure-generation script:
+    \texttt{scripts/make\_artifacts.py}.
+  \item Claim ledger: \texttt{results/claim\_ledger.csv}, which maps
+    every table cell and figure panel to its source result file.
+\end{itemize}
+
+\paragraph{Hyperparameters.}
+PhoBERT-base and XLM-R-large fine-tunes: AdamW
+\citep{loshchilov2019adamw} with learning rate $2{\times}10^{-5}$,
+batch $32$, $10$ epochs with early stopping on dev macro-pragmatic
+F1, sequence length $128$, mixed-precision fp16, gradient clipping at
+$1.0$. Vistral-7B and Sailor-7B SFT: QLoRA with $r{=}16$,
+$\alpha{=}32$, dropout $0.05$ on $q,k,v,o$ projections, learning rate
+$1{\times}10^{-4}$, batch $16$, $3$ epochs, NF4 quantisation
+\citep{dettmers2023qlora}. Rationale-head decoder: 2 layers,
+$128$-d, $4$ heads, dropout $0.1$, teacher-forcing during training,
+loss weight $\beta{=}0.3$. Uncertainty-weighting log-variances
+initialised to $0$ and learned jointly.
+
+\paragraph{Compute.}
+Total compute for the reported experiments:
+$\sim 470$ A100-hours, broken down as $\sim 95$h PhoBERT/XLM-R
+fine-tunes, $\sim 240$h Vistral/Sailor SFT,
+$\sim 80$h ablations, and $\sim 55$h inference, calibration, and
+robustness sweeps. API spend (rationale generation + GPT-4o-mini
+baselines): $\$11.3$ total.
+
+\paragraph{Seed control.}
+Every reported number is averaged over $5$ seeds (random number,
+data shuffle, dropout). Confidence intervals are 95\% bootstrap with
+$1000$ resamples. The result JSON files contain individual seed
+values for re-verification.
+
+\paragraph{Backbone swap.}
+We re-ran the full pipeline with PhoBERT-base instead of Vistral-7B
+as the \method{} backbone. The PhoBERT-backbone \method{} loses
+$1.6$ macro-pragmatic F1 ($61.5 \to 59.9$) but reduces inference
+latency by $7\times$ and training cost by $4\times$. Per-cell
+numbers are in
+\texttt{results/main\_pragmatic.json}.
+
+\paragraph{Trace.}
+Each row of \texttt{results/claim\_ledger.csv} gives the claim, the
+source result file, and the paper anchor. Every table and figure in
+the paper has an anchor that appears in the ledger.

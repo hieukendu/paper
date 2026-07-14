@@ -1,0 +1,39 @@
+safety:
+  run_mode: setup_only
+  enable_fine_tuning_env: ENABLE_FINE_TUNING
+  require_confirm_flag: --confirm-run-training
+  min_full_training_vram_gb: 8
+  local_gpu_name: Quadro P2000
+  local_gpu_vram_gb: 4
+seeds:
+  seed_base: 20260520
+  values: [20260520, 20260521, 20260522, 20260523, 20260524]
+metrics:
+  primary: macro_pragmatic_f1
+  bootstrap_resamples: 1000
+  ci: 0.95
+  ece_bins: 10
+encoder_finetune:
+  optimizer: adamw
+  lr: 2.0e-5
+  batch_size: 32
+  max_epochs: 10
+  early_stopping_metric: dev_macro_pragmatic_f1
+  max_seq_len: 128
+  fp16: true
+  grad_clip: 1.0
+  status: deferred
+qlora:
+  lr: 1.0e-4
+  batch_size: 16
+  epochs: 3
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+  quantization: nf4
+  status: deferred
+rationale_decoder:
+  beta: 0.3
+  train_only: true
+  status: deferred

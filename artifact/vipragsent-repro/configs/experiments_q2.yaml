@@ -1,0 +1,13 @@
+experiment: q2_multitask_ablation
+status: scaffold_only
+output: results/pending/multitask_ablation.pending.json
+ablation_rows:
+  - full
+  - no_emotion_auxiliary
+  - no_ordinary_sentiment_auxiliary
+  - no_explanation_cot_auxiliary
+  - no_multitask
+  - no_task_uncertainty_weighting
+  - explanation_augmented_inference
+  - hard_label_distillation
+training: deferred

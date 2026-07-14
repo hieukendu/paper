@@ -1,0 +1,5 @@
+datasets>=2.20.0
+huggingface_hub>=0.23.0
+kaggle==1.6.17
+pandas>=2.0.0
+pytest>=8.0.0

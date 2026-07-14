@@ -1,0 +1,1 @@
+{"dataset": "string", "task": "string", "domain": "string", "language_variety": "standard|dialect|code_mix|no_diacritic|unspecified", "split": "train|dev|test|calibration", "source_url": "string", "license": "string", "checksum": "sha256", "num_examples": 0, "status": "pending"}

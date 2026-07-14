@@ -1,0 +1,71 @@
+{
+  "UIT-VSFC": {
+    "task": "ordinary_sentiment",
+    "domain": "student_feedback",
+    "license": "Research-only (request)",
+    "splits": {
+      "train": 11426,
+      "dev": 1583,
+      "test": 3166
+    },
+    "labels": [
+      "positive",
+      "neutral",
+      "negative"
+    ]
+  },
+  "UIT-VSMEC": {
+    "task": "emotion",
+    "domain": "facebook_comments",
+    "license": "Research-only (request)",
+    "splits": {
+      "train": 5548,
+      "dev": 686,
+      "test": 693
+    },
+    "labels": [
+      "enjoyment",
+      "sadness",
+      "anger",
+      "fear",
+      "disgust",
+      "surprise",
+      "other"
+    ]
+  },
+  "AIVIVN-2019": {
+    "task": "ordinary_sentiment",
+    "domain": "ecommerce_reviews",
+    "license": "Public competition release",
+    "splits": {
+      "train": 16087,
+      "dev": 1788,
+      "test": 5454
+    },
+    "labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "ViPragSent (new)": {
+    "task": "pragmatic_multilabel",
+    "domain": "facebook+tiktok+youtube",
+    "license": "CC-BY-NC-4.0 (released)",
+    "splits": {
+      "train": 8412,
+      "dev": 2104,
+      "test": 2106
+    },
+    "labels": [
+      "implicit",
+      "sarcasm",
+      "irony",
+      "idiom",
+      "code_switch",
+      "mocking",
+      "polarity_signed_3way",
+      "emotion_uitvsmec_7way"
+    ]
+  }
+}

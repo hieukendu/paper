@@ -1,0 +1,26 @@
+{
+  "commands": [
+    {
+      "config": "configs/experiments_q1.yaml",
+      "experiment": "q1",
+      "training": "deferred"
+    },
+    {
+      "config": "configs/experiments_q2.yaml",
+      "experiment": "q2",
+      "training": "deferred"
+    },
+    {
+      "config": "configs/experiments_q3.yaml",
+      "experiment": "q3",
+      "training": "deferred"
+    },
+    {
+      "config": "configs/experiments_q4.yaml",
+      "experiment": "q4",
+      "training": "deferred"
+    }
+  ],
+  "status": "scaffold_only",
+  "warning": "Do not execute training commands until HUMAN_ACTIONS.md is complete."
+}

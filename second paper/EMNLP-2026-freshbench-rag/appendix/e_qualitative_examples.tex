@@ -1,0 +1,62 @@
+\section{Qualitative Examples}
+\label{app:qualitative}
+
+This appendix illustrates \method{}'s behavior on representative cases from the evaluation set, drawn from the primary fresh slice (months 7--12). Each example shows the question, the retrieved passages used, the generated answer, and the gold span with an explanation of the error type from Table~\ref{tab:error-taxonomy}.
+
+\subsection{Representative Success Cases}
+
+The following examples show cases where \method{} correctly handles inputs that challenge simpler protocols lacking temporal contamination detection or citation tracking.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{3.5cm}p{3.5cm}p{2.5cm}}
+\toprule
+Input & \method{} Output & Baseline Output \\
+\midrule
+\emph{Q: Who was appointed as the new CEO of [company] in October 2024?}
+Retrieved: AP article (Oct 14, 2024) naming the new appointee with publication date.
+Gold span: ``[Name], effective November 1, 2024.'' &
+Correctly cites the October 14 AP article and outputs the name and start date. Citation precision: 1.0. &
+GPT-4o-Direct outputs the previous CEO's name from parametric memory (pre-October 2024), citing no passage. Citation precision: 0.0. \\
+\addlinespace
+\emph{Q: What country hosted the emergency G7 summit convened in September 2024?}
+Retrieved: Reuters article (Sep 22, 2024) with location and attendee list.
+Gold span: ``Italy, at an emergency session in Rome.'' &
+Correctly retrieves and cites the Reuters passage; outputs ``Italy (Rome), September 2024.'' No stale-answer contamination flagged. &
+ColBERT+GPT-4o retrieves a 2023 background article on G7 scheduling and outputs ``Japan'' (the host of the 2023 Hiroshima summit), an unsupported citation error. \\
+\bottomrule
+\end{tabular}
+\caption{Success cases: \method{} correctly handles these time-sensitive examples while the baseline (top-scoring prior method from Table~\ref{tab:main}) fails or expresses lower confidence due to reliance on parametric priors or retrieval of temporally misaligned documents.}
+\label{tab:qual-success}
+\end{table}
+
+\subsection{Failure Analysis}
+
+We identify two recurring failure patterns from the 300-sample error analysis in Section~\ref{sec:results}.
+
+\paragraph{Failure Pattern 1: Borderline Stale-Answer Cases.}
+\method{} occasionally fails on questions where the ground-truth answer changed within the final 48 hours of the evaluation window, because our rolling index may not yet contain the most recent update. Example: a question about a country's current prime minister was answered correctly by the retrieved BBC article (published 3 days before evaluation), but the prime minister resigned 36 hours before the evaluation timestamp and our index had not yet propagated the new article. \method{} output the retrieved (now-outdated) name with citation precision 1.0 relative to the retrieved passage, but F1 of 0.0 relative to the gold span from the newer document. This occurs because indexing latency (typically 24--72 hours for our pipeline) creates a coverage gap for very recent events. Future work could address this by reducing index propagation latency through a streaming ingestion layer (e.g., Kafka-based real-time indexing) or by introducing an explicit ``indexing lag'' flag that reduces confidence scores for questions whose gold documents are within 72 hours of the evaluation timestamp.
+
+\paragraph{Failure Pattern 2: Distribution Shift on Domain-Specific Named Entities.}
+Performance degrades on questions involving technical acronyms or domain-specific named entities from financial filings and scientific preprints, which are absent from our Reuters/BBC/AP/Wikipedia corpus. Example: a question about a regulatory filing abbreviation (e.g., a specific SEC form number introduced in 2024) was answered incorrectly because no retrieved passage contained the relevant gold span; retrieval returned topically related but terminologically misaligned financial news articles. \method{} correctly assigned a low citation-precision score (0.0) to the generated answer, signaling that the retrieval step failed, but could not generate a correct answer from the available context. This is consistent with the dataset coverage limitation discussed in Section~\ref{sec:limitations}.
+
+\subsection{Comparison with Best Baseline}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{3.0cm}p{2.8cm}p{2.8cm}}
+\toprule
+Input & \method{} & Best Baseline (Hybrid+GPT-4o, no temporal filter) \\
+\midrule
+\emph{Q: What verdict was reached in the [high-profile trial] concluded in November 2024?}
+Gold span from AP article (Nov 18, 2024): ``Guilty on all counts.''
+Retrieved passages include both the November 2024 verdict article and a March 2024 background article on jury selection. &
+Correctly identifies the November 2024 AP article as the most temporally relevant passage; outputs ``Guilty on all counts'' with citation to the November article. F1: 1.0, $P_{\text{cite}}$: 1.0. &
+Without temporal contamination detection, the baseline's training data contains leaked summaries of early trial coverage. Outputs ``acquitted'' (matching a pre-verdict media prediction from a contaminated training item). F1: 0.0, $P_{\text{cite}}$: 0.0. This is a stale-answer error driven by pretraining contamination rather than retrieval failure. \\
+\bottomrule
+\end{tabular}
+\caption{Direct comparison on a challenging stale-answer example where \method{}'s temporal contamination detection and citation tracking enable correct handling while the best baseline (Hybrid+GPT-4o without filtering) fails due to a memorized pre-verdict answer overriding the retrieved evidence.}
+\label{tab:qual-comparison}
+\end{table}

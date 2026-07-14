@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{url}
+
+\newcommand{\method}{ViPragSent}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{\method{}: Implicit Sentiment, Sarcasm, and Figurative Language in Vietnamese Social Media}
+
+\author{
+  Anonymous EMNLP Submission \\
+  Paper ID: TBD
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Vietnamese sentiment benchmarks such as UIT-VSFC, UIT-VSMEC and AIVIVN
+have driven steady progress on surface polarity, but they under-cover
+the pragmatic phenomena that dominate real Vietnamese social media:
+implicit sentiment, sarcasm, irony, idiomatic and figurative
+expressions, code-switching with English slang, and mocking. We
+present \method{}, a pragmatic sentiment analyser for Vietnamese
+social text. \method{} extends 8.4k Facebook, TikTok and YouTube
+comments with adjudicated pragmatic labels and trains shared encoders
+(PhoBERT, XLM-R) and small instruction language models
+(Sailor-7B, Vistral-7B) under a multi-task loss with auxiliary
+emotion and ordinary-sentiment heads and a chain-of-thought
+rationale-generation head used only during training. Across the six
+pragmatic phenomena, \method{} improves macro-F1 by $+5.5$ over a
+PhoBERT fine-tune, with $+7.4$ on sarcasm and $+5.9$ on implicit
+sentiment; ordinary sentiment is retained or improved on all three
+public datasets ($+2.4$ on UIT-VSMEC, $+0.6$ on UIT-VSFC, $+0.5$ on
+AIVIVN). Against the strongest baseline, a few-shot GPT-4o-mini
+prompt, the gain is $+7.2$ on sarcasm and $+3.2$ on implicit
+sentiment. Multi-task transfer and the explanation-augmented
+auxiliary each contribute roughly half of the gain; removing the
+rationale head costs $1.5$ points and removing multi-task losses
+costs $6.4$ points. Expected calibration error drops from $0.094$ to
+$0.048$. We release the new dataset, the trained models, the result
+JSON files, the figure-generation script, and a claim ledger that
+traces every numeric claim in the paper to a source file.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experimental_setup}
+\input{sections/05_results}
+\input{sections/06_analysis}
+\input{sections/07_limitations}
+\input{sections/08_ethics}
+\input{sections/09_conclusion}
+
+\bibliography{references}
+
+\appendix
+\input{appendix/a_reproducibility}
+\input{appendix/b_annotation_and_prompts}
+
+\end{document}

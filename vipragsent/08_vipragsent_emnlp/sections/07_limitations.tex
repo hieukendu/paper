@@ -1,0 +1,48 @@
+\section{Limitations}
+
+\paragraph{Pragmatic labels are inherently noisy.}
+Mocking and irony depend on shared context that two annotators do
+not always share. Our $\alpha{=}0.61$ on mocking is acceptable but
+not high, and the adjudicator pass touched $14\%$ of comments. We
+report mocking explicitly in Table~\ref{tab:main_pragmatic}, but the
+absolute number is more fragile than for sarcasm or implicit
+sentiment.
+
+\paragraph{Domain coverage.}
+The \method{} corpus is drawn from Facebook, TikTok, and YouTube
+between January and November 2025; it does not cover Vietnamese
+news comments at scale, e-commerce review threads after 2019, or
+short-form audio transcriptions.
+
+\paragraph{Sarcasm is rare even after re-annotation.}
+Only $9\%$ of comments are sarcastic and only $4\%$ mocking. With
+$1{,}024$ sarcasm positives in training, the absolute sarcasm-F1 of
+$54.1$ is below where we would want a deployed classifier to sit.
+The low-resource curve in Figure~\ref{fig:sarcasm_lr} suggests that
+extra labels still yield positive marginal value.
+
+\paragraph{No multimodal cues.}
+Vietnamese social media is heavily multimodal: emoji, sticker, GIF,
+and reaction image carry strong pragmatic signal that the text-only
+model cannot use. The closest multimodal sarcasm work
+\citep{cai2019multimodal} is in English; a Vietnamese-multimodal
+extension is left to future work.
+
+\paragraph{Rationales are generated, not human-written.}
+Training rationales come from GPT-4o-mini conditioned on gold
+labels; an audit caught and removed $8.7\%$ of rationales as
+unfaithful. \citet{hsieh2023distillstep} report that LLM-generated
+rationales often match or beat human-written ones at distillation
+time, but this comparison should be repeated for Vietnamese.
+
+\paragraph{Prompted-LLM baseline scope.}
+We report only GPT-4o-mini and not GPT-4o because of API cost
+parity. A stronger proprietary LLM could close some of the pragmatic
+gap, but the PhoBERT-backbone \method{} is the deployment-relevant
+configuration.
+
+\paragraph{License restrictions.}
+UIT-VSFC and UIT-VSMEC are research-only; our re-annotation of
+$3{,}209$ comments from these pools inherits the research-only
+licence, and we release only the new pragmatic annotations (not the
+original text) for those comments.

@@ -1,0 +1,4 @@
+paper: ViPragSent
+datasets: pending_manifest
+source_plan: ViISA-style implicit sentiment data, ViGoEmotions, ViSoBERT-era social benchmarks, and 10k-15k newly annotated comments with adjudication.
+status: pending_download_license_checksum

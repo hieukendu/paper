@@ -1,0 +1,20 @@
+experiment: q1_main_pragmatic_and_ordinary_retention
+status: scaffold_only
+outputs:
+  pragmatic_result: results/pending/main_pragmatic.pending.json
+  ordinary_result: results/pending/ordinary_sentiment.pending.json
+metrics:
+  - binary_macro_f1_per_phenomenon
+  - macro_pragmatic_f1
+  - ordinary_macro_f1
+  - bootstrap_ci_95
+systems:
+  - phobert_single_task
+  - phobert_finetune
+  - xlmr_large
+  - sailor_7b_sft
+  - vistral_7b_sft
+  - gpt41_mini_zero_shot
+  - gpt41_mini_8_shot
+  - vipragsent_full
+training: deferred

@@ -1,0 +1,20 @@
+{
+  "confidence_interval": [
+    null,
+    null
+  ],
+  "cost": {
+    "annotation_hours": null,
+    "gpu_hours": null
+  },
+  "domain": "string",
+  "method": "string",
+  "metrics": {
+    "primary": null
+  },
+  "paper": "ViPragSent",
+  "run_id": "string",
+  "seed": 0,
+  "status": "pending",
+  "task": "string"
+}

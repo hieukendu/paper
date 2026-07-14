@@ -1,0 +1,5 @@
+slice,items,validation,purpose
+Primary benchmark,1862,automatic + audit,main comparison
+Human/expert subset,386,human adjudication,calibration
+Robustness slice,513,filtered synthetic,stress test
+Ablation slice,913,cached replay,component isolation

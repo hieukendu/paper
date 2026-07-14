@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [1][-]{section.3}{Method}{}% 3
+\BOOKMARK [1][-]{section.4}{Experimental Setup}{}% 4
+\BOOKMARK [1][-]{section.5}{Results}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Q1: Pragmatic and ordinary sentiment}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Q2: Multi-task ablation}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.3}{Q3: Low-resource sarcasm}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.4}{Q4: Calibration and error structure}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.5}{Cost analysis}{section.5}% 10
+\BOOKMARK [1][-]{section.6}{Analysis}{}% 11
+\BOOKMARK [1][-]{section.7}{Limitations}{}% 12
+\BOOKMARK [1][-]{section.8}{Ethics and Broader Impact}{}% 13
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 14
+\BOOKMARK [1][-]{appendix.A}{Reproducibility Checklist}{}% 15
+\BOOKMARK [1][-]{appendix.B}{Annotation Rubric and Prompts}{}% 16

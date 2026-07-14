@@ -1,0 +1,31 @@
+\section{Conclusion}
+
+We presented \method{}, a pragmatic sentiment analyser for Vietnamese
+social media that targets implicit sentiment, sarcasm, irony,
+figurative language, code-switching, and mocking. \method{} extends
+$8.4$k adjudicated comments with six pragmatic labels on top of the
+ordinary 3-way polarity and 7-way emotion labels used in
+UIT-VSFC \citep{vannguyen2018uitvsfc}, UIT-VSMEC \citep{ho2020uitvsmec},
+and AIVIVN \citep{aivivn2019}; trains shared encoders (PhoBERT
+\citep{phobert2020}, XLM-R \citep{conneau2020xlmr}, Vistral-7B
+\citep{vistral2024}) and small instruction LMs under a multi-task loss
+with homoscedastic-uncertainty weighting
+\citep{kendall2018uncertainty}; and adds an auxiliary chain-of-thought
+rationale head \citep{wei2022cot,hsieh2023distillstep} that is used
+during training and dropped at inference.
+
+On the new \method{} test set, \method{} improves macro-F1 by $+5.5$
+over a strong PhoBERT fine-tune, with $+7.4$ on sarcasm and $+5.9$ on
+implicit sentiment, and beats a few-shot GPT-4o-mini prompt by
+$+7.2$ on sarcasm and $+3.2$ on implicit sentiment. Ordinary
+sentiment is retained on all three public datasets and improves by
+$+2.4$ on UIT-VSMEC. Expected calibration error is halved.
+Multi-task training and the rationale auxiliary each contribute
+about half of the gain; together they make the difference between a
+deployable Vietnamese pragmatic classifier and a system that
+collapses on sarcastic surface positives.
+
+We release the new pragmatic annotation, the trained models, the
+result JSON files, the figure-generation script, and a claim ledger
+that maps every numeric claim in the paper to a source file, so that
+every result can be reproduced from the released artifacts.

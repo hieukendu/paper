@@ -1,0 +1,34 @@
+\section{Ethics and Broader Impact}
+
+\paragraph{Source content and consent.}
+The fresh portion of the \method{} corpus was scraped from public
+Facebook, TikTok, and YouTube comments on public pages. We removed
+user handles and profile-photo URLs, replaced any quoted personal
+name with a single token \texttt{[PER]}, and dropped any comment that
+included a phone number, email, or address. The dataset is released
+under CC-BY-NC-4.0 with a take-down clause; any user who recognises
+their comment can request removal, and the released version is
+regenerated monthly.
+
+\paragraph{Annotator welfare.}
+Three annotators (two reviewers and one adjudicator), all L1
+Vietnamese, were paid $\$15$/hour and warned that the corpus contains
+hate-speech and mocking content. After pre-filtering with ViHSD
+\citep{vihsd2021} and ViHOS \citep{vihos2023} lists, the actual rate
+of overtly toxic content is $3.4\%$; the skip rate is $1.1\%$.
+
+\paragraph{Dual-use risk.}
+A Vietnamese sarcasm and implicit-sentiment classifier could moderate
+online discourse but also flag dissent under regimes that treat
+irony as a workaround for direct criticism. The released model card
+\citep{mitchell2019modelcards} recommends that \method{} not be used
+as the sole input to enforcement actions on user accounts.
+
+\paragraph{Bias and provenance.}
+The corpus over-represents younger urban speakers and under-represents
+older speakers and rural dialects \citep{vimd2024}. All datasets carry
+an explicit licence in \texttt{data/manifest/datasets.json}; rationales
+carry generator model ID, decoding parameters, and prompt hash. We
+follow the data-statement and datasheet practice of
+\citet{bender2018datastatements}, \citet{gebru2021datasheets}, and
+\citet{bender2021stochastic}.

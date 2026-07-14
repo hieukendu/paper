@@ -1,0 +1,25 @@
+{
+  "synthetic_label": "Synthetic example result - replace before submission",
+  "calibration": [
+    {
+      "bucket": "0.0-0.25",
+      "expected": 0.18,
+      "observed": 0.14
+    },
+    {
+      "bucket": "0.25-0.50",
+      "expected": 0.38,
+      "observed": 0.4
+    },
+    {
+      "bucket": "0.50-0.75",
+      "expected": 0.62,
+      "observed": 0.57
+    },
+    {
+      "bucket": "0.75-1.00",
+      "expected": 0.86,
+      "observed": 0.8
+    }
+  ]
+}

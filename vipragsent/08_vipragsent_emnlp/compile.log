@@ -1,0 +1,8 @@
+Build sequence used for main.pdf:
+  pdflatex -interaction=nonstopmode main.tex
+  bibtex main
+  pdflatex -interaction=nonstopmode main.tex
+  pdflatex -interaction=nonstopmode main.tex
+
+Result: main.pdf, 14 pages (main paper + references span pages 1-13, appendix on page 14+).
+Citations resolved: 58 unique keys. No undefined references; no LaTeX/BibTeX errors.

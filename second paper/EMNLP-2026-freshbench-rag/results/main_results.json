@@ -1,0 +1,132 @@
+{
+  "paper": "FreshBench-RAG",
+  "synthetic_label": "Synthetic example result - replace before submission",
+  "rows": [
+    {
+      "method": "Control",
+      "quality": 47.6,
+      "risk": 32.1,
+      "cost": 2.17
+    },
+    {
+      "method": "Cheap baseline",
+      "quality": 53.5,
+      "risk": 21.6,
+      "cost": 1.36
+    },
+    {
+      "method": "Strong API",
+      "quality": 54.3,
+      "risk": 18.1,
+      "cost": 1.54
+    },
+    {
+      "method": "FreshBench-RAG",
+      "quality": 58.2,
+      "risk": 11.1,
+      "cost": 1.19
+    }
+  ],
+  "ablation": [
+    {
+      "component": "Full system",
+      "score": 58.2
+    },
+    {
+      "component": "No protocol control",
+      "score": 56.1
+    },
+    {
+      "component": "No uncertainty",
+      "score": 54.5
+    },
+    {
+      "component": "No validation filter",
+      "score": 56.0
+    }
+  ],
+  "robustness": [
+    {
+      "slice": "Seen-style",
+      "score": 57.3
+    },
+    {
+      "slice": "Hard-language/domain",
+      "score": 56.2
+    },
+    {
+      "slice": "Noisy evidence/labels",
+      "score": 55.9
+    },
+    {
+      "slice": "Fresh/shifted",
+      "score": 55.2
+    }
+  ],
+  "calibration": [
+    {
+      "bucket": "0.0-0.25",
+      "expected": 0.18,
+      "observed": 0.14
+    },
+    {
+      "bucket": "0.25-0.50",
+      "expected": 0.38,
+      "observed": 0.4
+    },
+    {
+      "bucket": "0.50-0.75",
+      "expected": 0.62,
+      "observed": 0.57
+    },
+    {
+      "bucket": "0.75-1.00",
+      "expected": 0.86,
+      "observed": 0.8
+    }
+  ],
+  "dataset_matrix": [
+    {
+      "slice": "Primary benchmark",
+      "items": 1862,
+      "validation": "automatic + audit",
+      "purpose": "main comparison"
+    },
+    {
+      "slice": "Human/expert subset",
+      "items": 386,
+      "validation": "human adjudication",
+      "purpose": "calibration"
+    },
+    {
+      "slice": "Robustness slice",
+      "items": 513,
+      "validation": "filtered synthetic",
+      "purpose": "stress test"
+    },
+    {
+      "slice": "Ablation slice",
+      "items": 913,
+      "validation": "cached replay",
+      "purpose": "component isolation"
+    }
+  ],
+  "error_table": [
+    {
+      "error": "unsupported output",
+      "share": 8.4
+    },
+    {
+      "error": "semantic drift",
+      "share": 9.3
+    },
+    {
+      "error": "retrieval/selection miss",
+      "share": 17.4
+    },
+    {
+      "error": "calibration failure",
+      "share": 6.8
+    }
+  ]
+}

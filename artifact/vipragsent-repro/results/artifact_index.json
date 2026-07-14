@@ -1,0 +1,20 @@
+{
+  "claim_ledger": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\claim_ledger.csv",
+  "claim_rows": 1,
+  "figures": {
+    "calibration": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\figures\\fig7_calibration.svg",
+    "confusion": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\figures\\fig5_confusion.svg",
+    "low_resource": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\figures\\fig4_low_resource_sarcasm.svg",
+    "per_phenomenon": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\figures\\fig2_per_phenomenon.svg",
+    "pipeline": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\figures\\fig1_pipeline.svg"
+  },
+  "results_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results",
+  "status": "ok",
+  "tables": {
+    "cost_breakdown": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\tables\\cost_breakdown.md",
+    "low_resource_sarcasm": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\tables\\low_resource_sarcasm.md",
+    "main_pragmatic": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\tables\\main_pragmatic.md",
+    "multitask_ablation": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\tables\\multitask_ablation.md",
+    "ordinary_sentiment": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\tables\\ordinary_sentiment.md"
+  }
+}

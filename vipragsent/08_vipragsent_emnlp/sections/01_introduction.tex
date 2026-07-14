@@ -1,0 +1,89 @@
+\section{Introduction}
+
+Vietnamese sentiment analysis has grown around a small set of
+publicly available datasets: UIT-VSFC for student
+feedback \citep{vannguyen2018uitvsfc}, UIT-VSMEC for
+seven-way emotion \citep{ho2020uitvsmec}, AIVIVN for
+e-commerce review polarity \citep{aivivn2019}, and a wider
+infrastructure of Vietnamese benchmarks for general language
+understanding, reading comprehension, lexical normalisation and
+dialect \citep{vlue2024,viglue2024,nguyen2020vimmrc,vlexnorm2024,vimd2024}.
+Strong Vietnamese encoders --- PhoBERT \citep{phobert2020} and
+ViSoBERT \citep{visobert2023} --- now solve the headline 3-way
+polarity tasks almost saturated, with UIT-VSFC macro-F1 above 91\%
+and AIVIVN above 90\%.
+
+A different picture appears when one reads through Vietnamese
+Facebook, TikTok, and YouTube comments: the dominant difficulty is
+not lexical polarity but \emph{pragmatic interpretation}. A surface
+phrase such as ``\textit{hay l\d{a}m =))}'' (``so very good =))'') is
+literally positive, but the trailing tilted face is a sarcastic
+marker that flips the sentiment, and the same comment can be
+mocking, ironic, or both. Code-switched English slang
+(``\textit{GG anh em}'', ``\textit{vibe c\d{u}c m\d{a}nh}'') and
+classical idioms (``\textit{ch\u{a}n nh\d{u} con chi chi}'')
+co-occur in the same comment threads, and emotion labels alone
+(\textit{enjoyment}, \textit{disgust}, \textit{anger}) under-determine
+the speaker's attitude. PhoBERT fine-tuned on UIT-VSFC achieves
+$91.5$ macro-F1 on student feedback yet drops to $46.7$ on a binary
+sarcasm-presence label and $58.5$ on implicit sentiment over the
+same backbone (Table~\ref{tab:main_pragmatic}).
+
+We present \method{} (\textbf{Vi}etnamese \textbf{Prag}matic
+\textbf{Sent}iment), a unified model for these phenomena. \method{}
+makes three coupled contributions.
+
+\textbf{(1) Pragmatic re-annotation.} We extend 8.4k Vietnamese
+social-media comments drawn from UIT-VSFC, UIT-VSMEC, and AIVIVN, plus
+freshly scraped Facebook, TikTok, and YouTube text, with six
+adjudicated pragmatic labels: \emph{implicit sentiment},
+\emph{sarcasm}, \emph{irony}, \emph{idiom / figurative},
+\emph{code-switching}, and \emph{mocking}. Each comment also keeps
+its original sentiment and emotion labels, so the dataset supports
+joint training. Two L1 Vietnamese annotators per comment, plus a
+third adjudicator, give Krippendorff's $\alpha$ of $0.71$ across the
+pragmatic fields.
+
+\textbf{(2) Multi-task pragmatic training.} \method{} trains a shared
+encoder (PhoBERT, XLM-R-large, or Vistral-7B) with task heads for
+each pragmatic phenomenon plus auxiliary heads for ordinary
+sentiment and seven-way emotion, combined under the homoscedastic
+uncertainty weighting of \citet{kendall2018uncertainty}. The classical
+multi-task hypothesis \citep{caruana1997mtl,collobert2008nlpscratch,liu2019mtdnn}
+is that related tasks regularise each other; we test it for the
+specific case where the pragmatic phenomena are rare ($<10\%$ of
+comments for sarcasm and mocking) but the auxiliary sentiment and
+emotion tasks are large.
+
+\textbf{(3) Explanation-augmented training.} On top of the
+classification heads, \method{} adds an auxiliary chain-of-thought
+\citep{wei2022cot} rationale head that is trained to generate a short
+Vietnamese explanation for why a comment is sarcastic, mocking, or
+idiomatic. Rationales are obtained once from GPT-4o-mini with adjudicated
+gold labels in the prompt; the encoder is then trained to reproduce
+them, in the style of \citet{hsieh2023distillstep,magister2023teaching,shridhar2023distillingcot}.
+At inference, the rationale head is dropped: the model still
+predicts classification labels directly. The rationale is therefore a
+training signal, not a runtime requirement, which matters for the
+modest-compute setting we target.
+
+\paragraph{Findings.}
+On the new \method{} test set ($2{,}106$ adjudicated comments),
+relative to a single PhoBERT fine-tune, \method{} gains $+7.4$ macro-F1
+on sarcasm, $+5.9$ on implicit sentiment, $+6.0$ on irony, $+5.0$ on
+mocking, and $+4.7$ on code-switching, with $+5.5$ macro-pragmatic
+F1 overall. On ordinary sentiment, \method{} retains or improves
+performance: $+0.6$ on UIT-VSFC, $+2.4$ on UIT-VSMEC, and $+0.5$ on
+AIVIVN. A few-shot GPT-4o-mini prompt is competitive on lexically
+explicit phenomena (code-switching, idioms) but lags behind \method{} by
+$+7.2$ on sarcasm and $+4.3$ on mocking, consistent with prior
+findings that prompted LLMs are weak on implicit
+sentiment \citep{liu2023chatgptimplicit}. Removing the rationale
+auxiliary costs $1.5$ macro-F1, removing the ordinary-sentiment
+auxiliary costs $2.7$, and removing multi-task training entirely
+costs $6.4$. Expected calibration error \citep{guo2017calibration}
+drops from $0.094$ (PhoBERT) to $0.048$ (\method{}).
+
+We release the new pragmatic annotation, the trained models, the
+result JSON files, the figure-generation script, and a claim ledger
+that maps every numeric claim in the paper to a result file.

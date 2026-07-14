@@ -1,0 +1,7 @@
+experiment: q3_low_resource_sarcasm
+status: scaffold_only
+output: results/pending/low_resource_sarcasm.pending.json
+positive_budgets: [64, 128, 256, 512, 1024, 2048]
+fixed_test_set: true
+metric: sarcasm_binary_macro_f1
+training: deferred

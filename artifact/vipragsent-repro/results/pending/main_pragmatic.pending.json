@@ -1,0 +1,14 @@
+{
+  "confidence_interval": null,
+  "cost": null,
+  "experiment": "main_pragmatic",
+  "metrics": {},
+  "provenance": {
+    "created_at": "2026-06-27T05:12:15.560706+00:00",
+    "note": "Pending scaffold only; not a real experimental result.",
+    "source": "setup_only_dryrun"
+  },
+  "schema_version": "1.0",
+  "seed": null,
+  "status": "pending"
+}

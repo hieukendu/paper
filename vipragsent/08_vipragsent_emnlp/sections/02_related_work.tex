@@ -1,0 +1,83 @@
+\section{Related Work}
+
+\paragraph{Vietnamese sentiment and emotion resources.}
+The three datasets that anchor Vietnamese sentiment evaluation are
+UIT-VSFC \citep{vannguyen2018uitvsfc}, a 3-way student-feedback
+corpus; UIT-VSMEC \citep{ho2020uitvsmec}, a 7-way emotion corpus over
+Facebook comments; and AIVIVN \citep{aivivn2019}, a public 3-way
+e-commerce review competition. VLSP-2020 \citep{vlsp2020sentiment}
+provided shared-task settings around these resources. Domain
+expansion has produced ViHSD \citep{vihsd2021},
+ViHOS \citep{vihos2023}, the Vietnamese hate-speech-span benchmark,
+ViMMRC for reading comprehension \citep{nguyen2020vimmrc}, and broader
+NLU benchmarks (VLUE, ViGLUE)
+\citep{vlue2024,viglue2024}. Pragmatic phenomena (implicit sentiment,
+sarcasm, irony, mocking, code-switching) have not, to our knowledge,
+been jointly labelled in a public Vietnamese corpus; \method{}
+directly addresses that gap.
+
+\paragraph{Vietnamese encoders and instruction LMs.}
+PhoBERT \citep{phobert2020} remains the standard Vietnamese encoder
+and dominates classification leaderboards;
+ViSoBERT \citep{visobert2023} adds social-media-domain pretraining.
+For instruction-tuned baselines we use Sailor-7B \citep{sailor2024}
+(a Southeast-Asian instruction LM) and Vistral-7B \citep{vistral2024}
+(a Vietnamese-Mistral derivative), and we use the multilingual encoder
+XLM-R \citep{conneau2020xlmr}. We also report GPT-4o-mini
+\citep{openai2024gpt4o} in zero-shot and 8-shot prompted modes. The
+backbones build on Transformer pretraining
+\citep{devlin2019bert,liu2019roberta,jiang2023mistral,touvron2023llama2}.
+
+\paragraph{Multi-task learning.}
+Multi-task learning has been used to share statistical strength
+across related NLP tasks since \citet{caruana1997mtl} and
+\citet{collobert2008nlpscratch}; MT-DNN \citep{liu2019mtdnn} extended
+the idea to Transformer encoders, and homoscedastic uncertainty
+weighting \citep{kendall2018uncertainty} provides a principled way to
+combine heterogeneous loss heads. \method{} uses this stack for a
+specific configuration: rare pragmatic targets (sarcasm, mocking) as
+the primary objective, with frequent ordinary-sentiment and emotion
+labels as auxiliary signal.
+
+\paragraph{Sarcasm, irony, and figurative language.}
+Sarcasm and irony detection have been studied extensively in English
+\citep{ghosh2017role,ghosh2018sarcasmreasons,joshi2017sarcasmsurvey,vandehey2018irony,barbieri2020tweeteval}
+and multimodally \citep{cai2019multimodal}. Figurative-language
+benchmarks such as FLUTE \citep{chakrabarty2022figurative} and
+IMPLI \citep{stowe2022impli} test whether models can reason about
+non-literal meaning. Implicit sentiment specifically has been
+isolated and surveyed
+\citep{liao2024implicitsurvey,li2021dualgraph,liu2023chatgptimplicit},
+including a study that finds prompted LLMs lag dedicated implicit-sentiment
+classifiers despite high overall sentiment accuracy. Our work brings
+these strands into a Vietnamese, multi-label, multi-task setting and
+asks whether dataset-level pragmatic labels plus rationale
+distillation are enough to close the gap on a single small encoder.
+
+\paragraph{Code-switching.}
+Code-switching detection has been studied at the token-tag level
+\citep{solorio2014overview} and benchmarked end-to-end with
+GLUECoS \citep{khanuja2020gluecos}. Vietnamese-English social text
+mixes are documented in dialect and lexical-normalisation resources
+\citep{vimd2024,vlexnorm2024} but, until now, not labelled as a
+sentiment-relevant phenomenon.
+
+\paragraph{Rationale-augmented training and chain-of-thought distillation.}
+Chain-of-thought prompting \citep{wei2022cot} elicits intermediate
+explanations from large LMs; a follow-on line of work distils those
+explanations into smaller task models as auxiliary supervision
+\citep{hsieh2023distillstep,magister2023teaching,shridhar2023distillingcot,hinton2015distillation}.
+GoEmotions \citep{demszky2020goemotions} and SemEval-2018 Affect in
+Tweets \citep{mohammad2018semeval} are the major English antecedents
+for jointly modelling emotion and sentiment; we adopt this design but
+specialise it for Vietnamese pragmatics and use rationales as a
+training-only signal so that inference remains cheap.
+
+\paragraph{Calibration and evaluation.}
+We use expected calibration error \citep{guo2017calibration,naeini2015ece}
+to track over-confidence, paired-bootstrap significance
+\citep{koehn2004bootstrap}, and Krippendorff's $\alpha$
+\citep{krippendorff2011alpha} together with Cohen's
+$\kappa$ \citep{cohen1960kappa} for inter-annotator agreement.
+Released artifacts follow data-statement and datasheet practice
+\citep{bender2018datastatements,gebru2021datasheets,mitchell2019modelcards,bender2021stochastic}.

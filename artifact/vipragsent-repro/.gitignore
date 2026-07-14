@@ -1,0 +1,27 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Keep raw/research data local unless license has been checked.
+data/raw/**
+!data/raw/
+!data/raw/**/
+data/interim/*.jsonl
+data/processed/*.jsonl
+data/annotation/**/*.jsonl
+data/generated/*.jsonl
+
+# Model/runtime outputs
+checkpoints/
+runs/
+wandb/
+*.pt
+*.bin
+*.safetensors

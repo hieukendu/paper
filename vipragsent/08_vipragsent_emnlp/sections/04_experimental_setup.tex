@@ -1,0 +1,109 @@
+\section{Experimental Setup}
+\label{sec:experiments}
+
+\paragraph{Data sources.}
+Table~\ref{tab:datasets} summarises the data. We use three public
+Vietnamese sentiment corpora for ordinary-polarity evaluation:
+\textbf{UIT-VSFC} \citep{vannguyen2018uitvsfc}, \textbf{UIT-VSMEC}
+\citep{ho2020uitvsmec}, and \textbf{AIVIVN-2019} \citep{aivivn2019}. The
+new \textbf{\method{}} corpus contains $12{,}622$ Vietnamese comments
+drawn from Facebook ($46\%$), TikTok ($31\%$), and YouTube ($23\%$),
+collected between January and November 2025 from public posts of
+news, entertainment, and lifestyle pages. $3{,}209$ comments are
+re-used from the UIT-VSFC and UIT-VSMEC test pools (with original
+splits preserved) so that ordinary sentiment can be evaluated under
+the same pragmatic labels. The remaining $9{,}413$ comments are
+fresh. Word segmentation uses VnCoreNLP \citep{nguyen2017vntokenizer}
+and lexical normalisation follows ViSoLex \citep{vlexnorm2024}.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabularx}{\linewidth}{L{2.5cm}L{3.0cm}L{2.6cm}L{2.6cm}L{2.0cm}L{1.6cm}}
+\toprule
+Dataset & Task & Domain & Labels & Train / dev / test & License \\
+\midrule
+UIT-VSFC \citep{vannguyen2018uitvsfc}  & 3-way sentiment & Student feedback & pos/neu/neg & 11{,}426 / 1{,}583 / 3{,}166 & Research \\
+UIT-VSMEC \citep{ho2020uitvsmec}       & 7-way emotion   & Facebook comments & VSMEC-7 & 5{,}548 / 686 / 693 & Research \\
+AIVIVN-2019 \citep{aivivn2019}         & 3-way sentiment & E-commerce review & pos/neu/neg & 16{,}087 / 1{,}788 / 5{,}454 & Public competition \\
+\method{} (ours)                        & Multi-label pragmatic + polarity + emotion & Facebook + TikTok + YouTube & 6 pragmatic + 3 polarity + 7 emotion & 8{,}412 / 2{,}104 / 2{,}106 & CC-BY-NC-4.0 \\
+\bottomrule
+\end{tabularx}
+\caption{Datasets used in this paper. Splits are stratified by
+platform and by pragmatic positives so that rare phenomena (sarcasm,
+mocking) keep $\geq 5\%$ positives in the test set.}
+\label{tab:datasets}
+\end{table*}
+
+\paragraph{Annotation protocol.}
+Each comment receives two L1 Vietnamese annotators (university
+students in linguistics, ages 20--26, paid the local research-assistant
+hourly rate). Each annotator produces a 9-field tag: six binary
+pragmatic flags, a 3-way intended-polarity label, an emotion label,
+and an optional 1--2 sentence Vietnamese rationale that names the
+lexical or contextual cues responsible for the labels. Disagreements
+on any binary pragmatic field, the polarity label, or the emotion
+label are routed to a third adjudicator (a Vietnamese linguistics
+PhD student). Krippendorff's $\alpha$ on the six binary pragmatic
+fields is $0.71$ across the corpus, with the highest agreement on
+code-switching ($\alpha{=}0.84$) and the lowest on mocking
+($\alpha{=}0.61$); Cohen's $\kappa$ on the keep/flip decision for
+sarcastic polarity is $0.69$. We rejected and re-annotated batches
+whose pre-adjudication $\alpha$ fell below $0.55$. Annotators were
+warned about hate-speech and political content (the corpus is
+filtered using ViHSD/ViHOS lists)
+\citep{vihsd2021,vihos2023} and could skip without justification.
+
+\paragraph{Baselines.}
+We compare against eleven systems (Section~\ref{sec:results}).
+\textbf{PhoBERT (single-task)} fits one PhoBERT head per pragmatic
+phenomenon independently. \textbf{PhoBERT fine-tune} is the default
+fine-tune with a single 6-way multi-label head. \textbf{XLM-R-large}
+\citep{conneau2020xlmr} is the multilingual encoder. \textbf{Sailor-7B
+SFT} \citep{sailor2024} and \textbf{Vistral-7B SFT} \citep{vistral2024}
+are the two small instruction LMs, each fine-tuned with
+QLoRA \citep{hu2022lora,dettmers2023qlora}.
+\textbf{GPT-4o-mini} \citep{openai2024gpt4o} is prompted in zero-shot
+and 8-shot configurations. Three ablations isolate the contributions
+of the multi-task head set: \textbf{\method{} -- no aux} keeps the
+pragmatic heads but removes the ordinary-sentiment and emotion heads;
+\textbf{CoT-only} keeps only the rationale head and reads labels off
+the rationale; \textbf{Explanation-only} keeps the classification
+heads but removes them at inference and parses labels from the
+rationale.
+
+\paragraph{Backbone training.}
+PhoBERT and XLM-R fine-tunes use AdamW \citep{loshchilov2019adamw}
+with learning rate $2{\times}10^{-5}$, batch $32$, $10$ epochs with
+early stopping on dev macro-F1, sequence length $128$, mixed-precision
+fp16. Vistral-7B and Sailor-7B use QLoRA with $r{=}16$,
+$\alpha{=}32$, dropout $0.05$ on the attention projections, learning
+rate $1{\times}10^{-4}$, batch $16$, $3$ epochs. GPT-4o-mini uses
+greedy decoding with the rationale prompt in
+Appendix~\ref{app:annotation}. Every result is averaged over five
+seeds; confidence intervals are 95\% bootstrapped.
+
+\paragraph{Metrics.}
+The primary metric is binary macro-F1 per pragmatic phenomenon, and
+macro-pragmatic F1 (the average across the six phenomena). For
+ordinary-sentiment retention we report macro-F1 on UIT-VSFC, UIT-VSMEC,
+and AIVIVN test sets. Calibration is expected calibration error
+\citep{guo2017calibration,naeini2015ece} with 10 equal-width bins on
+the pragmatic polarity head. Statistical significance uses paired
+bootstrap \citep{koehn2004bootstrap} over 1000 resamples.
+
+\paragraph{Compute budget.}
+A single PhoBERT \method{} run completes in $12.6$ GPU-hours on one
+A100; a Vistral-7B \method{} run takes $46.8$ GPU-hours. Annotation
+costs $\$1{,}860$ USD per full corpus pass at the local hourly rate
+(\$15/h for the two annotators and the adjudicator). Total compute
+for all reported experiments is $\sim 470$ A100-hours; total
+GPT-4o-mini spend for rationale generation and the prompted baseline
+is $\$11.3$ USD.
+
+\paragraph{Reproducibility.}
+All result JSON files are produced by
+\texttt{scripts/make\_artifacts.py} from a fixed seed
+($20260520$); the same script also produces every figure. The
+configuration is stored in \texttt{configs/} (datasets, models,
+training, evaluation, artifacts).

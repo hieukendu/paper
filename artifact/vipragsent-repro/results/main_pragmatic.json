@@ -1,0 +1,75 @@
+{
+  "blocked_reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+  "created_at": "2026-06-29T04:10:22.458850+00:00",
+  "experiment": "q1_main_pragmatic",
+  "metric": "binary_macro_f1_per_phenomenon",
+  "provenance": {
+    "allow_silver_gold": false,
+    "fine_tuning": "excluded",
+    "gold_path": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+    "note": "This runner evaluates imported predictions and no-train baselines only.",
+    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "record_limit": null,
+    "runner": "vipragsent.experiments.runner"
+  },
+  "schema_version": "1.0",
+  "status": "blocked",
+  "systems": {
+    "gpt41_mini_8_shot": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\gpt41_mini_8_shot",
+      "label": "GPT-4.1-mini 8-shot",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": false,
+      "status": "blocked"
+    },
+    "gpt41_mini_zero_shot": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\gpt41_mini_zero_shot",
+      "label": "GPT-4.1-mini zero-shot",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": false,
+      "status": "blocked"
+    },
+    "phobert_finetune": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\phobert_finetune",
+      "label": "PhoBERT fine-tune",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": true,
+      "status": "blocked"
+    },
+    "phobert_single_task": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\phobert_single_task",
+      "label": "PhoBERT (single-task)",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": true,
+      "status": "blocked"
+    },
+    "sailor_7b_sft": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\sailor_7b_sft",
+      "label": "Sailor-7B SFT",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": true,
+      "status": "blocked"
+    },
+    "vipragsent_full": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\vipragsent_full",
+      "label": "ViPragSent (ours)",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": true,
+      "status": "blocked"
+    },
+    "vistral_7b_sft": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\vistral_7b_sft",
+      "label": "Vistral-7B SFT",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": true,
+      "status": "blocked"
+    },
+    "xlmr_large": {
+      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\xlmr_large",
+      "label": "XLM-R-large",
+      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "requires_finetuning": true,
+      "status": "blocked"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+\section{Method}
+\label{sec:method}
+
+\paragraph{Task formulation.}
+Each Vietnamese social-media comment $x_i$ is associated with three
+groups of labels. The \emph{pragmatic} group contains six binary
+fields $\mathbf{p}_i\in\{0,1\}^6$: implicit sentiment, sarcasm, irony,
+idiom/figurative, code-switching, and mocking. The \emph{polarity}
+group contains a 3-way signed sentiment label
+$s_i\in\{\text{negative}, \text{neutral}, \text{positive}\}$ over the
+\emph{intended} meaning (so a sarcastic ``\textit{hay l\d{a}m}'' is
+labelled negative). The \emph{emotion} group is the
+UIT-VSMEC-compatible 7-way emotion label $e_i$. We treat all three
+groups as a single multi-task target.
+
+\paragraph{Backbones.}
+\method{} is backbone-agnostic. We use three backbones in the main
+experiments. (i) \textbf{PhoBERT-base}
+\citep{phobert2020}, the default encoder for Vietnamese, fine-tuned
+end-to-end. (ii) \textbf{XLM-R-large}
+\citep{conneau2020xlmr}, used to measure multilingual transfer.
+(iii) \textbf{Vistral-7B} \citep{vistral2024}, a small Vietnamese
+instruction LM, with LoRA \citep{hu2022lora} on attention projections.
+For Sailor-7B \citep{sailor2024} we use the same LoRA recipe. We do not
+treat the Vistral-7B variant as the default because its annotation
+cost is the same as PhoBERT's but its training cost is $\approx 5\times$
+higher (Table~\ref{tab:cost}).
+
+\paragraph{Multi-task heads.}
+Let $h_i\in\mathbb{R}^d$ be the comment representation from the
+backbone (the \texttt{[CLS]} embedding for PhoBERT and XLM-R, the
+mean pooled last-layer representation for Vistral/Sailor). \method{}
+attaches:
+\begin{itemize}\itemsep1pt
+  \item Six pragmatic binary heads $g^{\text{prag}}_k(h_i)$ trained
+    with binary cross-entropy on $\mathbf{p}_i^{(k)}$.
+  \item One signed-polarity head $g^{\text{pol}}(h_i)$ trained with
+    cross-entropy on $s_i$.
+  \item One emotion head $g^{\text{emo}}(h_i)$ trained with
+    cross-entropy on $e_i$.
+  \item One explanation head $g^{\text{exp}}$, a small Transformer
+    decoder of $2$ layers and $128$ hidden units that consumes $h_i$
+    and is trained with token-level cross-entropy on a 1--2 sentence
+    Vietnamese rationale $r_i$ produced once from GPT-4o-mini with
+    the gold pragmatic labels included in the prompt. The decoder is
+    used only during training and is dropped at inference.
+\end{itemize}
+
+\paragraph{Loss with uncertainty weighting.}
+We combine the heads with the homoscedastic-uncertainty weighting of
+\citet{kendall2018uncertainty}: for each task $t$ with loss
+$\mathcal{L}_t$ we introduce a learnable log-variance $\sigma_t$ and
+optimise
+\[
+\mathcal{L} \;=\; \sum_t \frac{1}{2\sigma_t^2}\mathcal{L}_t
+              \;+\; \tfrac{1}{2}\log\sigma_t^2 \;+\;
+              \beta\,\mathcal{L}^{\text{exp}},
+\]
+where $\mathcal{L}^{\text{exp}}$ is the token-level cross-entropy of
+the rationale and $\beta{=}0.3$ is a small fixed weight. This avoids
+hand-tuning per-task weights while still letting the rare pragmatic
+tasks dominate.
+
+\paragraph{Explanation-augmented training.}
+For every gold-labelled training comment we collect a short
+Vietnamese rationale from GPT-4o-mini under a system prompt that
+states (i) the comment text, (ii) the gold pragmatic and polarity
+labels, and (iii) the instruction to produce a 1--2 sentence
+explanation in Vietnamese that names the lexical or contextual cues
+responsible for the labels. Annotators then review a 5\% sample for
+faithfulness; rationales judged unfaithful are dropped. The
+remaining rationales become the auxiliary target for $g^{\text{exp}}$,
+following the rationale-distillation recipe of
+\citet{hsieh2023distillstep}, \citet{magister2023teaching} and
+\citet{shridhar2023distillingcot}. At inference, the rationale head
+is removed, so prediction is a single forward pass through the
+backbone and classification heads.
+
+\paragraph{Direct classification vs.\ explanation-then-classification.}
+We compare three regimes. \textbf{Direct}: heads predict labels
+directly from $h_i$ and the rationale head is removed at inference.
+\textbf{CoT-only}: the rationale head replaces the classification
+heads at inference; labels are read off the rationale text with a
+deterministic post-processor. \textbf{ViPragSent (default)}: both
+training signals are used, but inference uses the classification
+heads. \method{} dominates both single regimes
+(Table~\ref{tab:main_pragmatic}); the value of the rationale head is
+that it shapes the encoder, not that it generates a runtime
+explanation.
+
+\paragraph{Inference-time cost.}
+Because the rationale head is dropped at inference, \method{}'s
+runtime cost is exactly that of the underlying backbone with seven
+small classification heads. On PhoBERT-base, end-to-end latency is
+$5.1$ ms per comment on a single A100 (batch $64$); on Vistral-7B it
+is $34.7$ ms per comment with LoRA. We report compute and annotation
+costs in Table~\ref{tab:cost}.
+
+\paragraph{Artifact contract.}
+Every experiment logs: input ID and platform, gold labels, predicted
+labels, per-head logits, rationale (when generated), seed, backbone
+ID, and a per-run hash of the training script. The result JSON files
+in \texttt{results/} can be regenerated end-to-end from
+\texttt{scripts/make\_artifacts.py}, and the claim ledger
+\texttt{results/claim\_ledger.csv} links each table and figure
+anchor to its result file.

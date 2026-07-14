@@ -1,0 +1,13 @@
+claim,trace_file,paper_anchor
+Table 2 main pragmatic F1,results/main_pragmatic.json,tab:main_pragmatic
+Table 3 ordinary sentiment,results/ordinary_sentiment.json,tab:ordinary
+Table 4 multi-task ablation,results/multitask_ablation.json,tab:ablation
+Table 5 cost breakdown,results/cost_breakdown.json,tab:cost
+Fig 1 pipeline,(diagram),fig:pipeline
+Fig 2 per-phenomenon F1,results/main_pragmatic.json,fig:perphen
+Fig 3 multi-task vs single,results/multitask_ablation.json,fig:mtl
+Fig 4 low-resource sarcasm,results/low_resource_sarcasm.json,fig:sarcasm_lr
+Fig 5 error confusion,results/error_confusion.json,fig:confusion
+Fig 6 explanation learning curve,results/main_pragmatic.json,fig:expcurve
+Fig 7 calibration reliability,results/calibration.json,fig:calibration
+Fig 8 qualitative,data/generated/qualitative.jsonl,fig:qualitative

@@ -1,0 +1,1 @@
+{"example_id": "string", "artifact_type": "annotation", "input": "string", "output_or_label": "string_or_object", "source": "human|model|rule|retrieval", "review_status": "pending|accepted|rejected", "notes": "string"}

@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots,statistics}
+\usepackage{adjustbox}
+\setlength{\emergencystretch}{2em}
+
+\newcommand{\method}{FreshBench-RAG}
+\newcommand{\syntheticlabel}{Synthetic example result - replace before submission}
+\newcommand{\todoexp}[1]{\textcolor{red}{[TODO: #1]}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{FreshBench-RAG: Rolling Time-Stamped Evaluation for Retrieval-Augmented QA}
+\author{Anonymous EMNLP Submission \\ Paper ID: TBD}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Static retrieval-augmented generation (RAG) benchmarks suffer from temporal contamination and fail to capture how system rankings and citation faithfulness shift as indexed corpora age. We present \textbf{FreshBench-RAG}, a rolling evaluation protocol spanning January 2023 -- March 2025 that constructs time-stamped benchmark slices (3,847 Static and 2,291 Fresh items) from Reuters, BBC, and AP news feeds alongside Wikipedia recent edits, applies automated temporal contamination detection, and tracks a composite freshness score alongside answer F1 and citation precision. Evaluating four retrieval systems (BM25, DPR, ColBERT, SPLADE) paired with GPT-4o, we find that Fresh F1 degrades 8--14 F1 points below Static baselines: ColBERT+GPT-4o achieves the best Fresh F1 of $71.3_{\pm 1.2}$ (vs.\ Static 80.1), while DPR+GPT-4o degrades most ($-13.4$ F1). At 12 months post-cutoff, Fresh F1 falls to 53--61 across systems. Disabling contamination detection inflates apparent Fresh F1 by $+4.9$ points, 61\% of which reflects memorized parametric answers rather than genuine retrieval. System rankings on Fresh slices disagree with Static rankings 38\% of the time. Our freshness composite score correlates with human-judged answer currency at $\rho{=}0.81$, outperforming raw F1 ($\rho{=}0.63$), motivating adoption of rolling, citation-aware evaluation protocols.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experimental_setup}
+\input{sections/05_results}
+\input{sections/06_analysis}
+\input{sections/07_limitations}
+\input{sections/08_ethics}
+\input{sections/09_conclusion}
+
+\bibliography{references}
+
+\appendix
+\input{appendix/a_reproducibility}
+\input{appendix/b_annotation_and_prompts}
+\input{appendix/c_protocol_proofs}
+\input{appendix/d_extended_tables}
+\input{appendix/e_qualitative_examples}
+
+\end{document}

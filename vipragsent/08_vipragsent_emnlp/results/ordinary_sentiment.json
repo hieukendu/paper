@@ -1,0 +1,164 @@
+{
+  "metric": "macro_f1",
+  "datasets": {
+    "uit_vsfc": "UIT-VSFC (3-way student feedback)",
+    "uit_vsmec": "UIT-VSMEC (7-way emotion)",
+    "aivivn": "AIVIVN-2019 (3-way social sentiment)"
+  },
+  "systems": {
+    "phobert_st": {
+      "uit_vsfc": {
+        "mean": 91.86,
+        "ci95": 0.27
+      },
+      "uit_vsmec": {
+        "mean": 64.35,
+        "ci95": 0.22
+      },
+      "aivivn": {
+        "mean": 90.5,
+        "ci95": 0.37
+      }
+    },
+    "phobert": {
+      "uit_vsfc": {
+        "mean": 91.53,
+        "ci95": 0.23
+      },
+      "uit_vsmec": {
+        "mean": 64.98,
+        "ci95": 0.51
+      },
+      "aivivn": {
+        "mean": 90.24,
+        "ci95": 0.19
+      }
+    },
+    "xlmr": {
+      "uit_vsfc": {
+        "mean": 92.11,
+        "ci95": 0.44
+      },
+      "uit_vsmec": {
+        "mean": 66.33,
+        "ci95": 0.29
+      },
+      "aivivn": {
+        "mean": 90.56,
+        "ci95": 0.4
+      }
+    },
+    "sailor": {
+      "uit_vsfc": {
+        "mean": 91.76,
+        "ci95": 0.41
+      },
+      "uit_vsmec": {
+        "mean": 66.35,
+        "ci95": 0.37
+      },
+      "aivivn": {
+        "mean": 90.51,
+        "ci95": 0.15
+      }
+    },
+    "vistral": {
+      "uit_vsfc": {
+        "mean": 92.17,
+        "ci95": 0.32
+      },
+      "uit_vsmec": {
+        "mean": 66.95,
+        "ci95": 0.28
+      },
+      "aivivn": {
+        "mean": 91.22,
+        "ci95": 0.37
+      }
+    },
+    "gpt4o_zs": {
+      "uit_vsfc": {
+        "mean": 88.45,
+        "ci95": 0.33
+      },
+      "uit_vsmec": {
+        "mean": 60.16,
+        "ci95": 0.39
+      },
+      "aivivn": {
+        "mean": 87.49,
+        "ci95": 0.36
+      }
+    },
+    "gpt4o_fs": {
+      "uit_vsfc": {
+        "mean": 90.25,
+        "ci95": 0.54
+      },
+      "uit_vsmec": {
+        "mean": 62.59,
+        "ci95": 0.29
+      },
+      "aivivn": {
+        "mean": 89.03,
+        "ci95": 0.15
+      }
+    },
+    "noaux": {
+      "uit_vsfc": {
+        "mean": 90.85,
+        "ci95": 0.23
+      },
+      "uit_vsmec": {
+        "mean": 63.31,
+        "ci95": 0.53
+      },
+      "aivivn": {
+        "mean": 89.37,
+        "ci95": 0.39
+      }
+    },
+    "cot_only": {
+      "uit_vsfc": {
+        "mean": 91.43,
+        "ci95": 0.51
+      },
+      "uit_vsmec": {
+        "mean": 63.87,
+        "ci95": 0.35
+      },
+      "aivivn": {
+        "mean": 90.05,
+        "ci95": 0.39
+      }
+    },
+    "exp_only": {
+      "uit_vsfc": {
+        "mean": 91.32,
+        "ci95": 0.34
+      },
+      "uit_vsmec": {
+        "mean": 64.33,
+        "ci95": 0.41
+      },
+      "aivivn": {
+        "mean": 89.78,
+        "ci95": 0.16
+      }
+    },
+    "vipragsent": {
+      "uit_vsfc": {
+        "mean": 92.09,
+        "ci95": 0.17
+      },
+      "uit_vsmec": {
+        "mean": 67.4,
+        "ci95": 0.18
+      },
+      "aivivn": {
+        "mean": 90.77,
+        "ci95": 0.42
+      }
+    }
+  }
+}

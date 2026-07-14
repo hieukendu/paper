@@ -1,0 +1,4 @@
+paper: ViPragSent
+seeds: [1, 2, 3]
+budget_policy: matched_compute_or_annotation_budget
+gpu_hours: pending

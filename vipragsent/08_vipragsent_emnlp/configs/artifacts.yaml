@@ -1,0 +1,3 @@
+paper: ViPragSent
+artifact_type: annotation
+claim_ledger: results/claim_ledger.csv

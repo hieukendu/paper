@@ -1,0 +1,44 @@
+target_pool:
+  unified_total_min: 20000
+  public_combined_min: 4000
+  status_if_short: DATA_INCOMPLETE
+sources:
+  visobert_local:
+    priority: 1
+    path: D:\hf_cache\exports\visobert_12000_api
+    kind: local_export
+    action: ingest_first
+    notes: Parse JSON, JSONL, CSV and TXT files with text-like fields.
+  visobert_hf_fallback:
+    priority: 2
+    kind: huggingface
+    candidate_ids:
+      - phucnguyen/visobert
+      - phucdev/ViSoBERT
+    action: manual_verify_before_download
+  uit_vsfc:
+    kind: public_dataset
+    task: polarity
+    preserve_original_splits: true
+    candidate_sources:
+      - UIT NLP datasets page
+      - GitHub VietnameseDatasets mirrors
+  uit_vsmec:
+    kind: public_dataset
+    task: emotion
+    preserve_original_splits: true
+    candidate_sources:
+      - UIT NLP datasets page
+      - Hugging Face tridm/UIT-VSMEC or equivalent mirror
+  aivivn_2019:
+    kind: public_dataset
+    task: polarity
+    preserve_original_splits: true
+    candidate_sources:
+      - Kaggle AIVIVN-2019
+      - GitHub mirrors after license verification
+download_policy:
+  require_explicit_flag: true
+  require_license_review: true
+  preserve_public_splits: true
+  social_crawl_default: false

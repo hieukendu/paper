@@ -1,0 +1,18 @@
+{
+  "blocked_reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+  "budgets": {},
+  "created_at": "2026-06-29T04:10:26.253309+00:00",
+  "experiment": "q3_low_resource_sarcasm",
+  "metric": "sarcasm_binary_macro_f1",
+  "provenance": {
+    "allow_silver_gold": false,
+    "fine_tuning": "excluded",
+    "gold_path": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+    "note": "This runner evaluates imported predictions and no-train baselines only.",
+    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "record_limit": null,
+    "runner": "vipragsent.experiments.runner"
+  },
+  "schema_version": "1.0",
+  "status": "blocked"
+}

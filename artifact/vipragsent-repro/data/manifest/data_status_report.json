@@ -1,0 +1,97 @@
+{
+  "human_required": [
+    "Confirm dataset licenses before release or paper submission.",
+    "AIVIVN Kaggle mirror is binary train/test, not the 3-way split described in the workflow; confirm whether to keep it or provide the exact source.",
+    "Rule-based social labels are silver_agent only; two reviewers plus adjudicator must approve before gold splits.",
+    "Rare label thresholds are low for sarcasm, irony, idiom_figurative, code_switching, implicit_sentiment; use enrichment queue for targeted human review.",
+    "No social-media crawling was performed because ENABLE_SOCIAL_CRAWL=false and ToS/legal review is pending."
+  ],
+  "paths": {
+    "agent_prelabeled_social": "data/interim/agent_prelabeled.jsonl",
+    "all_unified": "data/processed/all_unified.jsonl",
+    "annotation_batches": "data/annotation/batches/",
+    "cleaned_social": "data/interim/cleaned_social.jsonl",
+    "enrichment_queue": "data/annotation/enrichment_queue.jsonl",
+    "local_visobert_export": "D:\\hf_cache\\exports\\visobert_12000_api",
+    "public_unified": "data/interim/public_datasets_unified.jsonl",
+    "raw_aivivn_2019": "data/raw/aivivn_2019/",
+    "raw_uit_vsfc": "data/raw/uit_vsfc/",
+    "raw_uit_vsmec": "data/raw/uit_vsmec/",
+    "source_type_report": "data/manifest/source_type_report.json"
+  },
+  "schema_version": "1.0",
+  "status": "DATA_READY_FOR_HUMAN_REVIEW_NOT_GOLD",
+  "summary": {
+    "annotation_batches": 120,
+    "available_label_counts": {
+      "emotion": 18927,
+      "polarity": 44262,
+      "pragmatic": 12000
+    },
+    "dataset_counts": {
+      "aivivn_2019": 16087,
+      "uit_vsfc": 16175,
+      "uit_vsmec": 6927,
+      "visobert_local": 12000
+    },
+    "dataset_type_counts": {
+      "aivivn_2019": {
+        "dev": 1287,
+        "test": 3217,
+        "train": 11583
+      },
+      "uit_vsfc": {
+        "dev": 1583,
+        "test": 3166,
+        "train": 11426
+      },
+      "uit_vsmec": {
+        "dev": 686,
+        "test": 693,
+        "train": 5548
+      },
+      "visobert_local": {
+        "null": 12000
+      }
+    },
+    "enrichment_queue_records": 1808,
+    "label_status_counts": {
+      "reviewed": 39189,
+      "silver_agent": 12000
+    },
+    "silver_pragmatic_positive_counts": {
+      "code_switching": 111,
+      "implicit_sentiment": 744,
+      "irony": 766,
+      "mocking": 752,
+      "sarcasm": 752
+    },
+    "split_counts": {
+      "aivivn_2019": {
+        "dev": 1287,
+        "test": 3217,
+        "train": 11583
+      },
+      "uit_vsfc": {
+        "dev": 1583,
+        "test": 3166,
+        "train": 11426
+      },
+      "uit_vsmec": {
+        "dev": 686,
+        "test": 693,
+        "train": 5548
+      },
+      "visobert_local": {
+        "unassigned": 12000
+      }
+    },
+    "total_unified_records": 51189,
+    "type_counts": {
+      "dev": 3556,
+      "null": 12000,
+      "test": 7076,
+      "train": 28557
+    }
+  }
+}

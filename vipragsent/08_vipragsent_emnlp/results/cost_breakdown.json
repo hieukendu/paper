@@ -1,0 +1,58 @@
+{
+  "phobert_finetune": {
+    "compute_gpu_h": 8.4,
+    "compute_usd": 6.72,
+    "api_usd": 0.0,
+    "annotation_usd": 1860.0,
+    "total_usd": 1866.72
+  },
+  "xlmr_large": {
+    "compute_gpu_h": 17.1,
+    "compute_usd": 13.68,
+    "api_usd": 0.0,
+    "annotation_usd": 1860.0,
+    "total_usd": 1873.68
+  },
+  "sailor_sft": {
+    "compute_gpu_h": 41.2,
+    "compute_usd": 32.96,
+    "api_usd": 0.0,
+    "annotation_usd": 1860.0,
+    "total_usd": 1892.96
+  },
+  "vistral_sft": {
+    "compute_gpu_h": 38.6,
+    "compute_usd": 30.88,
+    "api_usd": 0.0,
+    "annotation_usd": 1860.0,
+    "total_usd": 1890.88
+  },
+  "gpt4o_mini_zero_shot": {
+    "compute_gpu_h": 0.0,
+    "compute_usd": 0.0,
+    "api_usd": 4.2,
+    "annotation_usd": 1860.0,
+    "total_usd": 1864.2
+  },
+  "gpt4o_mini_few_shot": {
+    "compute_gpu_h": 0.0,
+    "compute_usd": 0.0,
+    "api_usd": 7.1,
+    "annotation_usd": 1860.0,
+    "total_usd": 1867.1
+  },
+  "vipragsent_phobert_backbone": {
+    "compute_gpu_h": 12.6,
+    "compute_usd": 10.08,
+    "api_usd": 0.0,
+    "annotation_usd": 1860.0,
+    "total_usd": 1870.08
+  },
+  "vipragsent_vistral_backbone": {
+    "compute_gpu_h": 46.8,
+    "compute_usd": 37.44,
+    "api_usd": 0.0,
+    "annotation_usd": 1860.0,
+    "total_usd": 1897.44
+  }
+}

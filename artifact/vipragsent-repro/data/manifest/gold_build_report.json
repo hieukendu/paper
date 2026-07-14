@@ -1,0 +1,13 @@
+{
+  "base_records": 12000,
+  "disagreements": 0,
+  "disagreements_output": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\annotation\\disagreements\\all_disagreements.jsonl",
+  "final_gold_records": 0,
+  "invalid_records": [],
+  "missing_review_records": 12000,
+  "outputs": {},
+  "split_counts": {},
+  "split_overlaps": {},
+  "status": "pending_missing_human_annotations",
+  "wrote_gold_outputs": false
+}

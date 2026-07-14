@@ -1,0 +1,2 @@
+anchor,claim,source_file,json_path
+Artifacts.status,No complete metrics available yet,results/*.json,$.status
