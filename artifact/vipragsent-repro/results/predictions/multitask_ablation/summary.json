@@ -1,0 +1,54 @@
+{
+  "rows": {
+    "full": {
+      "status": "complete",
+      "macro_pragmatic_f1": 73.7182,
+      "ordinary_f1": null,
+      "ece": 0.06711602833176075,
+      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl"
+    },
+    "no_emotion_auxiliary": {
+      "status": "complete",
+      "macro_pragmatic_f1": 74.8132,
+      "ordinary_f1": null,
+      "ece": 0.14246408445028735,
+      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl"
+    },
+    "no_ordinary_sentiment_auxiliary": {
+      "status": "complete",
+      "macro_pragmatic_f1": 73.358,
+      "ordinary_f1": null,
+      "ece": 0.12214876163128928,
+      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl"
+    },
+    "no_explanation_cot_auxiliary": {
+      "status": "complete",
+      "macro_pragmatic_f1": 73.6435,
+      "ordinary_f1": null,
+      "ece": 0.07841833389403831,
+      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260520.jsonl"
+    },
+    "no_multitask": {
+      "status": "complete",
+      "macro_pragmatic_f1": 81.7177,
+      "ordinary_f1": null,
+      "ece": 0.08969743262926051,
+      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl"
+    },
+    "no_task_uncertainty_weighting": {
+      "status": "complete",
+      "macro_pragmatic_f1": 73.6219,
+      "ordinary_f1": null,
+      "ece": 0.06504932543197298,
+      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl"
+    },
+    "explanation_augmented_inference": {
+      "status": "not_run",
+      "reason": "No inference-time rationale-generation variant is implemented in this protocol."
+    },
+    "hard_label_distillation": {
+      "status": "not_run",
+      "reason": "No teacher-logit or hard-label distillation training run is implemented in this protocol."
+    }
+  }
+}

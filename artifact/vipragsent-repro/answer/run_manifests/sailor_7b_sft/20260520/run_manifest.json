@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "created_at": "2026-07-15T12:10:24.465667+00:00",
+  "system": "sailor_7b_sft",
+  "seed": 20260520,
+  "model_id": "/root/hf_cache/models/Sailor-7B",
+  "device": "cuda:0",
+  "epochs_completed": 3,
+  "elapsed_seconds": 20165.909,
+  "adapter": "/root/vipragsent-repro/outputs/sailor_7b_sft/20260520/adapter",
+  "predictions": "/root/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260520.jsonl",
+  "prediction_records": 2000,
+  "training_type": "nf4_qlora_sft"
+}

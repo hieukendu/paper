@@ -1,0 +1,24 @@
+{
+  "status": "ok",
+  "created_at": "2026-07-15T05:57:36.103631+00:00",
+  "system": "vipragsent_no_polarity",
+  "seed": 20260520,
+  "model_id": "/root/hf_cache/models/phobert-base",
+  "device": "cuda",
+  "bf16": true,
+  "train_records": 8000,
+  "dev_records": 2000,
+  "test_records": 2000,
+  "epochs_completed": 4,
+  "elapsed_seconds": 134.714,
+  "best_dev_macro_pragmatic_f1": 0.7313159712710279,
+  "checkpoint": "/root/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/best.pt",
+  "predictions": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl",
+  "rationales_loaded": 8000,
+  "flags": {
+    "no_rationale": false,
+    "no_emotion": false,
+    "no_polarity": true,
+    "no_uncertainty": false
+  }
+}

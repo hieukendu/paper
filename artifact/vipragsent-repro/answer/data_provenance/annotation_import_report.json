@@ -1,0 +1,41 @@
+{
+  "adjudicator_only_replacement_records": 2000,
+  "base_records": 12000,
+  "coverage": {
+    "adjudicator": {
+      "canonical_records": 12000,
+      "records": 12000
+    },
+    "adjudicator_only_replacement_records": 2000,
+    "replaced_old_batch_records": 0,
+    "reviewer_1": {
+      "canonical_records": 10000,
+      "records_in_workbook": 12000
+    },
+    "reviewer_2": {
+      "canonical_records": 10000,
+      "records_in_workbook": 12000
+    },
+    "shared_reviewer_records": 10000
+  },
+  "disagreement_field_occurrences": {
+    "code_switching": 1210,
+    "emotion": 5841,
+    "idiom_figurative": 151,
+    "implicit_sentiment": 1942,
+    "irony": 456,
+    "mocking": 1712,
+    "polarity": 3789,
+    "sarcasm": 1718
+  },
+  "disagreements_output": "/root/paper/artifact/vipragsent-repro/data/annotation/disagreements/resolved_disagreements.jsonl",
+  "exact_agreements": 2390,
+  "mapping": {
+    "Duy_Duc.xlsx": "reviewer_01 / duy_duc",
+    "Nhat_Khang.xlsx": "reviewer_02 / nhat_khang",
+    "Quynh_Nhu.xlsx": "adjudicated / quynh_nhu (final gold)"
+  },
+  "records_with_disagreement": 7610,
+  "reviewer_comparable_records": 10000,
+  "status": "ok"
+}

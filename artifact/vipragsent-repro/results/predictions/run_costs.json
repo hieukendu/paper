@@ -1,0 +1,75 @@
+{
+  "source": "trainer run_manifest.json elapsed_seconds",
+  "systems": {
+    "phobert_finetune": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json",
+        "/root/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json"
+      ],
+      "gpu_hours": 0.35885
+    },
+    "vipragsent_full": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json",
+        "/root/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json"
+      ],
+      "gpu_hours": 0.283968
+    },
+    "sailor_7b_sft": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
+      ],
+      "gpu_hours": 5.601641
+    },
+    "vipragsent_no_emotion": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json"
+      ],
+      "gpu_hours": 0.092944
+    },
+    "vipragsent_no_polarity": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json"
+      ],
+      "gpu_hours": 0.037421
+    },
+    "vipragsent_no_rationale": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json"
+      ],
+      "gpu_hours": 0.047858
+    },
+    "vipragsent_no_uncertainty": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json"
+      ],
+      "gpu_hours": 0.046238
+    },
+    "vistral_7b_sft": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
+      ],
+      "gpu_hours": 4.896611
+    },
+    "xlmr_large": {
+      "runs": [
+        "/root/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json",
+        "/root/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json",
+        "/root/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json"
+      ],
+      "gpu_hours": 1.947734
+    }
+  }
+}
