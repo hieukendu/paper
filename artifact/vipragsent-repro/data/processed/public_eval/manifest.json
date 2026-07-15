@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "public_source": "/root/paper/artifact/vipragsent-repro/data/processed/all_unified.jsonl",
+  "datasets": {
+    "uit_vsfc": {
+      "records": 3166,
+      "output": "/root/paper/artifact/vipragsent-repro/data/processed/public_eval/uit_vsfc_test.jsonl"
+    },
+    "uit_vsmec": {
+      "records": 693,
+      "output": "/root/paper/artifact/vipragsent-repro/data/processed/public_eval/uit_vsmec_test.jsonl"
+    },
+    "aivivn_2019": {
+      "records": 3217,
+      "output": "/root/paper/artifact/vipragsent-repro/data/processed/public_eval/aivivn_2019_test.jsonl"
+    }
+  },
+  "low_resource_budgets": [
+    64,
+    128,
+    256,
+    512,
+    1024
+  ]
+}

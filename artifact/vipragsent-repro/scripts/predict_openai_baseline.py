@@ -21,7 +21,9 @@ from vipragsent.utils.io import read_jsonl, write_jsonl
 
 SYSTEM_PROMPT = """You are a Vietnamese pragmatic-sentiment classifier.
 Predict six binary pragmatic labels, intended polarity, and UIT-VSMEC emotion.
-Return JSON only. Do not include explanations."""
+Return JSON only. Do not include explanations. The `polarity` field must be
+exactly one of `positive`, `neutral`, or `negative`; emotion words such as
+`sadness` belong only in the `emotion` field."""
 
 
 def main() -> int:
@@ -103,11 +105,47 @@ def _predict_one(record: dict[str, Any], *, demos: list[dict[str, Any]]) -> tupl
         messages.append({"role": "assistant", "content": json.dumps({"labels": demo["labels"]}, ensure_ascii=False)})
     messages.append({"role": "user", "content": _comment_prompt(record, include_schema=True)})
     raw = chat_completion(messages, kind="label", temperature=0.0, top_p=1.0, max_tokens=700, json_mode=True)
+    try:
+        labels, probabilities = _parse_response(raw)
+    except (json.JSONDecodeError, ValueError):
+        # Do not infer a replacement label locally.  Instead, give the model
+        # its malformed answer back and request a schema-only correction.  This
+        # makes retries deterministic and keeps the prediction attributable to
+        # the API rather than silently mapping (for example) sadness to a
+        # polarity class.
+        correction_messages = [
+            *messages,
+            {"role": "assistant", "content": first_message_content(raw)},
+            {
+                "role": "user",
+                "content": (
+                    "Your previous JSON does not satisfy the requested label schema. "
+                    "Return a corrected JSON only for the same comment. In particular, "
+                    "polarity must be exactly positive, neutral, or negative, while "
+                    "emotion must be one of enjoyment, sadness, anger, disgust, fear, "
+                    "surprise, or other."
+                ),
+            },
+        ]
+        corrected = chat_completion(
+            correction_messages,
+            kind="label",
+            temperature=0.0,
+            top_p=1.0,
+            max_tokens=700,
+            json_mode=True,
+        )
+        labels, probabilities = _parse_response(corrected)
+        return labels, probabilities, {"initial_response": raw, "corrected_response": corrected}
+    return labels, probabilities, raw
+
+
+def _parse_response(raw: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     parsed = json.loads(first_message_content(raw))
     labels = canonicalize_labels(parsed.get("labels", parsed))
     _validate_labels(labels)
     probabilities = _normalise_probabilities(parsed.get("probabilities") or parsed.get("probs") or {})
-    return labels, probabilities, raw
+    return labels, probabilities
 
 
 def _comment_prompt(record: dict[str, Any], *, include_schema: bool) -> str:

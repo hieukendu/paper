@@ -1,60 +1,60 @@
 {
-  "created_at": "2026-06-29T04:10:22.459801+00:00",
+  "created_at": "2026-07-14T21:21:46.677156+00:00",
   "datasets": {
     "aivivn_2019": {
       "status": "blocked",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
           "status": "blocked"
         },
         "gpt41_mini_zero_shot": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\gpt41_mini_zero_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/gpt41_mini_zero_shot",
           "label": "GPT-4.1-mini zero-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
           "status": "blocked"
         },
         "phobert_finetune": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\phobert_finetune",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/phobert_finetune",
           "label": "PhoBERT fine-tune",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "phobert_single_task": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\phobert_single_task",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/phobert_single_task",
           "label": "PhoBERT (single-task)",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "sailor_7b_sft": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\sailor_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/sailor_7b_sft",
           "label": "Sailor-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "vipragsent_full": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\vipragsent_full",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/vipragsent_full",
           "label": "ViPragSent (ours)",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\aivivn_2019\\xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -66,56 +66,56 @@
       "status": "blocked",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
           "status": "blocked"
         },
         "gpt41_mini_zero_shot": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\gpt41_mini_zero_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/gpt41_mini_zero_shot",
           "label": "GPT-4.1-mini zero-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
           "status": "blocked"
         },
         "phobert_finetune": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\phobert_finetune",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/phobert_finetune",
           "label": "PhoBERT fine-tune",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "phobert_single_task": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\phobert_single_task",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/phobert_single_task",
           "label": "PhoBERT (single-task)",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "sailor_7b_sft": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\sailor_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/sailor_7b_sft",
           "label": "Sailor-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "vipragsent_full": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\vipragsent_full",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/vipragsent_full",
           "label": "ViPragSent (ours)",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\ordinary_sentiment\\uit_vsfc\\xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -134,9 +134,9 @@
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "excluded",
-    "gold_path": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\all_unified.jsonl",
+    "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/all_unified.jsonl",
     "note": "This runner evaluates imported predictions and no-train baselines only.",
-    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },

@@ -1,0 +1,32 @@
+hardware: H100_20GB
+precision: bf16
+max_sequence_length: 128
+seeds: [20260520, 20260521, 20260522]
+encoder:
+  models:
+    phobert_finetune: vinai/phobert-base
+    xlmr_large: FacebookAI/xlm-roberta-large
+  learning_rate: 2.0e-5
+  batch_size: 16
+  gradient_accumulation: 2
+  effective_batch_size: 32
+  epochs: 10
+  early_stopping_patience: 2
+  rationale_beta: 0.3
+  task_uncertainty_weighting: true
+qlora_7b:
+  models:
+    sailor_7b_sft: sail/Sailor-7B
+    vistral_7b_sft: Viet-Mistral/Vistral-7B-Chat
+  quantization: nf4_4bit
+  learning_rate: 1.0e-4
+  per_device_batch_size: 2
+  gradient_accumulation: 8
+  epochs: 3
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+evaluation:
+  bootstrap_resamples: 1000
+  ece_bins: 10
+  note: Three seeds are the default due to the July 12-15 allocation; extend to five when time permits.

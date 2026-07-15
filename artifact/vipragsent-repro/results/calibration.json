@@ -1,18 +1,97 @@
 {
-  "blocked_reason": "No evaluated system with confidence scores is available.",
-  "created_at": "2026-06-29T04:10:26.254309+00:00",
+  "created_at": "2026-07-14T21:21:54.886513+00:00",
   "experiment": "q4_calibration",
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "excluded",
-    "gold_path": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+    "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
     "note": "This runner evaluates imported predictions and no-train baselines only.",
-    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },
   "schema_version": "1.0",
-  "status": "blocked",
-  "systems": {},
+  "status": "complete",
+  "systems": {
+    "heuristic_local": {
+      "bins": [
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.1,
+          "low": 0.0,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.2,
+          "low": 0.1,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.3,
+          "low": 0.2,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.4,
+          "low": 0.3,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.5,
+          "low": 0.4,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.6,
+          "low": 0.5,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.7,
+          "low": 0.6,
+          "n": 0
+        },
+        {
+          "acc": 0.4775,
+          "conf": 0.7000000000000259,
+          "high": 0.8,
+          "low": 0.7,
+          "n": 2000
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 0.9,
+          "low": 0.8,
+          "n": 0
+        },
+        {
+          "acc": 0.0,
+          "conf": 0.0,
+          "high": 1.0,
+          "low": 0.9,
+          "n": 0
+        }
+      ],
+      "ece": 0.2225,
+      "label": "Local heuristic smoke baseline",
+      "missing_confidence": 0,
+      "n": 2000,
+      "status": "complete"
+    }
+  },
   "target": "pragmatic_polarity"
 }

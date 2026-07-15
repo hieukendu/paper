@@ -2,4 +2,16 @@ datasets>=2.20.0
 huggingface_hub>=0.23.0
 kaggle==1.6.17
 pandas>=2.0.0
+openpyxl>=3.1.0
 pytest>=8.0.0
+pyyaml>=6.0
+# The school H100 host runs NVIDIA driver 550.54 (CUDA 12.4 compatible).
+# Newer PyTorch wheels may pull CUDA 13 libraries that this driver cannot load.
+torch==2.5.1
+transformers==4.46.3
+accelerate==1.0.1
+scikit-learn>=1.4.0
+sentencepiece>=0.2.0
+safetensors>=0.4.0
+peft==0.13.2
+bitsandbytes==0.44.1

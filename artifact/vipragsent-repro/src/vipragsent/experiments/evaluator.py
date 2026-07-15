@@ -87,7 +87,11 @@ def evaluate_pragmatic_records(joined_records: list[dict[str, Any]], *, bootstra
 
 
 def evaluate_polarity_records(joined_records: list[dict[str, Any]], *, bootstrap_resamples: int = 1000) -> dict[str, Any]:
-    labels = ["positive", "neutral", "negative"]
+    # AIVIVN mirror is binary, while UIT-VSFC is three-way.  Scoring an absent
+    # class as a zero-F1 class would create a fictitious penalty, therefore the
+    # metric's label set is inferred from the gold evaluation partition.
+    canonical = ["positive", "neutral", "negative"]
+    labels = [label for label in canonical if any(record["gold"].get("polarity") == label for record in joined_records)]
     point = _multiclass_metric(joined_records, labels=labels, field="polarity")
     lo, hi = bootstrap_ci(
         joined_records,
@@ -96,6 +100,7 @@ def evaluate_polarity_records(joined_records: list[dict[str, Any]], *, bootstrap
     )
     return {
         "n": len(joined_records),
+        "label_space": labels,
         "metrics": {
             "polarity_macro_f1": {
                 "value": round(point, 4),
@@ -106,7 +111,7 @@ def evaluate_polarity_records(joined_records: list[dict[str, Any]], *, bootstrap
 
 
 def evaluate_emotion_records(joined_records: list[dict[str, Any]], *, bootstrap_resamples: int = 1000) -> dict[str, Any]:
-    labels = sorted(EMOTION_LABELS)
+    labels = sorted({str(record["gold"].get("emotion")) for record in joined_records if record["gold"].get("emotion") in EMOTION_LABELS})
     point = _multiclass_metric(joined_records, labels=labels, field="emotion")
     lo, hi = bootstrap_ci(
         joined_records,
@@ -115,6 +120,7 @@ def evaluate_emotion_records(joined_records: list[dict[str, Any]], *, bootstrap_
     )
     return {
         "n": len(joined_records),
+        "label_space": labels,
         "metrics": {
             "emotion_macro_f1": {
                 "value": round(point, 4),

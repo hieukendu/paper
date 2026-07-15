@@ -22,6 +22,7 @@ from vipragsent.experiments.evaluator import (
     aggregate_seed_reports,
     evaluate_calibration_records,
     evaluate_confusion_records,
+    evaluate_emotion_records,
     evaluate_polarity_records,
     evaluate_pragmatic_records,
     load_gold_records,
@@ -112,7 +113,7 @@ def run_no_finetune_suite(
 
     cost_result = _result_envelope("cost_breakdown", status="complete")
     _add_run_context(cost_result, predictions_dir, allow_silver_gold=allow_silver_gold, limit=limit)
-    cost_result["cost"] = COST_BREAKDOWN
+    cost_result["cost"] = _measured_cost_breakdown(predictions_dir)
     dump_json(output_dir / "cost_breakdown.json", cost_result)
     summary["outputs"]["cost_breakdown"] = str(output_dir / "cost_breakdown.json")
 
@@ -196,13 +197,24 @@ def build_ordinary_sentiment_result(
     result = _result_envelope("q1_ordinary_sentiment_retention")
     result["metric"] = "polarity_macro_f1"
     result["datasets"] = {}
+    # UIT-VSMEC is a seven-way emotion benchmark.  Keeping it as an emotion
+    # metric avoids incorrectly claiming a polarity score for labels that do
+    # not exist in that source.
+    task_specs = {
+        "uit_vsfc": ("polarity", "polarity_macro_f1"),
+        "uit_vsmec": ("emotion", "emotion_macro_f1"),
+        "aivivn_2019": ("polarity", "polarity_macro_f1"),
+    }
     for dataset in ORDINARY_DATASETS:
+        task, metric_name = task_specs[dataset]
         dataset_result = {"systems": {}, "status": "pending"}
+        dataset_result["task"] = task
+        dataset_result["metric"] = metric_name
         try:
             all_records = load_gold_records(
                 public_data_path,
                 split="test",
-                task="polarity",
+                task=task,
                 require_adjudicated=False,
                 allow_silver=allow_silver_gold,
                 limit=None,
@@ -234,7 +246,11 @@ def build_ordinary_sentiment_result(
             for path in files:
                 try:
                     joined = join_gold_predictions(gold_records, load_prediction_records(path))
-                    report = evaluate_polarity_records(joined, bootstrap_resamples=bootstrap_resamples)
+                    report = (
+                        evaluate_polarity_records(joined, bootstrap_resamples=bootstrap_resamples)
+                        if task == "polarity"
+                        else evaluate_emotion_records(joined, bootstrap_resamples=bootstrap_resamples)
+                    )
                     report["prediction_file"] = str(path)
                     seed_reports.append(report)
                 except (PredictionError, ValueError) as exc:
@@ -242,7 +258,7 @@ def build_ordinary_sentiment_result(
             dataset_result["systems"][system.system_id] = _system_from_seed_reports(
                 system.system_id,
                 seed_reports,
-                ["polarity_macro_f1"],
+                [metric_name],
                 errors=errors,
             )
         dataset_result["status"] = _overall_status(dataset_result["systems"])
@@ -514,6 +530,44 @@ def _default_vipragsent_test(root: Path) -> Path:
     return candidates[0]
 
 
+def _measured_cost_breakdown(predictions_dir: Path) -> dict[str, Any]:
+    """Report measured wall-clock GPU-hours when trainer manifests are available.
+
+    The previous scaffold copied protocol estimates from the draft manuscript.
+    Those values are retained only as an explicit fallback note, never merged
+    with real run measurements.
+    """
+    run_costs = predictions_dir / "run_costs.json"
+    if run_costs.exists():
+        payload = load_json(run_costs)
+        systems = payload.get("systems") if isinstance(payload, dict) else None
+        if isinstance(systems, dict) and systems:
+            return {
+                "assumptions": {
+                    "source": "Measured trainer wall-clock elapsed_seconds; a GPU-hour price was not supplied.",
+                    "compute_usd": None,
+                    "annotation_cost_usd": None,
+                },
+                "systems": {
+                    system: {
+                        "gpu_hours": values.get("gpu_hours"),
+                        "compute_usd": None,
+                        "api_usd": None,
+                        "total_usd": None,
+                        "run_manifests": values.get("runs", []),
+                    }
+                    for system, values in systems.items()
+                    if isinstance(values, dict)
+                },
+            }
+    return {
+        "assumptions": {
+            "source": "No measured trainer manifests found; cost is intentionally not estimated from the draft PDF.",
+        },
+        "systems": {},
+    }
+
+
 def _result_envelope(experiment: str, *, status: str = "pending") -> dict[str, Any]:
     return {
         "schema_version": "1.0",
@@ -522,8 +576,8 @@ def _result_envelope(experiment: str, *, status: str = "pending") -> dict[str, A
         "created_at": datetime.now(timezone.utc).isoformat(),
         "provenance": {
             "runner": "vipragsent.experiments.runner",
-            "fine_tuning": "excluded",
-            "note": "This runner evaluates imported predictions and no-train baselines only.",
+            "fine_tuning": "evaluated_from_prediction_jsonl",
+            "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
         },
     }
 

@@ -1,73 +1,213 @@
 {
-  "blocked_reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
-  "created_at": "2026-06-29T04:10:22.458850+00:00",
+  "created_at": "2026-07-14T21:19:12.778931+00:00",
   "experiment": "q1_main_pragmatic",
   "metric": "binary_macro_f1_per_phenomenon",
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "excluded",
-    "gold_path": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+    "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
     "note": "This runner evaluates imported predictions and no-train baselines only.",
-    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },
   "schema_version": "1.0",
-  "status": "blocked",
+  "status": "partial",
   "systems": {
     "gpt41_mini_8_shot": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\gpt41_mini_8_shot",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/gpt41_mini_8_shot",
       "label": "GPT-4.1-mini 8-shot",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": false,
       "status": "blocked"
     },
     "gpt41_mini_zero_shot": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\gpt41_mini_zero_shot",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/gpt41_mini_zero_shot",
       "label": "GPT-4.1-mini zero-shot",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": false,
       "status": "blocked"
     },
+    "heuristic_local": {
+      "label": "Local heuristic smoke baseline",
+      "metrics": {
+        "code_switching": {
+          "ci95": [
+            50.6722,
+            50.6722
+          ],
+          "mean": 50.6722,
+          "n_seeds": 1,
+          "seed_values": [
+            50.6722
+          ]
+        },
+        "idiom_figurative": {
+          "ci95": [
+            47.5891,
+            47.5891
+          ],
+          "mean": 47.5891,
+          "n_seeds": 1,
+          "seed_values": [
+            47.5891
+          ]
+        },
+        "implicit_sentiment": {
+          "ci95": [
+            51.4989,
+            51.4989
+          ],
+          "mean": 51.4989,
+          "n_seeds": 1,
+          "seed_values": [
+            51.4989
+          ]
+        },
+        "irony": {
+          "ci95": [
+            45.9167,
+            45.9167
+          ],
+          "mean": 45.9167,
+          "n_seeds": 1,
+          "seed_values": [
+            45.9167
+          ]
+        },
+        "macro_pragmatic_f1": {
+          "ci95": [
+            48.8803,
+            48.8803
+          ],
+          "mean": 48.8803,
+          "n_seeds": 1,
+          "seed_values": [
+            48.8803
+          ]
+        },
+        "mocking": {
+          "ci95": [
+            48.3415,
+            48.3415
+          ],
+          "mean": 48.3415,
+          "n_seeds": 1,
+          "seed_values": [
+            48.3415
+          ]
+        },
+        "sarcasm": {
+          "ci95": [
+            49.2631,
+            49.2631
+          ],
+          "mean": 49.2631,
+          "n_seeds": 1,
+          "seed_values": [
+            49.2631
+          ]
+        }
+      },
+      "prediction_files": [],
+      "requires_finetuning": false,
+      "runs": [
+        {
+          "metrics": {
+            "code_switching": {
+              "bootstrap_ci95": [
+                48.3835,
+                53.3252
+              ],
+              "value": 50.6722
+            },
+            "idiom_figurative": {
+              "bootstrap_ci95": [
+                47.2296,
+                47.9167
+              ],
+              "value": 47.5891
+            },
+            "implicit_sentiment": {
+              "bootstrap_ci95": [
+                49.0489,
+                53.9582
+              ],
+              "value": 51.4989
+            },
+            "irony": {
+              "bootstrap_ci95": [
+                45.4446,
+                46.3807
+              ],
+              "value": 45.9167
+            },
+            "macro_pragmatic_f1": {
+              "bootstrap_ci95": [
+                48.0529,
+                49.7695
+              ],
+              "value": 48.8803
+            },
+            "mocking": {
+              "bootstrap_ci95": [
+                46.5042,
+                50.3169
+              ],
+              "value": 48.3415
+            },
+            "sarcasm": {
+              "bootstrap_ci95": [
+                47.2931,
+                51.5777
+              ],
+              "value": 49.2631
+            }
+          },
+          "n": 2000
+        }
+      ],
+      "status": "complete"
+    },
     "phobert_finetune": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\phobert_finetune",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune",
       "label": "PhoBERT fine-tune",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": true,
       "status": "blocked"
     },
     "phobert_single_task": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\phobert_single_task",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_single_task",
       "label": "PhoBERT (single-task)",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": true,
       "status": "blocked"
     },
     "sailor_7b_sft": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\sailor_7b_sft",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft",
       "label": "Sailor-7B SFT",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": true,
       "status": "blocked"
     },
     "vipragsent_full": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\vipragsent_full",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full",
       "label": "ViPragSent (ours)",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": true,
       "status": "blocked"
     },
     "vistral_7b_sft": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\vistral_7b_sft",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft",
       "label": "Vistral-7B SFT",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": true,
       "status": "blocked"
     },
     "xlmr_large": {
-      "expected_prediction_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions\\main_pragmatic\\xlmr_large",
+      "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/xlmr_large",
       "label": "XLM-R-large",
-      "reason": "gold file does not exist: D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+      "reason": "missing prediction JSONL",
       "requires_finetuning": true,
       "status": "blocked"
     }

@@ -72,16 +72,18 @@ def write_main_pragmatic_table(path: Path, result: dict[str, Any] | None) -> Pat
 def write_ordinary_table(path: Path, result: dict[str, Any] | None) -> Path:
     rows = []
     for dataset, dataset_payload in (result or {}).get("datasets", {}).items():
+        metric_name = dataset_payload.get("metric", "polarity_macro_f1")
         for system_id, system in (dataset_payload.get("systems") or {}).items():
             rows.append(
                 [
                     dataset,
+                    dataset_payload.get("task", "polarity"),
                     system.get("label") or SYSTEM_LABELS.get(system_id, system_id),
-                    _metric_cell((system.get("metrics") or {}).get("polarity_macro_f1")),
+                    _metric_cell((system.get("metrics") or {}).get(metric_name)),
                     system.get("status", "missing"),
                 ]
             )
-    _write_markdown_table(path, "Ordinary Sentiment Retention", ["Dataset", "System", "polarity_macro_f1", "status"], rows, result)
+    _write_markdown_table(path, "Public-task Retention", ["Dataset", "Task", "System", "Macro F1", "status"], rows, result)
     return path
 
 

@@ -1,16 +1,125 @@
 {
-  "blocked_reason": "No evaluated system is available for confusion matrix.",
-  "created_at": "2026-06-29T04:10:26.254309+00:00",
+  "counts": [
+    [
+      0,
+      0,
+      300,
+      0,
+      0,
+      35
+    ],
+    [
+      0,
+      0,
+      230,
+      0,
+      0,
+      8
+    ],
+    [
+      0,
+      0,
+      939,
+      0,
+      0,
+      54
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      125,
+      0,
+      0,
+      4
+    ],
+    [
+      0,
+      0,
+      289,
+      0,
+      0,
+      16
+    ]
+  ],
+  "created_at": "2026-07-14T21:21:54.898574+00:00",
   "experiment": "q4_error_confusion",
+  "label": "Local heuristic smoke baseline",
+  "labels": [
+    "positive",
+    "negative",
+    "neutral",
+    "ironic-positive",
+    "sarcastic-negative",
+    "mocking"
+  ],
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "excluded",
-    "gold_path": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\processed\\vipragsent_test.jsonl",
+    "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
     "note": "This runner evaluates imported predictions and no-train baselines only.",
-    "predictions_dir": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\results\\predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },
+  "row_normalised": [
+    [
+      0.0,
+      0.0,
+      0.8955223880597015,
+      0.0,
+      0.0,
+      0.1044776119402985
+    ],
+    [
+      0.0,
+      0.0,
+      0.9663865546218487,
+      0.0,
+      0.0,
+      0.03361344537815126
+    ],
+    [
+      0.0,
+      0.0,
+      0.945619335347432,
+      0.0,
+      0.0,
+      0.054380664652567974
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.9689922480620154,
+      0.0,
+      0.0,
+      0.031007751937984496
+    ],
+    [
+      0.0,
+      0.0,
+      0.9475409836065574,
+      0.0,
+      0.0,
+      0.05245901639344262
+    ]
+  ],
   "schema_version": "1.0",
-  "status": "blocked"
+  "status": "complete",
+  "system": "heuristic_local"
 }

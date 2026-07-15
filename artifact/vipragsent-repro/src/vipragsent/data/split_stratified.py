@@ -88,6 +88,8 @@ def assign_multilabel_stratified_splits(
             str(output[idx].get("id")),
         )
     )
+    split_order = list(split_names)
+    rng.shuffle(split_order)
     for idx in unassigned_idx:
         record = output[idx]
         label_values = {
@@ -95,9 +97,16 @@ def assign_multilabel_stratified_splits(
             for label in PRAGMATIC_LABELS
         }
         platform = str(record.get("platform") or (record.get("source") or {}).get("platform") or "unknown")
-        split = min(
-            split_names,
-            key=lambda candidate: _split_score(
+        candidates = [
+            candidate for candidate in split_order
+            if current_sizes[candidate] < target_sizes[candidate]
+            and current_platform_counts[candidate][platform] < target_platform_counts[candidate][platform]
+        ]
+        if not candidates:
+            candidates = [candidate for candidate in split_order if current_sizes[candidate] < target_sizes[candidate]]
+        split = max(
+            candidates,
+            key=lambda candidate: _split_need_score(
                 candidate,
                 label_values,
                 platform,
@@ -171,7 +180,7 @@ def _target_counts(total: int, ratios: dict[str, float]) -> dict[str, int]:
     return {"train": train, "dev": dev, "test": test}
 
 
-def _split_score(
+def _split_need_score(
     split: str,
     label_values: dict[str, int],
     platform: str,
@@ -182,13 +191,15 @@ def _split_score(
     target_label_counts: dict[str, dict[str, int]],
     target_platform_counts: dict[str, dict[str, int]],
 ) -> float:
-    size_after = current_sizes[split] + 1
-    size_overflow = max(0, size_after - target_sizes[split]) * 100.0
-    size_gap = abs(target_sizes[split] - size_after)
-    label_gap = 0.0
+    # Higher means this split needs this record more. Capacities are enforced by
+    # the caller; normalized deficits balance rare labels and platform without
+    # filling the smaller dev/test splits before train.
+    size_need = (target_sizes[split] - current_sizes[split]) / max(1, target_sizes[split])
+    label_need = 0.0
     for label, value in label_values.items():
-        after = current_label_counts[split][label] + value
-        label_gap += abs(target_label_counts[split][label] - after)
-    platform_after = current_platform_counts[split][platform] + 1
-    platform_gap = abs(target_platform_counts[split][platform] - platform_after)
-    return size_overflow + size_gap + (2.0 * label_gap) + platform_gap
+        if value:
+            target = target_label_counts[split][label]
+            label_need += (target - current_label_counts[split][label]) / max(1, target)
+    platform_target = target_platform_counts[split][platform]
+    platform_need = (platform_target - current_platform_counts[split][platform]) / max(1, platform_target)
+    return (3.0 * label_need) + platform_need + size_need

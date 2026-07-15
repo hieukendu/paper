@@ -1,4 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="180" viewBox="0 0 760 180"><defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e96"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
-<rect x="20" y="35" width="720" height="100" rx="8" fill="#f7f7f7" stroke="#999"/>
-<text x="380" y="90" text-anchor="middle" font-size="14">Confusion matrix is blocked until prediction files exist.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="390" viewBox="0 0 440 390"><defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e96"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
+<text x="20" y="28" font-size="16">Pragmatic polarity confusion</text>
+<rect x="120" y="55" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="142.5" y="82" text-anchor="middle" font-size="10">0.00</text>
+<rect x="165" y="55" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="187.5" y="82" text-anchor="middle" font-size="10">0.00</text>
+<rect x="210" y="55" width="45" height="45" fill="rgb(102,102,255)" stroke="#fff"/>
+<text x="232.5" y="82" text-anchor="middle" font-size="10">0.90</text>
+<rect x="255" y="55" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="277.5" y="82" text-anchor="middle" font-size="10">0.00</text>
+<rect x="300" y="55" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="322.5" y="82" text-anchor="middle" font-size="10">0.00</text>
+<rect x="345" y="55" width="45" height="45" fill="rgb(237,237,255)" stroke="#fff"/>
+<text x="367.5" y="82" text-anchor="middle" font-size="10">0.10</text>
+<rect x="120" y="100" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="142.5" y="127" text-anchor="middle" font-size="10">0.00</text>
+<rect x="165" y="100" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="187.5" y="127" text-anchor="middle" font-size="10">0.00</text>
+<rect x="210" y="100" width="45" height="45" fill="rgb(90,90,255)" stroke="#fff"/>
+<text x="232.5" y="127" text-anchor="middle" font-size="10">0.97</text>
+<rect x="255" y="100" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="277.5" y="127" text-anchor="middle" font-size="10">0.00</text>
+<rect x="300" y="100" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="322.5" y="127" text-anchor="middle" font-size="10">0.00</text>
+<rect x="345" y="100" width="45" height="45" fill="rgb(249,249,255)" stroke="#fff"/>
+<text x="367.5" y="127" text-anchor="middle" font-size="10">0.03</text>
+<rect x="120" y="145" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="142.5" y="172" text-anchor="middle" font-size="10">0.00</text>
+<rect x="165" y="145" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="187.5" y="172" text-anchor="middle" font-size="10">0.00</text>
+<rect x="210" y="145" width="45" height="45" fill="rgb(94,94,255)" stroke="#fff"/>
+<text x="232.5" y="172" text-anchor="middle" font-size="10">0.95</text>
+<rect x="255" y="145" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="277.5" y="172" text-anchor="middle" font-size="10">0.00</text>
+<rect x="300" y="145" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="322.5" y="172" text-anchor="middle" font-size="10">0.00</text>
+<rect x="345" y="145" width="45" height="45" fill="rgb(245,245,255)" stroke="#fff"/>
+<text x="367.5" y="172" text-anchor="middle" font-size="10">0.05</text>
+<rect x="120" y="190" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="142.5" y="217" text-anchor="middle" font-size="10">0.00</text>
+<rect x="165" y="190" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="187.5" y="217" text-anchor="middle" font-size="10">0.00</text>
+<rect x="210" y="190" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="232.5" y="217" text-anchor="middle" font-size="10">0.00</text>
+<rect x="255" y="190" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="277.5" y="217" text-anchor="middle" font-size="10">0.00</text>
+<rect x="300" y="190" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="322.5" y="217" text-anchor="middle" font-size="10">0.00</text>
+<rect x="345" y="190" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="367.5" y="217" text-anchor="middle" font-size="10">0.00</text>
+<rect x="120" y="235" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="142.5" y="262" text-anchor="middle" font-size="10">0.00</text>
+<rect x="165" y="235" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="187.5" y="262" text-anchor="middle" font-size="10">0.00</text>
+<rect x="210" y="235" width="45" height="45" fill="rgb(90,90,255)" stroke="#fff"/>
+<text x="232.5" y="262" text-anchor="middle" font-size="10">0.97</text>
+<rect x="255" y="235" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="277.5" y="262" text-anchor="middle" font-size="10">0.00</text>
+<rect x="300" y="235" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="322.5" y="262" text-anchor="middle" font-size="10">0.00</text>
+<rect x="345" y="235" width="45" height="45" fill="rgb(249,249,255)" stroke="#fff"/>
+<text x="367.5" y="262" text-anchor="middle" font-size="10">0.03</text>
+<rect x="120" y="280" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="142.5" y="307" text-anchor="middle" font-size="10">0.00</text>
+<rect x="165" y="280" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="187.5" y="307" text-anchor="middle" font-size="10">0.00</text>
+<rect x="210" y="280" width="45" height="45" fill="rgb(93,93,255)" stroke="#fff"/>
+<text x="232.5" y="307" text-anchor="middle" font-size="10">0.95</text>
+<rect x="255" y="280" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="277.5" y="307" text-anchor="middle" font-size="10">0.00</text>
+<rect x="300" y="280" width="45" height="45" fill="rgb(255,255,255)" stroke="#fff"/>
+<text x="322.5" y="307" text-anchor="middle" font-size="10">0.00</text>
+<rect x="345" y="280" width="45" height="45" fill="rgb(246,246,255)" stroke="#fff"/>
+<text x="367.5" y="307" text-anchor="middle" font-size="10">0.05</text>
+<text x="115" y="82" text-anchor="end" font-size="10">positive</text>
+<text x="142.5" y="50" text-anchor="middle" font-size="10">positive</text>
+<text x="115" y="127" text-anchor="end" font-size="10">negative</text>
+<text x="187.5" y="50" text-anchor="middle" font-size="10">negative</text>
+<text x="115" y="172" text-anchor="end" font-size="10">neutral</text>
+<text x="232.5" y="50" text-anchor="middle" font-size="10">neutral</text>
+<text x="115" y="217" text-anchor="end" font-size="10">ironic-positive</text>
+<text x="277.5" y="50" text-anchor="middle" font-size="10">ironic-positive</text>
+<text x="115" y="262" text-anchor="end" font-size="10">sarcastic-negative</text>
+<text x="322.5" y="50" text-anchor="middle" font-size="10">sarcastic-negative</text>
+<text x="115" y="307" text-anchor="end" font-size="10">mocking</text>
+<text x="367.5" y="50" text-anchor="middle" font-size="10">mocking</text>
 </svg>

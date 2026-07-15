@@ -1,13 +1,64 @@
 {
   "base_records": 12000,
   "disagreements": 0,
-  "disagreements_output": "D:\\học tập các môn\\NLP\\artifact\\vipragsent-repro\\data\\annotation\\disagreements\\all_disagreements.jsonl",
-  "final_gold_records": 0,
+  "disagreements_output": "/root/paper/artifact/vipragsent-repro/data/annotation/disagreements/all_disagreements.jsonl",
+  "final_gold_records": 12000,
   "invalid_records": [],
-  "missing_review_records": 12000,
-  "outputs": {},
-  "split_counts": {},
+  "missing_review_records": 0,
+  "outputs": {
+    "all": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_all_adjudicated.jsonl",
+    "dev": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_dev.jsonl",
+    "test": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
+    "train": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_train.jsonl"
+  },
+  "split_counts": {
+    "dev": {
+      "labels": {
+        "code_switching": 181,
+        "idiom_figurative": 183,
+        "implicit_sentiment": 232,
+        "irony": 185,
+        "mocking": 305,
+        "sarcasm": 348
+      },
+      "platforms": {
+        "generated_candidate": 333,
+        "mixed_facebook_tiktok_youtube": 1667
+      },
+      "total": 2000
+    },
+    "test": {
+      "labels": {
+        "code_switching": 181,
+        "idiom_figurative": 184,
+        "implicit_sentiment": 232,
+        "irony": 184,
+        "mocking": 305,
+        "sarcasm": 348
+      },
+      "platforms": {
+        "generated_candidate": 334,
+        "mixed_facebook_tiktok_youtube": 1666
+      },
+      "total": 2000
+    },
+    "train": {
+      "labels": {
+        "code_switching": 722,
+        "idiom_figurative": 733,
+        "implicit_sentiment": 928,
+        "irony": 738,
+        "mocking": 1222,
+        "sarcasm": 1390
+      },
+      "platforms": {
+        "generated_candidate": 1333,
+        "mixed_facebook_tiktok_youtube": 6667
+      },
+      "total": 8000
+    }
+  },
   "split_overlaps": {},
-  "status": "pending_missing_human_annotations",
-  "wrote_gold_outputs": false
+  "status": "ok",
+  "wrote_gold_outputs": true
 }

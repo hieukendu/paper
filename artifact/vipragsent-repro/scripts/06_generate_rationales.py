@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -13,9 +14,9 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 from vipragsent.annotation.prompts import RATIONALE_PROMPT, prompt_hash
-from vipragsent.utils.azure_openai import azure_configured, chat_completion, first_message_content
+from vipragsent.utils.azure_openai import AzureOpenAIError, azure_configured, chat_completion, first_message_content
 from vipragsent.utils.env import load_env_file
-from vipragsent.utils.io import read_jsonl, write_jsonl
+from vipragsent.utils.io import append_jsonl, read_jsonl, write_jsonl
 
 
 def mock_rationale(record: dict) -> dict:
@@ -74,6 +75,9 @@ def main() -> int:
     parser.add_argument("--output", default=str(ROOT / "data" / "generated" / "rationales.jsonl"))
     parser.add_argument("--azure", action="store_true", help="Use Azure OpenAI; otherwise create placeholders for pipeline testing only.")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--resume", action="store_true", help="Keep completed IDs and append new rationale records safely.")
+    parser.add_argument("--max-retries", type=int, default=8)
+    parser.add_argument("--retry-wait", type=float, default=5.0)
     args = parser.parse_args()
 
     load_env_file(ROOT / ".env")
@@ -85,12 +89,39 @@ def main() -> int:
         return 0
 
     records = list(read_jsonl(args.input))
+    existing_ids: set[str] = set()
+    if args.resume and Path(args.output).exists():
+        existing_ids = {str(record.get("id")) for record in read_jsonl(args.output)}
+        records = [record for record in records if str(record.get("id")) not in existing_ids]
     if args.limit is not None:
         records = records[: args.limit]
     generator = azure_rationale if args.azure else mock_rationale
-    count = write_jsonl(args.output, (generator(record) for record in records))
-    print(json.dumps({"status": "ok", "mode": "azure_openai" if args.azure else "mock", "records_written": count}, indent=2))
-    return 0
+    if not args.resume:
+        count = write_jsonl(args.output, [])
+    else:
+        count = 0
+    errors = []
+    for record in records:
+        for attempt in range(args.max_retries + 1):
+            try:
+                append_jsonl(args.output, [generator(record)])
+                count += 1
+                break
+            except AzureOpenAIError as exc:
+                if attempt >= args.max_retries:
+                    errors.append({"id": record.get("id"), "error": str(exc), "attempts": attempt + 1})
+                    break
+                time.sleep(args.retry_wait * min(attempt + 1, 6))
+        if errors:
+            break
+    print(json.dumps({
+        "status": "ok" if not errors else "partial_failed",
+        "mode": "azure_openai" if args.azure else "mock",
+        "records_preexisting": len(existing_ids),
+        "records_written": count,
+        "errors": errors,
+    }, ensure_ascii=False, indent=2))
+    return 0 if not errors else 1
 
 
 if __name__ == "__main__":

@@ -37,7 +37,10 @@ SYSTEM_REQUIRES_FINETUNING = {
 }
 
 ORDINARY_DATASETS = ["uit_vsfc", "uit_vsmec", "aivivn_2019"]
-LOW_RESOURCE_BUDGETS = [64, 128, 256, 512, 1024, 2048]
+# The adjudicated train split has 1,390 sarcasm-positive records.  A 2,048
+# positive budget would require sampling with replacement, so it is excluded
+# from the real-data protocol.
+LOW_RESOURCE_BUDGETS = [64, 128, 256, 512, 1024]
 SEEDS = [20260520, 20260521, 20260522, 20260523, 20260524]
 
 ABLATION_ROWS = [

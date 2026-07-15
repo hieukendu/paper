@@ -1,2 +1,9 @@
 anchor,claim,source_file,json_path
-Artifacts.status,No complete metrics available yet,results/*.json,$.status
+Table2.heuristic_local.code_switching,"Local heuristic smoke baseline code_switching = 50.67 [50.67, 50.67]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.code_switching.mean
+Table2.heuristic_local.idiom_figurative,"Local heuristic smoke baseline idiom_figurative = 47.59 [47.59, 47.59]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.idiom_figurative.mean
+Table2.heuristic_local.implicit_sentiment,"Local heuristic smoke baseline implicit_sentiment = 51.50 [51.50, 51.50]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.implicit_sentiment.mean
+Table2.heuristic_local.irony,"Local heuristic smoke baseline irony = 45.92 [45.92, 45.92]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.irony.mean
+Table2.heuristic_local.macro_pragmatic_f1,"Local heuristic smoke baseline macro_pragmatic_f1 = 48.88 [48.88, 48.88]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.macro_pragmatic_f1.mean
+Table2.heuristic_local.mocking,"Local heuristic smoke baseline mocking = 48.34 [48.34, 48.34]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.mocking.mean
+Table2.heuristic_local.sarcasm,"Local heuristic smoke baseline sarcasm = 49.26 [49.26, 49.26]",results/main_pragmatic.json,$.systems.heuristic_local.metrics.sarcasm.mean
+Figure7.heuristic_local.ece,Local heuristic smoke baseline ECE = 0.2225,results/calibration.json,$.systems.heuristic_local.ece
