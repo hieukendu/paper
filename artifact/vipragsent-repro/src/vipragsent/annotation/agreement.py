@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from collections import Counter
+from typing import Hashable
+
 from vipragsent.annotation.disagreement import LABEL_FIELDS
 from vipragsent.data.schema import canonicalize_labels
 
@@ -17,14 +20,45 @@ def percent_agreement(pairs: list[tuple[dict, dict]]) -> dict[str, float]:
 
 
 def cohen_kappa_binary(left_values: list[int], right_values: list[int]) -> float:
+    return cohen_kappa_nominal(left_values, right_values)
+
+
+def cohen_kappa_nominal(left_values: list[Hashable], right_values: list[Hashable]) -> float:
     if len(left_values) != len(right_values):
         raise ValueError("left and right must have equal lengths")
     if not left_values:
         return 0.0
     observed = sum(int(a == b) for a, b in zip(left_values, right_values)) / len(left_values)
-    p_left = sum(left_values) / len(left_values)
-    p_right = sum(right_values) / len(right_values)
-    expected = p_left * p_right + (1 - p_left) * (1 - p_right)
+    left_counts = Counter(left_values)
+    right_counts = Counter(right_values)
+    categories = set(left_counts) | set(right_counts)
+    expected = sum(
+        (left_counts[category] / len(left_values))
+        * (right_counts[category] / len(right_values))
+        for category in categories
+    )
     if expected == 1:
         return 1.0
     return (observed - expected) / (1 - expected)
+
+
+def krippendorff_alpha_nominal(ratings: list[list[Hashable | None]]) -> float:
+    """Krippendorff's alpha for nominal ratings with missing values allowed."""
+    pairs: list[tuple[Hashable, Hashable]] = []
+    pooled: list[Hashable] = []
+    for unit in ratings:
+        observed = [value for value in unit if value is not None]
+        pooled.extend(observed)
+        for i, left in enumerate(observed):
+            for right in observed[i + 1 :]:
+                pairs.append((left, right))
+    if not pairs or len(pooled) < 2:
+        return 0.0
+    observed_disagreement = sum(left != right for left, right in pairs) / len(pairs)
+    counts = Counter(pooled)
+    total = len(pooled)
+    expected_agreement = sum(count * (count - 1) for count in counts.values()) / (total * (total - 1))
+    expected_disagreement = 1.0 - expected_agreement
+    if expected_disagreement == 0:
+        return 1.0
+    return 1.0 - observed_disagreement / expected_disagreement

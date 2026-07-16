@@ -1,0 +1,173 @@
+{
+  "status": "complete",
+  "reference_system": "vipragsent_full",
+  "test": "paired non-parametric bootstrap over test records",
+  "multiple_comparison_note": "Raw p-values are reported; apply Holm correction when selecting a final hypothesis family.",
+  "comparisons": {
+    "gpt41_mini_8_shot": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": -4.492328762730921,
+        "paired_bootstrap_ci95": [
+          -5.692000966802368,
+          -3.3581387764031376
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    },
+    "gpt41_mini_zero_shot": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": -13.050395139338086,
+        "paired_bootstrap_ci95": [
+          -14.34457263947668,
+          -11.772665965383545
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    },
+    "phobert_finetune": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 7.999499718363097,
+        "paired_bootstrap_ci95": [
+          7.103256890840186,
+          8.837042580877721
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260521": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 7.739440848276871,
+        "paired_bootstrap_ci95": [
+          6.763821646325255,
+          8.695419902939946
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260522": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 8.159381391628486,
+        "paired_bootstrap_ci95": [
+          7.173591071518416,
+          9.180025710048326
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    },
+    "sailor_7b_sft": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 8.62655405881587,
+        "paired_bootstrap_ci95": [
+          7.7742012265690335,
+          9.532441241892613
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    },
+    "vipragsent_no_emotion": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 1.0949548860247376,
+        "paired_bootstrap_ci95": [
+          0.4973603194226257,
+          1.7138152259844333
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    },
+    "vipragsent_no_polarity": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": -0.3602517288256024,
+        "paired_bootstrap_ci95": [
+          -0.6681938382459265,
+          -0.07814318863734115
+        ],
+        "two_sided_p": 0.008,
+        "resamples": 1000
+      }
+    },
+    "vipragsent_no_rationale": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": -0.07473895084109472,
+        "paired_bootstrap_ci95": [
+          -0.27840751480182746,
+          0.123839500085694
+        ],
+        "two_sided_p": 0.45,
+        "resamples": 1000
+      }
+    },
+    "vipragsent_no_uncertainty": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": -0.09630229380390176,
+        "paired_bootstrap_ci95": [
+          -0.29620340530681233,
+          0.08751745086112805
+        ],
+        "two_sided_p": 0.332,
+        "resamples": 1000
+      }
+    },
+    "vistral_7b_sft": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 9.2280271432424,
+        "paired_bootstrap_ci95": [
+          8.302956417924747,
+          10.221672120582696
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    },
+    "xlmr_large": {
+      "20260520": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 6.269548991385335,
+        "paired_bootstrap_ci95": [
+          5.212344464618866,
+          7.180229016017563
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260521": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 6.505768106368379,
+        "paired_bootstrap_ci95": [
+          5.495384707364707,
+          7.536656875286525
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260522": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 8.433287864567987,
+        "paired_bootstrap_ci95": [
+          7.568798183982253,
+          9.279534455576439
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      }
+    }
+  },
+  "skipped_incomplete_predictions": {
+    "heuristic_local": {
+      "20260520": "prediction file is missing 1992 gold id(s), e.g. aug_irony_idiom_00004, aug_irony_idiom_00006, aug_irony_idiom_00010, aug_irony_idiom_00023, aug_irony_idiom_00024"
+    }
+  }
+}

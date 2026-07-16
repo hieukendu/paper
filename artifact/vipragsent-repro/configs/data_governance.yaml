@@ -1,0 +1,13 @@
+dataset_construction:
+  name: ViPragSent
+  sole_text_source: visobert_local
+  release_license_status: manual_confirmation_required
+  note: UIT-VSFC, UIT-VSMEC, and AIVIVN are not incorporated into ViPragSent.
+external_evaluation_only:
+  - name: UIT-VSFC
+    role: ordinary sentiment retention benchmark
+  - name: UIT-VSMEC
+    role: ordinary emotion retention benchmark
+  - name: AIVIVN-2019 Kaggle mirror
+    role: ordinary binary sentiment retention benchmark
+reporting_rule: External benchmarks must be cited and described separately from dataset provenance.

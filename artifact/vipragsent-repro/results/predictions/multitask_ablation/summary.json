@@ -3,44 +3,194 @@
     "full": {
       "status": "complete",
       "macro_pragmatic_f1": 73.7182,
-      "ordinary_f1": null,
+      "ordinary_f1": {
+        "datasets": {
+          "uit_vsfc": {
+            "value": 43.8476,
+            "bootstrap_ci95": [
+              42.4656,
+              45.3691
+            ]
+          },
+          "uit_vsmec": {
+            "value": 33.3261,
+            "bootstrap_ci95": [
+              29.4765,
+              37.0447
+            ]
+          },
+          "aivivn_2019": {
+            "value": 58.4084,
+            "bootstrap_ci95": [
+              56.8728,
+              59.9245
+            ]
+          }
+        },
+        "macro_across_benchmarks": 45.19403333333333
+      },
       "ece": 0.06711602833176075,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl"
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl"
     },
     "no_emotion_auxiliary": {
       "status": "complete",
       "macro_pragmatic_f1": 74.8132,
-      "ordinary_f1": null,
+      "ordinary_f1": {
+        "datasets": {
+          "uit_vsfc": {
+            "value": 45.8283,
+            "bootstrap_ci95": [
+              44.4329,
+              47.3107
+            ]
+          },
+          "uit_vsmec": {
+            "value": 4.8086,
+            "bootstrap_ci95": [
+              3.7035,
+              6.0779
+            ]
+          },
+          "aivivn_2019": {
+            "value": 61.6803,
+            "bootstrap_ci95": [
+              59.9833,
+              63.3521
+            ]
+          }
+        },
+        "macro_across_benchmarks": 37.43906666666667
+      },
       "ece": 0.14246408445028735,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl"
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl"
     },
     "no_ordinary_sentiment_auxiliary": {
       "status": "complete",
       "macro_pragmatic_f1": 73.358,
-      "ordinary_f1": null,
+      "ordinary_f1": {
+        "datasets": {
+          "uit_vsfc": {
+            "value": 26.3934,
+            "bootstrap_ci95": [
+              25.3535,
+              27.4136
+            ]
+          },
+          "uit_vsmec": {
+            "value": 27.2933,
+            "bootstrap_ci95": [
+              24.4061,
+              30.0927
+            ]
+          },
+          "aivivn_2019": {
+            "value": 40.8716,
+            "bootstrap_ci95": [
+              39.6293,
+              42.1627
+            ]
+          }
+        },
+        "macro_across_benchmarks": 31.519433333333335
+      },
       "ece": 0.12214876163128928,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl"
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl"
     },
     "no_explanation_cot_auxiliary": {
       "status": "complete",
       "macro_pragmatic_f1": 73.6435,
-      "ordinary_f1": null,
+      "ordinary_f1": {
+        "datasets": {
+          "uit_vsfc": {
+            "value": 45.9345,
+            "bootstrap_ci95": [
+              44.5148,
+              47.3716
+            ]
+          },
+          "uit_vsmec": {
+            "value": 30.3567,
+            "bootstrap_ci95": [
+              27.3879,
+              33.4481
+            ]
+          },
+          "aivivn_2019": {
+            "value": 59.3262,
+            "bootstrap_ci95": [
+              57.6183,
+              60.855
+            ]
+          }
+        },
+        "macro_across_benchmarks": 45.2058
+      },
       "ece": 0.07841833389403831,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260520.jsonl"
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260520.jsonl"
     },
     "no_multitask": {
       "status": "complete",
       "macro_pragmatic_f1": 81.7177,
-      "ordinary_f1": null,
+      "ordinary_f1": {
+        "datasets": {
+          "uit_vsfc": {
+            "value": 22.8878,
+            "bootstrap_ci95": [
+              22.0435,
+              23.7772
+            ]
+          },
+          "uit_vsmec": {
+            "value": 6.2541,
+            "bootstrap_ci95": [
+              4.8166,
+              7.951
+            ]
+          },
+          "aivivn_2019": {
+            "value": 37.5804,
+            "bootstrap_ci95": [
+              36.6818,
+              38.4993
+            ]
+          }
+        },
+        "macro_across_benchmarks": 22.240766666666662
+      },
       "ece": 0.08969743262926051,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl"
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl"
     },
     "no_task_uncertainty_weighting": {
       "status": "complete",
       "macro_pragmatic_f1": 73.6219,
-      "ordinary_f1": null,
+      "ordinary_f1": {
+        "datasets": {
+          "uit_vsfc": {
+            "value": 45.2035,
+            "bootstrap_ci95": [
+              43.7789,
+              46.7295
+            ]
+          },
+          "uit_vsmec": {
+            "value": 31.4447,
+            "bootstrap_ci95": [
+              28.3166,
+              34.8461
+            ]
+          },
+          "aivivn_2019": {
+            "value": 61.2336,
+            "bootstrap_ci95": [
+              59.4946,
+              62.7651
+            ]
+          }
+        },
+        "macro_across_benchmarks": 45.9606
+      },
       "ece": 0.06504932543197298,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl"
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl"
     },
     "explanation_augmented_inference": {
       "status": "not_run",

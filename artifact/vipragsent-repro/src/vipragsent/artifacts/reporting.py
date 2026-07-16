@@ -91,7 +91,10 @@ def write_ablation_table(path: Path, result: dict[str, Any] | None) -> Path:
     rows = []
     for name, payload in ((result or {}).get("rows") or {}).items():
         if isinstance(payload, dict):
-            rows.append([name, payload.get("macro_pragmatic_f1", ""), payload.get("ordinary_f1", ""), payload.get("ece", ""), payload.get("status", "")])
+            ordinary = payload.get("ordinary_f1", "")
+            if isinstance(ordinary, dict):
+                ordinary = ordinary.get("macro_across_benchmarks", "")
+            rows.append([name, payload.get("macro_pragmatic_f1", ""), ordinary, payload.get("ece", ""), payload.get("status", "")])
         else:
             rows.append([name, payload, "", "", ""])
     _write_markdown_table(path, "Multi-task Ablation", ["Row", "Pragmatic F1", "Ordinary F1", "ECE", "status"], rows, result)

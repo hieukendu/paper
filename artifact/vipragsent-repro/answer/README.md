@@ -1,6 +1,6 @@
 # ViPragSent experiment hand-off
 
-Created: 2026-07-15T17:18:51.746814+00:00
+Created: 2026-07-16T07:08:10.969057+00:00
 Status: `results_generated`
 
 All metrics in `results/`, tables, and figures are generated from prediction JSONL and trainer manifests in this run; no values are copied from `main.pdf`.
@@ -24,6 +24,10 @@ Copied files:
 - `results/cost_breakdown.json`
 - `results/artifact_index.json`
 - `results/claim_ledger.csv`
+- `results/annotation_agreement.json`
+- `results/significance.json`
+- `results/paper_readiness.json`
+- `tables/annotation_agreement.md`
 - `tables/cost_breakdown.md`
 - `tables/low_resource_sarcasm.md`
 - `tables/main_pragmatic.md`
@@ -64,4 +68,7 @@ Copied files:
 - `data_provenance/gold_build_report.json`
 - `data_provenance/annotation_import_report.json`
 - `data_provenance/rationale_audit_waiver.json`
+- `data_provenance/datasets.json`
+- `data_provenance/source_registry.json`
+- `data_provenance/checksums.json`
 - `data_provenance/manifest.json`

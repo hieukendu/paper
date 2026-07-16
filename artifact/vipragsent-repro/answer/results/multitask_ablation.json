@@ -1,14 +1,14 @@
 {
-  "created_at": "2026-07-15T17:12:03.554547+00:00",
+  "created_at": "2026-07-16T07:03:00.772458+00:00",
   "experiment": "q2_multitask_ablation",
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "evaluated_from_prediction_jsonl",
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
-    "predictions_dir": "/root/vipragsent-repro/results/predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner",
-    "source_file": "/root/vipragsent-repro/results/predictions/multitask_ablation/summary.json"
+    "source_file": "/root/paper/artifact/vipragsent-repro/results/predictions/multitask_ablation/summary.json"
   },
   "rows": {
     "explanation_augmented_inference": {
@@ -18,8 +18,33 @@
     "full": {
       "ece": 0.06711602833176075,
       "macro_pragmatic_f1": 73.7182,
-      "ordinary_f1": null,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl",
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              56.8728,
+              59.9245
+            ],
+            "value": 58.4084
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              42.4656,
+              45.3691
+            ],
+            "value": 43.8476
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              29.4765,
+              37.0447
+            ],
+            "value": 33.3261
+          }
+        },
+        "macro_across_benchmarks": 45.19403333333333
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl",
       "status": "complete"
     },
     "hard_label_distillation": {
@@ -29,36 +54,161 @@
     "no_emotion_auxiliary": {
       "ece": 0.14246408445028735,
       "macro_pragmatic_f1": 74.8132,
-      "ordinary_f1": null,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl",
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              59.9833,
+              63.3521
+            ],
+            "value": 61.6803
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              44.4329,
+              47.3107
+            ],
+            "value": 45.8283
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              3.7035,
+              6.0779
+            ],
+            "value": 4.8086
+          }
+        },
+        "macro_across_benchmarks": 37.43906666666667
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl",
       "status": "complete"
     },
     "no_explanation_cot_auxiliary": {
       "ece": 0.07841833389403831,
       "macro_pragmatic_f1": 73.6435,
-      "ordinary_f1": null,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260520.jsonl",
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              57.6183,
+              60.855
+            ],
+            "value": 59.3262
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              44.5148,
+              47.3716
+            ],
+            "value": 45.9345
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              27.3879,
+              33.4481
+            ],
+            "value": 30.3567
+          }
+        },
+        "macro_across_benchmarks": 45.2058
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260520.jsonl",
       "status": "complete"
     },
     "no_multitask": {
       "ece": 0.08969743262926051,
       "macro_pragmatic_f1": 81.7177,
-      "ordinary_f1": null,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl",
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              36.6818,
+              38.4993
+            ],
+            "value": 37.5804
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              22.0435,
+              23.7772
+            ],
+            "value": 22.8878
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              4.8166,
+              7.951
+            ],
+            "value": 6.2541
+          }
+        },
+        "macro_across_benchmarks": 22.240766666666662
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl",
       "status": "complete"
     },
     "no_ordinary_sentiment_auxiliary": {
       "ece": 0.12214876163128928,
       "macro_pragmatic_f1": 73.358,
-      "ordinary_f1": null,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl",
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              39.6293,
+              42.1627
+            ],
+            "value": 40.8716
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              25.3535,
+              27.4136
+            ],
+            "value": 26.3934
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              24.4061,
+              30.0927
+            ],
+            "value": 27.2933
+          }
+        },
+        "macro_across_benchmarks": 31.519433333333335
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl",
       "status": "complete"
     },
     "no_task_uncertainty_weighting": {
       "ece": 0.06504932543197298,
       "macro_pragmatic_f1": 73.6219,
-      "ordinary_f1": null,
-      "prediction_file": "/root/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl",
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              59.4946,
+              62.7651
+            ],
+            "value": 61.2336
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              43.7789,
+              46.7295
+            ],
+            "value": 45.2035
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              28.3166,
+              34.8461
+            ],
+            "value": 31.4447
+          }
+        },
+        "macro_across_benchmarks": 45.9606
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl",
       "status": "complete"
     }
   },

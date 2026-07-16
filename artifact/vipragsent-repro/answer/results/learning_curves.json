@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-07-15T17:17:01.680315+00:00",
+  "created_at": "2026-07-16T07:08:10.781357+00:00",
   "curves": {
     "phobert_finetune": [
       {
@@ -145,7 +145,7 @@
             "train_loss": 11.73144438257441
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -207,7 +207,7 @@
             "train_loss": 5.869093678891659
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -353,7 +353,7 @@
             "train_loss": 7.121905317530036
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -499,7 +499,7 @@
             "train_loss": 10.327262070029974
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -575,7 +575,7 @@
             "train_loss": 3.188825186342001
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -651,7 +651,7 @@
             "train_loss": 23.005552298622206
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -783,7 +783,7 @@
             "train_loss": 7.46473286440596
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json",
         "seed": 20260521
       },
       {
@@ -915,7 +915,7 @@
             "train_loss": 6.101166199892759
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json",
         "seed": 20260522
       }
     ],
@@ -938,7 +938,7 @@
             "train_loss": 17.824707822109872
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json",
         "seed": 20260520
       }
     ],
@@ -1044,7 +1044,7 @@
             "train_loss": 196.12407758831978
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -1092,7 +1092,7 @@
             "train_loss": 49.79419964551926
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -1140,7 +1140,7 @@
             "train_loss": 90.38209789991379
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -1286,7 +1286,7 @@
             "train_loss": 104.85212852060795
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -1334,7 +1334,7 @@
             "train_loss": 26.450246512889862
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -1410,7 +1410,7 @@
             "train_loss": 378.0767379626632
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -1500,7 +1500,7 @@
             "train_loss": 363.2332499399781
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json",
         "seed": 20260521
       },
       {
@@ -1618,7 +1618,7 @@
             "train_loss": 303.5765563547611
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json",
         "seed": 20260522
       }
     ],
@@ -1766,7 +1766,7 @@
             "train_loss": 77.9215556201525
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json",
         "seed": 20260520
       }
     ],
@@ -1830,7 +1830,7 @@
             "train_loss": 268.9427509829402
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json",
         "seed": 20260520
       }
     ],
@@ -1908,7 +1908,7 @@
             "train_loss": 385.8049391359091
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json",
         "seed": 20260520
       }
     ],
@@ -1986,7 +1986,7 @@
             "train_loss": 390.28948137164116
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json",
         "seed": 20260520
       }
     ],
@@ -2009,7 +2009,7 @@
             "train_loss": 14.054432735187305
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json",
         "seed": 20260520
       }
     ],
@@ -2157,7 +2157,7 @@
             "train_loss": 151.45137569439248
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json",
         "seed": 20260520
       },
       {
@@ -2303,7 +2303,7 @@
             "train_loss": 146.57727729852195
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json",
         "seed": 20260521
       },
       {
@@ -2449,7 +2449,7 @@
             "train_loss": 143.1421572494437
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json",
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json",
         "seed": 20260522
       }
     ]
@@ -2459,10 +2459,10 @@
     "allow_silver_gold": false,
     "fine_tuning": "evaluated_from_prediction_jsonl",
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
-    "predictions_dir": "/root/vipragsent-repro/results/predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner",
-    "source_file": "/root/vipragsent-repro/results/predictions/learning_curves/summary.json"
+    "source_file": "/root/paper/artifact/vipragsent-repro/results/predictions/learning_curves/summary.json"
   },
   "schema_version": "1.0",
   "status": "complete"

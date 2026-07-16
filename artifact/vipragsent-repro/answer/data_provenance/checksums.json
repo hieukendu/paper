@@ -1,0 +1,130 @@
+{
+  "files": [
+    {
+      "bytes": 440800,
+      "checksum": "sha256:b073a16dbe9f4fa25b08e7c03d43b236da5e9d217ef28ec385e75b63b0053215",
+      "path": "data\\raw\\aivivn_2019\\test.csv"
+    },
+    {
+      "bytes": 1791012,
+      "checksum": "sha256:1f77af867fc62eb87981cf5f671ed68deb43693d6712c593fd61a19742ebe6c3",
+      "path": "data\\raw\\aivivn_2019\\train.csv"
+    },
+    {
+      "bytes": 118628,
+      "checksum": "sha256:fb7c3cc3173e1383edc03779883d91bb4d6110c8dd881612572a256878aa23b4",
+      "path": "data\\raw\\uit_vsfc\\dev_sentences.txt"
+    },
+    {
+      "bytes": 3166,
+      "checksum": "sha256:a9584a22c926a54c6042236380c9a65ab8c41467477f7a5d794fb2505c96a9c3",
+      "path": "data\\raw\\uit_vsfc\\dev_sentiments.txt"
+    },
+    {
+      "bytes": 3166,
+      "checksum": "sha256:7483805b24f5362aa5a2f708509876e0b69bf35753e90199059c2409caad7d96",
+      "path": "data\\raw\\uit_vsfc\\dev_topics.txt"
+    },
+    {
+      "bytes": 247849,
+      "checksum": "sha256:75100e0559ecc0d7052870e2e7991391bfa7442bbaee91a6e271157c6fea343b",
+      "path": "data\\raw\\uit_vsfc\\test_sentences.txt"
+    },
+    {
+      "bytes": 6332,
+      "checksum": "sha256:0f04ebe3ada9655aff0a4c6eec27e5e7b8f552e26d3a6f06a35831e07e102f18",
+      "path": "data\\raw\\uit_vsfc\\test_sentiments.txt"
+    },
+    {
+      "bytes": 6332,
+      "checksum": "sha256:ba04f1bd4014be3c1f1940236a8ceae71a455aa0837295bdbe2cdbcc44bd0745",
+      "path": "data\\raw\\uit_vsfc\\test_topics.txt"
+    },
+    {
+      "bytes": 898090,
+      "checksum": "sha256:5481dc1fa51f2fe72f22afd89b8aeb7f8945a126af7e66ac622e2ab0291130cb",
+      "path": "data\\raw\\uit_vsfc\\train_sentences.txt"
+    },
+    {
+      "bytes": 22852,
+      "checksum": "sha256:480480c3b9a6bc8bdf53339c721e93f8cc30472ac8f0bd21d4440ce1171aefac",
+      "path": "data\\raw\\uit_vsfc\\train_sentiments.txt"
+    },
+    {
+      "bytes": 22852,
+      "checksum": "sha256:09cbb8147f419f225b171cadf82410c442d6c24997ab97f48dfa779f4e68a1b9",
+      "path": "data\\raw\\uit_vsfc\\train_topics.txt"
+    },
+    {
+      "bytes": 96404,
+      "checksum": "sha256:8af49fc8f9404fdf85d7b9164f86e3c7a34af149da7707067a9464a152646f79",
+      "path": "data\\raw\\uit_vsmec\\test.json"
+    },
+    {
+      "bytes": 777323,
+      "checksum": "sha256:8fa9921a33d6024de0b4bf96c5887710d1b855aa502d9f21543108ded0640b8e",
+      "path": "data\\raw\\uit_vsmec\\train.json"
+    },
+    {
+      "bytes": 96642,
+      "checksum": "sha256:98980c6f4ea08f5073fe65f9d16507f65109ed4e92c640534edd01abda831f4b",
+      "path": "data\\raw\\uit_vsmec\\valid.json"
+    },
+    {
+      "bytes": 1,
+      "checksum": "sha256:684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "path": "data\\raw\\uit_vsmec\\.cache\\huggingface\\.gitignore"
+    },
+    {
+      "bytes": 195,
+      "checksum": "sha256:e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f",
+      "path": "data\\raw\\uit_vsmec\\.cache\\huggingface\\CACHEDIR.TAG"
+    },
+    {
+      "bytes": 104,
+      "checksum": "sha256:920d670e8005552f2842bf09644e351c425fb1231a9b28df433599aa67ac71d5",
+      "path": "data\\raw\\uit_vsmec\\.cache\\huggingface\\download\\test.json.metadata"
+    },
+    {
+      "bytes": 104,
+      "checksum": "sha256:bfdd4fbdfd6575442a1e5b5be4b453ba061577bb53d86520defa05eca3cf56db",
+      "path": "data\\raw\\uit_vsmec\\.cache\\huggingface\\download\\train.json.metadata"
+    },
+    {
+      "bytes": 104,
+      "checksum": "sha256:468bcf1794a301171508f0d867c29e6cd87adabfbf9cfb130331cf120f542add",
+      "path": "data\\raw\\uit_vsmec\\.cache\\huggingface\\download\\valid.json.metadata"
+    },
+    {
+      "bytes": 23974289,
+      "checksum": "sha256:a787a12acb5029954846f416ffc95f8a871115fc3b052fce93e7c479c4c17261",
+      "path": "data\\interim\\agent_prelabeled.jsonl"
+    },
+    {
+      "bytes": 14487909,
+      "checksum": "sha256:fe87906c35873645b4e5ecc842b74f3b7b6e9ef295be1b034c0c7ea78634ae01",
+      "path": "data\\interim\\cleaned_social.jsonl"
+    },
+    {
+      "bytes": 48232660,
+      "checksum": "sha256:efd5fc9b55d58579a18acdd08bd4b15ad74008c23d03863dd73bb488495327db",
+      "path": "data\\interim\\public_datasets_unified.jsonl"
+    },
+    {
+      "bytes": 1842,
+      "checksum": "sha256:cc23bad57dd05c18072f1bfe17f8e9d5f76d5ca5551205ee58c2a50d540c25b5",
+      "path": "data\\interim\\toy_unlabeled.jsonl"
+    },
+    {
+      "bytes": 68161081,
+      "checksum": "sha256:6d296c49c23f77897fd363141cd08c35fd5013c5d16d519f8e92d236d8e0b15f",
+      "path": "data\\processed\\all_unified.jsonl"
+    },
+    {
+      "bytes": 2667094,
+      "checksum": "sha256:83273963111468e098b3dcf7e16c63b18a01e4db7c666f78c54a222fc92109ac",
+      "path": "data\\annotation\\enrichment_queue.jsonl"
+    }
+  ],
+  "schema_version": "1.0"
+}

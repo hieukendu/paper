@@ -145,7 +145,7 @@
             "elapsed_seconds": 201.579
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -207,7 +207,7 @@
             "elapsed_seconds": 23.211
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -353,7 +353,7 @@
             "elapsed_seconds": 79.545
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -499,7 +499,7 @@
             "elapsed_seconds": 118.521
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -575,7 +575,7 @@
             "elapsed_seconds": 22.32
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -651,7 +651,7 @@
             "elapsed_seconds": 191.909
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json"
       },
       {
         "seed": 20260521,
@@ -783,7 +783,7 @@
             "elapsed_seconds": 330.739
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json"
       },
       {
         "seed": 20260522,
@@ -915,7 +915,7 @@
             "elapsed_seconds": 294.678
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json"
       }
     ],
     "vipragsent_full": [
@@ -1021,7 +1021,7 @@
             "elapsed_seconds": 140.605
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -1069,7 +1069,7 @@
             "elapsed_seconds": 16.693
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -1117,7 +1117,7 @@
             "elapsed_seconds": 23.909
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -1263,7 +1263,7 @@
             "elapsed_seconds": 120.137
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -1311,7 +1311,7 @@
             "elapsed_seconds": 14.269
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json"
       },
       {
         "seed": 20260520,
@@ -1387,7 +1387,7 @@
             "elapsed_seconds": 181.525
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json"
       },
       {
         "seed": 20260521,
@@ -1477,7 +1477,7 @@
             "elapsed_seconds": 223.002
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json"
       },
       {
         "seed": 20260522,
@@ -1595,7 +1595,7 @@
             "elapsed_seconds": 272.762
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json"
       }
     ],
     "sailor_7b_sft": [
@@ -1618,7 +1618,7 @@
             "elapsed_seconds": 15125.213
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
       }
     ],
     "vipragsent_no_emotion": [
@@ -1766,7 +1766,7 @@
             "elapsed_seconds": 330.917
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json"
       }
     ],
     "vipragsent_no_polarity": [
@@ -1830,7 +1830,7 @@
             "elapsed_seconds": 131.396
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json"
       }
     ],
     "vipragsent_no_rationale": [
@@ -1908,7 +1908,7 @@
             "elapsed_seconds": 169.019
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json"
       }
     ],
     "vipragsent_no_uncertainty": [
@@ -1986,7 +1986,7 @@
             "elapsed_seconds": 162.955
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json"
       }
     ],
     "vistral_7b_sft": [
@@ -2009,7 +2009,7 @@
             "elapsed_seconds": 16113.744
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
       }
     ],
     "xlmr_large": [
@@ -2157,7 +2157,7 @@
             "elapsed_seconds": 2405.677
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json"
       },
       {
         "seed": 20260521,
@@ -2303,7 +2303,7 @@
             "elapsed_seconds": 2413.506
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json"
       },
       {
         "seed": 20260522,
@@ -2449,7 +2449,7 @@
             "elapsed_seconds": 2156.965
           }
         ],
-        "run_manifest": "/root/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json"
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json"
       }
     ]
   }

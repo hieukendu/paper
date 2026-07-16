@@ -1,0 +1,40 @@
+{
+  "status": "action_required",
+  "checks": {
+    "adjudicated_gold": {
+      "complete": true
+    },
+    "three_seed_main_encoders": {
+      "complete": true
+    },
+    "single_seed_7b_baselines": {
+      "complete": true,
+      "note": "The repository protocol explicitly reports 7B baselines as single-seed, separately from the three-seed encoder protocol."
+    },
+    "iaa": {
+      "complete": true
+    },
+    "paired_significance": {
+      "complete": true
+    },
+    "checkpoint_archive": {
+      "complete": true
+    },
+    "visobert_release_license": {
+      "complete": false,
+      "human_action": "Confirm the ViSoBERT export's license/redistribution terms."
+    },
+    "external_benchmark_provenance": {
+      "complete": true,
+      "note": "UIT datasets and AIVIVN are evaluation-only, not ViPragSent sources."
+    },
+    "rationale_faithfulness_audit": {
+      "complete": false,
+      "human_action": "The current waiver is not a substitute for the planned >=5% manual audit."
+    },
+    "paper_manuscript": {
+      "complete": false,
+      "human_action": "Write the manuscript only from generated JSON/tables and cite no inherited main.pdf values."
+    }
+  }
+}

@@ -11,14 +11,14 @@
         "compute_usd": null,
         "gpu_hours": 0.35885,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json",
-          "/root/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/1024/phobert_finetune/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/128/phobert_finetune/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/256/phobert_finetune/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/512/phobert_finetune/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/64/phobert_finetune/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260521/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/phobert_finetune/20260522/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -27,7 +27,7 @@
         "compute_usd": null,
         "gpu_hours": 5.601641,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -36,14 +36,14 @@
         "compute_usd": null,
         "gpu_hours": 0.283968,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json",
-          "/root/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/128/vipragsent_full/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/256/vipragsent_full/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/512/vipragsent_full/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/low_resource/64/vipragsent_full/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260521/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_full/20260522/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -52,7 +52,7 @@
         "compute_usd": null,
         "gpu_hours": 0.092944,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_emotion/20260520/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -61,7 +61,7 @@
         "compute_usd": null,
         "gpu_hours": 0.037421,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_polarity/20260520/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -70,7 +70,7 @@
         "compute_usd": null,
         "gpu_hours": 0.047858,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_rationale/20260520/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -79,7 +79,7 @@
         "compute_usd": null,
         "gpu_hours": 0.046238,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_uncertainty/20260520/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -88,7 +88,7 @@
         "compute_usd": null,
         "gpu_hours": 4.896611,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -97,21 +97,21 @@
         "compute_usd": null,
         "gpu_hours": 1.947734,
         "run_manifests": [
-          "/root/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json",
-          "/root/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json",
-          "/root/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260521/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/xlmr_large/20260522/run_manifest.json"
         ],
         "total_usd": null
       }
     }
   },
-  "created_at": "2026-07-15T17:17:01.686181+00:00",
+  "created_at": "2026-07-16T07:08:10.789175+00:00",
   "experiment": "cost_breakdown",
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "evaluated_from_prediction_jsonl",
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
-    "predictions_dir": "/root/vipragsent-repro/results/predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },

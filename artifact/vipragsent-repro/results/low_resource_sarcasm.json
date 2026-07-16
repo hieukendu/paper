@@ -5,7 +5,7 @@
       "status": "partial",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
@@ -27,7 +27,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/phobert_finetune/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/phobert_finetune/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -84,7 +84,7 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/phobert_finetune/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/phobert_finetune/20260520.jsonl",
               "seed": 20260520
             }
           ],
@@ -106,7 +106,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vipragsent_full/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vipragsent_full/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -163,21 +163,21 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vipragsent_full/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vipragsent_full/20260520.jsonl",
               "seed": 20260520
             }
           ],
           "status": "complete"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -190,7 +190,7 @@
       "status": "partial",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
@@ -212,7 +212,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/phobert_finetune/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/phobert_finetune/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -269,7 +269,7 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/phobert_finetune/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/phobert_finetune/20260520.jsonl",
               "seed": 20260520
             }
           ],
@@ -291,7 +291,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vipragsent_full/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vipragsent_full/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -348,21 +348,21 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vipragsent_full/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vipragsent_full/20260520.jsonl",
               "seed": 20260520
             }
           ],
           "status": "complete"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/128/xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -375,7 +375,7 @@
       "status": "partial",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
@@ -397,7 +397,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/phobert_finetune/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/phobert_finetune/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -454,7 +454,7 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/phobert_finetune/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/phobert_finetune/20260520.jsonl",
               "seed": 20260520
             }
           ],
@@ -476,7 +476,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vipragsent_full/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vipragsent_full/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -533,21 +533,21 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vipragsent_full/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vipragsent_full/20260520.jsonl",
               "seed": 20260520
             }
           ],
           "status": "complete"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/256/xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -560,7 +560,7 @@
       "status": "partial",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
@@ -582,7 +582,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/phobert_finetune/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/phobert_finetune/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -639,7 +639,7 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/phobert_finetune/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/phobert_finetune/20260520.jsonl",
               "seed": 20260520
             }
           ],
@@ -661,7 +661,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vipragsent_full/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vipragsent_full/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -718,21 +718,21 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vipragsent_full/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vipragsent_full/20260520.jsonl",
               "seed": 20260520
             }
           ],
           "status": "complete"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/512/xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -745,7 +745,7 @@
       "status": "partial",
       "systems": {
         "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/gpt41_mini_8_shot",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/gpt41_mini_8_shot",
           "label": "GPT-4.1-mini 8-shot",
           "reason": "missing prediction JSONL",
           "requires_finetuning": false,
@@ -767,7 +767,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/phobert_finetune/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/phobert_finetune/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -824,7 +824,7 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/phobert_finetune/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/phobert_finetune/20260520.jsonl",
               "seed": 20260520
             }
           ],
@@ -846,7 +846,7 @@
             }
           },
           "prediction_files": [
-            "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vipragsent_full/20260520.jsonl"
+            "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vipragsent_full/20260520.jsonl"
           ],
           "requires_finetuning": true,
           "runs": [
@@ -903,21 +903,21 @@
                 }
               },
               "n": 2000,
-              "prediction_file": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vipragsent_full/20260520.jsonl",
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vipragsent_full/20260520.jsonl",
               "seed": 20260520
             }
           ],
           "status": "complete"
         },
         "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vistral_7b_sft",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vistral_7b_sft",
           "label": "Vistral-7B SFT",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
           "status": "blocked"
         },
         "xlmr_large": {
-          "expected_prediction_dir": "/root/vipragsent-repro/results/predictions/low_resource_sarcasm/64/xlmr_large",
+          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/xlmr_large",
           "label": "XLM-R-large",
           "reason": "missing prediction JSONL",
           "requires_finetuning": true,
@@ -926,15 +926,15 @@
       }
     }
   },
-  "created_at": "2026-07-15T17:12:03.554906+00:00",
+  "created_at": "2026-07-16T07:03:00.773114+00:00",
   "experiment": "q3_low_resource_sarcasm",
   "metric": "sarcasm_binary_macro_f1",
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "evaluated_from_prediction_jsonl",
-    "gold_path": "/root/vipragsent-repro/data/processed/vipragsent_test.jsonl",
+    "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
-    "predictions_dir": "/root/vipragsent-repro/results/predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },

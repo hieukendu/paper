@@ -1,12 +1,12 @@
 {
-  "created_at": "2026-07-15T17:17:01.614972+00:00",
+  "created_at": "2026-07-16T07:08:10.706906+00:00",
   "experiment": "q4_calibration",
   "provenance": {
     "allow_silver_gold": false,
     "fine_tuning": "evaluated_from_prediction_jsonl",
-    "gold_path": "/root/vipragsent-repro/data/processed/vipragsent_test.jsonl",
+    "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
-    "predictions_dir": "/root/vipragsent-repro/results/predictions",
+    "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner"
   },

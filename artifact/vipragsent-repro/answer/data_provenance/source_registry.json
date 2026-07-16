@@ -1,0 +1,51 @@
+{
+  "human_required": [
+    "Confirm dataset licenses before release or paper submission.",
+    "AIVIVN Kaggle mirror is binary train/test, not the 3-way split described in the workflow; confirm whether to keep it or provide the exact source.",
+    "Rule-based social labels are silver_agent only; two reviewers plus adjudicator must approve before gold splits.",
+    "Rare label thresholds are low for sarcasm, irony, idiom_figurative, code_switching, implicit_sentiment; use enrichment queue for targeted human review.",
+    "No social-media crawling was performed because ENABLE_SOCIAL_CRAWL=false and ToS/legal review is pending."
+  ],
+  "outputs": {
+    "agent_prelabeled_social": "data/interim/agent_prelabeled.jsonl",
+    "all_unified": "data/processed/all_unified.jsonl",
+    "annotation_batches": "data/annotation/batches/",
+    "cleaned_social": "data/interim/cleaned_social.jsonl",
+    "enrichment_queue": "data/annotation/enrichment_queue.jsonl",
+    "local_visobert_export": "D:\\hf_cache\\exports\\visobert_12000_api",
+    "public_unified": "data/interim/public_datasets_unified.jsonl",
+    "raw_aivivn_2019": "data/raw/aivivn_2019/",
+    "raw_uit_vsfc": "data/raw/uit_vsfc/",
+    "raw_uit_vsmec": "data/raw/uit_vsmec/",
+    "source_type_report": "data/manifest/source_type_report.json"
+  },
+  "schema_version": "1.0",
+  "sources": {
+    "aivivn_2019": {
+      "license_status": "manual_review_required",
+      "note": "binary train/test mirror, not workflow expected 3-way split",
+      "path": "data/raw/aivivn_2019",
+      "records": 16087,
+      "source": "Kaggle mcocoz/aivivn-2019"
+    },
+    "uit_vsfc": {
+      "license_status": "manual_review_required",
+      "path": "data/raw/uit_vsfc",
+      "records": 16175,
+      "source": "Hugging Face dataset script URLs / Google Drive files"
+    },
+    "uit_vsmec": {
+      "license_status": "manual_review_required",
+      "path": "data/raw/uit_vsmec",
+      "records": 6927,
+      "source": "Hugging Face tridm/UIT-VSMEC"
+    },
+    "visobert_local": {
+      "crawl_performed": false,
+      "label_status": "silver_agent_rule_based",
+      "path": "D:\\hf_cache\\exports\\visobert_12000_api",
+      "records": 12000
+    }
+  },
+  "status": "downloaded_and_unified_for_human_review"
+}

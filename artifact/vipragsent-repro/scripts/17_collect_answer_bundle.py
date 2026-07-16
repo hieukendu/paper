@@ -22,6 +22,9 @@ RESULTS = (
     "cost_breakdown.json",
     "artifact_index.json",
     "claim_ledger.csv",
+    "annotation_agreement.json",
+    "significance.json",
+    "paper_readiness.json",
 )
 
 
@@ -53,7 +56,7 @@ def main() -> int:
         relative = source.relative_to(ROOT / "outputs")
         if copy_if_exists(source, output / "run_manifests" / relative):
             copied.append(f"run_manifests/{relative}")
-    for source in [ROOT / "data/manifest/gold_build_report.json", ROOT / "data/manifest/annotation_import_report.json", ROOT / "data/manifest/rationale_audit_waiver.json", ROOT / "data/processed/public_eval/manifest.json"]:
+    for source in [ROOT / "data/manifest/gold_build_report.json", ROOT / "data/manifest/annotation_import_report.json", ROOT / "data/manifest/rationale_audit_waiver.json", ROOT / "data/manifest/datasets.json", ROOT / "data/manifest/source_registry.json", ROOT / "data/manifest/checksums.json", ROOT / "data/processed/public_eval/manifest.json"]:
         if copy_if_exists(source, output / "data_provenance" / source.name):
             copied.append(f"data_provenance/{source.name}")
     status = "results_generated" if (ROOT / "results/main_pragmatic.json").exists() else "setup_complete_results_not_run"

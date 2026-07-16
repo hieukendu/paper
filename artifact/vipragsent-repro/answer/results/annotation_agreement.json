@@ -1,0 +1,64 @@
+{
+  "status": "complete",
+  "reviewers": [
+    "reviewer_01",
+    "reviewer_02"
+  ],
+  "shared_records": 10000,
+  "method": "Nominal Cohen's kappa and Krippendorff's alpha; no ordinal weighting.",
+  "fields": {
+    "implicit_sentiment": {
+      "n": 10000,
+      "percent_agreement": 0.8058,
+      "cohen_kappa": 0.03271370228282545,
+      "krippendorff_alpha_nominal": -0.04552858581473074
+    },
+    "sarcasm": {
+      "n": 10000,
+      "percent_agreement": 0.8282,
+      "cohen_kappa": 0.20568320260395395,
+      "krippendorff_alpha_nominal": 0.20371828387611135
+    },
+    "irony": {
+      "n": 10000,
+      "percent_agreement": 0.9544,
+      "cohen_kappa": 0.0586241792379559,
+      "krippendorff_alpha_nominal": 0.05359297730875623
+    },
+    "idiom_figurative": {
+      "n": 10000,
+      "percent_agreement": 0.9849,
+      "cohen_kappa": 0.13023042557651915,
+      "krippendorff_alpha_nominal": 0.12956973518284887
+    },
+    "code_switching": {
+      "n": 10000,
+      "percent_agreement": 0.879,
+      "cohen_kappa": 0.4365625809941289,
+      "krippendorff_alpha_nominal": 0.4312002275312856
+    },
+    "mocking": {
+      "n": 10000,
+      "percent_agreement": 0.8288,
+      "cohen_kappa": 0.27078236192911487,
+      "krippendorff_alpha_nominal": 0.2524547304209108
+    },
+    "polarity": {
+      "n": 10000,
+      "percent_agreement": 0.6211,
+      "cohen_kappa": 0.27295510420055796,
+      "krippendorff_alpha_nominal": 0.2675079571869182
+    },
+    "emotion": {
+      "n": 10000,
+      "percent_agreement": 0.4159,
+      "cohen_kappa": 0.1860907663606868,
+      "krippendorff_alpha_nominal": 0.1050747830835509
+    }
+  },
+  "macro": {
+    "percent_agreement": 0.7897625,
+    "cohen_kappa": 0.19920529039821785,
+    "krippendorff_alpha_nominal": 0.1746987635969564
+  }
+}

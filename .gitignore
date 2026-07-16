@@ -6,3 +6,9 @@
 **/hf_cache/
 **/xet/
 **/D:*
+**/outputs/
+**/__pycache__/
+**/.pytest_cache/
+**/logs/*.log
+**/logs/*.pid
+**/logs/*.complete
