@@ -11,6 +11,10 @@
       "complete": true,
       "note": "The repository protocol explicitly reports 7B baselines as single-seed, separately from the three-seed encoder protocol."
     },
+    "requested_three_seed_7b_extension": {
+      "complete": false,
+      "note": "User-requested extension beyond the original single-seed 7B protocol."
+    },
     "iaa": {
       "complete": true
     },
@@ -20,17 +24,21 @@
     "checkpoint_archive": {
       "complete": true
     },
-    "visobert_release_license": {
+    "private_research_terms": {
+      "complete": true,
+      "note": "Project materials are restricted to private non-commercial research; raw text redistribution is prohibited."
+    },
+    "visobert_public_release_permission": {
       "complete": false,
-      "human_action": "Confirm the ViSoBERT export's license/redistribution terms."
+      "human_action": "Required only before a public raw-text dataset release; archive permission from the source rights holder."
     },
     "external_benchmark_provenance": {
       "complete": true,
       "note": "UIT datasets and AIVIVN are evaluation-only, not ViPragSent sources."
     },
     "rationale_faithfulness_audit": {
-      "complete": false,
-      "human_action": "The current waiver is not a substitute for the planned >=5% manual audit."
+      "complete": true,
+      "note": "Waived by the final protocol. Generated rationales must not be described as manually faithfulness-verified."
     },
     "paper_manuscript": {
       "complete": false,

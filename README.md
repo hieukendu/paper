@@ -32,7 +32,7 @@ The dataset is intended for research on Vietnamese pragmatic sentiment, multi-ta
 
 The pipeline includes PII cleaning and does not perform new social-media crawling. Social text can still contain sensitive or offensive content, annotation is subjective, and rare labels remain imbalanced. Generated training rationales were not manually audited for faithfulness and must not be described as human-verified explanations.
 
-The redistribution terms of the source ViSoBERT export remain subject to manual confirmation. Until that confirmation is recorded, raw ViPragSent text must be treated as research-only and must not be publicly redistributed. External evaluation datasets retain their own terms and citations.
+The project is governed by the [ViPragSent Private Research Use Terms](LICENSE). Raw ViPragSent text is restricted to private, non-commercial research and must not be publicly redistributed. This project policy does not replace permission from the source rights holder; the ViSoBERT export terms must still be confirmed before any public dataset release. External evaluation datasets retain their own terms and citations. See [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Models and checkpoints
 
@@ -56,6 +56,13 @@ bash scripts/run_full_paper_checklist.sh "$PWD"
 The full runner is resumable: completed predictions are reused, missing registered runs are executed, metrics are recomputed, and the final hand-off is written to `answer/`. Set `EXTEND_7B_SEEDS=1` only when intentionally running the three-seed 7B extension.
 
 Secrets in `.env`, local model caches, and the `outputs/` checkpoint directory are ignored by Git. Checkpoints are stored separately on Hugging Face.
+
+## License
+
+Original project materials are available only under the repository's private,
+non-commercial research terms. Raw source text and third-party model weights are
+excluded from that grant. Keeping a repository private controls access but does
+not create redistribution rights over third-party material.
 
 ## Current evidence status
 

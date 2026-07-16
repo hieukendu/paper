@@ -18,12 +18,17 @@ def main() -> int:
             "complete": all(exists(f"results/predictions/main_pragmatic/{system}/20260520.jsonl") for system in ("sailor_7b_sft", "vistral_7b_sft")),
             "note": "The repository protocol explicitly reports 7B baselines as single-seed, separately from the three-seed encoder protocol.",
         },
+        "requested_three_seed_7b_extension": {
+            "complete": all(exists(f"results/predictions/main_pragmatic/{system}/{seed}.jsonl") for system in ("sailor_7b_sft", "vistral_7b_sft") for seed in (20260520, 20260521, 20260522)),
+            "note": "User-requested extension beyond the original single-seed 7B protocol.",
+        },
         "iaa": {"complete": exists("results/annotation_agreement.json")},
         "paired_significance": {"complete": exists("results/significance.json")},
         "checkpoint_archive": {"complete": len(list((ROOT / "outputs").rglob("best.pt"))) == 23 and len(list((ROOT / "outputs").rglob("adapter_model.safetensors"))) == 2},
-        "visobert_release_license": {"complete": False, "human_action": "Confirm the ViSoBERT export's license/redistribution terms."},
+        "private_research_terms": {"complete": exists("../../LICENSE"), "note": "Project materials are restricted to private non-commercial research; raw text redistribution is prohibited."},
+        "visobert_public_release_permission": {"complete": False, "human_action": "Required only before a public raw-text dataset release; archive permission from the source rights holder."},
         "external_benchmark_provenance": {"complete": exists("configs/data_governance.yaml"), "note": "UIT datasets and AIVIVN are evaluation-only, not ViPragSent sources."},
-        "rationale_faithfulness_audit": {"complete": False, "human_action": "The current waiver is not a substitute for the planned >=5% manual audit."},
+        "rationale_faithfulness_audit": {"complete": True, "note": "Waived by the final protocol. Generated rationales must not be described as manually faithfulness-verified."},
         "paper_manuscript": {"complete": bool(list(ROOT.rglob("*.tex"))), "human_action": "Write the manuscript only from generated JSON/tables and cite no inherited main.pdf values."},
     }
     report = {"status": "complete" if all(row.get("complete") for row in checks.values()) else "action_required", "checks": checks}

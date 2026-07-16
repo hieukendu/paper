@@ -1,7 +1,9 @@
 dataset_construction:
   name: ViPragSent
   sole_text_source: visobert_local
-  release_license_status: manual_confirmation_required
+  access_policy: private_noncommercial_research_only
+  public_release_status: prohibited_until_source_permission_is_archived
+  project_terms: ../../LICENSE
   note: UIT-VSFC, UIT-VSMEC, and AIVIVN are not incorporated into ViPragSent.
 external_evaluation_only:
   - name: UIT-VSFC

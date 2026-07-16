@@ -45,6 +45,9 @@ def main() -> int:
         shutil.rmtree(output)
     output.mkdir(parents=True)
     copied: list[str] = []
+    for source in (ROOT.parents[1] / "LICENSE", ROOT.parents[1] / "THIRD_PARTY_NOTICES.md"):
+        if copy_if_exists(source, output / source.name):
+            copied.append(source.name)
     for name in RESULTS:
         if copy_if_exists(ROOT / "results" / name, output / "results" / name):
             copied.append(f"results/{name}")

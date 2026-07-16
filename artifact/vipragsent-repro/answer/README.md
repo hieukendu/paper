@@ -1,6 +1,6 @@
 # ViPragSent experiment hand-off
 
-Created: 2026-07-16T07:08:10.969057+00:00
+Created: 2026-07-16T07:36:24.518860+00:00
 Status: `results_generated`
 
 All metrics in `results/`, tables, and figures are generated from prediction JSONL and trainer manifests in this run; no values are copied from `main.pdf`.
@@ -14,6 +14,8 @@ Important protocol notes:
 
 Copied files:
 
+- `LICENSE`
+- `THIRD_PARTY_NOTICES.md`
 - `results/main_pragmatic.json`
 - `results/ordinary_sentiment.json`
 - `results/multitask_ablation.json`
