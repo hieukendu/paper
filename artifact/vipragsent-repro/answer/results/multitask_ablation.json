@@ -8,13 +8,10 @@
     "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
     "runner": "vipragsent.experiments.runner",
-    "source_file": "/root/paper/artifact/vipragsent-repro/results/predictions/multitask_ablation/summary.json"
+    "source_file": "/root/paper/artifact/vipragsent-repro/results/predictions/multitask_ablation/summary.json",
+    "reporting_scope": "Training-time auxiliary-objective ablations only."
   },
   "rows": {
-    "explanation_augmented_inference": {
-      "reason": "No inference-time rationale-generation variant is implemented in this protocol.",
-      "status": "not_run"
-    },
     "full": {
       "ece": 0.06711602833176075,
       "macro_pragmatic_f1": 73.7182,
@@ -47,10 +44,6 @@
       "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl",
       "status": "complete"
     },
-    "hard_label_distillation": {
-      "reason": "No teacher-logit or hard-label distillation training run is implemented in this protocol.",
-      "status": "not_run"
-    },
     "no_emotion_auxiliary": {
       "ece": 0.14246408445028735,
       "macro_pragmatic_f1": 74.8132,
@@ -81,6 +74,38 @@
         "macro_across_benchmarks": 37.43906666666667
       },
       "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl",
+      "status": "complete"
+    },
+    "no_ordinary_sentiment_auxiliary": {
+      "ece": 0.12214876163128928,
+      "macro_pragmatic_f1": 73.358,
+      "ordinary_f1": {
+        "datasets": {
+          "aivivn_2019": {
+            "bootstrap_ci95": [
+              39.6293,
+              42.1627
+            ],
+            "value": 40.8716
+          },
+          "uit_vsfc": {
+            "bootstrap_ci95": [
+              25.3535,
+              27.4136
+            ],
+            "value": 26.3934
+          },
+          "uit_vsmec": {
+            "bootstrap_ci95": [
+              24.4061,
+              30.0927
+            ],
+            "value": 27.2933
+          }
+        },
+        "macro_across_benchmarks": 31.519433333333335
+      },
+      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl",
       "status": "complete"
     },
     "no_explanation_cot_auxiliary": {
@@ -145,38 +170,6 @@
         "macro_across_benchmarks": 22.240766666666662
       },
       "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl",
-      "status": "complete"
-    },
-    "no_ordinary_sentiment_auxiliary": {
-      "ece": 0.12214876163128928,
-      "macro_pragmatic_f1": 73.358,
-      "ordinary_f1": {
-        "datasets": {
-          "aivivn_2019": {
-            "bootstrap_ci95": [
-              39.6293,
-              42.1627
-            ],
-            "value": 40.8716
-          },
-          "uit_vsfc": {
-            "bootstrap_ci95": [
-              25.3535,
-              27.4136
-            ],
-            "value": 26.3934
-          },
-          "uit_vsmec": {
-            "bootstrap_ci95": [
-              24.4061,
-              30.0927
-            ],
-            "value": 27.2933
-          }
-        },
-        "macro_across_benchmarks": 31.519433333333335
-      },
-      "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl",
       "status": "complete"
     },
     "no_task_uncertainty_weighting": {

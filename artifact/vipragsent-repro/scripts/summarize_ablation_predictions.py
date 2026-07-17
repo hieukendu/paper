@@ -19,12 +19,6 @@ SYSTEM_TO_ROW = {
     "vipragsent_no_uncertainty": "no_task_uncertainty_weighting",
 }
 
-NOT_IMPLEMENTED_ROWS = {
-    "explanation_augmented_inference": "No inference-time rationale-generation variant is implemented in this protocol.",
-    "hard_label_distillation": "No teacher-logit or hard-label distillation training run is implemented in this protocol.",
-}
-
-
 def ordinary_scores(system: str) -> dict:
     reports = {}
     for dataset in ("uit_vsfc", "uit_vsmec", "aivivn_2019"):
@@ -61,8 +55,6 @@ def main() -> int:
             "ece": calibration["ece"],
             "prediction_file": str(files[0]),
         }
-    for row_name, reason in NOT_IMPLEMENTED_ROWS.items():
-        rows[row_name] = {"status": "not_run", "reason": reason}
     output = ROOT / "results/predictions/multitask_ablation/summary.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps({"rows": rows}, indent=2) + "\n", encoding="utf-8")

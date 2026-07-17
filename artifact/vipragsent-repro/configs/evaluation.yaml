@@ -1,5 +1,5 @@
 schema_version: "1.0"
-mode: no_finetuning
+mode: evaluate_imported_predictions
 api_baseline:
   provider: azure_openai
   deployment_env: AZURE_OPENAI_DEPLOYMENT_LABEL
@@ -33,7 +33,6 @@ metrics:
   primary: macro_pragmatic_f1
 systems:
   main_pragmatic:
-    - phobert_single_task
     - phobert_finetune
     - xlmr_large
     - sailor_7b_sft
@@ -41,9 +40,17 @@ systems:
     - gpt41_mini_zero_shot
     - gpt41_mini_8_shot
     - vipragsent_full
+  ordinary_retention:
+    - phobert_finetune
+    - xlmr_large
+    - vipragsent_full
+  low_resource_sarcasm:
+    - phobert_finetune
+    - vipragsent_full
   optional_smoke:
     - heuristic_local
 notes:
   - Fine-tuned/SFT systems are evaluated only from imported prediction JSONL files.
   - The no-train runner never creates model checkpoints.
   - Use --allow-silver-gold only for smoke tests, never for final paper claims.
+  - Calibration is reported only for systems that provide pragmatic-polarity confidence scores.

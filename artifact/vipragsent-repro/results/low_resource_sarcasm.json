@@ -2,15 +2,8 @@
   "budgets": {
     "1024": {
       "positive_budget": 1024,
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -168,34 +161,13 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/1024/xlmr_large",
-          "label": "XLM-R-large",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
         }
       }
     },
     "128": {
       "positive_budget": 128,
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -353,34 +325,13 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/128/xlmr_large",
-          "label": "XLM-R-large",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
         }
       }
     },
     "256": {
       "positive_budget": 256,
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -538,34 +489,13 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/256/xlmr_large",
-          "label": "XLM-R-large",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
         }
       }
     },
     "512": {
       "positive_budget": 512,
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -723,34 +653,13 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/512/xlmr_large",
-          "label": "XLM-R-large",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
         }
       }
     },
     "64": {
       "positive_budget": 64,
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -908,20 +817,6 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/low_resource_sarcasm/64/xlmr_large",
-          "label": "XLM-R-large",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
         }
       }
     }
@@ -936,8 +831,9 @@
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
     "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
-    "runner": "vipragsent.experiments.runner"
+    "runner": "vipragsent.experiments.runner",
+    "reporting_scope": "Exploratory single-seed comparison between PhoBERT fine-tune and ViPragSent."
   },
   "schema_version": "1.0",
-  "status": "partial"
+  "status": "complete"
 }

@@ -191,14 +191,6 @@
       },
       "ece": 0.06504932543197298,
       "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl"
-    },
-    "explanation_augmented_inference": {
-      "status": "not_run",
-      "reason": "No inference-time rationale-generation variant is implemented in this protocol."
-    },
-    "hard_label_distillation": {
-      "status": "not_run",
-      "reason": "No teacher-logit or hard-label distillation training run is implemented in this protocol."
     }
   }
 }

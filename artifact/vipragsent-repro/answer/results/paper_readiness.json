@@ -16,13 +16,15 @@
       "note": "User-requested extension beyond the original single-seed 7B protocol."
     },
     "iaa": {
-      "complete": true
+      "complete": true,
+      "note": "Agreement has been computed; report the observed values and adjudication protocol without overstating reliability."
     },
     "paired_significance": {
       "complete": true
     },
     "checkpoint_archive": {
-      "complete": true
+      "complete": false,
+      "human_action": "Record a verifiable private archive URL or reviewer access procedure before claiming that checkpoints/adapters are archived. Git intentionally excludes outputs/."
     },
     "private_research_terms": {
       "complete": true,

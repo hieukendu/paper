@@ -3,22 +3,8 @@
   "datasets": {
     "aivivn_2019": {
       "metric": "polarity_macro_f1",
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
-        "gpt41_mini_zero_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/gpt41_mini_zero_shot",
-          "label": "GPT-4.1-mini zero-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -97,19 +83,83 @@
           ],
           "status": "complete"
         },
-        "phobert_single_task": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/phobert_single_task",
-          "label": "PhoBERT (single-task)",
-          "reason": "missing prediction JSONL",
+        "xlmr_large": {
+          "label": "XLM-R-large",
+          "metrics": {
+            "polarity_macro_f1": {
+              "ci95": [
+                69.4852,
+                71.4266
+              ],
+              "mean": 70.4559,
+              "n_seeds": 3,
+              "seed_values": [
+                71.4462,
+                69.9763,
+                69.9452
+              ]
+            }
+          },
+          "prediction_files": [
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260520.jsonl",
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260521.jsonl",
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260522.jsonl"
+          ],
           "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "sailor_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/sailor_7b_sft",
-          "label": "Sailor-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
+          "runs": [
+            {
+              "label_space": [
+                "positive",
+                "negative"
+              ],
+              "metrics": {
+                "polarity_macro_f1": {
+                  "bootstrap_ci95": [
+                    69.9145,
+                    72.9586
+                  ],
+                  "value": 71.4462
+                }
+              },
+              "n": 3217,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260520.jsonl"
+            },
+            {
+              "label_space": [
+                "positive",
+                "negative"
+              ],
+              "metrics": {
+                "polarity_macro_f1": {
+                  "bootstrap_ci95": [
+                    68.4597,
+                    71.4622
+                  ],
+                  "value": 69.9763
+                }
+              },
+              "n": 3217,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260521.jsonl"
+            },
+            {
+              "label_space": [
+                "positive",
+                "negative"
+              ],
+              "metrics": {
+                "polarity_macro_f1": {
+                  "bootstrap_ci95": [
+                    68.3925,
+                    71.3949
+                  ],
+                  "value": 69.9452
+                }
+              },
+              "n": 3217,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260522.jsonl"
+            }
+          ],
+          "status": "complete"
         },
         "vipragsent_full": {
           "label": "ViPragSent (ours)",
@@ -188,113 +238,14 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "label": "XLM-R-large",
-          "metrics": {
-            "polarity_macro_f1": {
-              "ci95": [
-                69.4852,
-                71.4266
-              ],
-              "mean": 70.4559,
-              "n_seeds": 3,
-              "seed_values": [
-                71.4462,
-                69.9763,
-                69.9452
-              ]
-            }
-          },
-          "prediction_files": [
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260520.jsonl",
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260521.jsonl",
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260522.jsonl"
-          ],
-          "requires_finetuning": true,
-          "runs": [
-            {
-              "label_space": [
-                "positive",
-                "negative"
-              ],
-              "metrics": {
-                "polarity_macro_f1": {
-                  "bootstrap_ci95": [
-                    69.9145,
-                    72.9586
-                  ],
-                  "value": 71.4462
-                }
-              },
-              "n": 3217,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260520.jsonl"
-            },
-            {
-              "label_space": [
-                "positive",
-                "negative"
-              ],
-              "metrics": {
-                "polarity_macro_f1": {
-                  "bootstrap_ci95": [
-                    68.4597,
-                    71.4622
-                  ],
-                  "value": 69.9763
-                }
-              },
-              "n": 3217,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260521.jsonl"
-            },
-            {
-              "label_space": [
-                "positive",
-                "negative"
-              ],
-              "metrics": {
-                "polarity_macro_f1": {
-                  "bootstrap_ci95": [
-                    68.3925,
-                    71.3949
-                  ],
-                  "value": 69.9452
-                }
-              },
-              "n": 3217,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/xlmr_large/20260522.jsonl"
-            }
-          ],
-          "status": "complete"
         }
       },
       "task": "polarity"
     },
     "uit_vsfc": {
       "metric": "polarity_macro_f1",
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
-        "gpt41_mini_zero_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/gpt41_mini_zero_shot",
-          "label": "GPT-4.1-mini zero-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -376,19 +327,86 @@
           ],
           "status": "complete"
         },
-        "phobert_single_task": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/phobert_single_task",
-          "label": "PhoBERT (single-task)",
-          "reason": "missing prediction JSONL",
+        "xlmr_large": {
+          "label": "XLM-R-large",
+          "metrics": {
+            "polarity_macro_f1": {
+              "ci95": [
+                46.9938,
+                50.378
+              ],
+              "mean": 48.6859,
+              "n_seeds": 3,
+              "seed_values": [
+                49.9057,
+                49.1344,
+                47.0177
+              ]
+            }
+          },
+          "prediction_files": [
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260520.jsonl",
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260521.jsonl",
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260522.jsonl"
+          ],
           "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "sailor_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/sailor_7b_sft",
-          "label": "Sailor-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
+          "runs": [
+            {
+              "label_space": [
+                "positive",
+                "neutral",
+                "negative"
+              ],
+              "metrics": {
+                "polarity_macro_f1": {
+                  "bootstrap_ci95": [
+                    48.6489,
+                    51.339
+                  ],
+                  "value": 49.9057
+                }
+              },
+              "n": 3166,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260520.jsonl"
+            },
+            {
+              "label_space": [
+                "positive",
+                "neutral",
+                "negative"
+              ],
+              "metrics": {
+                "polarity_macro_f1": {
+                  "bootstrap_ci95": [
+                    47.777,
+                    50.6108
+                  ],
+                  "value": 49.1344
+                }
+              },
+              "n": 3166,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260521.jsonl"
+            },
+            {
+              "label_space": [
+                "positive",
+                "neutral",
+                "negative"
+              ],
+              "metrics": {
+                "polarity_macro_f1": {
+                  "bootstrap_ci95": [
+                    45.6984,
+                    48.453
+                  ],
+                  "value": 47.0177
+                }
+              },
+              "n": 3166,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260522.jsonl"
+            }
+          ],
+          "status": "complete"
         },
         "vipragsent_full": {
           "label": "ViPragSent (ours)",
@@ -470,116 +488,14 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "label": "XLM-R-large",
-          "metrics": {
-            "polarity_macro_f1": {
-              "ci95": [
-                46.9938,
-                50.378
-              ],
-              "mean": 48.6859,
-              "n_seeds": 3,
-              "seed_values": [
-                49.9057,
-                49.1344,
-                47.0177
-              ]
-            }
-          },
-          "prediction_files": [
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260520.jsonl",
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260521.jsonl",
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260522.jsonl"
-          ],
-          "requires_finetuning": true,
-          "runs": [
-            {
-              "label_space": [
-                "positive",
-                "neutral",
-                "negative"
-              ],
-              "metrics": {
-                "polarity_macro_f1": {
-                  "bootstrap_ci95": [
-                    48.6489,
-                    51.339
-                  ],
-                  "value": 49.9057
-                }
-              },
-              "n": 3166,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260520.jsonl"
-            },
-            {
-              "label_space": [
-                "positive",
-                "neutral",
-                "negative"
-              ],
-              "metrics": {
-                "polarity_macro_f1": {
-                  "bootstrap_ci95": [
-                    47.777,
-                    50.6108
-                  ],
-                  "value": 49.1344
-                }
-              },
-              "n": 3166,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260521.jsonl"
-            },
-            {
-              "label_space": [
-                "positive",
-                "neutral",
-                "negative"
-              ],
-              "metrics": {
-                "polarity_macro_f1": {
-                  "bootstrap_ci95": [
-                    45.6984,
-                    48.453
-                  ],
-                  "value": 47.0177
-                }
-              },
-              "n": 3166,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsfc/xlmr_large/20260522.jsonl"
-            }
-          ],
-          "status": "complete"
         }
       },
       "task": "polarity"
     },
     "uit_vsmec": {
       "metric": "emotion_macro_f1",
-      "status": "partial",
+      "status": "complete",
       "systems": {
-        "gpt41_mini_8_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/gpt41_mini_8_shot",
-          "label": "GPT-4.1-mini 8-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
-        "gpt41_mini_zero_shot": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/gpt41_mini_zero_shot",
-          "label": "GPT-4.1-mini zero-shot",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": false,
-          "status": "blocked"
-        },
         "phobert_finetune": {
           "label": "PhoBERT fine-tune",
           "metrics": {
@@ -673,19 +589,98 @@
           ],
           "status": "complete"
         },
-        "phobert_single_task": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/phobert_single_task",
-          "label": "PhoBERT (single-task)",
-          "reason": "missing prediction JSONL",
+        "xlmr_large": {
+          "label": "XLM-R-large",
+          "metrics": {
+            "emotion_macro_f1": {
+              "ci95": [
+                46.8049,
+                48.3358
+              ],
+              "mean": 47.5703,
+              "n_seeds": 3,
+              "seed_values": [
+                48.2473,
+                46.8944,
+                47.5693
+              ]
+            }
+          },
+          "prediction_files": [
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260520.jsonl",
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260521.jsonl",
+            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260522.jsonl"
+          ],
           "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "sailor_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/sailor_7b_sft",
-          "label": "Sailor-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
+          "runs": [
+            {
+              "label_space": [
+                "anger",
+                "disgust",
+                "enjoyment",
+                "fear",
+                "other",
+                "sadness",
+                "surprise"
+              ],
+              "metrics": {
+                "emotion_macro_f1": {
+                  "bootstrap_ci95": [
+                    43.9525,
+                    51.9771
+                  ],
+                  "value": 48.2473
+                }
+              },
+              "n": 693,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260520.jsonl"
+            },
+            {
+              "label_space": [
+                "anger",
+                "disgust",
+                "enjoyment",
+                "fear",
+                "other",
+                "sadness",
+                "surprise"
+              ],
+              "metrics": {
+                "emotion_macro_f1": {
+                  "bootstrap_ci95": [
+                    42.7862,
+                    50.2382
+                  ],
+                  "value": 46.8944
+                }
+              },
+              "n": 693,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260521.jsonl"
+            },
+            {
+              "label_space": [
+                "anger",
+                "disgust",
+                "enjoyment",
+                "fear",
+                "other",
+                "sadness",
+                "surprise"
+              ],
+              "metrics": {
+                "emotion_macro_f1": {
+                  "bootstrap_ci95": [
+                    43.0961,
+                    51.2222
+                  ],
+                  "value": 47.5693
+                }
+              },
+              "n": 693,
+              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260522.jsonl"
+            }
+          ],
+          "status": "complete"
         },
         "vipragsent_full": {
           "label": "ViPragSent (ours)",
@@ -779,106 +774,6 @@
             }
           ],
           "status": "complete"
-        },
-        "vistral_7b_sft": {
-          "expected_prediction_dir": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/vistral_7b_sft",
-          "label": "Vistral-7B SFT",
-          "reason": "missing prediction JSONL",
-          "requires_finetuning": true,
-          "status": "blocked"
-        },
-        "xlmr_large": {
-          "label": "XLM-R-large",
-          "metrics": {
-            "emotion_macro_f1": {
-              "ci95": [
-                46.8049,
-                48.3358
-              ],
-              "mean": 47.5703,
-              "n_seeds": 3,
-              "seed_values": [
-                48.2473,
-                46.8944,
-                47.5693
-              ]
-            }
-          },
-          "prediction_files": [
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260520.jsonl",
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260521.jsonl",
-            "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260522.jsonl"
-          ],
-          "requires_finetuning": true,
-          "runs": [
-            {
-              "label_space": [
-                "anger",
-                "disgust",
-                "enjoyment",
-                "fear",
-                "other",
-                "sadness",
-                "surprise"
-              ],
-              "metrics": {
-                "emotion_macro_f1": {
-                  "bootstrap_ci95": [
-                    43.9525,
-                    51.9771
-                  ],
-                  "value": 48.2473
-                }
-              },
-              "n": 693,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260520.jsonl"
-            },
-            {
-              "label_space": [
-                "anger",
-                "disgust",
-                "enjoyment",
-                "fear",
-                "other",
-                "sadness",
-                "surprise"
-              ],
-              "metrics": {
-                "emotion_macro_f1": {
-                  "bootstrap_ci95": [
-                    42.7862,
-                    50.2382
-                  ],
-                  "value": 46.8944
-                }
-              },
-              "n": 693,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260521.jsonl"
-            },
-            {
-              "label_space": [
-                "anger",
-                "disgust",
-                "enjoyment",
-                "fear",
-                "other",
-                "sadness",
-                "surprise"
-              ],
-              "metrics": {
-                "emotion_macro_f1": {
-                  "bootstrap_ci95": [
-                    43.0961,
-                    51.2222
-                  ],
-                  "value": 47.5693
-                }
-              },
-              "n": 693,
-              "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/xlmr_large/20260522.jsonl"
-            }
-          ],
-          "status": "complete"
         }
       },
       "task": "emotion"
@@ -893,8 +788,9 @@
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
     "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
-    "runner": "vipragsent.experiments.runner"
+    "runner": "vipragsent.experiments.runner",
+    "reporting_scope": "Encoder transfer study; prompted and generative baselines are outside the ordinary-task evaluation scope."
   },
   "schema_version": "1.0",
-  "status": "partial"
+  "status": "complete"
 }

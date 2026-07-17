@@ -34,11 +34,11 @@ def make_artifacts_dryrun(root: str | Path = ".") -> dict[str, object]:
     ledger_rows = write_claim_ledger(ledger_path, pending_claim_rows())
 
     (tables_dir / "pending_summary.md").write_text(
-        "# Pending Artifact Summary\n\nNo real experiment metrics have been generated in setup-only mode.\n",
+        "# Artifact Scope\n\nThis file is written by the dry-run scaffold only. Final tables and figures are generated from `results/*.json` by `scripts/make_artifacts.py`; pending schemas under `results/pending/` are not evidence.\n",
         encoding="utf-8",
     )
     (figures_dir / "README.md").write_text(
-        "# Figures\n\nFigure generation is pending real result JSON files.\n",
+        "# Figures\n\nFigures in this directory are generated from the completed result JSON files by `scripts/make_artifacts.py`. The dry-run scaffold does not replace final experiment artifacts.\n",
         encoding="utf-8",
     )
     return {

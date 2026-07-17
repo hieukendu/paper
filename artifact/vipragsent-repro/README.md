@@ -1,198 +1,51 @@
-# ViPragSent Reproduction Scaffold
+# ViPragSent Experiment Evidence Bundle
 
-Setup-only scaffold for the ViPragSent paper: "Implicit Sentiment, Sarcasm, and Figurative Language in Vietnamese Social Media".
+This package contains the evaluated ViPragSent experiments, their machine-readable evidence, and the scripts that regenerate result tables and figures. It is not a source of inherited manuscript numbers: the authoritative evidence is generated from adjudicated gold labels, prediction JSONL, and trainer manifests in `results/`.
 
-This repository prepares the data, annotation, validation, experiment-config and artifact pipeline. It does not fine-tune PhoBERT, XLM-R, Vistral, Sailor, or any other model in this phase.
+## Scope of the completed study
 
-## Implemented Now
+- **Data:** 12,000 adjudicated ViPragSent records, split into 8,000 train / 2,000 development / 2,000 test examples.
+- **Main pragmatic evaluation:** PhoBERT, XLM-R, Sailor-7B, Vistral-7B, GPT-4.1-mini zero-/8-shot, and the ViPragSent multitask model. Encoder and 7B systems have three recorded seeds; API baselines are single-run prompted baselines.
+- **Ordinary-task retention:** PhoBERT, XLM-R, and ViPragSent on UIT-VSFC, UIT-VSMEC, and AIVIVN. These datasets are external evaluation benchmarks, not ViPragSent sources.
+- **Ablation:** full model, removal of emotion, ordinary-sentiment, rationale, and uncertainty auxiliaries, plus the no-multitask PhoBERT reference. Inference-time rationale generation and hard-label distillation are outside this study's scope.
+- **Supplementary analyses:** low-resource sarcasm (PhoBERT versus ViPragSent, one registered seed), calibration for systems with pragmatic-polarity confidence scores, confusion analysis, learning curves, measured GPU wall-clock time, paired bootstrap significance, and inter-annotator agreement.
 
-- Repo tree, configs, `.env.example`, `.gitignore`, and human-action checklist.
-- Unified JSONL schema for six pragmatic labels, polarity, emotion, provenance and annotation status.
-- Local ViSoBERT ingest helpers with PII cleaning, normalization, checksum and manifest scaffolding.
-- Public dataset downloader/registry placeholders that require explicit human/license confirmation.
-- Annotation batch builder, silver-label scaffold, disagreement/adjudication merge helpers and rationale generation scaffold.
-- Metrics, calibration, bootstrap, confusion and pending artifact schemas.
-- Guard-railed `scripts/train.py` that refuses to run unless fine-tuning is explicitly enabled and confirmed.
-- Tests for schema, PII cleaning, label mapping, split overlap, metrics and artifact schema.
+The completed results do not establish that ViPragSent outperforms every baseline. Any manuscript must state the observed comparison faithfully and must not reuse values from the separate draft manuscript package.
 
-## Deferred
+## Data governance
 
-- Real fine-tuning and Q1-Q4 experiment runs.
-- Gold labels before human review/adjudication.
-- Release of research-only raw text.
-- Direct social-media crawling.
-- Any numeric claim reported as a final result.
+ViPragSent text comes solely from the local ViSoBERT export. Raw or processed social-media text is private, non-commercial research material and must not be redistributed until source permission is archived. See `configs/data_governance.yaml`, `LICENSE`, and `THIRD_PARTY_NOTICES.md`.
 
-## Environment Setup
+The public benchmark datasets are evaluation-only. Their individual terms and provenance are recorded in `data/manifest/` and the generated `answer/data_provenance/` bundle.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-Copy-Item .env.example .env
-```
+## Evidence layout
 
-Fill `.env` manually. Never commit `.env`.
+- `results/*.json`: generated metrics, calibration, significance, agreement, provenance, and readiness metadata.
+- `results/predictions/`: imported model/API predictions used to compute the metrics.
+- `tables/` and `figures/`: generated Markdown tables and SVG figures.
+- `answer/`: portable hand-off bundle regenerated from the authoritative artifacts.
+- `cards/`: private checkpoint and adapter archive cards. Checkpoints and adapters are intentionally ignored by Git; their manifests are retained in `answer/run_manifests/`.
 
-For LLM silver labels, rationale generation or no-fine-tuning API baselines, this scaffold can use Azure OpenAI only when you explicitly pass the relevant confirmation flag. Set `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_API_VERSION`, and the Azure deployment names `AZURE_OPENAI_DEPLOYMENT_LABEL` / `AZURE_OPENAI_DEPLOYMENT_RATIONALE`. These are deployment names in Azure, not plain model IDs. The default configured deployment label is `gpt-4.1-mini`; the default path still avoids API calls.
+## Regenerate the evidence bundle
 
-## Data Setup
-
-The first source is the local ViSoBERT export:
-
-```text
-D:\hf_cache\exports\visobert_12000_api
-```
-
-Run safe checks first:
+Run from this directory after the required prediction files and trainer manifests are available:
 
 ```powershell
-python scripts/00_check_env.py
-python scripts/01_prepare_sources.py --dry-run
-```
-
-Public datasets are configured as fallbacks only. UIT-VSFC, UIT-VSMEC and AIVIVN license/access/split policies must be confirmed by a human before using them.
-
-## JSONL Schema And Labels
-
-Every record uses one unified schema:
-
-- Six binary pragmatic labels: `implicit_sentiment`, `sarcasm`, `irony`, `idiom_figurative`, `code_switching`, `mocking`.
-- Intended polarity: `positive`, `neutral`, `negative`.
-- Emotion: `enjoyment`, `sadness`, `anger`, `disgust`, `fear`, `surprise`, `other`.
-- Missing labels stay `null` and are represented by `available_labels`.
-- Only adjudicated records should be treated as final gold data.
-
-## Agent-Assisted Annotation Workflow
-
-```text
-unlabeled_pool.jsonl
-  -> scripts/03_make_annotation_batches.py
-  -> data/annotation/batches/batch_001_input.jsonl
-  -> scripts/04_agent_prelabelling.py
-  -> data/annotation/agent_silver/*.jsonl
-  -> human reviewer_01 + reviewer_02
-  -> scripts/05_merge_human_annotations.py
-  -> data/annotation/disagreements/*.jsonl
-  -> adjudicator review
-  -> data/annotation/adjudicated/*.jsonl
-  -> data/processed/vipragsent_train/dev/test.jsonl
-```
-
-Agent labels are silver labels only. Human review and adjudication are required before final processed JSONL is considered gold.
-
-## Rationale Generation And Audit
-
-Rationales are generated from adjudicated train labels only. They are auxiliary training targets later, not inference outputs. Audit at least 5% and drop unfaithful rationales.
-
-## Experiment Scaffolds Q1-Q4
-
-- Q1: main pragmatic detection and ordinary sentiment retention.
-- Q2: multi-task ablations.
-- Q3: low-resource sarcasm slices.
-- Q4: calibration, confusion and learning-curve artifacts.
-
-The current scripts prepare configs, command plans and pending schemas only.
-
-## Artifact And Claim Ledger Generation
-
-```powershell
-python scripts/09_make_artifacts_dryrun.py
-```
-
-This creates pending/mock-safe artifacts that are clearly marked `pending`. Do not cite them as real experimental results.
-
-## Safe Checks
-
-```powershell
-python scripts/00_check_env.py
-pytest
-python scripts/07_validate_processed.py --toy
-```
-
-## No-Fine-Tuning Experiment Runner
-
-The repo now includes a runnable no-fine-tuning experiment harness. It evaluates
-gold JSONL against imported prediction JSONL files, computes the paper metrics,
-and generates tables/figures/claim ledger. It does not train models.
-
-Prediction files should follow this layout:
-
-```text
-results/predictions/main_pragmatic/{system}/{seed}.jsonl
-results/predictions/ordinary_sentiment/{dataset}/{system}/{seed}.jsonl
-results/predictions/low_resource_sarcasm/{budget}/{system}/{seed}.jsonl
-```
-
-Each prediction JSONL record needs at least:
-
-```json
-{"id":"record_id","system":"vipragsent_full","seed":20260520,"predictions":{"implicit_sentiment":0,"sarcasm":0,"irony":0,"idiom_figurative":0,"code_switching":0,"mocking":0,"polarity":"neutral","emotion":"other"}}
-```
-
-Run the no-fine-tune suite:
-
-```powershell
-python scripts/run_experiments.py
+python scripts/summarize_ablation_predictions.py
+python scripts/19_compute_iaa.py
+python scripts/20_paired_significance.py
+python scripts/run_experiments.py --vipragsent-test data/processed/vipragsent_test.jsonl --public-data data/processed/all_unified.jsonl --predictions-dir results/predictions --output-dir results --bootstrap-resamples 1000
 python scripts/make_artifacts.py
+python scripts/21_paper_readiness.py
+python scripts/17_collect_answer_bundle.py
+python -m pytest -q
 ```
 
-After human annotation is complete, build gold splits and run all no-fine-tuning
-experiments/artifacts:
+`scripts/run_full_paper_checklist.sh` is the corresponding server-side checklist. It does not silently retrain a model when the recorded prediction files already exist.
 
-```powershell
-python scripts/run_after_annotation.py
-```
+## Reporting rules
 
-To include GPT-4.1-mini API baselines:
-
-```powershell
-python scripts/run_after_annotation.py --run-api-baselines --confirm-api-call
-```
-
-Human annotation files are expected here:
-
-```text
-data/annotation/reviewer_01/*.jsonl
-data/annotation/reviewer_02/*.jsonl
-data/annotation/adjudicated/*.jsonl
-```
-
-Reviewer/adjudicator records may either contain a `labels` object or flat label
-fields. Minimal reviewer record:
-
-```json
-{"id":"fresh_visobert_00001","annotator_id":"ann_01","labels":{"implicit_sentiment":0,"sarcasm":0,"irony":0,"idiom_figurative":0,"code_switching":0,"mocking":0,"polarity":"neutral","emotion":"other"}}
-```
-
-If the two reviewers agree, `run_after_annotation.py` promotes the record to
-final adjudicated gold automatically. If they disagree, the final labels must be
-provided in `data/annotation/adjudicated/*.jsonl`; unresolved disagreements are
-written to `data/annotation/disagreements/all_disagreements.jsonl`.
-
-For a smoke test before adjudicated gold exists:
-
-```powershell
-python scripts/run_experiments.py --include-heuristic --allow-silver-gold --limit 200 --bootstrap-resamples 100
-python scripts/make_artifacts.py
-```
-
-Systems that require fine-tuning/SFT are marked `blocked` until their prediction
-JSONL files are imported from the machine that runs training.
-
-The GPT-4.1-mini baseline prediction paths are:
-
-```text
-results/predictions/main_pragmatic/gpt41_mini_zero_shot/20260520.jsonl
-results/predictions/main_pragmatic/gpt41_mini_8_shot/20260520.jsonl
-```
-
-## Enabling Fine-Tuning Later
-
-Fine-tuning remains disabled until human actions are complete. Later cloud runs require:
-
-- Approved/adjudicated data.
-- `.env` with `ENABLE_FINE_TUNING=true`.
-- `RUN_MODE` not set to `setup_only`.
-- `scripts/train.py --confirm-run-training`.
-- A suitable GPU or an explicit toy-run override.
+- Use only values in generated `results/*.json` and tables derived from them.
+- Report calibration only for systems with stored confidence scores; missing confidence is `N/A`, not zero calibration error.
+- Treat the low-resource study as exploratory because it has one registered seed per budget.
+- Report the observed inter-annotator agreement and the adjudication protocol; do not describe generated rationales as manually faithfulness-verified.

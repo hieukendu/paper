@@ -19,17 +19,9 @@ run_if_missing () {
   fi
 }
 
-# The registered protocol reports the expensive 7B baselines at one seed,
-# separately from the three-seed encoder models. An explicit extension remains
-# available for a future allocation, but is not silently mixed into this run.
-if [[ "${EXTEND_7B_SEEDS:-0}" == "1" ]]; then
-  for seed in 20260521 20260522; do
-    run_if_missing "results/predictions/main_pragmatic/sailor_7b_sft/${seed}.jsonl" \
-      python scripts/train_qlora_sft.py --model-id "$HF_HOME/models/Sailor-7B" --system sailor_7b_sft --seed "$seed"
-    run_if_missing "results/predictions/main_pragmatic/vistral_7b_sft/${seed}.jsonl" \
-      python scripts/train_qlora_sft.py --model-id "$HF_HOME/models/Vistral-7B-Chat" --system vistral_7b_sft --seed "$seed" --attn-implementation sdpa --prediction-batch-size 16
-  done
-fi
+# Main encoder and 7B comparisons use the three recorded seeds. This checklist
+# only regenerates evidence from existing predictions and manifests; it does
+# not launch an unrequested training run.
 
 # Ordinary-task retention for every trained encoder ablation. These are
 # prediction-only passes over external benchmarks, not ViPragSent sources.

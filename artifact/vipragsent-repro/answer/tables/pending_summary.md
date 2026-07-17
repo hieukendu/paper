@@ -1,3 +1,3 @@
-# Pending Artifact Summary
+# Artifact Scope
 
-No real experiment metrics have been generated in setup-only mode.
+Final tables and figures are generated from `results/*.json` by `scripts/make_artifacts.py`. The pending schemas under `results/pending/` are dry-run scaffolds only and are not evidence for the completed experiments.

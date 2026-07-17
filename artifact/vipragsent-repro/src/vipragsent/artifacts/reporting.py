@@ -42,10 +42,10 @@ def make_final_artifacts(
     ledger_rows = write_claim_ledger(claim_ledger, results)
     index = {
         "status": "ok",
-        "results_dir": str(results_dir),
-        "tables": {key: str(path) for key, path in table_paths.items()},
-        "figures": {key: str(path) for key, path in figure_paths.items()},
-        "claim_ledger": str(claim_ledger),
+        "results_dir": _portable_path(root, results_dir),
+        "tables": {key: _portable_path(root, path) for key, path in table_paths.items()},
+        "figures": {key: _portable_path(root, path) for key, path in figure_paths.items()},
+        "claim_ledger": _portable_path(root, claim_ledger),
         "claim_rows": ledger_rows,
     }
     dump_json(results_dir / "artifact_index.json", index)
@@ -131,7 +131,7 @@ def write_cost_table(path: Path, result: dict[str, Any] | None) -> Path:
                 _plain_cell(payload.get("total_usd")),
             ]
         )
-    _write_markdown_table(path, "Cost Breakdown", ["System", "GPU h", "Compute USD", "API USD", "Total USD"], rows, result)
+    _write_markdown_table(path, "Measured Compute Time", ["System", "GPU h"], [row[:2] for row in rows], result)
     return path
 
 
@@ -151,6 +151,8 @@ def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None]) ->
             )
     calibration = results.get("calibration") or {}
     for system_id, system in (calibration.get("systems") or {}).items():
+        if system.get("status") != "complete" or system.get("ece") is None:
+            continue
         rows.append(
             {
                 "anchor": f"Figure7.{system_id}.ece",
@@ -275,6 +277,13 @@ def _load_results(results_dir: Path) -> dict[str, dict[str, Any] | None]:
         path = results_dir / f"{name}.json"
         out[name] = load_json(path) if path.exists() else None
     return out
+
+
+def _portable_path(root: Path, path: Path) -> str:
+    try:
+        return path.resolve().relative_to(root.resolve()).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 def _systems(result: dict[str, Any] | None) -> dict[str, Any]:

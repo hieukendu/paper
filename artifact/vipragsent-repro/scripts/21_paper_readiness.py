@@ -22,9 +22,15 @@ def main() -> int:
             "complete": all(exists(f"results/predictions/main_pragmatic/{system}/{seed}.jsonl") for system in ("sailor_7b_sft", "vistral_7b_sft") for seed in (20260520, 20260521, 20260522)),
             "note": "User-requested extension beyond the original single-seed 7B protocol.",
         },
-        "iaa": {"complete": exists("results/annotation_agreement.json")},
+        "iaa": {
+            "complete": exists("results/annotation_agreement.json"),
+            "note": "Agreement has been computed; report the observed values and adjudication protocol without overstating reliability.",
+        },
         "paired_significance": {"complete": exists("results/significance.json")},
-        "checkpoint_archive": {"complete": len(list((ROOT / "outputs").rglob("best.pt"))) == 23 and len(list((ROOT / "outputs").rglob("adapter_model.safetensors"))) == 6},
+        "checkpoint_archive": {
+            "complete": False,
+            "human_action": "Record a verifiable private archive URL or reviewer access procedure before claiming that checkpoints/adapters are archived. Git intentionally excludes outputs/.",
+        },
         "private_research_terms": {"complete": exists("../../LICENSE"), "note": "Project materials are restricted to private non-commercial research; raw text redistribution is prohibited."},
         "visobert_public_release_permission": {"complete": False, "human_action": "Required only before a public raw-text dataset release; archive permission from the source rights holder."},
         "external_benchmark_provenance": {"complete": exists("configs/data_governance.yaml"), "note": "UIT datasets and AIVIVN are evaluation-only, not ViPragSent sources."},

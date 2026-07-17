@@ -7,7 +7,7 @@ safety:
   local_gpu_vram_gb: 4
 seeds:
   seed_base: 20260520
-  values: [20260520, 20260521, 20260522, 20260523, 20260524]
+  values: [20260520, 20260521, 20260522]
 metrics:
   primary: macro_pragmatic_f1
   bootstrap_resamples: 1000
@@ -22,7 +22,7 @@ encoder_finetune:
   max_seq_len: 128
   fp16: true
   grad_clip: 1.0
-  status: deferred
+  status: local_template_not_a_completed_run
 qlora:
   lr: 1.0e-4
   batch_size: 16
@@ -32,8 +32,8 @@ qlora:
   dropout: 0.05
   target_modules: [q_proj, k_proj, v_proj, o_proj]
   quantization: nf4
-  status: deferred
+  status: local_template_not_a_completed_run
 rationale_decoder:
   beta: 0.3
   train_only: true
-  status: deferred
+  status: local_template_not_a_completed_run

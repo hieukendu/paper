@@ -8,10 +8,11 @@ from vipragsent.data.schema import PRAGMATIC_LABELS
 from vipragsent.experiments.baselines import heuristic_prediction_records
 from vipragsent.experiments.constants import (
     ABLATION_ROWS,
-    COST_BREAKDOWN,
     LOW_RESOURCE_BUDGETS,
+    LOW_RESOURCE_SYSTEM_IDS,
     METRIC_FIELDS,
     ORDINARY_DATASETS,
+    ORDINARY_SYSTEM_IDS,
     Q1_SYSTEMS,
     SMOKE_SYSTEM,
     SYSTEM_LABELS,
@@ -231,7 +232,8 @@ def build_ordinary_sentiment_result(
             dataset_result["blocked_reason"] = str(exc)
             result["datasets"][dataset] = dataset_result
             continue
-        for system in Q1_SYSTEMS:
+        for system_id in ORDINARY_SYSTEM_IDS:
+            system = next(item for item in Q1_SYSTEMS if item.system_id == system_id)
             files = _prediction_files(predictions_dir, f"ordinary_sentiment/{dataset}", system.system_id)
             if not files:
                 dataset_result["systems"][system.system_id] = _blocked_system(
@@ -272,8 +274,12 @@ def build_ablation_result(*, predictions_dir: str | Path) -> dict[str, Any]:
     summary_path = Path(predictions_dir) / "multitask_ablation" / "summary.json"
     if summary_path.exists():
         payload = load_json(summary_path)
-        result["status"] = "complete"
-        result["rows"] = payload.get("rows", payload)
+        source_rows = payload.get("rows", payload)
+        result["rows"] = {
+            row: source_rows.get(row, {"status": "blocked", "reason": "missing registered ablation summary"})
+            for row in ABLATION_ROWS
+        }
+        result["status"] = _overall_status(result["rows"])
         result["provenance"]["source_file"] = str(summary_path)
         return result
     result["status"] = "blocked"
@@ -312,7 +318,7 @@ def build_low_resource_result(
         result["status"] = "blocked"
         result["blocked_reason"] = str(exc)
         return result
-    systems = ["phobert_finetune", "xlmr_large", "vistral_7b_sft", "gpt41_mini_8_shot", "vipragsent_full"]
+    systems = LOW_RESOURCE_SYSTEM_IDS
     for budget in LOW_RESOURCE_BUDGETS:
         budget_key = str(budget)
         result["budgets"][budget_key] = {"systems": {}, "positive_budget": budget}
@@ -343,12 +349,19 @@ def build_calibration_result(joined_by_system: dict[str, list[dict[str, Any]]]) 
     result = _result_envelope("q4_calibration")
     result["target"] = "pragmatic_polarity"
     result["systems"] = {}
+    result["excluded_systems"] = {}
     for system_id, joined in joined_by_system.items():
         report = evaluate_calibration_records(joined, target="pragmatic_polarity", bins=10)
-        status = "complete" if report["n"] > 0 else "blocked"
+        if report["n"] == 0:
+            result["excluded_systems"][system_id] = {
+                "label": SYSTEM_LABELS.get(system_id, system_id),
+                "reason": "prediction records do not include pragmatic-polarity confidence scores",
+                "missing_confidence": report["missing_confidence"],
+            }
+            continue
         result["systems"][system_id] = {
             "label": SYSTEM_LABELS.get(system_id, system_id),
-            "status": status,
+            "status": "complete",
             "ece": round(report["ece"], 6),
             "bins": report["bins"],
             "n": report["n"],
@@ -358,7 +371,7 @@ def build_calibration_result(joined_by_system: dict[str, list[dict[str, Any]]]) 
         result["status"] = "blocked"
         result["blocked_reason"] = "No evaluated system with confidence scores is available."
     else:
-        result["status"] = _overall_status(result["systems"])
+        result["status"] = "complete"
     return result
 
 

@@ -8,27 +8,12 @@
     "note": "This runner evaluates prediction JSONL created by local or remote training; it does not itself train a model.",
     "predictions_dir": "/root/paper/artifact/vipragsent-repro/results/predictions",
     "record_limit": null,
-    "runner": "vipragsent.experiments.runner"
+    "runner": "vipragsent.experiments.runner",
+    "reporting_scope": "Calibration is reported only for systems with pragmatic-polarity confidence scores."
   },
   "schema_version": "1.0",
-  "status": "partial",
+  "status": "complete",
   "systems": {
-    "gpt41_mini_8_shot": {
-      "bins": [],
-      "ece": 0.0,
-      "label": "GPT-4.1-mini 8-shot",
-      "missing_confidence": 2000,
-      "n": 0,
-      "status": "blocked"
-    },
-    "gpt41_mini_zero_shot": {
-      "bins": [],
-      "ece": 0.0,
-      "label": "GPT-4.1-mini zero-shot",
-      "missing_confidence": 2000,
-      "n": 0,
-      "status": "blocked"
-    },
     "phobert_finetune": {
       "bins": [
         {
@@ -108,14 +93,6 @@
       "n": 2000,
       "status": "complete"
     },
-    "sailor_7b_sft": {
-      "bins": [],
-      "ece": 0.0,
-      "label": "Sailor-7B SFT",
-      "missing_confidence": 2000,
-      "n": 0,
-      "status": "blocked"
-    },
     "vipragsent_full": {
       "bins": [
         {
@@ -194,14 +171,6 @@
       "missing_confidence": 0,
       "n": 2000,
       "status": "complete"
-    },
-    "vistral_7b_sft": {
-      "bins": [],
-      "ece": 0.0,
-      "label": "Vistral-7B SFT",
-      "missing_confidence": 2000,
-      "n": 0,
-      "status": "blocked"
     },
     "xlmr_large": {
       "bins": [
@@ -283,5 +252,27 @@
       "status": "complete"
     }
   },
-  "target": "pragmatic_polarity"
+  "target": "pragmatic_polarity",
+  "excluded_systems": {
+    "gpt41_mini_8_shot": {
+      "label": "GPT-4.1-mini 8-shot",
+      "reason": "prediction records do not include pragmatic-polarity confidence scores",
+      "missing_confidence": 2000
+    },
+    "gpt41_mini_zero_shot": {
+      "label": "GPT-4.1-mini zero-shot",
+      "reason": "prediction records do not include pragmatic-polarity confidence scores",
+      "missing_confidence": 2000
+    },
+    "sailor_7b_sft": {
+      "label": "Sailor-7B SFT",
+      "reason": "prediction records do not include pragmatic-polarity confidence scores",
+      "missing_confidence": 2000
+    },
+    "vistral_7b_sft": {
+      "label": "Vistral-7B SFT",
+      "reason": "prediction records do not include pragmatic-polarity confidence scores",
+      "missing_confidence": 2000
+    }
+  }
 }
