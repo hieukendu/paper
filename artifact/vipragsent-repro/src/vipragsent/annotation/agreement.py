@@ -42,6 +42,28 @@ def cohen_kappa_nominal(left_values: list[Hashable], right_values: list[Hashable
     return (observed - expected) / (1 - expected)
 
 
+def fleiss_kappa_nominal(ratings: list[list[Hashable | None]]) -> float:
+    """Fleiss' kappa for nominal ratings with a fixed number of raters."""
+    usable = [[value for value in row if value is not None] for row in ratings]
+    usable = [row for row in usable if len(row) >= 2]
+    if not usable:
+        return 0.0
+    rater_count = len(usable[0])
+    if rater_count < 2 or any(len(row) != rater_count for row in usable):
+        raise ValueError("Fleiss' kappa requires the same number of ratings per item")
+    total_items = len(usable)
+    category_counts = Counter(value for row in usable for value in row)
+    observed = sum(
+        sum(count * (count - 1) for count in Counter(row).values()) / (rater_count * (rater_count - 1))
+        for row in usable
+    ) / total_items
+    total_ratings = total_items * rater_count
+    expected = sum((count / total_ratings) ** 2 for count in category_counts.values())
+    if expected == 1:
+        return 1.0
+    return (observed - expected) / (1 - expected)
+
+
 def krippendorff_alpha_nominal(ratings: list[list[Hashable | None]]) -> float:
     """Krippendorff's alpha for nominal ratings with missing values allowed."""
     pairs: list[tuple[Hashable, Hashable]] = []

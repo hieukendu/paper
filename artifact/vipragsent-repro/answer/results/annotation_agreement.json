@@ -2,63 +2,154 @@
   "status": "complete",
   "reviewers": [
     "reviewer_01",
-    "reviewer_02"
+    "reviewer_02",
+    "adjudicator_quynh_nhu"
   ],
-  "shared_records": 10000,
-  "method": "Nominal Cohen's kappa and Krippendorff's alpha; no ordinal weighting.",
+  "shared_records": 12000,
+  "method": "Nominal mean pairwise agreement, pairwise Cohen's kappa, Fleiss' kappa, and Krippendorff's alpha across three raters; no ordinal weighting.",
+  "protocol_note": "The third rater is the fixed adjudicator whose labels define the experiment gold split. Describe this as post-adjudication agreement unless independent blinded re-annotation is documented.",
   "fields": {
     "implicit_sentiment": {
-      "n": 10000,
-      "percent_agreement": 0.8058,
-      "cohen_kappa": 0.03271370228282545,
-      "krippendorff_alpha_nominal": -0.04552858581473074
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.9498888888888889,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.9248333333333333,
+        "reviewer_01__adjudicator_quynh_nhu": 0.98825,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9365833333333333
+      },
+      "mean_pairwise_cohen_kappa": 0.797559955706508,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7007385487290484,
+        "reviewer_01__adjudicator_quynh_nhu": 0.9418178577087623,
+        "reviewer_02__adjudicator_quynh_nhu": 0.7501234606817131
+      },
+      "fleiss_kappa_nominal": 0.7864744196459947,
+      "krippendorff_alpha_nominal": 0.7864803509121157
     },
     "sarcasm": {
-      "n": 10000,
-      "percent_agreement": 0.8282,
-      "cohen_kappa": 0.20568320260395395,
-      "krippendorff_alpha_nominal": 0.20371828387611135
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.9357777777777777,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.9036666666666666,
+        "reviewer_01__adjudicator_quynh_nhu": 0.93825,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9654166666666667
+      },
+      "mean_pairwise_cohen_kappa": 0.7942096507274923,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7000931241981565,
+        "reviewer_01__adjudicator_quynh_nhu": 0.7941704211506513,
+        "reviewer_02__adjudicator_quynh_nhu": 0.8883654068336692
+      },
+      "fleiss_kappa_nominal": 0.7929217781721722,
+      "krippendorff_alpha_nominal": 0.7929275303450006
     },
     "irony": {
-      "n": 10000,
-      "percent_agreement": 0.9544,
-      "cohen_kappa": 0.0586241792379559,
-      "krippendorff_alpha_nominal": 0.05359297730875623
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.9746666666666667,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.962,
+        "reviewer_01__adjudicator_quynh_nhu": 0.9733333333333334,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9886666666666667
+      },
+      "mean_pairwise_cohen_kappa": 0.8616153366899969,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7961553680539252,
+        "reviewer_01__adjudicator_quynh_nhu": 0.8556539990270181,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9330366429890474
+      },
+      "fleiss_kappa_nominal": 0.8592940002750865,
+      "krippendorff_alpha_nominal": 0.8592979087750787
     },
     "idiom_figurative": {
-      "n": 10000,
-      "percent_agreement": 0.9849,
-      "cohen_kappa": 0.13023042557651915,
-      "krippendorff_alpha_nominal": 0.12956973518284887
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.9916111111111112,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.9874166666666667,
+        "reviewer_01__adjudicator_quynh_nhu": 0.9915833333333334,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9958333333333333
+      },
+      "mean_pairwise_cohen_kappa": 0.9491404429236271,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.9236605587811173,
+        "reviewer_01__adjudicator_quynh_nhu": 0.9486392799328753,
+        "reviewer_02__adjudicator_quynh_nhu": 0.975121490056889
+      },
+      "fleiss_kappa_nominal": 0.9492789204509007,
+      "krippendorff_alpha_nominal": 0.949280329369777
     },
     "code_switching": {
-      "n": 10000,
-      "percent_agreement": 0.879,
-      "cohen_kappa": 0.4365625809941289,
-      "krippendorff_alpha_nominal": 0.4312002275312856
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.957388888888889,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.9360833333333334,
+        "reviewer_01__adjudicator_quynh_nhu": 0.95125,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9848333333333333
+      },
+      "mean_pairwise_cohen_kappa": 0.7916189148699155,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7003604659687754,
+        "reviewer_01__adjudicator_quynh_nhu": 0.7613674096139975,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9131288690269734
+      },
+      "fleiss_kappa_nominal": 0.7836657638872581,
+      "krippendorff_alpha_nominal": 0.7836717731715948
     },
     "mocking": {
-      "n": 10000,
-      "percent_agreement": 0.8288,
-      "cohen_kappa": 0.27078236192911487,
-      "krippendorff_alpha_nominal": 0.2524547304209108
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.9421666666666667,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.91325,
+        "reviewer_01__adjudicator_quynh_nhu": 0.9639166666666666,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9493333333333334
+      },
+      "mean_pairwise_cohen_kappa": 0.7951684975706287,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7002585665775346,
+        "reviewer_01__adjudicator_quynh_nhu": 0.8576320405285084,
+        "reviewer_02__adjudicator_quynh_nhu": 0.8276148856058431
+      },
+      "fleiss_kappa_nominal": 0.7921600607560799,
+      "krippendorff_alpha_nominal": 0.7921658340877256
     },
     "polarity": {
-      "n": 10000,
-      "percent_agreement": 0.6211,
-      "cohen_kappa": 0.27295510420055796,
-      "krippendorff_alpha_nominal": 0.2675079571869182
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.8820555555555556,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.8230833333333333,
+        "reviewer_01__adjudicator_quynh_nhu": 0.88225,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9408333333333333
+      },
+      "mean_pairwise_cohen_kappa": 0.8045485141753868,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7091421167512402,
+        "reviewer_01__adjudicator_quynh_nhu": 0.8001427571940298,
+        "reviewer_02__adjudicator_quynh_nhu": 0.9043606685808903
+      },
+      "fleiss_kappa_nominal": 0.804487220384467,
+      "krippendorff_alpha_nominal": 0.804492651295012
     },
     "emotion": {
-      "n": 10000,
-      "percent_agreement": 0.4159,
-      "cohen_kappa": 0.18609076636068686,
-      "krippendorff_alpha_nominal": 0.1050747830835509
+      "n": 12000,
+      "mean_pairwise_percent_agreement": 0.8274166666666667,
+      "pairwise_percent_agreement": {
+        "reviewer_01__reviewer_02": 0.8010833333333334,
+        "reviewer_01__adjudicator_quynh_nhu": 0.8414166666666667,
+        "reviewer_02__adjudicator_quynh_nhu": 0.83975
+      },
+      "mean_pairwise_cohen_kappa": 0.7831324126923743,
+      "pairwise_cohen_kappa": {
+        "reviewer_01__reviewer_02": 0.7492953746248217,
+        "reviewer_01__adjudicator_quynh_nhu": 0.800008251542538,
+        "reviewer_02__adjudicator_quynh_nhu": 0.8000936119097635
+      },
+      "fleiss_kappa_nominal": 0.7823513489869579,
+      "krippendorff_alpha_nominal": 0.7823573947828193
     }
   },
   "macro": {
-    "percent_agreement": 0.7897625,
-    "cohen_kappa": 0.19920529039821785,
-    "krippendorff_alpha_nominal": 0.1746987635969564
+    "mean_pairwise_percent_agreement": 0.9326215277777778,
+    "mean_pairwise_cohen_kappa": 0.8221242156694912,
+    "fleiss_kappa_nominal": 0.8188291890698647,
+    "krippendorff_alpha_nominal": 0.8188342215923905
   }
 }

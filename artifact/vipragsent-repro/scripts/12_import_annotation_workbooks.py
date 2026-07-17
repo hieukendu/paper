@@ -11,6 +11,8 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 from vipragsent.data.schema import EMOTION_LABELS, POLARITY_LABELS, PRAGMATIC_LABELS, make_record
 from vipragsent.utils.io import read_jsonl, write_jsonl
@@ -82,9 +84,9 @@ def load_batches(path: Path) -> tuple[dict[str, dict], dict[str, list[str]]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Import the three ViPragSent annotation workbooks.")
-    parser.add_argument("--reviewer-1", type=Path, default=ROOT / "Duy_Duc.xlsx")
-    parser.add_argument("--reviewer-2", type=Path, default=ROOT / "Nhat_Khang.xlsx")
-    parser.add_argument("--adjudicator", type=Path, default=ROOT / "Quynh_Nhu.xlsx")
+    parser.add_argument("--reviewer-1", type=Path, default=ROOT / "Duy_Duc_synced-1.xlsx")
+    parser.add_argument("--reviewer-2", type=Path, default=ROOT / "Nhat_Khang_synced-1.xlsx")
+    parser.add_argument("--adjudicator", type=Path, default=ROOT / "Quynh_Nhu_synced-1.xlsx")
     args = parser.parse_args()
 
     old_batches, _ = load_batches(ROOT / "data" / "annotation" / "batches")
@@ -121,7 +123,7 @@ def main() -> int:
             record_id=record["id"],
             split="unassigned",
             label_status="unlabeled",
-            created_by="scripts/12_import_annotation_workbooks.py:Quynh_Nhu.xlsx",
+            created_by=f"scripts/12_import_annotation_workbooks.py:{args.adjudicator.name}",
             pii_cleaned=True,
         )
         base["batch_id"] = batch_id
@@ -186,11 +188,11 @@ def main() -> int:
         "disagreement_field_occurrences": dict(sorted(field_counts.items())),
         "coverage": coverage,
         "mapping": {
-            "Duy_Duc.xlsx": "reviewer_01 / duy_duc",
-            "Nhat_Khang.xlsx": "reviewer_02 / nhat_khang",
-            "Quynh_Nhu.xlsx": "adjudicated / quynh_nhu (final gold)",
+            args.reviewer_1.name: "reviewer_01 / duy_duc",
+            args.reviewer_2.name: "reviewer_02 / nhat_khang",
+            args.adjudicator.name: "adjudicated / quynh_nhu (final gold)",
         },
-        "disagreements_output": str(disagreement_path),
+        "disagreements_output": disagreement_path.relative_to(ROOT).as_posix(),
     }
     report_path = ROOT / "data" / "manifest" / "annotation_import_report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")

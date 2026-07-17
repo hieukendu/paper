@@ -18,6 +18,8 @@ ViPragSent text comes solely from the local ViSoBERT export. Raw or processed so
 
 The public benchmark datasets are evaluation-only. Their individual terms and provenance are recorded in `data/manifest/` and the generated `answer/data_provenance/` bundle.
 
+The canonical annotation workbooks are `Duy_Duc_synced-1.xlsx`, `Nhat_Khang_synced-1.xlsx`, and `Quynh_Nhu_synced-1.xlsx`. The Quynh Nhu workbook is verified against the fixed adjudicated gold labels used by all recorded experiments; refreshing reviewer agreement must not alter `data/processed/vipragsent_*.jsonl` or rerun experiments.
+
 ## Evidence layout
 
 - `results/*.json`: generated metrics, calibration, significance, agreement, provenance, and readiness metadata.
@@ -31,6 +33,7 @@ The public benchmark datasets are evaluation-only. Their individual terms and pr
 Run from this directory after the required prediction files and trainer manifests are available:
 
 ```powershell
+python scripts/12_import_annotation_workbooks.py
 python scripts/summarize_ablation_predictions.py
 python scripts/19_compute_iaa.py
 python scripts/20_paired_significance.py

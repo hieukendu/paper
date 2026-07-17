@@ -1,6 +1,6 @@
 # ViPragSent experiment hand-off
 
-Created: 2026-07-17T03:04:52.645380+00:00
+Created: 2026-07-17T08:15:28.560280+00:00
 Status: `results_generated`
 
 All metrics in `results/`, tables, and figures are generated from prediction JSONL and trainer manifests in this run; no values are copied from `main.pdf`.

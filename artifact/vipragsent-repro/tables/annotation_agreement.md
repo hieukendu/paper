@@ -1,13 +1,17 @@
 # Inter-annotator agreement
 
-| Label | N | Agreement | Cohen's kappa | Krippendorff's alpha |
-| --- | ---: | ---: | ---: | ---: |
-| implicit_sentiment | 10000 | 0.806 | 0.033 | -0.046 |
-| sarcasm | 10000 | 0.828 | 0.206 | 0.204 |
-| irony | 10000 | 0.954 | 0.059 | 0.054 |
-| idiom_figurative | 10000 | 0.985 | 0.130 | 0.130 |
-| code_switching | 10000 | 0.879 | 0.437 | 0.431 |
-| mocking | 10000 | 0.829 | 0.271 | 0.252 |
-| polarity | 10000 | 0.621 | 0.273 | 0.268 |
-| emotion | 10000 | 0.416 | 0.186 | 0.105 |
-| **Macro** | 10000 | 0.790 | 0.199 | 0.175 |
+Three-rater nominal agreement: reviewer 01, reviewer 02, and the fixed Quynh Nhu adjudicator.
+
+| Label | N | Mean pairwise agreement | Mean pairwise Cohen's kappa | Fleiss' kappa | Krippendorff's alpha |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| implicit_sentiment | 12000 | 0.950 | 0.798 | 0.786 | 0.786 |
+| sarcasm | 12000 | 0.936 | 0.794 | 0.793 | 0.793 |
+| irony | 12000 | 0.975 | 0.862 | 0.859 | 0.859 |
+| idiom_figurative | 12000 | 0.992 | 0.949 | 0.949 | 0.949 |
+| code_switching | 12000 | 0.957 | 0.792 | 0.784 | 0.784 |
+| mocking | 12000 | 0.942 | 0.795 | 0.792 | 0.792 |
+| polarity | 12000 | 0.882 | 0.805 | 0.804 | 0.804 |
+| emotion | 12000 | 0.827 | 0.783 | 0.782 | 0.782 |
+| **Macro** | 12000 | 0.933 | 0.822 | 0.819 | 0.819 |
+
+The third rater is the fixed adjudicator whose labels define the experiment gold split. Describe this as post-adjudication agreement unless independent blinded re-annotation is documented.

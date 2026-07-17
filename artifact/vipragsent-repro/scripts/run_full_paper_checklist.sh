@@ -49,6 +49,7 @@ done
 
 python scripts/15_summarize_training_runs.py
 python scripts/summarize_ablation_predictions.py
+python scripts/12_import_annotation_workbooks.py
 python scripts/19_compute_iaa.py
 python scripts/20_paired_significance.py
 python scripts/run_experiments.py \
