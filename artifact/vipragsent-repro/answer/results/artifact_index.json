@@ -1,9 +1,10 @@
 {
   "claim_ledger": "results/claim_ledger.csv",
-  "claim_rows": 52,
+  "claim_rows": 85,
   "figures": {
     "calibration": "figures/fig7_calibration.svg",
     "confusion": "figures/fig5_confusion.svg",
+    "learning_curves": "figures/fig6_learning_curves.svg",
     "low_resource": "figures/fig4_low_resource_sarcasm.svg",
     "per_phenomenon": "figures/fig2_per_phenomenon.svg",
     "pipeline": "figures/fig1_pipeline.svg"
@@ -11,10 +12,14 @@
   "results_dir": "results",
   "status": "ok",
   "tables": {
+    "calibration": "tables/calibration.md",
     "cost_breakdown": "tables/cost_breakdown.md",
+    "error_confusion": "tables/error_confusion.md",
+    "learning_curves": "tables/learning_curves.md",
     "low_resource_sarcasm": "tables/low_resource_sarcasm.md",
     "main_pragmatic": "tables/main_pragmatic.md",
     "multitask_ablation": "tables/multitask_ablation.md",
-    "ordinary_sentiment": "tables/ordinary_sentiment.md"
+    "ordinary_sentiment": "tables/ordinary_sentiment.md",
+    "significance": "tables/significance.md"
   }
 }

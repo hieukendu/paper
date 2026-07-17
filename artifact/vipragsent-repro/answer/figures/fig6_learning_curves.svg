@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330"><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
+<text x="20" y="25" font-size="16">Main encoder development macro pragmatic F1</text>
+<text x="70" y="42" font-size="10">Mean across available main-run seeds; later epochs may have fewer seeds after early stopping.</text>
+<line x1="70" y1="265" x2="670" y2="265" stroke="#333"/><line x1="70" y1="45" x2="70" y2="265" stroke="#333"/>
+<g font-size="10"><text x="60" y="269" text-anchor="end">55</text><text x="60" y="222" text-anchor="end">61</text><text x="60" y="175" text-anchor="end">67</text><text x="60" y="128" text-anchor="end">73</text><text x="60" y="81" text-anchor="end">79</text><text x="60" y="49" text-anchor="end">83</text></g>
+<text x="18" y="165" transform="rotate(-90 18,165)" text-anchor="middle" font-size="10">Dev macro F1 (%)</text>
+<g font-size="10"><text x="70" y="285" text-anchor="middle">1</text><text x="136.7" y="285" text-anchor="middle">2</text><text x="203.3" y="285" text-anchor="middle">3</text><text x="270" y="285" text-anchor="middle">4</text><text x="336.7" y="285" text-anchor="middle">5</text><text x="403.3" y="285" text-anchor="middle">6</text><text x="470" y="285" text-anchor="middle">7</text><text x="536.7" y="285" text-anchor="middle">8</text><text x="603.3" y="285" text-anchor="middle">9</text><text x="670" y="285" text-anchor="middle">10</text><text x="370" y="310" text-anchor="middle">Epoch</text></g>
+<polyline points="70.0,136.4 136.7,94.4 203.3,71.6 270.0,69.9 336.7,58.8 403.3,63.1 470.0,54.8 536.7,58.0 603.3,56.2" fill="none" stroke="#5b8ec9" stroke-width="2"/>
+<polyline points="70.0,240.0 136.7,122.2 203.3,121.1 270.0,120.4 336.7,121.3 403.3,120.4 470.0,121.2 536.7,120.0" fill="none" stroke="#7aa17a" stroke-width="2"/>
+<polyline points="70.0,130.1 136.7,117.7 203.3,115.6 270.0,100.9 336.7,94.7 403.3,85.9 470.0,75.2 536.7,71.9 603.3,68.0 670.0,66.8" fill="none" stroke="#a892c9" stroke-width="2"/>
+<rect x="685" y="50" width="10" height="10" fill="#5b8ec9"/><text x="700" y="59" font-size="10">PhoBERT fine-tune</text><rect x="685" y="68" width="10" height="10" fill="#7aa17a"/><text x="700" y="77" font-size="10">ViPragSent (ours)</text><rect x="685" y="86" width="10" height="10" fill="#a892c9"/><text x="700" y="95" font-size="10">XLM-R-large</text>
+</svg>
