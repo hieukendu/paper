@@ -15,6 +15,8 @@ tags:
 
 # ViPragSent Sailor-7B QLoRA Adapter
 
+Archive: [Thundergod2007/vipragsent-sailor-7b-qlora](https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora) (private before the associated submission decision).
+
 This private research repository contains QLoRA adapters for classifying Vietnamese social-media text under the ViPragSent schema. It does not contain the Sailor-7B base weights, dataset text, credentials, or Hugging Face caches.
 
 ## Tasks

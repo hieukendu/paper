@@ -1,6 +1,6 @@
 # ViPragSent experiment hand-off
 
-Created: 2026-07-17T08:15:28.560280+00:00
+Created: 2026-07-17T16:53:52.245797+00:00
 Status: `results_generated`
 
 All metrics in `results/`, tables, and figures are generated from prediction JSONL and trainer manifests in this run; no values are copied from `main.pdf`.
@@ -12,6 +12,8 @@ Important protocol notes:
 - Q3 is an exploratory single-seed comparison at 64, 128, 256, 512, and 1,024 sarcasm-positive examples.
 - Ordinary-task retention is an encoder-only comparison; UIT-VSMEC is reported as seven-way emotion macro-F1.
 - Calibration is reported only for systems with pragmatic-polarity confidence scores.
+- Source code, datasets, prediction JSONL, and private model-archive locations are documented in `reproducibility/artifact_registry.json`.
+- Run manifests are retained for audit; weights are retrieved from the registered private Hugging Face archives rather than copied into this bundle.
 
 Copied files:
 
@@ -79,3 +81,5 @@ Copied files:
 - `data_provenance/source_registry.json`
 - `data_provenance/checksums.json`
 - `data_provenance/manifest.json`
+- `reproducibility/artifact_registry.json`
+- `run_manifests/README.md`

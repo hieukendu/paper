@@ -15,6 +15,8 @@ tags:
 
 # ViPragSent Experiment Checkpoints
 
+Archive: [Thundergod2007/vipragsent-experiment-checkpoints](https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints) (private before the associated submission decision).
+
 This private archival repository contains completed encoder checkpoints for the ViPragSent experiments. It mirrors the `outputs/` hierarchy: each run directory contains `best.pt`, `history.json`, and `run_manifest.json`.
 
 ## Included systems

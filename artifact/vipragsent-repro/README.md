@@ -25,8 +25,8 @@ The canonical annotation workbooks are `Duy_Duc_synced-1.xlsx`, `Nhat_Khang_sync
 - `results/*.json`: generated metrics, calibration, significance, agreement, provenance, and readiness metadata.
 - `results/predictions/`: imported model/API predictions used to compute the metrics.
 - `tables/` and `figures/`: generated Markdown tables and SVG figures.
-- `answer/`: portable hand-off bundle regenerated from the authoritative artifacts.
-- `cards/`: private checkpoint and adapter archive cards. Checkpoints and adapters are intentionally ignored by Git; their manifests are retained in `answer/run_manifests/`.
+- `answer/`: portable hand-off bundle regenerated from the authoritative artifacts. Its `reproducibility/artifact_registry.json` links the source repository and private model archives without embedding credentials.
+- `cards/`: private checkpoint and adapter archive cards. Checkpoints and adapters are intentionally ignored by Git; their locations and access policy are recorded in `configs/artifact_registry.json`, while run manifests are retained in `answer/run_manifests/`.
 
 ## Regenerate the evidence bundle
 

@@ -23,8 +23,12 @@
       "complete": true
     },
     "checkpoint_archive": {
-      "complete": false,
-      "human_action": "Record a verifiable private archive URL or reviewer access procedure before claiming that checkpoints/adapters are archived. Git intentionally excludes outputs/."
+      "complete": true,
+      "note": "Private Hugging Face archive URLs and reviewer access policy are recorded in configs/artifact_registry.json; Git intentionally excludes the weight files."
+    },
+    "reproducibility_registry": {
+      "complete": true,
+      "note": "The portable answer bundle copies the source-repository and model-archive registry without copying credentials."
     },
     "private_research_terms": {
       "complete": true,

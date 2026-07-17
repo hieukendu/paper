@@ -78,6 +78,17 @@ def main() -> int:
         for source in [ROOT / "data/manifest/gold_build_report.json", ROOT / "data/manifest/annotation_import_report.json", ROOT / "data/manifest/rationale_audit_waiver.json", ROOT / "data/manifest/datasets.json", ROOT / "data/manifest/source_registry.json", ROOT / "data/manifest/checksums.json", ROOT / "data/processed/public_eval/manifest.json"]:
             if copy_if_exists(source, output / "data_provenance" / source.name):
                 copied.append(f"data_provenance/{source.name}")
+        registry = ROOT / "configs" / "artifact_registry.json"
+        if copy_if_exists(registry, output / "reproducibility" / "artifact_registry.json"):
+            copied.append("reproducibility/artifact_registry.json")
+        manifests_readme = output / "run_manifests" / "README.md"
+        manifests_readme.write_text(
+            "# External model archives\n\n"
+            "These immutable run manifests describe the evaluated runs. Model weights and adapters are deliberately not duplicated in this hand-off bundle. "
+            "Use `../reproducibility/artifact_registry.json` for the GitHub source location, Hugging Face archive URLs, and private-reviewer access policy.\n",
+            encoding="utf-8",
+        )
+        copied.append("run_manifests/README.md")
         status = "results_generated" if (ROOT / "results/main_pragmatic.json").exists() else "setup_complete_results_not_run"
         readme = [
             "# ViPragSent experiment hand-off",
@@ -94,6 +105,8 @@ def main() -> int:
             "- Q3 is an exploratory single-seed comparison at 64, 128, 256, 512, and 1,024 sarcasm-positive examples.",
             "- Ordinary-task retention is an encoder-only comparison; UIT-VSMEC is reported as seven-way emotion macro-F1.",
             "- Calibration is reported only for systems with pragmatic-polarity confidence scores.",
+            "- Source code, datasets, prediction JSONL, and private model-archive locations are documented in `reproducibility/artifact_registry.json`.",
+            "- Run manifests are retained for audit; weights are retrieved from the registered private Hugging Face archives rather than copied into this bundle.",
             "",
             "Copied files:",
             "",

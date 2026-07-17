@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "project": "ViPragSent",
+  "reproduction_source": {
+    "repository_url": "https://github.com/hieukendu/paper",
+    "default_branch": "main",
+    "project_subdirectory": "artifact/vipragsent-repro",
+    "clone_command": "git clone https://github.com/hieukendu/paper.git"
+  },
+  "external_model_archives": {
+    "access": "private until the associated submission decision; public release is planned afterwards",
+    "owner_profile": "https://huggingface.co/Thundergod2007",
+    "repositories": {
+      "encoder_checkpoints": {
+        "repo_id": "Thundergod2007/vipragsent-experiment-checkpoints",
+        "url": "https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints",
+        "repo_type": "model",
+        "contents": "PhoBERT, XLM-R, registered ablation, and low-resource checkpoints with histories and run manifests."
+      },
+      "sailor_7b_qlora": {
+        "repo_id": "Thundergod2007/vipragsent-sailor-7b-qlora",
+        "url": "https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora",
+        "repo_type": "model",
+        "contents": "Sailor-7B QLoRA adapters and run metadata."
+      },
+      "vistral_7b_qlora": {
+        "repo_id": "Thundergod2007/vipragsent-vistral-7b-qlora",
+        "url": "https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora",
+        "repo_type": "model",
+        "contents": "Vistral-7B QLoRA adapters and run metadata."
+      }
+    }
+  },
+  "evidence": {
+    "prediction_jsonl": "results/predictions/",
+    "generated_results": "results/",
+    "portable_hand_off": "answer/",
+    "gold_and_public_evaluation_data": "data/processed/",
+    "integrity_metadata": "data/manifest/checksums.json"
+  },
+  "access_notes": [
+    "No access token, secret, raw checkpoint, or adapter weight is committed to this repository.",
+    "Private Hugging Face archives are available to authorised reviewers through the owner profile above.",
+    "Raw social-media text remains subject to the repository's data-governance and source-permission terms."
+  ]
+}
