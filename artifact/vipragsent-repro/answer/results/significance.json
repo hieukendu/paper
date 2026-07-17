@@ -70,6 +70,26 @@
         ],
         "two_sided_p": 0.0,
         "resamples": 1000
+      },
+      "20260521": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 8.173209085537593,
+        "paired_bootstrap_ci95": [
+          7.322248759853537,
+          9.103303630616253
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260522": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 8.534930366352498,
+        "paired_bootstrap_ci95": [
+          7.629969843708821,
+          9.405876916008197
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
       }
     },
     "vipragsent_no_emotion": {
@@ -127,6 +147,26 @@
         "paired_bootstrap_ci95": [
           8.302956417924747,
           10.221672120582696
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260521": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 9.111057884120981,
+        "paired_bootstrap_ci95": [
+          8.274943502779436,
+          9.991719622919874
+        ],
+        "two_sided_p": 0.0,
+        "resamples": 1000
+      },
+      "20260522": {
+        "n": 2000,
+        "delta_macro_pragmatic_f1": 8.895176138177888,
+        "paired_bootstrap_ci95": [
+          7.893108118516153,
+          9.857814950796168
         ],
         "two_sided_p": 0.0,
         "resamples": 1000

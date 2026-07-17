@@ -13,7 +13,7 @@ def write_claim_ledger(path: str | Path, rows: list[dict]) -> int:
     path = Path(path)
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=LEDGER_FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=LEDGER_FIELDS, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({field: row.get(field, "") for field in LEDGER_FIELDS})

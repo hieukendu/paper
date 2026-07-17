@@ -926,7 +926,7 @@
       }
     }
   },
-  "created_at": "2026-07-16T07:03:00.773114+00:00",
+  "created_at": "2026-07-17T01:53:28.841023+00:00",
   "experiment": "q3_low_resource_sarcasm",
   "metric": "sarcasm_binary_macro_f1",
   "provenance": {

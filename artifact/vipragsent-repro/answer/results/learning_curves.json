@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-07-16T07:08:10.781357+00:00",
+  "created_at": "2026-07-17T01:58:01.928314+00:00",
   "curves": {
     "phobert_finetune": [
       {
@@ -940,6 +940,48 @@
         ],
         "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json",
         "seed": 20260520
+      },
+      {
+        "history": [
+          {
+            "elapsed_seconds": 4951.456,
+            "epoch": 1,
+            "train_loss": 37.40587251672696
+          },
+          {
+            "elapsed_seconds": 9881.796,
+            "epoch": 2,
+            "train_loss": 22.44038084212434
+          },
+          {
+            "elapsed_seconds": 14821.077,
+            "epoch": 3,
+            "train_loss": 18.163625804535627
+          }
+        ],
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260521/run_manifest.json",
+        "seed": 20260521
+      },
+      {
+        "history": [
+          {
+            "elapsed_seconds": 4960.894,
+            "epoch": 1,
+            "train_loss": 37.17773555252279
+          },
+          {
+            "elapsed_seconds": 9893.636,
+            "epoch": 2,
+            "train_loss": 22.274393239093797
+          },
+          {
+            "elapsed_seconds": 14832.394,
+            "epoch": 3,
+            "train_loss": 18.057520993310618
+          }
+        ],
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260522/run_manifest.json",
+        "seed": 20260522
       }
     ],
     "vipragsent_full": [
@@ -2011,6 +2053,48 @@
         ],
         "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json",
         "seed": 20260520
+      },
+      {
+        "history": [
+          {
+            "elapsed_seconds": 5366.535,
+            "epoch": 1,
+            "train_loss": 29.484641252542588
+          },
+          {
+            "elapsed_seconds": 10713.985,
+            "epoch": 2,
+            "train_loss": 18.608835200249587
+          },
+          {
+            "elapsed_seconds": 16062.815,
+            "epoch": 3,
+            "train_loss": 14.010700025127818
+          }
+        ],
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260521/run_manifest.json",
+        "seed": 20260521
+      },
+      {
+        "history": [
+          {
+            "elapsed_seconds": 5359.79,
+            "epoch": 1,
+            "train_loss": 29.518081617351527
+          },
+          {
+            "elapsed_seconds": 10706.719,
+            "epoch": 2,
+            "train_loss": 18.54559391829025
+          },
+          {
+            "elapsed_seconds": 16058.056,
+            "epoch": 3,
+            "train_loss": 13.947211017345865
+          }
+        ],
+        "run_manifest": "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260522/run_manifest.json",
+        "seed": 20260522
       }
     ],
     "xlmr_large": [

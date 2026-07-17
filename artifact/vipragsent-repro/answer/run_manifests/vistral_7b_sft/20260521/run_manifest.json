@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "created_at": "2026-07-16T16:17:06.280306+00:00",
+  "system": "vistral_7b_sft",
+  "seed": 20260521,
+  "model_id": "/root/hf_cache/models/Vistral-7B-Chat",
+  "device": "cuda:0",
+  "epochs_completed": 3,
+  "elapsed_seconds": 17567.33,
+  "adapter": "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260521/adapter",
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260521.jsonl",
+  "prediction_records": 2000,
+  "training_type": "nf4_qlora_sft",
+  "performance_settings": {
+    "attention_implementation": "sdpa",
+    "optimizer": "fused_adamw_trainable_lora_only",
+    "prediction_batch_size": 16,
+    "generation_kv_cache": true
+  }
+}

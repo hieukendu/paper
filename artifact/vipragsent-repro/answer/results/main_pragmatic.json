@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-07-16T06:54:47.345693+00:00",
+  "created_at": "2026-07-17T01:44:32.702024+00:00",
   "experiment": "q1_main_pragmatic",
   "metric": "binary_macro_f1_per_phenomenon",
   "provenance": {
@@ -589,84 +589,100 @@
       "metrics": {
         "code_switching": {
           "ci95": [
-            81.286,
-            81.286
+            80.1224,
+            82.4339
           ],
-          "mean": 81.286,
-          "n_seeds": 1,
+          "mean": 81.2781,
+          "n_seeds": 3,
           "seed_values": [
-            81.286
+            81.286,
+            80.2529,
+            82.2955
           ]
         },
         "idiom_figurative": {
           "ci95": [
-            97.3989,
-            97.3989
+            96.6687,
+            97.627
           ],
-          "mean": 97.3989,
-          "n_seeds": 1,
+          "mean": 97.1479,
+          "n_seeds": 3,
           "seed_values": [
-            97.3989
+            97.3989,
+            96.659,
+            97.3857
           ]
         },
         "implicit_sentiment": {
           "ci95": [
-            57.3733,
-            57.3733
+            56.3531,
+            58.5129
           ],
-          "mean": 57.3733,
-          "n_seeds": 1,
+          "mean": 57.433,
+          "n_seeds": 3,
           "seed_values": [
-            57.3733
+            57.3733,
+            58.4158,
+            56.51
           ]
         },
         "irony": {
           "ci95": [
-            97.508,
-            97.508
+            97.2147,
+            97.6116
           ],
-          "mean": 97.508,
-          "n_seeds": 1,
+          "mean": 97.4132,
+          "n_seeds": 3,
           "seed_values": [
-            97.508
+            97.508,
+            97.5207,
+            97.2108
           ]
         },
         "macro_pragmatic_f1": {
           "ci95": [
-            82.3448,
-            82.3448
+            81.9447,
+            82.439
           ],
-          "mean": 82.3448,
-          "n_seeds": 1,
+          "mean": 82.1918,
+          "n_seeds": 3,
           "seed_values": [
-            82.3448
+            82.3448,
+            81.9417,
+            82.289
           ]
         },
         "mocking": {
           "ci95": [
-            81.7937,
-            81.7937
+            80.54,
+            82.0725
           ],
-          "mean": 81.7937,
-          "n_seeds": 1,
+          "mean": 81.3063,
+          "n_seeds": 3,
           "seed_values": [
-            81.7937
+            81.7937,
+            80.5331,
+            81.592
           ]
         },
         "sarcasm": {
           "ci95": [
-            78.7088,
-            78.7088
+            78.2746,
+            78.8706
           ],
-          "mean": 78.7088,
-          "n_seeds": 1,
+          "mean": 78.5726,
+          "n_seeds": 3,
           "seed_values": [
-            78.7088
+            78.7088,
+            78.269,
+            78.7399
           ]
         }
       },
       "prediction_files": [
-        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260520.jsonl"
+        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260520.jsonl",
+        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260521.jsonl",
+        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260522.jsonl"
       ],
       "requires_finetuning": true,
       "runs": [
@@ -725,6 +741,118 @@
           "n": 2000,
           "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260520.jsonl",
           "seed": 20260520
+        },
+        {
+          "metrics": {
+            "code_switching": {
+              "bootstrap_ci95": [
+                77.2202,
+                83.1788
+              ],
+              "value": 80.2529
+            },
+            "idiom_figurative": {
+              "bootstrap_ci95": [
+                95.1644,
+                98.0595
+              ],
+              "value": 96.659
+            },
+            "implicit_sentiment": {
+              "bootstrap_ci95": [
+                55.1187,
+                61.7708
+              ],
+              "value": 58.4158
+            },
+            "irony": {
+              "bootstrap_ci95": [
+                96.337,
+                98.5729
+              ],
+              "value": 97.5207
+            },
+            "macro_pragmatic_f1": {
+              "bootstrap_ci95": [
+                80.6768,
+                83.1084
+              ],
+              "value": 81.9417
+            },
+            "mocking": {
+              "bootstrap_ci95": [
+                77.8073,
+                82.9505
+              ],
+              "value": 80.5331
+            },
+            "sarcasm": {
+              "bootstrap_ci95": [
+                75.5455,
+                80.8685
+              ],
+              "value": 78.269
+            }
+          },
+          "n": 2000,
+          "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260521.jsonl",
+          "seed": 20260521
+        },
+        {
+          "metrics": {
+            "code_switching": {
+              "bootstrap_ci95": [
+                79.1064,
+                85.0999
+              ],
+              "value": 82.2955
+            },
+            "idiom_figurative": {
+              "bootstrap_ci95": [
+                96.0555,
+                98.5574
+              ],
+              "value": 97.3857
+            },
+            "implicit_sentiment": {
+              "bootstrap_ci95": [
+                53.1819,
+                59.749
+              ],
+              "value": 56.51
+            },
+            "irony": {
+              "bootstrap_ci95": [
+                95.9276,
+                98.3577
+              ],
+              "value": 97.2108
+            },
+            "macro_pragmatic_f1": {
+              "bootstrap_ci95": [
+                81.1598,
+                83.3842
+              ],
+              "value": 82.289
+            },
+            "mocking": {
+              "bootstrap_ci95": [
+                78.7862,
+                83.931
+              ],
+              "value": 81.592
+            },
+            "sarcasm": {
+              "bootstrap_ci95": [
+                76.1103,
+                81.1028
+              ],
+              "value": 78.7399
+            }
+          },
+          "n": 2000,
+          "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/sailor_7b_sft/20260522.jsonl",
+          "seed": 20260522
         }
       ],
       "status": "complete"
@@ -1007,84 +1135,100 @@
       "metrics": {
         "code_switching": {
           "ci95": [
-            81.486,
-            81.486
+            81.4753,
+            82.4164
           ],
-          "mean": 81.486,
-          "n_seeds": 1,
+          "mean": 81.9458,
+          "n_seeds": 3,
           "seed_values": [
-            81.486
+            81.486,
+            82.2955,
+            82.056
           ]
         },
         "idiom_figurative": {
           "ci95": [
-            96.2499,
-            96.2499
+            96.2287,
+            96.4712
           ],
-          "mean": 96.2499,
-          "n_seeds": 1,
+          "mean": 96.35,
+          "n_seeds": 3,
           "seed_values": [
-            96.2499
+            96.2499,
+            96.463,
+            96.337
           ]
         },
         "implicit_sentiment": {
           "ci95": [
-            60.5436,
-            60.5436
+            58.5114,
+            60.6661
           ],
-          "mean": 60.5436,
-          "n_seeds": 1,
+          "mean": 59.5888,
+          "n_seeds": 3,
           "seed_values": [
-            60.5436
+            60.5436,
+            59.5832,
+            58.6395
           ]
         },
         "irony": {
           "ci95": [
-            97.0633,
-            97.0633
+            96.886,
+            97.2211
           ],
-          "mean": 97.0633,
-          "n_seeds": 1,
+          "mean": 97.0536,
+          "n_seeds": 3,
           "seed_values": [
-            97.0633
+            97.0633,
+            97.1965,
+            96.9009
           ]
         },
         "macro_pragmatic_f1": {
           "ci95": [
-            82.9462,
-            82.9462
+            82.6486,
+            83.0014
           ],
-          "mean": 82.9462,
-          "n_seeds": 1,
+          "mean": 82.825,
+          "n_seeds": 3,
           "seed_values": [
-            82.9462
+            82.9462,
+            82.8796,
+            82.6492
           ]
         },
         "mocking": {
           "ci95": [
-            82.5285,
-            82.5285
+            81.4425,
+            82.5179
           ],
-          "mean": 82.5285,
-          "n_seeds": 1,
+          "mean": 81.9802,
+          "n_seeds": 3,
           "seed_values": [
-            82.5285
+            82.5285,
+            81.688,
+            81.7241
           ]
         },
         "sarcasm": {
           "ci95": [
-            79.8061,
-            79.8061
+            79.7867,
+            80.277
           ],
-          "mean": 79.8061,
-          "n_seeds": 1,
+          "mean": 80.0318,
+          "n_seeds": 3,
           "seed_values": [
-            79.8061
+            79.8061,
+            80.0514,
+            80.238
           ]
         }
       },
       "prediction_files": [
-        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260520.jsonl"
+        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260520.jsonl",
+        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260521.jsonl",
+        "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260522.jsonl"
       ],
       "requires_finetuning": true,
       "runs": [
@@ -1143,6 +1287,118 @@
           "n": 2000,
           "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260520.jsonl",
           "seed": 20260520
+        },
+        {
+          "metrics": {
+            "code_switching": {
+              "bootstrap_ci95": [
+                79.2567,
+                85.2221
+              ],
+              "value": 82.2955
+            },
+            "idiom_figurative": {
+              "bootstrap_ci95": [
+                95.0159,
+                97.8259
+              ],
+              "value": 96.463
+            },
+            "implicit_sentiment": {
+              "bootstrap_ci95": [
+                56.2197,
+                62.9755
+              ],
+              "value": 59.5832
+            },
+            "irony": {
+              "bootstrap_ci95": [
+                95.9667,
+                98.3169
+              ],
+              "value": 97.1965
+            },
+            "macro_pragmatic_f1": {
+              "bootstrap_ci95": [
+                81.7183,
+                83.9632
+              ],
+              "value": 82.8796
+            },
+            "mocking": {
+              "bootstrap_ci95": [
+                79.0432,
+                84.1174
+              ],
+              "value": 81.688
+            },
+            "sarcasm": {
+              "bootstrap_ci95": [
+                77.4459,
+                82.5312
+              ],
+              "value": 80.0514
+            }
+          },
+          "n": 2000,
+          "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260521.jsonl",
+          "seed": 20260521
+        },
+        {
+          "metrics": {
+            "code_switching": {
+              "bootstrap_ci95": [
+                79.0688,
+                84.7898
+              ],
+              "value": 82.056
+            },
+            "idiom_figurative": {
+              "bootstrap_ci95": [
+                94.8874,
+                97.7277
+              ],
+              "value": 96.337
+            },
+            "implicit_sentiment": {
+              "bootstrap_ci95": [
+                55.4995,
+                61.8604
+              ],
+              "value": 58.6395
+            },
+            "irony": {
+              "bootstrap_ci95": [
+                95.622,
+                98.1156
+              ],
+              "value": 96.9009
+            },
+            "macro_pragmatic_f1": {
+              "bootstrap_ci95": [
+                81.4617,
+                83.7232
+              ],
+              "value": 82.6492
+            },
+            "mocking": {
+              "bootstrap_ci95": [
+                79.0107,
+                84.06
+              ],
+              "value": 81.7241
+            },
+            "sarcasm": {
+              "bootstrap_ci95": [
+                77.4287,
+                82.7029
+              ],
+              "value": 80.238
+            }
+          },
+          "n": 2000,
+          "prediction_file": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vistral_7b_sft/20260522.jsonl",
+          "seed": 20260522
         }
       ],
       "status": "complete"

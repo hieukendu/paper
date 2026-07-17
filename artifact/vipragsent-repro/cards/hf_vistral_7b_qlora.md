@@ -34,7 +34,7 @@ The registered prompt requests a JSON object with six binary pragmatic labels, i
 - Evaluation split: 2,000 adjudicated ViPragSent records
 - Hardware: NVIDIA H100 20 GB MIG allocation
 
-Exact run metadata is recorded in `run_manifest.json` and `history.json`.
+Exact run metadata is recorded in `run_manifest.json` and `history.json`. Completed runs are stored under `seeds/20260520`, `seeds/20260521`, and `seeds/20260522`.
 
 ## Loading
 
@@ -44,15 +44,19 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 base_id = "Viet-Mistral/Vistral-7B-Chat"
 base = AutoModelForCausalLM.from_pretrained(base_id, device_map="auto")
-model = PeftModel.from_pretrained(base, "Thundergod2007/vipragsent-vistral-7b-qlora", subfolder="adapter")
+model = PeftModel.from_pretrained(base, "Thundergod2007/vipragsent-vistral-7b-qlora", subfolder="seeds/20260520/adapter")
 tokenizer = AutoTokenizer.from_pretrained(base_id)
 ```
 
 Access to the base model may be gated. Use the exact prompt/parser in `scripts/train_qlora_sft.py` from the [ViPragSent repository](https://github.com/hieukendu/paper/tree/main/artifact/vipragsent-repro).
 
-## Evaluation and provenance
+## Evaluation
 
-Generated results are published in the repository's [`answer/`](https://github.com/hieukendu/paper/tree/main/artifact/vipragsent-repro/answer) evidence bundle. That bundle, rather than this card, is authoritative for metrics and confidence intervals while multi-seed runs are being completed.
+On the fixed 2,000-record adjudicated ViPragSent test split, macro pragmatic F1 across three seeds is **82.8250**, with a seed-level 95% CI of **[82.6486, 83.0014]**. Seed values are 82.9462, 82.8796, and 82.6492. These are percentage-scale F1 values generated from the prediction JSONL files.
+
+## Provenance
+
+Generated results are published in the repository's [`answer/`](https://github.com/hieukendu/paper/tree/main/artifact/vipragsent-repro/answer) evidence bundle. That generated bundle is authoritative if this summary ever diverges.
 
 ## Limitations and responsible use
 

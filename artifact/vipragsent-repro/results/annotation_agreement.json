@@ -52,7 +52,7 @@
     "emotion": {
       "n": 10000,
       "percent_agreement": 0.4159,
-      "cohen_kappa": 0.1860907663606868,
+      "cohen_kappa": 0.18609076636068686,
       "krippendorff_alpha_nominal": 0.1050747830835509
     }
   },

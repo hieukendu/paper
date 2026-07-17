@@ -12,7 +12,7 @@
       "note": "The repository protocol explicitly reports 7B baselines as single-seed, separately from the three-seed encoder protocol."
     },
     "requested_three_seed_7b_extension": {
-      "complete": false,
+      "complete": true,
       "note": "User-requested extension beyond the original single-seed 7B protocol."
     },
     "iaa": {

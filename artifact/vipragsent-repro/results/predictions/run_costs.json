@@ -29,9 +29,11 @@
     },
     "sailor_7b_sft": {
       "runs": [
-        "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
+        "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json",
+        "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260521/run_manifest.json",
+        "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260522/run_manifest.json"
       ],
-      "gpu_hours": 5.601641
+      "gpu_hours": 14.542911
     },
     "vipragsent_no_emotion": {
       "runs": [
@@ -59,9 +61,11 @@
     },
     "vistral_7b_sft": {
       "runs": [
-        "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
+        "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json",
+        "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260521/run_manifest.json",
+        "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260522/run_manifest.json"
       ],
-      "gpu_hours": 4.896611
+      "gpu_hours": 14.654572
     },
     "xlmr_large": {
       "runs": [

@@ -25,9 +25,11 @@
       "sailor_7b_sft": {
         "api_usd": null,
         "compute_usd": null,
-        "gpu_hours": 5.601641,
+        "gpu_hours": 14.542911,
         "run_manifests": [
-          "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260521/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/sailor_7b_sft/20260522/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -86,9 +88,11 @@
       "vistral_7b_sft": {
         "api_usd": null,
         "compute_usd": null,
-        "gpu_hours": 4.896611,
+        "gpu_hours": 14.654572,
         "run_manifests": [
-          "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json"
+          "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260520/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260521/run_manifest.json",
+          "/root/paper/artifact/vipragsent-repro/outputs/vistral_7b_sft/20260522/run_manifest.json"
         ],
         "total_usd": null
       },
@@ -105,7 +109,7 @@
       }
     }
   },
-  "created_at": "2026-07-16T07:08:10.789175+00:00",
+  "created_at": "2026-07-17T01:58:01.932251+00:00",
   "experiment": "cost_breakdown",
   "provenance": {
     "allow_silver_gold": false,

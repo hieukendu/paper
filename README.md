@@ -42,7 +42,7 @@ Private Hugging Face repositories archive the reusable weights:
 - [`Thundergod2007/vipragsent-sailor-7b-qlora`](https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora): Sailor-7B QLoRA adapter.
 - [`Thundergod2007/vipragsent-vistral-7b-qlora`](https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora): Vistral-7B QLoRA adapter.
 
-Base-model weights are not redistributed. Load each artifact with the exact base model, tokenizer, code revision, and configuration named by its run manifest. The three-seed 7B extension is still running; final aggregate results will be regenerated after all runs complete.
+Base-model weights are not redistributed. Load each artifact with the exact base model, tokenizer, code revision, and configuration named by its run manifest. The completed 7B extension contains three seeds per model under `seeds/<seed>/` in the corresponding Hugging Face repository.
 
 ## Reproduction
 
@@ -66,4 +66,4 @@ not create redistribution rights over third-party material.
 
 ## Current evidence status
 
-Completed evidence includes three-seed encoder runs, low-resource experiments, implemented multi-task ablations with ordinary-task retention, calibration, confusion analysis, IAA, bootstrap confidence intervals, paired significance tests, provenance manifests, and archived checkpoints. Remaining non-compute actions are confirmation of the ViSoBERT redistribution terms and preparation of the final manuscript from the generated artifacts.
+Completed evidence includes three-seed encoder and 7B runs, low-resource experiments, implemented multi-task ablations with ordinary-task retention, calibration, confusion analysis, IAA, bootstrap confidence intervals, paired significance tests, provenance manifests, and archived checkpoints. Remaining non-compute action is preparation of the final manuscript from the generated artifacts; source permission is additionally required only before any public raw-text dataset release.

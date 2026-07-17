@@ -24,7 +24,7 @@ def main() -> int:
         },
         "iaa": {"complete": exists("results/annotation_agreement.json")},
         "paired_significance": {"complete": exists("results/significance.json")},
-        "checkpoint_archive": {"complete": len(list((ROOT / "outputs").rglob("best.pt"))) == 23 and len(list((ROOT / "outputs").rglob("adapter_model.safetensors"))) == 2},
+        "checkpoint_archive": {"complete": len(list((ROOT / "outputs").rglob("best.pt"))) == 23 and len(list((ROOT / "outputs").rglob("adapter_model.safetensors"))) == 6},
         "private_research_terms": {"complete": exists("../../LICENSE"), "note": "Project materials are restricted to private non-commercial research; raw text redistribution is prohibited."},
         "visobert_public_release_permission": {"complete": False, "human_action": "Required only before a public raw-text dataset release; archive permission from the source rights holder."},
         "external_benchmark_provenance": {"complete": exists("configs/data_governance.yaml"), "note": "UIT datasets and AIVIVN are evaluation-only, not ViPragSent sources."},

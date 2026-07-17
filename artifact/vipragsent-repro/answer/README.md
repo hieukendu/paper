@@ -1,6 +1,6 @@
 # ViPragSent experiment hand-off
 
-Created: 2026-07-16T07:36:24.518860+00:00
+Created: 2026-07-17T02:39:27.715676+00:00
 Status: `results_generated`
 
 All metrics in `results/`, tables, and figures are generated from prediction JSONL and trainer manifests in this run; no values are copied from `main.pdf`.
@@ -56,6 +56,8 @@ Copied files:
 - `run_manifests/phobert_finetune/20260521/run_manifest.json`
 - `run_manifests/phobert_finetune/20260522/run_manifest.json`
 - `run_manifests/sailor_7b_sft/20260520/run_manifest.json`
+- `run_manifests/sailor_7b_sft/20260521/run_manifest.json`
+- `run_manifests/sailor_7b_sft/20260522/run_manifest.json`
 - `run_manifests/vipragsent_full/20260520/run_manifest.json`
 - `run_manifests/vipragsent_full/20260521/run_manifest.json`
 - `run_manifests/vipragsent_full/20260522/run_manifest.json`
@@ -64,6 +66,8 @@ Copied files:
 - `run_manifests/vipragsent_no_rationale/20260520/run_manifest.json`
 - `run_manifests/vipragsent_no_uncertainty/20260520/run_manifest.json`
 - `run_manifests/vistral_7b_sft/20260520/run_manifest.json`
+- `run_manifests/vistral_7b_sft/20260521/run_manifest.json`
+- `run_manifests/vistral_7b_sft/20260522/run_manifest.json`
 - `run_manifests/xlmr_large/20260520/run_manifest.json`
 - `run_manifests/xlmr_large/20260521/run_manifest.json`
 - `run_manifests/xlmr_large/20260522/run_manifest.json`

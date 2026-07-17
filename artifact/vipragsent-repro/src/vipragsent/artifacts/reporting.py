@@ -169,7 +169,7 @@ def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None]) ->
             }
         )
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["anchor", "claim", "source_file", "json_path"])
+        writer = csv.DictWriter(handle, fieldnames=["anchor", "claim", "source_file", "json_path"], lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     return len(rows)
