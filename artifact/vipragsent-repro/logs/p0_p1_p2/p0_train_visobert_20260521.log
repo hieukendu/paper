@@ -1,0 +1,30 @@
+Some weights of XLMRobertaModel were not initialized from the model checkpoint at /root/paper/artifact/vipragsent-repro/models/huggingface/visobert and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+{
+  "status": "ok",
+  "created_at": "2026-07-18T17:56:32.184032+00:00",
+  "system": "visobert_finetune",
+  "seed": 20260521,
+  "model_id": "/root/paper/artifact/vipragsent-repro/models/huggingface/visobert",
+  "device": "cuda",
+  "bf16": true,
+  "train_records": 8000,
+  "dev_records": 2000,
+  "test_records": 2000,
+  "epochs_completed": 4,
+  "elapsed_seconds": 74.637,
+  "best_dev_macro_pragmatic_f1": 0.8194415569785106,
+  "checkpoint": "/root/paper/artifact/vipragsent-repro/outputs/visobert_finetune/20260521/best.pt",
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/visobert_finetune/20260521.jsonl",
+  "rationales_loaded": 8000,
+  "flags": {
+    "no_rationale": true,
+    "no_emotion": true,
+    "no_polarity": true,
+    "no_uncertainty": false
+  }
+}
+{"started_at": "2026-07-18T17:55:12.963660+00:00", "cwd": "/root/paper/artifact/vipragsent-repro", "command": ["/usr/bin/python", "scripts/train_multitask_encoder.py", "--model-id", "/root/paper/artifact/vipragsent-repro/models/huggingface/visobert", "--system", "visobert_finetune", "--seed", "20260521", "--output-root", "/root/paper/artifact/vipragsent-repro/outputs", "--prediction-root", "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic", "--batch-size", "16", "--grad-accum", "2", "--epochs", "10", "--patience", "2", "--bf16", "--no-rationale", "--no-emotion", "--no-polarity"]}
+
+
+{"finished_at": "2026-07-18T17:56:33.081516+00:00", "returncode": 0}

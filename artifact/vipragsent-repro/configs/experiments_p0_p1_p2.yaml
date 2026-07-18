@@ -1,0 +1,11 @@
+execution: sequential_resumable
+seeds: [20260520, 20260521, 20260522]
+p0:
+  multi_seed_ablation: {additional_fine_tunes: 8, external_inferences: 24}
+  visobert_baseline: {model_id: uitnlp/visobert, revision: 196a62afad9cbe4f52a54aabad828b13f0eec59a, fine_tunes: 3, external_inferences: 9}
+p1:
+  source_stratified_sensitivity: {fine_tunes: 0, strata: [visobert_local, VIVID_seed_and_irony_generation], release_note: authorization_and_license_review_required}
+p2:
+  multi_seed_low_resource: {additional_fine_tunes: 20, budgets: [64, 128, 256, 512, 1024], systems: [phobert_finetune, vipragsent_full]}
+logging: logs/p0_p1_p2
+answer: answer/

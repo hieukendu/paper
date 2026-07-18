@@ -27,6 +27,13 @@ RESULTS = (
     "annotation_agreement.json",
     "significance.json",
     "paper_readiness.json",
+    "supplementary_experiments.json",
+    "p0_multi_seed_ablation.json",
+    "p0_visobert_baseline.json",
+    "p1_source_stratified_sensitivity.json",
+    "p2_multi_seed_low_resource.json",
+    "p0_p1_p2_summary.json",
+    "p0p1p2_runs.json",
 )
 
 
@@ -85,6 +92,29 @@ def main() -> int:
                 if source.is_file() and copy_if_exists(source, output / folder / source.name):
                     copied.append(f"{folder}/{source.name}")
 
+        # Supplementary fine-tuning is auditable from raw predictions, epoch
+        # histories, command logs and the generated exclusion inputs.  Keep
+        # these bounded, experiment-specific records in the hand-off bundle.
+        supplementary_sources = {
+            ROOT / "results" / "predictions" / "supplementary": output / "supplementary_experiments" / "predictions",
+            ROOT / "logs" / "supplementary": output / "supplementary_experiments" / "logs",
+            ROOT / "outputs" / "supplementary": output / "supplementary_experiments" / "run_records",
+        }
+        for source, destination in supplementary_sources.items():
+            if source.exists():
+                shutil.copytree(source, destination, dirs_exist_ok=True, ignore=shutil.ignore_patterns("best.pt"))
+                copied.extend(
+                    f"supplementary_experiments/{path.relative_to(destination.parent).as_posix()}"
+                    for path in sorted(destination.rglob("*"))
+                    if path.is_file() and (path.name != "best.pt")
+                )
+
+        trace_logs = ROOT / "logs" / "p0_p1_p2"
+        if trace_logs.exists():
+            destination = output / "p0_p1_p2" / "logs"
+            shutil.copytree(trace_logs, destination, dirs_exist_ok=True)
+            copied.extend(f"p0_p1_p2/logs/{path.relative_to(destination).as_posix()}" for path in sorted(destination.rglob("*")) if path.is_file())
+
         manifest_sources = sorted((ROOT / "outputs").glob("**/run_manifest.json"))
         for source in manifest_sources:
             relative = source.relative_to(ROOT / "outputs")
@@ -118,6 +148,8 @@ def main() -> int:
                 "tables": records(output, output / "tables", "*"),
                 "figures": records(output, output / "figures", "*"),
                 "run_manifests": records(output, output / "run_manifests", "*.json", recursive=True),
+                "supplementary_experiments": records(output, output / "supplementary_experiments", "*", recursive=True),
+                "p0_p1_p2_logs": records(output, output / "p0_p1_p2", "*", recursive=True),
             },
             "external_model_archives": archive_registry.get("external_model_archives", {}),
         }
@@ -152,6 +184,8 @@ def main() -> int:
             "- Source code, datasets, prediction JSONL, and pinned external model archives are documented in `reproducibility/artifact_registry.json`.",
             "- `reproducibility/verification_manifest.json` records SHA-256 hashes for the copied artifacts; it is an integrity check, not an experiment rerun.",
             "- Run manifests are retained for audit; weights are retrieved from the registered Hugging Face archives rather than copied into this bundle.",
+            "- `supplementary_experiments/` contains the newly-run multi-seed ablation, ViSoBERT baseline, VIVID exclusion sensitivity predictions, histories and combined training logs; checkpoint tensors are intentionally omitted.",
+            "- `p0_p1_p2/logs/` contains the complete stdout/stderr traces for the sequential P0/P1/P2 fine-tuning runner.",
             "",
             "Copied files:",
             "",

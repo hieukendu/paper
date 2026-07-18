@@ -1,0 +1,13 @@
+Some weights of XLMRobertaModel were not initialized from the model checkpoint at /root/paper/artifact/vipragsent-repro/models/huggingface/visobert and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+{
+  "status": "ok",
+  "mode": "predict_only",
+  "checkpoint": "/root/paper/artifact/vipragsent-repro/outputs/visobert_finetune/20260521/best.pt",
+  "records": 3217,
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/visobert_finetune/20260521.jsonl"
+}
+{"started_at": "2026-07-18T17:56:47.791687+00:00", "cwd": "/root/paper/artifact/vipragsent-repro", "command": ["/usr/bin/python", "scripts/train_multitask_encoder.py", "--model-id", "/root/paper/artifact/vipragsent-repro/models/huggingface/visobert", "--system", "visobert_finetune", "--seed", "20260521", "--checkpoint", "/root/paper/artifact/vipragsent-repro/outputs/visobert_finetune/20260521/best.pt", "--predict-data", "/root/paper/artifact/vipragsent-repro/data/processed/public_eval/aivivn_2019_test.jsonl", "--prediction-output", "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/visobert_finetune/20260521.jsonl", "--batch-size", "16", "--bf16", "--no-rationale", "--no-emotion", "--no-polarity"]}
+
+
+{"finished_at": "2026-07-18T17:56:58.811579+00:00", "returncode": 0}

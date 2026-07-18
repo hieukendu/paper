@@ -1,0 +1,2050 @@
+{
+  "new_finetunes": 8,
+  "new_external_inferences": 24,
+  "systems": {
+    "vipragsent_full": {
+      "per_seed": [
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.8353,
+              "bootstrap_ci95": [
+                72.9937,
+                78.4731
+              ]
+            },
+            "irony": {
+              "value": 96.7038,
+              "bootstrap_ci95": [
+                95.2579,
+                97.8591
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 77.8731,
+              "bootstrap_ci95": [
+                74.9518,
+                80.3106
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.7182,
+              "bootstrap_ci95": [
+                72.7966,
+                74.4983
+              ]
+            }
+          },
+          "seed": 20260520,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.334,
+              "bootstrap_ci95": [
+                72.4262,
+                78.1253
+              ]
+            },
+            "irony": {
+              "value": 97.1965,
+              "bootstrap_ci95": [
+                96.0276,
+                98.2644
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.182,
+              "bootstrap_ci95": [
+                96.06,
+                98.3418
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 78.347,
+              "bootstrap_ci95": [
+                75.4317,
+                81.0667
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.7685,
+              "bootstrap_ci95": [
+                72.9599,
+                74.6214
+              ]
+            }
+          },
+          "seed": 20260521,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260521.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.8984,
+              "bootstrap_ci95": [
+                73.2391,
+                78.5479
+              ]
+            },
+            "irony": {
+              "value": 97.0483,
+              "bootstrap_ci95": [
+                95.7901,
+                98.1116
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.182,
+              "bootstrap_ci95": [
+                95.93,
+                98.2998
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 77.8439,
+              "bootstrap_ci95": [
+                75.4856,
+                80.2149
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.7541,
+              "bootstrap_ci95": [
+                72.8684,
+                74.5829
+              ]
+            }
+          },
+          "seed": 20260522,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_full/20260522.jsonl"
+        }
+      ],
+      "aggregate": {
+        "macro_pragmatic_f1": {
+          "mean": 73.7469,
+          "ci95": [
+            73.7176,
+            73.7762
+          ],
+          "seed_values": [
+            73.7182,
+            73.7685,
+            73.7541
+          ],
+          "n_seeds": 3
+        }
+      }
+    },
+    "phobert_finetune": {
+      "per_seed": [
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 61.5738,
+              "bootstrap_ci95": [
+                57.6835,
+                64.31
+              ]
+            },
+            "sarcasm": {
+              "value": 76.0597,
+              "bootstrap_ci95": [
+                73.5014,
+                78.5488
+              ]
+            },
+            "irony": {
+              "value": 96.1748,
+              "bootstrap_ci95": [
+                94.7582,
+                97.3851
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 78.713,
+              "bootstrap_ci95": [
+                75.2544,
+                81.502
+              ]
+            },
+            "mocking": {
+              "value": 80.4396,
+              "bootstrap_ci95": [
+                77.7544,
+                82.5381
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 81.7177,
+              "bootstrap_ci95": [
+                80.4939,
+                82.9846
+              ]
+            }
+          },
+          "seed": 20260520,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 59.5041,
+              "bootstrap_ci95": [
+                56.2628,
+                62.5823
+              ]
+            },
+            "sarcasm": {
+              "value": 78.2357,
+              "bootstrap_ci95": [
+                75.688,
+                80.5159
+              ]
+            },
+            "irony": {
+              "value": 96.9009,
+              "bootstrap_ci95": [
+                95.3761,
+                97.9804
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 78.6071,
+              "bootstrap_ci95": [
+                75.0237,
+                81.3592
+              ]
+            },
+            "mocking": {
+              "value": 78.4546,
+              "bootstrap_ci95": [
+                75.927,
+                81.0724
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 81.508,
+              "bootstrap_ci95": [
+                80.1399,
+                82.48
+              ]
+            }
+          },
+          "seed": 20260521,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260521.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 61.463,
+              "bootstrap_ci95": [
+                58.6138,
+                64.4746
+              ]
+            },
+            "sarcasm": {
+              "value": 77.8217,
+              "bootstrap_ci95": [
+                74.9985,
+                80.4148
+              ]
+            },
+            "irony": {
+              "value": 95.8894,
+              "bootstrap_ci95": [
+                94.3294,
+                97.2697
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.1965,
+              "bootstrap_ci95": [
+                95.9927,
+                98.2998
+              ]
+            },
+            "code_switching": {
+              "value": 79.6416,
+              "bootstrap_ci95": [
+                76.5349,
+                82.3247
+              ]
+            },
+            "mocking": {
+              "value": 79.4684,
+              "bootstrap_ci95": [
+                76.6085,
+                81.9544
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 81.9134,
+              "bootstrap_ci95": [
+                80.7841,
+                82.8794
+              ]
+            }
+          },
+          "seed": 20260522,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/phobert_finetune/20260522.jsonl"
+        }
+      ],
+      "aggregate": {
+        "macro_pragmatic_f1": {
+          "mean": 81.713,
+          "ci95": [
+            81.4836,
+            81.9425
+          ],
+          "seed_values": [
+            81.7177,
+            81.508,
+            81.9134
+          ],
+          "n_seeds": 3
+        }
+      }
+    },
+    "vipragsent_no_rationale": {
+      "per_seed": [
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.6763,
+              "bootstrap_ci95": [
+                72.8678,
+                78.269
+              ]
+            },
+            "irony": {
+              "value": 96.7038,
+              "bootstrap_ci95": [
+                95.4015,
+                97.8823
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 77.5837,
+              "bootstrap_ci95": [
+                74.745,
+                80.0407
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.6435,
+              "bootstrap_ci95": [
+                72.7602,
+                74.4292
+              ]
+            }
+          },
+          "seed": 20260520,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260520.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.6054,
+              "bootstrap_ci95": [
+                72.577,
+                78.1949
+              ]
+            },
+            "irony": {
+              "value": 97.0331,
+              "bootstrap_ci95": [
+                95.6826,
+                98.0306
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 77.9848,
+              "bootstrap_ci95": [
+                75.231,
+                80.2503
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.7534,
+              "bootstrap_ci95": [
+                72.883,
+                74.4447
+              ]
+            }
+          },
+          "seed": 20260521,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260521.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.9699,
+              "bootstrap_ci95": [
+                73.2328,
+                78.5488
+              ]
+            },
+            "irony": {
+              "value": 97.1965,
+              "bootstrap_ci95": [
+                95.9496,
+                98.1984
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 78.7389,
+              "bootstrap_ci95": [
+                76.2286,
+                81.2352
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.9671,
+              "bootstrap_ci95": [
+                73.0893,
+                74.7556
+              ]
+            }
+          },
+          "seed": 20260522,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_rationale/20260522.jsonl"
+        }
+      ],
+      "aggregate": {
+        "macro_pragmatic_f1": {
+          "mean": 73.788,
+          "ci95": [
+            73.6018,
+            73.9742
+          ],
+          "seed_values": [
+            73.6435,
+            73.7534,
+            73.9671
+          ],
+          "n_seeds": 3
+        }
+      }
+    },
+    "vipragsent_no_emotion": {
+      "per_seed": [
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 51.6545,
+              "bootstrap_ci95": [
+                49.1396,
+                54.3822
+              ]
+            },
+            "sarcasm": {
+              "value": 75.6701,
+              "bootstrap_ci95": [
+                73.0443,
+                78.3145
+              ]
+            },
+            "irony": {
+              "value": 96.337,
+              "bootstrap_ci95": [
+                94.9227,
+                97.5956
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 48.7089,
+              "bootstrap_ci95": [
+                47.4099,
+                50.3248
+              ]
+            },
+            "mocking": {
+              "value": 79.1632,
+              "bootstrap_ci95": [
+                76.4726,
+                81.8153
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 74.8132,
+              "bootstrap_ci95": [
+                73.9146,
+                75.7666
+              ]
+            }
+          },
+          "seed": 20260520,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260520.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9074,
+              "bootstrap_ci95": [
+                46.5526,
+                47.2574
+              ]
+            },
+            "sarcasm": {
+              "value": 76.4679,
+              "bootstrap_ci95": [
+                73.8635,
+                79.0938
+              ]
+            },
+            "irony": {
+              "value": 97.0483,
+              "bootstrap_ci95": [
+                95.6826,
+                98.1264
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 79.1684,
+              "bootstrap_ci95": [
+                76.3141,
+                81.4926
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 74.0946,
+              "bootstrap_ci95": [
+                73.3235,
+                74.8357
+              ]
+            }
+          },
+          "seed": 20260521,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260521.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 76.3103,
+              "bootstrap_ci95": [
+                73.6198,
+                78.9196
+              ]
+            },
+            "irony": {
+              "value": 97.1965,
+              "bootstrap_ci95": [
+                95.9496,
+                98.1984
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 79.271,
+              "bootstrap_ci95": [
+                76.4947,
+                81.9827
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 74.1125,
+              "bootstrap_ci95": [
+                73.2608,
+                74.8914
+              ]
+            }
+          },
+          "seed": 20260522,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260522.jsonl"
+        }
+      ],
+      "aggregate": {
+        "macro_pragmatic_f1": {
+          "mean": 74.3401,
+          "ci95": [
+            73.8764,
+            74.8038
+          ],
+          "seed_values": [
+            74.8132,
+            74.0946,
+            74.1125
+          ],
+          "n_seeds": 3
+        }
+      }
+    },
+    "vipragsent_no_polarity": {
+      "per_seed": [
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.2539,
+              "bootstrap_ci95": [
+                72.3011,
+                77.8011
+              ]
+            },
+            "irony": {
+              "value": 96.591,
+              "bootstrap_ci95": [
+                95.2134,
+                97.6881
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 76.4058,
+              "bootstrap_ci95": [
+                73.8484,
+                78.6156
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.358,
+              "bootstrap_ci95": [
+                72.4877,
+                74.1247
+              ]
+            }
+          },
+          "seed": 20260520,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260520.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.7102,
+              "bootstrap_ci95": [
+                72.9853,
+                78.4384
+              ]
+            },
+            "irony": {
+              "value": 96.7542,
+              "bootstrap_ci95": [
+                95.5109,
+                97.905
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 77.7079,
+              "bootstrap_ci95": [
+                75.2937,
+                80.2278
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.6782,
+              "bootstrap_ci95": [
+                72.7892,
+                74.4714
+              ]
+            }
+          },
+          "seed": 20260521,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260521.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.0675,
+              "bootstrap_ci95": [
+                71.9294,
+                77.7516
+              ]
+            },
+            "irony": {
+              "value": 96.7038,
+              "bootstrap_ci95": [
+                95.4015,
+                97.8823
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 78.2362,
+              "bootstrap_ci95": [
+                75.3048,
+                80.7206
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.6508,
+              "bootstrap_ci95": [
+                72.7632,
+                74.4578
+              ]
+            }
+          },
+          "seed": 20260522,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_polarity/20260522.jsonl"
+        }
+      ],
+      "aggregate": {
+        "macro_pragmatic_f1": {
+          "mean": 73.5623,
+          "ci95": [
+            73.3615,
+            73.7632
+          ],
+          "seed_values": [
+            73.358,
+            73.6782,
+            73.6508
+          ],
+          "n_seeds": 3
+        }
+      }
+    },
+    "vipragsent_no_uncertainty": {
+      "per_seed": [
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.4541,
+              "bootstrap_ci95": [
+                72.5969,
+                78.0616
+              ]
+            },
+            "irony": {
+              "value": 96.3711,
+              "bootstrap_ci95": [
+                94.8014,
+                97.5333
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 78.0092,
+              "bootstrap_ci95": [
+                75.3939,
+                80.639
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.6219,
+              "bootstrap_ci95": [
+                72.7413,
+                74.4103
+              ]
+            }
+          },
+          "seed": 20260520,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260520.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.5347,
+              "bootstrap_ci95": [
+                72.7477,
+                78.2064
+              ]
+            },
+            "irony": {
+              "value": 96.8689,
+              "bootstrap_ci95": [
+                95.4265,
+                98.0073
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.182,
+              "bootstrap_ci95": [
+                95.9989,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 78.5707,
+              "bootstrap_ci95": [
+                75.7871,
+                80.9355
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.7847,
+              "bootstrap_ci95": [
+                72.9674,
+                74.549
+              ]
+            }
+          },
+          "seed": 20260521,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260521.jsonl"
+        },
+        {
+          "n": 2000,
+          "metrics": {
+            "implicit_sentiment": {
+              "value": 46.9214,
+              "bootstrap_ci95": [
+                46.5669,
+                47.2713
+              ]
+            },
+            "sarcasm": {
+              "value": 75.7474,
+              "bootstrap_ci95": [
+                72.8974,
+                78.3339
+              ]
+            },
+            "irony": {
+              "value": 97.1965,
+              "bootstrap_ci95": [
+                95.9496,
+                98.1984
+              ]
+            },
+            "idiom_figurative": {
+              "value": 97.3454,
+              "bootstrap_ci95": [
+                96.2904,
+                98.4013
+              ]
+            },
+            "code_switching": {
+              "value": 47.6303,
+              "bootstrap_ci95": [
+                47.2296,
+                47.9709
+              ]
+            },
+            "mocking": {
+              "value": 78.1631,
+              "bootstrap_ci95": [
+                75.3238,
+                80.5976
+              ]
+            },
+            "macro_pragmatic_f1": {
+              "value": 73.834,
+              "bootstrap_ci95": [
+                72.924,
+                74.615
+              ]
+            }
+          },
+          "seed": 20260522,
+          "prediction": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_uncertainty/20260522.jsonl"
+        }
+      ],
+      "aggregate": {
+        "macro_pragmatic_f1": {
+          "mean": 73.7469,
+          "ci95": [
+            73.6213,
+            73.8725
+          ],
+          "seed_values": [
+            73.6219,
+            73.7847,
+            73.834
+          ],
+          "n_seeds": 3
+        }
+      }
+    }
+  },
+  "external_benchmarks": {
+    "vipragsent_no_rationale": {
+      "uit_vsfc": {
+        "per_seed": [
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 45.9345,
+                "bootstrap_ci95": [
+                  44.5578,
+                  47.3543
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 39.831,
+                "bootstrap_ci95": [
+                  38.4118,
+                  41.4256
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 39.2555,
+                "bootstrap_ci95": [
+                  37.6946,
+                  40.6654
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 41.6737,
+            "ci95": [
+              37.4854,
+              45.862
+            ],
+            "seed_values": [
+              45.9345,
+              39.831,
+              39.2555
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "uit_vsmec": {
+        "per_seed": [
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 30.3567,
+                "bootstrap_ci95": [
+                  27.5628,
+                  33.4481
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 36.0772,
+                "bootstrap_ci95": [
+                  33.2992,
+                  39.2036
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 30.7627,
+                "bootstrap_ci95": [
+                  28.4701,
+                  33.2437
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "emotion_macro_f1": {
+            "mean": 32.3989,
+            "ci95": [
+              28.7868,
+              36.0109
+            ],
+            "seed_values": [
+              30.3567,
+              36.0772,
+              30.7627
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "aivivn_2019": {
+        "per_seed": [
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 59.3262,
+                "bootstrap_ci95": [
+                  57.5087,
+                  60.7727
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 58.4344,
+                "bootstrap_ci95": [
+                  56.5926,
+                  60.1947
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 55.681,
+                "bootstrap_ci95": [
+                  53.9021,
+                  57.1631
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 57.8139,
+            "ci95": [
+              55.6636,
+              59.9641
+            ],
+            "seed_values": [
+              59.3262,
+              58.4344,
+              55.681
+            ],
+            "n_seeds": 3
+          }
+        }
+      }
+    },
+    "vipragsent_no_emotion": {
+      "uit_vsfc": {
+        "per_seed": [
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 45.8283,
+                "bootstrap_ci95": [
+                  44.2953,
+                  47.5624
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 50.9602,
+                "bootstrap_ci95": [
+                  49.2948,
+                  52.461
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 36.9008,
+                "bootstrap_ci95": [
+                  35.6496,
+                  38.183
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 44.5631,
+            "ci95": [
+              36.5122,
+              52.614
+            ],
+            "seed_values": [
+              45.8283,
+              50.9602,
+              36.9008
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "uit_vsmec": {
+        "per_seed": [
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 4.8086,
+                "bootstrap_ci95": [
+                  3.6934,
+                  5.9841
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 6.893,
+                "bootstrap_ci95": [
+                  5.0789,
+                  8.4228
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 9.893,
+                "bootstrap_ci95": [
+                  8.3791,
+                  11.2942
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "emotion_macro_f1": {
+            "mean": 7.1982,
+            "ci95": [
+              4.3059,
+              10.0905
+            ],
+            "seed_values": [
+              4.8086,
+              6.893,
+              9.893
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "aivivn_2019": {
+        "per_seed": [
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 61.6803,
+                "bootstrap_ci95": [
+                  59.7897,
+                  63.5332
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 70.4142,
+                "bootstrap_ci95": [
+                  68.8598,
+                  71.9376
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 58.6337,
+                "bootstrap_ci95": [
+                  56.8665,
+                  60.0727
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 63.5761,
+            "ci95": [
+              56.6565,
+              70.4956
+            ],
+            "seed_values": [
+              61.6803,
+              70.4142,
+              58.6337
+            ],
+            "n_seeds": 3
+          }
+        }
+      }
+    },
+    "vipragsent_no_polarity": {
+      "uit_vsfc": {
+        "per_seed": [
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 26.3934,
+                "bootstrap_ci95": [
+                  25.3987,
+                  27.5088
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 22.6427,
+                "bootstrap_ci95": [
+                  21.32,
+                  24.1402
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 39.6203,
+                "bootstrap_ci95": [
+                  38.4746,
+                  40.9675
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 29.5521,
+            "ci95": [
+              19.4597,
+              39.6446
+            ],
+            "seed_values": [
+              26.3934,
+              22.6427,
+              39.6203
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "uit_vsmec": {
+        "per_seed": [
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 27.2933,
+                "bootstrap_ci95": [
+                  24.6245,
+                  29.6595
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 43.9355,
+                "bootstrap_ci95": [
+                  40.3662,
+                  47.481
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 40.5906,
+                "bootstrap_ci95": [
+                  36.4588,
+                  43.716
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "emotion_macro_f1": {
+            "mean": 37.2731,
+            "ci95": [
+              27.3115,
+              47.2348
+            ],
+            "seed_values": [
+              27.2933,
+              43.9355,
+              40.5906
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "aivivn_2019": {
+        "per_seed": [
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 40.8716,
+                "bootstrap_ci95": [
+                  39.4869,
+                  42.1627
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 31.0513,
+                "bootstrap_ci95": [
+                  29.1661,
+                  33.1001
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 60.3673,
+                "bootstrap_ci95": [
+                  58.4851,
+                  61.9806
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 44.0967,
+            "ci95": [
+              27.2112,
+              60.9823
+            ],
+            "seed_values": [
+              40.8716,
+              31.0513,
+              60.3673
+            ],
+            "n_seeds": 3
+          }
+        }
+      }
+    },
+    "vipragsent_no_uncertainty": {
+      "uit_vsfc": {
+        "per_seed": [
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 45.2035,
+                "bootstrap_ci95": [
+                  43.7288,
+                  46.8069
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 45.8455,
+                "bootstrap_ci95": [
+                  44.5679,
+                  47.3213
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3166,
+            "label_space": [
+              "positive",
+              "neutral",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 38.2411,
+                "bootstrap_ci95": [
+                  36.7884,
+                  39.5084
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 43.0967,
+            "ci95": [
+              38.3244,
+              47.869
+            ],
+            "seed_values": [
+              45.2035,
+              45.8455,
+              38.2411
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "uit_vsmec": {
+        "per_seed": [
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 31.4447,
+                "bootstrap_ci95": [
+                  28.1818,
+                  35.0175
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 33.4095,
+                "bootstrap_ci95": [
+                  29.7742,
+                  37.1588
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 693,
+            "label_space": [
+              "anger",
+              "disgust",
+              "enjoyment",
+              "fear",
+              "other",
+              "sadness",
+              "surprise"
+            ],
+            "metrics": {
+              "emotion_macro_f1": {
+                "value": 39.1899,
+                "bootstrap_ci95": [
+                  35.7,
+                  42.8257
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "emotion_macro_f1": {
+            "mean": 34.6814,
+            "ci95": [
+              30.1253,
+              39.2374
+            ],
+            "seed_values": [
+              31.4447,
+              33.4095,
+              39.1899
+            ],
+            "n_seeds": 3
+          }
+        }
+      },
+      "aivivn_2019": {
+        "per_seed": [
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 61.2336,
+                "bootstrap_ci95": [
+                  59.3473,
+                  62.9022
+                ]
+              }
+            },
+            "seed": 20260520
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 61.654,
+                "bootstrap_ci95": [
+                  59.942,
+                  63.2875
+                ]
+              }
+            },
+            "seed": 20260521
+          },
+          {
+            "n": 3217,
+            "label_space": [
+              "positive",
+              "negative"
+            ],
+            "metrics": {
+              "polarity_macro_f1": {
+                "value": 58.0198,
+                "bootstrap_ci95": [
+                  56.2359,
+                  59.6102
+                ]
+              }
+            },
+            "seed": 20260522
+          }
+        ],
+        "aggregate": {
+          "polarity_macro_f1": {
+            "mean": 60.3025,
+            "ci95": [
+              58.0528,
+              62.5521
+            ],
+            "seed_values": [
+              61.2336,
+              61.654,
+              58.0198
+            ],
+            "n_seeds": 3
+          }
+        }
+      }
+    }
+  }
+}

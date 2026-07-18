@@ -1,0 +1,24 @@
+{
+  "status": "ok",
+  "created_at": "2026-07-18T17:54:44.674166+00:00",
+  "system": "visobert_finetune",
+  "seed": 20260520,
+  "model_id": "/root/paper/artifact/vipragsent-repro/models/huggingface/visobert",
+  "device": "cuda",
+  "bf16": true,
+  "train_records": 8000,
+  "dev_records": 2000,
+  "test_records": 2000,
+  "epochs_completed": 4,
+  "elapsed_seconds": 75.377,
+  "best_dev_macro_pragmatic_f1": 0.8256733627944884,
+  "checkpoint": "/root/paper/artifact/vipragsent-repro/outputs/visobert_finetune/20260520/best.pt",
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/visobert_finetune/20260520.jsonl",
+  "rationales_loaded": 8000,
+  "flags": {
+    "no_rationale": true,
+    "no_emotion": true,
+    "no_polarity": true,
+    "no_uncertainty": false
+  }
+}

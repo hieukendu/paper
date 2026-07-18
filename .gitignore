@@ -4,6 +4,7 @@
 # experiment artifacts; in particular, a literal Windows-style cache path
 # (for example `D:\\hf_cache`) is not checkoutable on Windows.
 **/hf_cache/
+**/models/huggingface/
 **/xet/
 **/D:*
 **/outputs/

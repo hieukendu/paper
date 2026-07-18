@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "mode": "predict_only",
+  "checkpoint": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_rationale/20260521/best.pt",
+  "records": 693,
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/vipragsent_no_rationale/20260521.jsonl"
+}
+{"started_at": "2026-07-18T17:33:10.234276+00:00", "cwd": "/root/paper/artifact/vipragsent-repro", "command": ["/usr/bin/python", "scripts/train_multitask_encoder.py", "--model-id", "/root/hf_cache/models/phobert-base", "--system", "vipragsent_no_rationale", "--seed", "20260521", "--checkpoint", "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_rationale/20260521/best.pt", "--predict-data", "/root/paper/artifact/vipragsent-repro/data/processed/public_eval/uit_vsmec_test.jsonl", "--prediction-output", "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/uit_vsmec/vipragsent_no_rationale/20260521.jsonl", "--batch-size", "16", "--bf16", "--no-rationale"]}
+
+
+{"finished_at": "2026-07-18T17:33:16.522463+00:00", "returncode": 0}

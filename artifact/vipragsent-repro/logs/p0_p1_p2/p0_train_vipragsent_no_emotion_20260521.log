@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "created_at": "2026-07-18T17:37:55.197295+00:00",
+  "system": "vipragsent_no_emotion",
+  "seed": 20260521,
+  "model_id": "/root/hf_cache/models/phobert-base",
+  "device": "cuda",
+  "bf16": true,
+  "train_records": 8000,
+  "dev_records": 2000,
+  "test_records": 2000,
+  "epochs_completed": 6,
+  "elapsed_seconds": 124.387,
+  "best_dev_macro_pragmatic_f1": 0.7378406342489966,
+  "checkpoint": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_emotion/20260521/best.pt",
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic/vipragsent_no_emotion/20260521.jsonl",
+  "rationales_loaded": 8000,
+  "flags": {
+    "no_rationale": false,
+    "no_emotion": true,
+    "no_polarity": false,
+    "no_uncertainty": false
+  }
+}
+{"started_at": "2026-07-18T17:35:46.254325+00:00", "cwd": "/root/paper/artifact/vipragsent-repro", "command": ["/usr/bin/python", "scripts/train_multitask_encoder.py", "--model-id", "/root/hf_cache/models/phobert-base", "--system", "vipragsent_no_emotion", "--seed", "20260521", "--output-root", "/root/paper/artifact/vipragsent-repro/outputs", "--prediction-root", "/root/paper/artifact/vipragsent-repro/results/predictions/main_pragmatic", "--batch-size", "16", "--grad-accum", "2", "--epochs", "10", "--patience", "2", "--bf16", "--no-emotion"]}
+
+
+{"finished_at": "2026-07-18T17:37:56.174718+00:00", "returncode": 0}

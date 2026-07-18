@@ -18,6 +18,7 @@ from vipragsent.utils.env import load_env_file
 MODELS = {
     "phobert-base": {"repo_id": "vinai/phobert-base", "revision": None},
     "xlm-roberta-large": {"repo_id": "FacebookAI/xlm-roberta-large", "revision": None},
+    "ViSoBERT": {"repo_id": "uitnlp/visobert", "revision": "196a62afad9cbe4f52a54aabad828b13f0eec59a"},
     "Sailor-7B": {"repo_id": "sail/Sailor-7B", "revision": "b8b49a0f02073e58db2e42e5811955dfe87ca970"},
     "Vistral-7B-Chat": {"repo_id": "Viet-Mistral/Vistral-7B-Chat", "revision": "d331b64e61b935cc43c2b3010ae9fb4fde599b45"},
 }

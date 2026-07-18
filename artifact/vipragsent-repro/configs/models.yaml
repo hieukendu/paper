@@ -14,6 +14,13 @@ backbones:
     downloaded_weights: []
     tokenizer: sentencepiece
     local_training: disabled
+  visobert:
+    model_id: uitnlp/visobert
+    revision: 196a62afad9cbe4f52a54aabad828b13f0eec59a
+    local_path: models/huggingface/visobert
+    download_status: resolved_for_supplementary_baseline
+    tokenizer: sentencepiece
+    local_training: enabled_for_supplementary_baseline
   vistral_7b:
     model_id: Viet-Mistral/Vistral-7B-Chat
     revision: d331b64e61b935cc43c2b3010ae9fb4fde599b45

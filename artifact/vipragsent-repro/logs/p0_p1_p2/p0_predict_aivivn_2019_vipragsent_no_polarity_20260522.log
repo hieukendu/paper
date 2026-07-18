@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "mode": "predict_only",
+  "checkpoint": "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_polarity/20260522/best.pt",
+  "records": 3217,
+  "predictions": "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/vipragsent_no_polarity/20260522.jsonl"
+}
+{"started_at": "2026-07-18T17:47:14.328611+00:00", "cwd": "/root/paper/artifact/vipragsent-repro", "command": ["/usr/bin/python", "scripts/train_multitask_encoder.py", "--model-id", "/root/hf_cache/models/phobert-base", "--system", "vipragsent_no_polarity", "--seed", "20260522", "--checkpoint", "/root/paper/artifact/vipragsent-repro/outputs/vipragsent_no_polarity/20260522/best.pt", "--predict-data", "/root/paper/artifact/vipragsent-repro/data/processed/public_eval/aivivn_2019_test.jsonl", "--prediction-output", "/root/paper/artifact/vipragsent-repro/results/predictions/ordinary_sentiment/aivivn_2019/vipragsent_no_polarity/20260522.jsonl", "--batch-size", "16", "--bf16", "--no-polarity"]}
+
+
+{"finished_at": "2026-07-18T17:47:26.451746+00:00", "returncode": 0}
