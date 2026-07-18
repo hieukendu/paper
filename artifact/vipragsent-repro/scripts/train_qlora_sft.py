@@ -92,10 +92,11 @@ class TrainCollator:
         }
 
 
-def load_model(model_id: str, attn_implementation: str):
+def load_model(model_id: str, model_revision: str | None, attn_implementation: str):
     quant = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.bfloat16)
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
+        revision=model_revision,
         quantization_config=quant,
         torch_dtype=torch.bfloat16,
         device_map={"": 0},
@@ -186,6 +187,7 @@ def predict(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-id", required=True)
+    parser.add_argument("--model-revision", default=None, help="Immutable Hugging Face revision used to populate a local model cache.")
     parser.add_argument("--system", required=True)
     parser.add_argument("--train", type=Path, default=ROOT / "data/processed/vipragsent_train.jsonl")
     parser.add_argument("--test", type=Path, default=ROOT / "data/processed/vipragsent_test.jsonl")
@@ -208,10 +210,10 @@ def main() -> int:
     torch.set_float32_matmul_precision("high")
     seed_everything(args.seed)
     started = time.monotonic()
-    tokenizer = AutoTokenizer.from_pretrained(args.model_id, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_id, revision=args.model_revision, use_fast=True)
     tokenizer.pad_token = tokenizer.pad_token or tokenizer.eos_token
     tokenizer.padding_side = "right"
-    model = load_model(args.model_id, args.attn_implementation)
+    model = load_model(args.model_id, args.model_revision, args.attn_implementation)
     device = next(model.parameters()).device
     train = DataLoader(
         SftDataset(args.train),
@@ -263,6 +265,7 @@ def main() -> int:
         "system": args.system,
         "seed": args.seed,
         "model_id": args.model_id,
+        "model_revision": args.model_revision,
         "device": str(device),
         "epochs_completed": len(history),
         "elapsed_seconds": round(time.monotonic() - started, 3),

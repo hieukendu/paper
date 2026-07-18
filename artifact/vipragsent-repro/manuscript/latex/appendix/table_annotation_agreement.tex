@@ -1,0 +1,26 @@
+% TRACE: S3-A01 | answer/tables/annotation_agreement.md; answer/results/annotation_agreement.json
+% This appendix table is introduced by the Appendix A heading in main.tex.
+\begin{table}[!htbp]
+  \centering
+  \scriptsize
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Label & Records & Mean pairwise & Cohen's $\kappa$ & Fleiss' $\kappa$ & Krippendorff's $\alpha$ \\
+    \midrule
+    implicit\_sentiment & 12,000 & 0.95 & 0.80 & 0.79 & 0.79 \\
+    sarcasm & 12,000 & 0.94 & 0.79 & 0.79 & 0.79 \\
+    irony & 12,000 & 0.98 & 0.86 & 0.86 & 0.86 \\
+    idiom\_figurative & 12,000 & 0.99 & 0.95 & 0.95 & 0.95 \\
+    code\_switching & 12,000 & 0.96 & 0.79 & 0.78 & 0.78 \\
+    mocking & 12,000 & 0.94 & 0.80 & 0.79 & 0.79 \\
+    polarity & 12,000 & 0.88 & 0.81 & 0.80 & 0.80 \\
+    emotion & 12,000 & 0.83 & 0.78 & 0.78 & 0.78 \\
+    \midrule
+    Macro & 12,000 & 0.93 & 0.82 & 0.82 & 0.82 \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \caption{Recorded post-adjudication agreement by label family. The fixed adjudicator's labels define the experiment gold split; this is not independent third-rater agreement.}
+  \label{tab:annotation-agreement}
+\end{table}

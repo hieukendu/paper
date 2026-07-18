@@ -30,7 +30,7 @@ bash scripts/run_h100_qlora.sh "$ROOT"
 python scripts/15_summarize_training_runs.py
 python scripts/run_experiments.py \
   --vipragsent-test "$ROOT/data/processed/vipragsent_test.jsonl" \
-  --public-data "$ROOT/data/processed/all_unified.jsonl" \
+  --external-evaluation-data "$ROOT/data/processed/all_unified.jsonl" \
   --predictions-dir "$ROOT/results/predictions" \
   --output-dir "$ROOT/results" \
   --bootstrap-resamples 1000

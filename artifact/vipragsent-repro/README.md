@@ -6,7 +6,7 @@ This package contains the evaluated ViPragSent experiments, their machine-readab
 
 - **Data:** 12,000 adjudicated ViPragSent records, split into 8,000 train / 2,000 development / 2,000 test examples.
 - **Main pragmatic evaluation:** PhoBERT, XLM-R, Sailor-7B, Vistral-7B, GPT-4.1-mini zero-/8-shot, and the ViPragSent multitask model. Encoder and 7B systems have three recorded seeds; API baselines are single-run prompted baselines.
-- **Ordinary-task retention:** PhoBERT, XLM-R, and ViPragSent on UIT-VSFC, UIT-VSMEC, and AIVIVN. These datasets are external evaluation benchmarks, not ViPragSent sources.
+- **External ordinary-task diagnostic:** PhoBERT, XLM-R, and ViPragSent on UIT-VSFC, UIT-VSMEC, and AIVIVN. These datasets are external evaluation benchmarks, not ViPragSent sources.
 - **Ablation:** full model, removal of emotion, ordinary-sentiment, rationale, and uncertainty auxiliaries, plus the no-multitask PhoBERT reference. Inference-time rationale generation and hard-label distillation are outside this study's scope.
 - **Supplementary analyses:** low-resource sarcasm (PhoBERT versus ViPragSent, one registered seed), calibration for systems with pragmatic-polarity confidence scores, confusion analysis, learning curves, measured GPU wall-clock time, paired bootstrap significance, and inter-annotator agreement.
 
@@ -14,9 +14,9 @@ The completed results do not establish that ViPragSent outperforms every baselin
 
 ## Data governance
 
-ViPragSent text comes solely from the local ViSoBERT export. Raw or processed social-media text is private, non-commercial research material and must not be redistributed until source permission is archived. See `configs/data_governance.yaml`, `LICENSE`, and `THIRD_PARTY_NOTICES.md`.
+The final ViPragSent gold corpus contains 10,000 retained local ViSoBERT-export records and 2,000 adjudicated records identified in their stored metadata as `VIVID_seed_and_irony_generation` candidates. The latter replace earlier ViSoBERT rows and are the rows used by the reported experiments. Raw or processed text is private, non-commercial research material and must not be redistributed until the applicable source permission or license is documented and reviewed. See `configs/data_governance.yaml`, `answer/LICENSE`, and `answer/THIRD_PARTY_NOTICES.md`.
 
-The public benchmark datasets are evaluation-only. Their individual terms and provenance are recorded in `data/manifest/` and the generated `answer/data_provenance/` bundle.
+The external benchmark datasets are evaluation-only. Their individual terms and provenance are recorded in `answer/data_provenance/`, and the current license-review status is recorded in `docs/external_dataset_access_and_license_status.md`.
 
 The canonical annotation workbooks are `Duy_Duc_synced-1.xlsx`, `Nhat_Khang_synced-1.xlsx`, and `Quynh_Nhu_synced-1.xlsx`. The Quynh Nhu workbook is verified against the fixed adjudicated gold labels used by all recorded experiments; refreshing reviewer agreement must not alter `data/processed/vipragsent_*.jsonl` or rerun experiments.
 
@@ -37,7 +37,7 @@ python scripts/12_import_annotation_workbooks.py
 python scripts/summarize_ablation_predictions.py
 python scripts/19_compute_iaa.py
 python scripts/20_paired_significance.py
-python scripts/run_experiments.py --vipragsent-test data/processed/vipragsent_test.jsonl --public-data data/processed/all_unified.jsonl --predictions-dir results/predictions --output-dir results --bootstrap-resamples 1000
+python scripts/run_experiments.py --vipragsent-test data/processed/vipragsent_test.jsonl --external-evaluation-data data/processed/all_unified.jsonl --predictions-dir results/predictions --output-dir results --bootstrap-resamples 1000
 python scripts/make_artifacts.py
 python scripts/21_paper_readiness.py
 python scripts/17_collect_answer_bundle.py

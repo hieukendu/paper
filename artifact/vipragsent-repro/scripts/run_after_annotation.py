@@ -78,7 +78,7 @@ def main() -> int:
     experiment_summary = run_no_finetune_suite(
         root=ROOT,
         vipragsent_test=ROOT / "data" / "processed" / "vipragsent_test.jsonl",
-        public_data=ROOT / "data" / "processed" / "all_unified.jsonl",
+        external_evaluation_data=ROOT / "data" / "processed" / "all_unified.jsonl",
         bootstrap_resamples=args.bootstrap_resamples,
         allow_silver_gold=args.allow_silver_gold,
     )

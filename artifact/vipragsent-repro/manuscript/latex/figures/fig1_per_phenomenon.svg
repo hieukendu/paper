@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360"><defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e96"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
+<text x="20" y="25" font-size="16">Per-phenomenon macro-F1</text>
+<line x1="80" y1="290" x2="840" y2="290" stroke="#333"/>
+<line x1="80" y1="50" x2="80" y2="290" stroke="#333"/>
+<rect x="88.0" y="144.0" width="19.1" height="146.0" fill="#5b8ec9"/>
+<rect x="109.1" y="150.1" width="19.1" height="139.9" fill="#7aa17a"/>
+<rect x="130.2" y="152.2" width="19.1" height="137.8" fill="#a892c9"/>
+<rect x="151.3" y="147.0" width="19.1" height="143.0" fill="#f0a04b"/>
+<rect x="172.4" y="235.5" width="19.1" height="54.5" fill="#1f4e96"/>
+<text x="125.0" y="325" transform="rotate(25 125.0,325)" font-size="10">implicit_sentiment</text>
+<rect x="214.7" y="104.3" width="19.1" height="185.7" fill="#5b8ec9"/>
+<rect x="235.8" y="99.2" width="19.1" height="190.8" fill="#7aa17a"/>
+<rect x="256.9" y="101.4" width="19.1" height="188.6" fill="#a892c9"/>
+<rect x="278.0" y="97.9" width="19.1" height="192.1" fill="#f0a04b"/>
+<rect x="299.1" y="115.1" width="19.1" height="174.9" fill="#1f4e96"/>
+<text x="251.66666666666669" y="325" transform="rotate(25 251.66666666666669,325)" font-size="10">sarcasm</text>
+<rect x="341.3" y="58.8" width="19.1" height="231.2" fill="#5b8ec9"/>
+<rect x="362.4" y="57.6" width="19.1" height="232.4" fill="#7aa17a"/>
+<rect x="383.6" y="56.2" width="19.1" height="233.8" fill="#a892c9"/>
+<rect x="404.7" y="57.1" width="19.1" height="232.9" fill="#f0a04b"/>
+<rect x="425.8" y="134.3" width="19.1" height="155.7" fill="#1f4e96"/>
+<text x="378.33333333333337" y="325" transform="rotate(25 378.33333333333337,325)" font-size="10">irony</text>
+<rect x="468.0" y="56.5" width="19.1" height="233.5" fill="#5b8ec9"/>
+<rect x="489.1" y="56.5" width="19.1" height="233.5" fill="#7aa17a"/>
+<rect x="510.2" y="56.8" width="19.1" height="233.2" fill="#a892c9"/>
+<rect x="531.3" y="58.8" width="19.1" height="231.2" fill="#f0a04b"/>
+<rect x="552.4" y="112.1" width="19.1" height="177.9" fill="#1f4e96"/>
+<text x="505.0" y="325" transform="rotate(25 505.0,325)" font-size="10">idiom_figurative</text>
+<rect x="594.7" y="100.4" width="19.1" height="189.6" fill="#5b8ec9"/>
+<rect x="615.8" y="116.8" width="19.1" height="173.2" fill="#7aa17a"/>
+<rect x="636.9" y="94.9" width="19.1" height="195.1" fill="#a892c9"/>
+<rect x="658.0" y="93.3" width="19.1" height="196.7" fill="#f0a04b"/>
+<rect x="679.1" y="140.4" width="19.1" height="149.6" fill="#1f4e96"/>
+<text x="631.6666666666667" y="325" transform="rotate(25 631.6666666666667,325)" font-size="10">code_switching</text>
+<rect x="721.3" y="99.3" width="19.1" height="190.7" fill="#5b8ec9"/>
+<rect x="742.4" y="96.1" width="19.1" height="193.9" fill="#7aa17a"/>
+<rect x="763.6" y="94.9" width="19.1" height="195.1" fill="#a892c9"/>
+<rect x="784.7" y="93.2" width="19.1" height="196.8" fill="#f0a04b"/>
+<rect x="805.8" y="129.0" width="19.1" height="161.0" fill="#1f4e96"/>
+<text x="758.3333333333334" y="325" transform="rotate(25 758.3333333333334,325)" font-size="10">mocking</text>
+<rect x="680" y="50" width="10" height="10" fill="#5b8ec9"/>
+<text x="695" y="59" font-size="10">PhoBERT fine-tune</text>
+<rect x="680" y="68" width="10" height="10" fill="#7aa17a"/>
+<text x="695" y="77" font-size="10">XLM-R-large</text>
+<rect x="680" y="86" width="10" height="10" fill="#a892c9"/>
+<text x="695" y="95" font-size="10">Sailor-7B SFT</text>
+<rect x="680" y="104" width="10" height="10" fill="#f0a04b"/>
+<text x="695" y="113" font-size="10">Vistral-7B SFT</text>
+<rect x="680" y="122" width="10" height="10" fill="#1f4e96"/>
+<text x="695" y="131" font-size="10">GPT-4.1-mini zero-shot</text>
+</svg>

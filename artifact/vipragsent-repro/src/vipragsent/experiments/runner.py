@@ -42,7 +42,7 @@ def run_no_finetune_suite(
     root: str | Path = ".",
     predictions_dir: str | Path | None = None,
     vipragsent_test: str | Path | None = None,
-    public_data: str | Path | None = None,
+    external_evaluation_data: str | Path | None = None,
     output_dir: str | Path | None = None,
     include_heuristic: bool = False,
     allow_silver_gold: bool = False,
@@ -53,7 +53,11 @@ def run_no_finetune_suite(
     predictions_dir = Path(predictions_dir) if predictions_dir else root / "results" / "predictions"
     output_dir = Path(output_dir) if output_dir else root / "results"
     vipragsent_test = Path(vipragsent_test) if vipragsent_test else _default_vipragsent_test(root)
-    public_data = Path(public_data) if public_data else root / "data" / "processed" / "all_unified.jsonl"
+    external_evaluation_data = (
+        Path(external_evaluation_data)
+        if external_evaluation_data
+        else root / "data" / "processed" / "all_unified.jsonl"
+    )
 
     output_dir.mkdir(parents=True, exist_ok=True)
     summary: dict[str, Any] = {"status": "ok", "outputs": {}}
@@ -71,13 +75,19 @@ def run_no_finetune_suite(
     summary["outputs"]["main_pragmatic"] = str(output_dir / "main_pragmatic.json")
 
     ordinary_result = build_ordinary_sentiment_result(
-        public_data_path=public_data,
+        external_evaluation_data_path=external_evaluation_data,
         predictions_dir=predictions_dir,
         allow_silver_gold=allow_silver_gold,
         bootstrap_resamples=bootstrap_resamples,
         limit=limit,
     )
-    _add_run_context(ordinary_result, predictions_dir, allow_silver_gold=allow_silver_gold, limit=limit, gold_path=public_data)
+    _add_run_context(
+        ordinary_result,
+        predictions_dir,
+        allow_silver_gold=allow_silver_gold,
+        limit=limit,
+        gold_path=external_evaluation_data,
+    )
     dump_json(output_dir / "ordinary_sentiment.json", ordinary_result)
     summary["outputs"]["ordinary_sentiment"] = str(output_dir / "ordinary_sentiment.json")
 
@@ -189,7 +199,7 @@ def build_main_pragmatic_result(
 
 def build_ordinary_sentiment_result(
     *,
-    public_data_path: str | Path,
+    external_evaluation_data_path: str | Path,
     predictions_dir: str | Path,
     allow_silver_gold: bool,
     bootstrap_resamples: int,
@@ -213,7 +223,7 @@ def build_ordinary_sentiment_result(
         dataset_result["metric"] = metric_name
         try:
             all_records = load_gold_records(
-                public_data_path,
+                external_evaluation_data_path,
                 split="test",
                 task=task,
                 require_adjudicated=False,

@@ -23,7 +23,7 @@ run_if_missing () {
 # only regenerates evidence from existing predictions and manifests; it does
 # not launch an unrequested training run.
 
-# Ordinary-task retention for every trained encoder ablation. These are
+# External ordinary-task diagnostics for every trained encoder ablation. These are
 # prediction-only passes over external benchmarks, not ViPragSent sources.
 for system in vipragsent_no_rationale vipragsent_no_emotion vipragsent_no_polarity vipragsent_no_uncertainty; do
   extra=()
@@ -54,7 +54,7 @@ python scripts/19_compute_iaa.py
 python scripts/20_paired_significance.py
 python scripts/run_experiments.py \
   --vipragsent-test "$ROOT/data/processed/vipragsent_test.jsonl" \
-  --public-data "$ROOT/data/processed/all_unified.jsonl" \
+  --external-evaluation-data "$ROOT/data/processed/all_unified.jsonl" \
   --predictions-dir "$ROOT/results/predictions" --output-dir "$ROOT/results" \
   --bootstrap-resamples 1000
 python scripts/make_artifacts.py

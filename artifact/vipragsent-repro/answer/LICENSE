@@ -32,10 +32,13 @@ Unless the copyright holder gives prior written permission, recipients may not:
 
 4. Data and third-party rights
 
-No license to redistribute raw ViPragSent text is granted. Access to the local
-ViSoBERT export is limited to private research while its source terms are being
-confirmed. UIT-VSFC, UIT-VSMEC, and AIVIVN are external evaluation benchmarks,
-not components of ViPragSent, and remain governed by their respective terms.
+No license to redistribute raw ViPragSent text is granted. The final gold
+corpus includes retained local ViSoBERT-export rows and `VIVID_seed_and_irony_generation`
+replacement rows; access remains limited to private research while the relevant
+source terms are confirmed. UIT-VSFC, UIT-VSMEC, and AIVIVN are external
+evaluation benchmarks, not components of ViPragSent, and remain governed by
+their respective terms. No primary license document for the exact external
+artifacts was verified in the 2026-07-18 review.
 
 PhoBERT, XLM-R, Sailor-7B, Vistral-7B, and all other base models remain governed
 by their respective licenses and access conditions. Project checkpoints and

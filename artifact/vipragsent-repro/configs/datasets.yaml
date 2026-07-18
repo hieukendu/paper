@@ -9,6 +9,15 @@ sources:
     kind: local_export
     action: ingest_first
     notes: Parse JSON, JSONL, CSV and TXT files with text-like fields.
+    final_gold_retained_records: 10000
+    final_gold_replacement_records: 2000
+  vivid_seed_and_irony_generation:
+    kind: adjudicated_generated_candidate_replacement
+    path: Quynh_Nhu_synced-1.xlsx
+    final_gold_records: 2000
+    source_identifier: VIVID_seed_and_irony_generation
+    source_license_status: upstream_source_and_license_manual_review_required
+    notes: Stored record metadata identifies this source. Its 2,000 rows replace earlier ViSoBERT rows before the fixed experimental gold partitions.
   visobert_hf_fallback:
     priority: 2
     kind: huggingface

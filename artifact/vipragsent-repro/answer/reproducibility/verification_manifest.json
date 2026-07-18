@@ -4,6 +4,20 @@
   "generated_at": "2026-07-18T07:31:22.779628+00:00",
   "authoritative_results": "answer/results/",
   "integrity_scope": "SHA-256 hashes cover portable result, table, figure, and run-manifest artifacts. They establish file-level traceability only; they do not constitute a training rerun.",
+  "local_private_integrity_records": [
+    {
+      "path": "reproducibility/id_set_manifest.json",
+      "bytes": 2204,
+      "sha256": "sha256:fa5e1f00c254177285ab36827d5828276bf320c2d09b1fba000989088a81f2d9",
+      "scope": "Per-split ID-set, order, and private gold-file integrity; no identifiers or text are present."
+    },
+    {
+      "path": "reproducibility/local_prediction_split_manifest.json",
+      "bytes": 3827,
+      "sha256": "sha256:4ad59d493aad6289a0f07924b744d8f7a17589eacd89dda73e7e128c2ad8bfd5",
+      "scope": "Private gold-partition and main-comparison prediction-file integrity; no source text is present."
+    }
+  ],
   "bundle_artifacts": {
     "results": [
       {

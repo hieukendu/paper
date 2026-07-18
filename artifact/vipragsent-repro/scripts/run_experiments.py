@@ -20,7 +20,13 @@ def main() -> int:
     )
     parser.add_argument("--predictions-dir", default=str(ROOT / "results" / "predictions"))
     parser.add_argument("--vipragsent-test", default=None, help="Gold ViPragSent test JSONL.")
-    parser.add_argument("--public-data", default=str(ROOT / "data" / "processed" / "all_unified.jsonl"))
+    parser.add_argument(
+        "--external-evaluation-data",
+        "--public-data",
+        dest="external_evaluation_data",
+        default=str(ROOT / "data" / "processed" / "all_unified.jsonl"),
+        help="External evaluation JSONL. --public-data is retained as a legacy alias.",
+    )
     parser.add_argument("--output-dir", default=str(ROOT / "results"))
     parser.add_argument("--include-heuristic", action="store_true", help="Add a no-train smoke baseline.")
     parser.add_argument(
@@ -37,7 +43,7 @@ def main() -> int:
         root=ROOT,
         predictions_dir=args.predictions_dir,
         vipragsent_test=args.vipragsent_test,
-        public_data=args.public_data,
+        external_evaluation_data=args.external_evaluation_data,
         output_dir=args.output_dir,
         include_heuristic=args.include_heuristic,
         allow_silver_gold=args.allow_silver_gold,

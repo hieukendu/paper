@@ -56,5 +56,5 @@ python scripts/train_multitask_encoder.py --model-id "$HF_HOME/models/phobert-ba
 
 python scripts/15_summarize_training_runs.py
 python scripts/summarize_ablation_predictions.py
-python scripts/run_experiments.py --vipragsent-test "$ROOT/data/processed/vipragsent_test.jsonl" --public-data "$ROOT/data/processed/all_unified.jsonl" --predictions-dir "$ROOT/results/predictions" --output-dir "$ROOT/results" --bootstrap-resamples 1000
+python scripts/run_experiments.py --vipragsent-test "$ROOT/data/processed/vipragsent_test.jsonl" --external-evaluation-data "$ROOT/data/processed/all_unified.jsonl" --predictions-dir "$ROOT/results/predictions" --output-dir "$ROOT/results" --bootstrap-resamples 1000
 python scripts/make_artifacts.py

@@ -1,0 +1,16 @@
+% TRACE: Table 2 | answer/tables/main_pragmatic.md; answer/results/main_pragmatic.json | complete registered comparison, displayed means preserve source precision
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+System & Implicit & Sarcasm & Irony & Idiom/fig. & Code-switch. & Mocking & Macro \\
+\midrule
+PhoBERT fine-tune & 60.85 & 77.37 & 96.32 & 97.30 & 78.99 & 79.45 & 81.71 \\
+XLM-R-large & 58.30 & 79.49 & 96.85 & 97.30 & 72.16 & 80.80 & 80.82 \\
+Sailor-7B SFT & 57.43 & 78.57 & 97.41 & 97.15 & 81.28 & 81.31 & 82.19 \\
+Vistral-7B SFT & 59.59 & 80.03 & 97.05 & 96.35 & 81.95 & 81.98 & 82.83 \\
+GPT-4.1-mini zero-shot & 22.70 & 72.90 & 64.89 & 74.12 & 62.32 & 67.08 & 60.67 \\
+GPT-4.1-mini 8-shot & 44.74 & 73.73 & 72.72 & 94.42 & 59.62 & 70.13 & 69.23 \\
+ViPragSent (ours) & 46.92 & 75.69 & 96.98 & 97.24 & 47.63 & 78.02 & 73.75 \\
+\bottomrule
+\end{tabular}%

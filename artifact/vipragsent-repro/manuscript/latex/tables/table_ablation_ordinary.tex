@@ -1,0 +1,24 @@
+% TRACE: Table 3 Panel A | answer/tables/multitask_ablation.md; answer/results/multitask_ablation.json | six seed-20260520 rows
+% TRACE: Table 3 Panel B | answer/tables/ordinary_sentiment.md; answer/results/ordinary_sentiment.json | three-seed external ordinary-task diagnostics
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+\multicolumn{4}{l}{\textbf{Panel A: single-seed ablation}} \\
+Configuration & Pragmatic F1 & 3-benchmark diagnostic F1 & ECE \\
+\midrule
+full & 73.72 & 45.19 & 0.07 \\
+no\_emotion\_auxiliary & 74.81 & 37.44 & 0.14 \\
+no\_ordinary\_sentiment\_auxiliary & 73.36 & 31.52 & 0.12 \\
+no\_explanation\_cot\_auxiliary & 73.64 & 45.21 & 0.08 \\
+no\_multitask & 81.72 & 22.24 & 0.09 \\
+no\_task\_uncertainty\_weighting & 73.62 & 45.96 & 0.07 \\
+\midrule
+\multicolumn{4}{l}{\textbf{Panel B: external ordinary-task diagnostic (three stored seeds)}} \\
+Dataset / task & PhoBERT fine-tune & XLM-R-large & ViPragSent (ours) \\
+\midrule
+AIVIVN-2019 / polarity & 29.11 [7.54, 50.68] & 70.46 [69.49, 71.43] & 59.76 [56.45, 63.08] \\
+UIT-VSFC / polarity & 22.67 [19.27, 26.06] & 48.69 [46.99, 50.38] & 45.07 [43.87, 46.27] \\
+UIT-VSMEC / emotion & 6.47 [2.61, 10.33] & 47.57 [46.80, 48.34] & 35.01 [32.63, 37.38] \\
+\bottomrule
+\end{tabular}

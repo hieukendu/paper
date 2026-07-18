@@ -1,0 +1,55 @@
+\section{Task and Data}
+\label{sec:task-data}
+
+\subsection{Task Formulation and Labels}
+
+ViPragSent treats pragmatic-sentiment analysis as a structured prediction problem over a Vietnamese-language record in the documented source composition. Each record carries a multi-label pragmatic vector, an intended-polarity label, and an emotion label. The pragmatic vector is evaluated label by label, so phenomena may co-occur rather than forming mutually exclusive classes. This formulation deliberately separates how sentiment is pragmatically conveyed from the intended valence and affective category assigned to the same record.
+
+% TRACE: S3-C01 | configs/labels.yaml; docs/annotation_guidelines_v1.md | pragmatic_binary; six project-defined operational criteria
+The six binary pragmatic labels are \emph{implicit sentiment}, \emph{sarcasm}, \emph{irony}, \emph{idiom/figurative language}, \emph{code-switching}, and \emph{mocking}.
+Current project documentation records the author-team-defined operational criteria: implicit sentiment is indirectly conveyed evaluation or emotion; sarcasm is a surface stance opposite to intended stance; and irony is an incongruity between expectation and occurrence that need not reverse polarity.  It records idiom/figurative language as a fixed idiom or non-literal expression, code-switching as the presence of at least one English content word rather than a common borrowed term or abbreviation, and mocking as ridicule or demeaning treatment of a person, group, or action.  Each field is stored independently and can co-occur with the others; an affirmative value records the presence of its named operational target rather than selection of one mutually exclusive pragmatic category.  The criteria guide contextual, interpretive judgment rather than a deterministic cue list.  They are a project-specific operational taxonomy, not a claim that these six fields exhaust Vietnamese pragmatics or instantiate a standard literature taxonomy.
+
+% TRACE: S3-C02 | configs/labels.yaml | polarity; src/vipragsent/data/schema.py | POLARITY_LABELS
+Intended polarity is a separate three-way auxiliary label with positive, neutral, and negative values.
+It is assigned from intended meaning rather than surface praise, which is important when ironic or sarcastic wording reverses literal valence. The emotion auxiliary is likewise distinct from the pragmatic vector and uses the repository's UIT-VSMEC-style label set: enjoyment, sadness, anger, disgust, fear, surprise, and other. Pragmatic labels therefore identify communicative phenomena, while polarity and emotion characterize complementary ordinary sentiment and affect targets; neither auxiliary is a pragmatic label or a proxy for one.
+
+% TRACE: S3-C03 | configs/labels.yaml; answer/data_provenance/gold_build_report.json | $.final_gold_records, $.split_counts
+Table~\ref{tab:task-data} records the verified task and corpus inventory used in this study.
+\begin{table*}[t]
+  \centering
+  \input{tables/table_task_data}
+  \caption{Verified ViPragSent task and data inventory.}
+  \label{tab:task-data}
+\end{table*}
+Appendix~\ref{app:label-prevalence} reports positive pragmatic-label counts by fixed split; because the labels are multi-label, these counts are not mutually exclusive class totals.
+
+\subsection{Data Provenance, Splits, and Governance}
+
+% TRACE: S3-C04 | answer/data_provenance/gold_build_report.json | $.final_gold_records
+The gold corpus contains 12,000 adjudicated records.
+% TRACE: S3-C04a | data/processed/vipragsent_{train,dev,test}.jsonl | $.source.dataset; answer/data_provenance/gold_build_report.json | $.split_counts.*.platforms; scripts/12_import_annotation_workbooks.py | lines 109--110
+Its stored source metadata identifies 10,000 retained local ViSoBERT-export records and 2,000 author-created, context-augmented derivatives based on Vietnamese idiom/proverb materials from VIVID \\citep{rem-lab-2026-vivid}.  The contextualization was informed in part by verbal-irony strategies described by \\citet{ghosh-etal-2019-verbal-irony}; it is not presented as a reproduction of that English-language study.
+% TRACE: S3-C04b | scripts/12_import_annotation_workbooks.py | lines 109--110; data/processed/vipragsent_{train,dev,test}.jsonl | $.source.dataset
+Those 2,000 rows replace earlier ViSoBERT rows and are present in the fixed gold partitions used for all reported experiments; the replaced rows are not corpus members.
+% TRACE: S3-C05 | answer/data_provenance/gold_build_report.json | $.split_counts.train.total, $.split_counts.dev.total, $.split_counts.test.total
+Its fixed split is 8,000 training records, 2,000 development records, and 2,000 test records.
+The build report records no missing reviews, unresolved disagreements, or invalid records in the final gold build. The repository's fixed partitions determine all reported experiments; this paper neither infers a sampling protocol nor alters membership. Table~\ref{tab:task-data} traces corpus size and split fields to the gold-build report, rather than to the earlier silver-label registry.
+
+% TRACE: S3-C05b | configs/data_governance.yaml | dataset_construction, access_policy, public_release_status; answer/THIRD_PARTY_NOTICES.md | Dataset source
+The source-text boundary is restrictive. Raw and processed source text remains private and is not redistributed; this manuscript neither claims a public release nor reproduces source-text examples. Source authorization and license documentation are pending project action. The release boundary applies to text access, not to the experimental artifacts and provenance records used for the reported evaluation.
+
+% TRACE: S3-C05c | configs/data_governance.yaml | external_evaluation.aivivn_2019, dataset_construction.note
+The repository also records UIT-VSFC, UIT-VSMEC, and an AIVIVN-2019 Kaggle mirror as external evaluation resources. They are not incorporated into ViPragSent. Their role is confined to the external ordinary-task diagnostic; the manuscript reports aggregate results without distributing their text or treating a mirror as a canonical release. Their exact-artifact source authorization remains pending in the project governance record.
+
+\subsection{Annotation and Agreement}
+
+The final labels are post-adjudication labels.
+% TRACE: S3-C06 | answer/results/annotation_agreement.json | $.reviewers, $.protocol_note
+Two reviewers and a fixed adjudicator are listed in the agreement artifact, and the adjudicator's labels define the experiment gold split.
+% TRACE: S3-C06b | answer/data_provenance/annotation_import_report.json | $.reviewer_comparable_records, $.records_with_disagreement, $.disagreement_field_occurrences; answer/data_provenance/gold_build_report.json | $.pre_adjudication_reviewer_comparison
+Before adjudication, the two reviewers differed on at least one of the six pragmatic, polarity, or emotion fields for 5,261 of the 12,000 shared records; the fixed adjudicator resolved these cases when selecting the final gold labels.
+The reported agreement values therefore summarize a post-adjudication workflow; they must not be interpreted as an independent, blinded third-rater study. This distinction also means that recomputing an agreement statistic cannot be used to replace or refresh the fixed experimental gold labels.
+
+% TRACE: S3-C06 | answer/results/annotation_agreement.json | $.macro.mean_pairwise_percent_agreement, $.macro.mean_pairwise_cohen_kappa, $.macro.fleiss_kappa_nominal, $.macro.krippendorff_alpha_nominal
+Across the recorded label families, the macro mean pairwise agreement is 0.93, with macro mean pairwise Cohen's $\kappa$ of 0.82, Fleiss' $\kappa$ of 0.82, and Krippendorff's $\alpha$ of 0.82.
+These values provide a compact description of the recorded annotation artifact, not an estimate of agreement from a newly collected annotation study. Table~\ref{tab:annotation-agreement} in Appendix~\ref{app:annotation-agreement} provides the detailed per-label values, keeping the main section focused on the task, provenance, and governance conditions.

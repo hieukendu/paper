@@ -10,10 +10,11 @@ Important protocol notes:
 - Gold split: 8,000 train / 2,000 dev / 2,000 test adjudicated records.
 - Rationale coverage: 8,000 train records; manual faithfulness audit was waived and is documented in data_provenance/.
 - Q3 is an exploratory single-seed comparison at 64, 128, 256, 512, and 1,024 sarcasm-positive examples.
-- Ordinary-task retention is an encoder-only comparison; UIT-VSMEC is reported as seven-way emotion macro-F1.
+- The external ordinary-task diagnostic is an encoder-only comparison; UIT-VSMEC is reported as seven-way emotion macro-F1.
 - Calibration is reported only for systems with pragmatic-polarity confidence scores.
 - Source code, datasets, prediction JSONL, and pinned external model archives are documented in `reproducibility/artifact_registry.json`.
 - `reproducibility/verification_manifest.json` records SHA-256 hashes for the copied artifacts; it is an integrity check, not an experiment rerun.
+- `reproducibility/id_set_manifest.json` records non-disclosing ID-set and ordered-ID hashes for the private train/dev/test partitions; it verifies split membership without releasing identifiers or text.
 - Run manifests are retained for audit; weights are retrieved from the registered Hugging Face archives rather than copied into this bundle.
 
 Copied files:
@@ -89,4 +90,6 @@ Copied files:
 - `data_provenance/manifest.json`
 - `reproducibility/artifact_registry.json`
 - `reproducibility/verification_manifest.json`
+- `reproducibility/id_set_manifest.json`
+- `reproducibility/local_prediction_split_manifest.json`
 - `run_manifests/README.md`

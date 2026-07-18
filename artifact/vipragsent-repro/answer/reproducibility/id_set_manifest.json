@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "scope": "Private local split-membership integrity record. It exposes no record text or record identifiers.",
+  "algorithm": "sha256",
+  "canonicalization": {
+    "id_set": "UTF-8 encoding of unique record IDs sorted lexicographically and joined with a trailing LF; invariant to JSONL row order.",
+    "ordered_id_sequence": "UTF-8 encoding of record IDs in JSONL order and joined with a trailing LF; detects a row-order change.",
+    "file": "Raw JSONL bytes."
+  },
+  "partitions": {
+    "train": {
+      "path": "data/processed/vipragsent_train.jsonl",
+      "record_count": 8000,
+      "id_set_sha256": "805fca62300fcc8518885f7a07b00b5b2f11580ca22ddb1a998b4bec750ad70a",
+      "ordered_id_sequence_sha256": "805fca62300fcc8518885f7a07b00b5b2f11580ca22ddb1a998b4bec750ad70a",
+      "file_bytes": 9685025,
+      "file_sha256": "534c28c0f45a561a8f20597029443aeb63d44b128e30c865bfff5c3e5df92494"
+    },
+    "dev": {
+      "path": "data/processed/vipragsent_dev.jsonl",
+      "record_count": 2000,
+      "id_set_sha256": "e6cd636c451762f71baf12d8f84a548fa361ea26e2a87f296c65be4999182540",
+      "ordered_id_sequence_sha256": "e6cd636c451762f71baf12d8f84a548fa361ea26e2a87f296c65be4999182540",
+      "file_bytes": 2419622,
+      "file_sha256": "10b7a6dcf32c8e95eede75aef0a438ff3c74a063769fe6347523b945335c402e"
+    },
+    "test": {
+      "path": "data/processed/vipragsent_test.jsonl",
+      "record_count": 2000,
+      "id_set_sha256": "795061a43510d38b62b9fd2ebbc8431a465be67594cdf736c052dea748a0cbfc",
+      "ordered_id_sequence_sha256": "795061a43510d38b62b9fd2ebbc8431a465be67594cdf736c052dea748a0cbfc",
+      "file_bytes": 2418343,
+      "file_sha256": "3a47e5c8ea16881905a17434e2cc36590ffcac61cbe89bd5b6ecfec25904ce98"
+    }
+  },
+  "global": {
+    "record_count": 12000,
+    "union_id_set_sha256": "33acf3cf6c6fb901427e25b9a62aa8490d80a7abd4582b4e68d0e58d7fb604fa",
+    "pairwise_split_overlap_count": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "duplicate_ids_within_partition": {
+      "train": 0,
+      "dev": 0,
+      "test": 0
+    }
+  },
+  "verification_status": "VERIFIED_LOCALLY_AGAINST_PRIVATE_PROCESSED_JSONL_ON_2026-07-18"
+}

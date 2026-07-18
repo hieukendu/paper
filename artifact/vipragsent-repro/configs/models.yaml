@@ -16,6 +16,8 @@ backbones:
     local_training: disabled
   vistral_7b:
     model_id: Viet-Mistral/Vistral-7B-Chat
+    revision: d331b64e61b935cc43c2b3010ae9fb4fde599b45
+    revision_status: upstream_head_resolved_2026-07-18_not_historical_run_provenance
     local_path: null
     download_status: blocked_gated_hf_access
     size_note: HF reports about 29.2 GB used storage; access approval is required before git clone.
@@ -23,6 +25,8 @@ backbones:
     local_training: disabled
   sailor_7b:
     model_id: sail/Sailor-7B
+    revision: b8b49a0f02073e58db2e42e5811955dfe87ca970
+    revision_status: upstream_head_resolved_2026-07-18_not_historical_run_provenance
     local_path: null
     download_status: removed_local_not_required_for_no_finetune
     size_note: model.safetensors is about 15.4 GB; use third-party inference and import prediction JSONL instead of hosting locally.

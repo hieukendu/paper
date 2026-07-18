@@ -1,0 +1,26 @@
+\section{Related Work}
+\label{sec:related-work}
+
+This work is positioned at the intersection of Vietnamese pretrained models, Vietnamese affective evaluation resources, and auxiliary-task learning for sentiment-related prediction.  The references here motivate the comparison and evaluation choices; they do not imply that the external benchmarks supplied data for the ViPragSent corpus or that multi-task learning should improve a particular system.
+
+\subsection{Vietnamese and Vietnamese-social-media Pretrained Models}
+
+% TRACE: S2-C01 | manuscript/references.bib | nguyen-tuan-nguyen-2020-phobert; conneau-etal-2020-unsupervised; nguyen-etal-2023-visobert | model-family positioning only
+The present comparison explicitly distinguishes monolingual Vietnamese, multilingual, and Vietnamese-social-media pretraining contexts.  PhoBERT provides a Vietnamese pretrained encoder reference \citep{nguyen-tuan-nguyen-2020-phobert}, whereas XLM-R provides a multilingual cross-lingual representation-learning reference \citep{conneau-etal-2020-unsupervised}.  ViSoBERT is relevant as a Vietnamese social-media language-model context \citep{nguyen-etal-2023-visobert}.  These works therefore motivate the model-family context of the evaluated encoder baselines, but they do not establish a universal ranking among encoders or a direct match to the present pragmatic labels.
+
+The present comparison keeps this distinction explicit.  It evaluates PhoBERT and XLM-R as recorded encoder families under one protocol (Section~\ref{sec:systems-evaluation}) while treating Vietnamese social-media pretraining as relevant context rather than as evidence that a ViSoBERT baseline was run.  In particular, ViSoBERT is not an evaluated system in the current artifact inventory.  This boundary avoids conflating a relevant resource with a completed baseline experiment.
+
+\subsection{Vietnamese Sentiment and Emotion Evaluation Resources}
+
+% TRACE: S2-C02 | manuscript/references.bib | nguyen-etal-2018-uit-vsfc; ho-etal-2020-uit-vsmec | external-benchmark positioning only
+Vietnamese affective resources also differ in task and domain.  UIT-VSFC supplies a Vietnamese student-feedback corpus for sentiment analysis \citep{nguyen-etal-2018-uit-vsfc}, while UIT-VSMEC provides a Vietnamese social-media emotion-recognition resource \citep{ho-etal-2020-uit-vsmec}.  In this study, both are external evaluation benchmarks for the study's external ordinary-task diagnostic, not sources of ViPragSent records.  Their appearance alongside the pragmatic main evaluation consequently tests a bounded diagnostic question; it does not merge their labels, text, or annotation protocols into the task defined in Section~\ref{sec:task-data}.
+
+% TRACE: S2-C03 | manuscript/references.bib | nguyen-etal-2020-efficient; answer/data_provenance/source_registry.json | scholarly-description versus local-mirror scope
+For AIVIVN, Nguyen et al. describe a binary Vietnamese e-commerce-review dataset used in AIVIVN 2019 and record the historical challenge URL \citep{nguyen-etal-2020-efficient}.  We use that proceedings paper as a scholarly description of the published setting, not as an organizer-authored release record.  The repository's evaluated artifact is separately identified as a Kaggle mirror by local file hashes and is used only for external polarity evaluation.  We therefore make no claim that the mirror is the canonical organizer split, that its labels are the organizer's original test labels, or that it carries a verified redistribution license.
+
+\subsection{Auxiliary-task and Multi-task Learning}
+
+% TRACE: S2-C04 | manuscript/references.bib | moore-barnes-2021-multi | design-family positioning only
+Auxiliary-task learning offers a design family for testing whether related linguistic or pragmatic signals change a targeted sentiment task.  For example, Moore and Barnes jointly model negation and speculation with targeted sentiment classification \citep{moore-barnes-2021-multi}.  Such work supports considering auxiliary objectives as an empirical design choice, but it does not imply that any particular auxiliary task will help a new dataset, label construction, or model family.  That distinction is central here because the recorded ablation is interpreted as a qualified observation rather than as evidence of a general causal benefit.
+
+Accordingly, this paper contributes a comparative evaluation and trade-off analysis in a defined Vietnamese pragmatic-sentiment setting.  It does not claim that the external resources exhaust Vietnamese sentiment or emotion evaluation, that the cited pretrained models cover all appropriate baselines, or that multi-task learning is uniformly advantageous.  The remaining sections specify the task, protocol, and recorded evidence needed to assess those bounded comparisons.

@@ -16,10 +16,10 @@ from vipragsent.utils.env import load_env_file
 
 
 MODELS = {
-    "phobert-base": "vinai/phobert-base",
-    "xlm-roberta-large": "FacebookAI/xlm-roberta-large",
-    "Sailor-7B": "sail/Sailor-7B",
-    "Vistral-7B-Chat": "Viet-Mistral/Vistral-7B-Chat",
+    "phobert-base": {"repo_id": "vinai/phobert-base", "revision": None},
+    "xlm-roberta-large": {"repo_id": "FacebookAI/xlm-roberta-large", "revision": None},
+    "Sailor-7B": {"repo_id": "sail/Sailor-7B", "revision": "b8b49a0f02073e58db2e42e5811955dfe87ca970"},
+    "Vistral-7B-Chat": {"repo_id": "Viet-Mistral/Vistral-7B-Chat", "revision": "d331b64e61b935cc43c2b3010ae9fb4fde599b45"},
 }
 
 
@@ -31,17 +31,20 @@ def main() -> int:
     load_env_file(ROOT / ".env")
     token = os.getenv("HF_TOKEN") or os.getenv("HUGGINGFACE_HUB_TOKEN")
     root = Path(args.cache_root) / "models"
-    for name, repo_id in MODELS.items():
+    for name, spec in MODELS.items():
         if args.skip_7b and name in {"Sailor-7B", "Vistral-7B-Chat"}:
             continue
+        repo_id = spec["repo_id"]
+        revision = spec["revision"]
         try:
             path = snapshot_download(
                 repo_id,
+                revision=revision,
                 local_dir=root / name,
                 token=token,
                 ignore_patterns=["*.bin", "tf_model*", "flax_model*", "onnx/*"] if name != "phobert-base" else ["tf_model*", "flax_model*"],
             )
-            print(f"{name}: ok -> {path}")
+            print(f"{name}: ok -> {path} (revision={revision or 'default'})")
         except Exception as exc:
             print(f"{name}: failed -> {type(exc).__name__}: {exc}")
             if name in {"phobert-base", "xlm-roberta-large"}:

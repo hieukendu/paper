@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+% XeLaTeX-compatible implementation of the ACL Times requirement.
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\newfontfamily\headingfont{Times New Roman}
+\newcommand{\headingstyle}{\headingfont\bfseries}
+\usepackage{latexsym}
+
+% Packages reserved for verified planned tables and figures.
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% Keep the official ACL style file unchanged while ensuring that the local
+% XeLaTeX font fallback renders the document hierarchy visibly in bold.
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{-2.0ex plus -0.5ex minus -.2ex}{1.5ex plus .3ex minus .2ex}{\large\headingstyle\raggedright}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-1.8ex plus -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\headingstyle\raggedright}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1.5ex plus -0.5ex minus -.2ex}{0.5ex plus .2ex}{\normalsize\headingstyle\raggedright}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{1.5ex plus .5ex minus .2ex}{-1em}{\normalsize\headingstyle}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}{1.5ex plus .5ex minus .2ex}{-1em}{\normalsize\headingstyle}}
+\makeatother
+% The ACL abstract environment already centers and bolds its heading.  The
+% local font fallback needs the same explicit bold face as the section hierarchy.
+\renewcommand{\abstractname}{{\headingstyle Abstract}}
+
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+
+\title{\headingstyle ViPragSent: Comparative Evaluation of Vietnamese Pragmatic Sentiment with a Social-Media Source Component}
+\author{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Pragmatic interpretation in Vietnamese-language text can depend on signals that extend beyond surface polarity. Such phenomena can shift apparent polarity or communicative intent, making a single polarity label insufficient for the defined evaluation considered here.
+% TRACE: ABS-S1 | configs/labels.yaml; answer/data_provenance/gold_build_report.json | six phenomena | bounded setting only
+We present ViPragSent, an adjudicated evaluation setting combining a documented social-media source component with author-created, context-augmented figurative-language derivatives. It covers six pragmatic phenomena: implicit sentiment, sarcasm, irony, idiom/figurative language, code-switching, and mocking, without claiming comprehensive coverage of Vietnamese pragmatics.
+% TRACE: ABS-S2 | answer/results/main_pragmatic.json; configs/experiments_q1.yaml | four approved system groups | protocol scope only
+We compare Vietnamese and multilingual encoders, 7B QLoRA SFT models, prompted API baselines, and a multi-task encoder under a common protocol.
+% TRACE: ABS-S3 | answer/results/main_pragmatic.json | vistral_7b_sft macro pragmatic F1 mean | strongest recorded evaluated system
+Vistral-7B SFT is the strongest recorded evaluated system, with macro pragmatic F1 of 82.83.
+% TRACE: ABS-S4 | answer/results/multitask_ablation.json | full versus no_multitask, seed 20260520 | observed trade-off only
+ViPragSent is not the leading recorded system; instead, its single-seed ablation records an observed trade-off between pragmatic detection and the external three-benchmark diagnostic relative to its no-multitask reference. Reported comparisons are traceable to prediction files, run manifests, result hashes, and pinned external model archives. Source text remains private and is not redistributed: the manuscript reports aggregate results and provenance, not a public raw-text release.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_task_and_data}
+\input{sections/04_systems_and_evaluation}
+\input{sections/05_results}
+\input{sections/06_analysis}
+\input{sections/07_conclusion}
+\input{sections/08_limitations}
+\input{sections/09_ethics}
+
+\bibliography{references}
+
+\clearpage
+\appendix
+\section{Annotation Agreement}
+\label{app:annotation-agreement}
+This appendix reports the per-label post-adjudication agreement values summarized in Section~\ref{sec:task-data}.
+\input{appendix/table_annotation_agreement}
+
+\section{Label Prevalence}
+\label{app:label-prevalence}
+\input{appendix/table_label_prevalence}
+
+\end{document}

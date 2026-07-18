@@ -40,7 +40,7 @@ def test_no_finetune_suite_writes_results_with_heuristic(tmp_path):
         root=tmp_path,
         predictions_dir=tmp_path / "predictions",
         vipragsent_test=gold_path,
-        public_data=gold_path,
+        external_evaluation_data=gold_path,
         output_dir=tmp_path / "results",
         include_heuristic=True,
         bootstrap_resamples=10,

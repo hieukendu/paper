@@ -1,15 +1,27 @@
 dataset_construction:
   name: ViPragSent
-  sole_text_source: visobert_local
-  access_policy: private_noncommercial_research_only
-  public_release_status: prohibited_until_source_permission_is_archived
-  project_terms: ../../LICENSE
+  final_gold_composition:
+    visobert_local_retained_records: 10000
+    vivid_seed_and_irony_generation_records: 2000
+    replacement_note: The 2000 VIVID-identified generated-candidate rows replace earlier ViSoBERT rows; the replaced rows are not members of the final gold partitions.
+  source_identity_status:
+    visobert_local: local_export_identified; source authorization/license documentation pending; no_public_redistribution
+    vivid_seed_and_irony_generation: author_created_context_augmented_derivative_based_on_ReML_AI_VIVID_idiom_proverb_materials; upstream_commit_471def6618e8dde0f2007f1ac5375e50addb2491; figurative_language_domain; source authorization/license documentation pending; no_public_redistribution
+  access_policy: private_noncommercial_research_use_pending_source_authorization_documentation
+  public_release_status: prohibited_until_applicable_source_permission_or_license_is_documented_and_reviewed
+  project_terms: ../answer/LICENSE
   note: UIT-VSFC, UIT-VSMEC, and AIVIVN are not incorporated into ViPragSent.
 external_evaluation_only:
   - name: UIT-VSFC
-    role: ordinary sentiment retention benchmark
+    role: external ordinary-task diagnostic (sentiment)
+    license_status: no_primary_license_document_identified_during_2026_07_18_review
+    research_use_authorization_status: pending_author_action_no_supporting_document_archived_in_repository
   - name: UIT-VSMEC
-    role: ordinary emotion retention benchmark
+    role: external ordinary-task diagnostic (emotion)
+    license_status: no_primary_license_document_identified_during_2026_07_18_review
+    research_use_authorization_status: pending_author_action_no_supporting_document_archived_in_repository
   - name: AIVIVN-2019 Kaggle mirror
-    role: ordinary binary sentiment retention benchmark
+    role: external ordinary-task diagnostic (binary sentiment)
+    license_status: no_primary_license_document_identified_during_2026_07_18_review
+    research_use_authorization_status: pending_author_action_no_supporting_document_archived_in_repository
 reporting_rule: External benchmarks must be cited and described separately from dataset provenance.

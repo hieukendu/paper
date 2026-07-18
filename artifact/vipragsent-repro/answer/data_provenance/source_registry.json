@@ -1,6 +1,6 @@
 {
   "human_required": [
-    "Confirm dataset licenses before release or paper submission.",
+    "Obtain and archive source permission or document and review an applicable source license before releasing any raw or processed dataset text. The 2026-07-18 review did not identify a primary license document for UIT-VSFC, UIT-VSMEC, or the AIVIVN mirror.",
     "AIVIVN Kaggle mirror is binary train/test, not the 3-way split described in the workflow; confirm whether to keep it or provide the exact source.",
     "Rule-based social labels are silver_agent only; two reviewers plus adjudicator must approve before gold splits.",
     "Rare label thresholds are low for sarcasm, irony, idiom_figurative, code_switching, implicit_sentiment; use enrichment queue for targeted human review.",
@@ -22,21 +22,35 @@
   "schema_version": "1.0",
   "sources": {
     "aivivn_2019": {
+      "artifact_identity_status": "verified_local_sha256",
+      "artifact_source_role": "unofficial_mirror",
+      "canonical_organizer_record_status": "unresolved",
+      "historical_organizer_url": "https://www.aivivn.com/contests/1",
+      "historical_organizer_url_status": "verified_in_scholarly_source",
       "license_status": "manual_review_required",
-      "note": "binary train/test mirror, not workflow expected 3-way split",
+      "note": "Binary train/test mirror, not the workflow's expected 3-way split and not asserted to be the organizer's canonical release.",
       "path": "data/raw/aivivn_2019",
+      "research_use_authorization_status": "pending_author_action_no_supporting_document_archived_in_repository",
       "records": 16087,
+      "scholarly_reference": {
+        "citation_key": "nguyen-etal-2020-efficient",
+        "doi": "10.3233/FAIA200579",
+        "scope": "Published AIVIVN-2019 binary Vietnamese e-commerce-review description only; does not establish local-mirror identity, canonical split, or license.",
+        "status": "verified"
+      },
       "source": "Kaggle mcocoz/aivivn-2019"
     },
     "uit_vsfc": {
       "license_status": "manual_review_required",
       "path": "data/raw/uit_vsfc",
+      "research_use_authorization_status": "pending_author_action_no_supporting_document_archived_in_repository",
       "records": 16175,
       "source": "Hugging Face dataset script URLs / Google Drive files"
     },
     "uit_vsmec": {
       "license_status": "manual_review_required",
       "path": "data/raw/uit_vsmec",
+      "research_use_authorization_status": "pending_author_action_no_supporting_document_archived_in_repository",
       "records": 6927,
       "source": "Hugging Face tridm/UIT-VSMEC"
     },
@@ -44,7 +58,29 @@
       "crawl_performed": false,
       "label_status": "silver_agent_rule_based",
       "path": "D:\\hf_cache\\exports\\visobert_12000_api",
-      "records": 12000
+      "research_use_authorization_status": "pending_author_action_no_supporting_document_archived_in_repository",
+      "records": 12000,
+      "final_gold_records": 10000,
+      "replacement_note": "2000 earlier ViSoBERT rows are not members of the final gold partitions."
+    },
+    "vivid_seed_and_irony_generation": {
+      "artifact_source_role": "adjudicated_generated_candidate_replacement",
+      "content_domain_status": "Vietnamese_figurative_language_idiom_and_proverb_materials_with_author_created_context_augmentation",
+      "final_gold_records": 2000,
+      "license_status": "pending_author_action_no_supporting_document_archived_in_repository",
+      "record_provenance_identifier": "VIVID_seed_and_irony_generation",
+      "research_use_authorization_status": "pending_author_action_no_supporting_document_archived_in_repository",
+      "source_path": "2000_cau_annotation_ViPragSent_relabel_V2_fear(1).xlsx",
+      "upstream_identity_status": "ReML-AI_VIVID_public_repository_pinned_derivative_source",
+      "upstream_repository": "https://github.com/ReML-AI/VIVID",
+      "upstream_dataset_commit": "471def6618e8dde0f2007f1ac5375e50addb2491",
+      "upstream_dataset_commit_date": "2026-03-03",
+      "split_counts": {
+        "dev": 333,
+        "test": 334,
+        "train": 1333
+      },
+      "status": "context_augmented_derivative_source_with_pending_authorization_documentation"
     }
   },
   "status": "downloaded_and_unified_for_human_review"

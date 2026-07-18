@@ -1,0 +1,19 @@
+% TRACE: Appendix label prevalence | answer/data_provenance/gold_build_report.json | split_counts.{train,dev,test}.labels
+\begin{table}[!htbp]
+  \centering
+  \small
+  \begin{tabular}{lrrr}
+    \toprule
+    Label & Train ($n=8{,}000$) & Dev ($n=2{,}000$) & Test ($n=2{,}000$) \\
+    \midrule
+    implicit\_sentiment & 928 & 232 & 232 \\
+    sarcasm & 1,390 & 348 & 348 \\
+    irony & 738 & 185 & 184 \\
+    idiom\_figurative & 733 & 183 & 184 \\
+    code\_switching & 722 & 181 & 181 \\
+    mocking & 1,222 & 305 & 305 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Positive pragmatic-label counts in the fixed gold partitions. Labels are multi-label and may co-occur; counts therefore do not sum to the partition size.}
+  \label{tab:label-prevalence}
+\end{table}

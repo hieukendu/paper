@@ -6,16 +6,18 @@ prediction JSONL files under `results/predictions/...`.
 
 ## Status
 
-| Model | HF repo | Local path | Status | Size note |
+| Model | HF repo | Pinned upstream revision | Local path | Status | Size note |
 | --- | --- | --- | --- | --- |
-| PhoBERT-base | `vinai/phobert-base` | not present | Removed locally | Fine-tuning/inference should be done off-machine if needed. |
-| XLM-R-large | `FacebookAI/xlm-roberta-large` | not present | Removed locally | Fine-tuning/inference should be done off-machine if needed. |
-| Sailor-7B | `sail/Sailor-7B` | not present | Removed locally | 7B hosting is GPU-heavy; import predictions instead. |
-| Vistral-7B | `Viet-Mistral/Vistral-7B-Chat` | not cloned | Blocked by Hugging Face gated access | HF API reports 29,179,398,902 bytes of used storage. The current token is not authorized for git access. |
+| PhoBERT-base | `vinai/phobert-base` | not pinned | not present | Removed locally | Fine-tuning/inference should be done off-machine if needed. |
+| XLM-R-large | `FacebookAI/xlm-roberta-large` | not pinned | not present | Removed locally | Fine-tuning/inference should be done off-machine if needed. |
+| Sailor-7B | `sail/Sailor-7B` | `b8b49a0f02073e58db2e42e5811955dfe87ca970` | not present | Removed locally | Resolved from upstream HEAD on 2026-07-18; this is not retrospective proof for the historical run. |
+| Vistral-7B | `Viet-Mistral/Vistral-7B-Chat` | `d331b64e61b935cc43c2b3010ae9fb4fde599b45` | not cloned | Blocked by Hugging Face gated access | Resolved from upstream HEAD on 2026-07-18; this is not retrospective proof for the historical run. |
 
 ## Re-download commands
 
 Run these only if you deliberately want to host or fine-tune locally.
+`scripts/16_download_models.py` retrieves Sailor and Vistral at the pinned
+revisions in `configs/models.yaml`.
 
 ```powershell
 $env:GIT_LFS_SKIP_SMUDGE = "1"

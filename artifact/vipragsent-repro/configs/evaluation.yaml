@@ -18,7 +18,7 @@ gold:
     - data/processed/vipragsent_test.jsonl
     - data/processed/vipragsent/test.jsonl
     - data/processed/all_unified.jsonl
-  public_data: data/processed/all_unified.jsonl
+  external_evaluation_data: data/processed/all_unified.jsonl
 prediction_layout:
   root: results/predictions
   main_pragmatic: results/predictions/main_pragmatic/{system}/{seed}.jsonl

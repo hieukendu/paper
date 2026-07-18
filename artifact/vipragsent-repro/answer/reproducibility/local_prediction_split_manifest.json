@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.1",
+  "scope": "Private local integrity record. It identifies retained inputs without redistributing source text.",
+  "algorithm": "sha256",
+  "split_membership_manifest": {
+    "path": "answer/reproducibility/id_set_manifest.json",
+    "scope": "Per-split ID-set, ordered-ID-sequence, and raw-file hashes; no identifiers or source text are released."
+  },
+  "gold_partitions": [
+    {"path":"data/processed/vipragsent_train.jsonl","bytes":9685025,"sha256":"534c28c0f45a561a8f20597029443aeb63d44b128e30c865bfff5c3e5df92494"},
+    {"path":"data/processed/vipragsent_dev.jsonl","bytes":2419622,"sha256":"10b7a6dcf32c8e95eede75aef0a438ff3c74a063769fe6347523b945335c402e"},
+    {"path":"data/processed/vipragsent_test.jsonl","bytes":2418343,"sha256":"3a47e5c8ea16881905a17434e2cc36590ffcac61cbe89bd5b6ecfec25904ce98"}
+  ],
+  "main_comparison_prediction_files": [
+    {"path":"results/predictions/main_pragmatic/gpt41_mini_8_shot/20260520.jsonl","bytes":4242982,"sha256":"0471d7334217dd4aac0746f77666a4108dda68bb7b3463bd35b3d42b904b2dd1"},
+    {"path":"results/predictions/main_pragmatic/gpt41_mini_zero_shot/20260520.jsonl","bytes":4349553,"sha256":"052986f5ecf2837a0ce64509b29c11b68c8a2ac5a2fa9c56b65c0ed68a605bd9"},
+    {"path":"results/predictions/main_pragmatic/phobert_finetune/20260520.jsonl","bytes":2451799,"sha256":"ff2fb8d1f54a6f533ae0d1f8164a8abf520c23a93ba2e17410450408eecf9e02"},
+    {"path":"results/predictions/main_pragmatic/phobert_finetune/20260521.jsonl","bytes":2449440,"sha256":"b7f541de0b4de363cc99c5bae39e9c748809e856ff1232bd145b1f214118f950"},
+    {"path":"results/predictions/main_pragmatic/phobert_finetune/20260522.jsonl","bytes":2454898,"sha256":"6a3ca9ac422cd00418f7fc54a270f802af58e052dc00cbd76fb8075b8e39e938"},
+    {"path":"results/predictions/main_pragmatic/sailor_7b_sft/20260520.jsonl","bytes":892106,"sha256":"3980401a69fb49aabb3f13c5356ba0bb0346aa6d4fc7de639120f4f31646cc1e"},
+    {"path":"results/predictions/main_pragmatic/sailor_7b_sft/20260521.jsonl","bytes":892340,"sha256":"45cc2f927c4dd54a4802d5782343863ebaa531db6770f581eb2608a652501ea7"},
+    {"path":"results/predictions/main_pragmatic/sailor_7b_sft/20260522.jsonl","bytes":891836,"sha256":"511376e48d7651225c552ebf9cfcb1376b61c6c2514dcfe63dcf5f4358d04413"},
+    {"path":"results/predictions/main_pragmatic/vipragsent_full/20260520.jsonl","bytes":2433942,"sha256":"eb8ac783b06705b973b9ab6883071175cb15ac857dbb7d809b13cf5aa7191350"},
+    {"path":"results/predictions/main_pragmatic/vipragsent_full/20260521.jsonl","bytes":2434930,"sha256":"b8d2028b9af8c9cba07322f756566d6277ec4e39a45307f9d18d3f90a44294dd"},
+    {"path":"results/predictions/main_pragmatic/vipragsent_full/20260522.jsonl","bytes":2436950,"sha256":"c78aeb568442c23ea4351a6380abbf25b5db78894144ea141fa2be4c6458feec"},
+    {"path":"results/predictions/main_pragmatic/vistral_7b_sft/20260520.jsonl","bytes":894160,"sha256":"025205d187d33bf6dcaab306bcf4965ed46b8334c9f9b1a3bc5fdae0c39cb756"},
+    {"path":"results/predictions/main_pragmatic/vistral_7b_sft/20260521.jsonl","bytes":893900,"sha256":"649e4e14855fb652455da560499db06717b5b3b66d546782302f17e4a4a4ee42"},
+    {"path":"results/predictions/main_pragmatic/vistral_7b_sft/20260522.jsonl","bytes":894108,"sha256":"95c7548c956b647f83956c3d4bdd72cdc7ef41775cd023fa738b79fa64c834b7"},
+    {"path":"results/predictions/main_pragmatic/xlmr_large/20260520.jsonl","bytes":2433836,"sha256":"dc72956bf20d05bf446f550cf9ddd880819bf83be39356ff8b9ba45dbf0f7ebc"},
+    {"path":"results/predictions/main_pragmatic/xlmr_large/20260521.jsonl","bytes":2433870,"sha256":"9c6995cd4638f6d9ee616e5af7dc6de810403edc65d14cf666f86cd5efbc931e"},
+    {"path":"results/predictions/main_pragmatic/xlmr_large/20260522.jsonl","bytes":2433360,"sha256":"bd179426d6b95a55bf631833983c8f5fc40333ffea8ccc05659b9755c23a48a6"}
+  ]
+}

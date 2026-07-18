@@ -18,6 +18,10 @@ qlora_7b:
   models:
     sailor_7b_sft: sail/Sailor-7B
     vistral_7b_sft: Viet-Mistral/Vistral-7B-Chat
+  revisions:
+    sailor_7b_sft: b8b49a0f02073e58db2e42e5811955dfe87ca970
+    vistral_7b_sft: d331b64e61b935cc43c2b3010ae9fb4fde599b45
+  revision_note: Upstream HEADs resolved on 2026-07-18; not evidence of the snapshot used by historical result runs.
   quantization: nf4_4bit
   learning_rate: 1.0e-4
   per_device_batch_size: 2
