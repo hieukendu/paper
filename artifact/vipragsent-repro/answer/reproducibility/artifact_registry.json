@@ -8,26 +8,35 @@
     "clone_command": "git clone https://github.com/hieukendu/paper.git"
   },
   "external_model_archives": {
-    "access": "private until the associated submission decision; public release is planned afterwards",
+    "access": "Model archives may be temporarily public for audit; repository visibility is controlled by the owner and must be checked at the pinned revision below.",
     "owner_profile": "https://huggingface.co/Thundergod2007",
     "repositories": {
       "encoder_checkpoints": {
         "repo_id": "Thundergod2007/vipragsent-experiment-checkpoints",
         "url": "https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints",
         "repo_type": "model",
-        "contents": "PhoBERT, XLM-R, registered ablation, and low-resource checkpoints with histories and run manifests."
+        "contents": "PhoBERT, XLM-R, registered ablation, and low-resource checkpoints with histories and run manifests.",
+        "verified_revision": "94eb60def09d1942b01ed9ba0bf54ff030c35495",
+        "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints/tree/94eb60def09d1942b01ed9ba0bf54ff030c35495",
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository contains encoder, ablation, and low-resource run directories; weights remain external to Git."
       },
       "sailor_7b_qlora": {
         "repo_id": "Thundergod2007/vipragsent-sailor-7b-qlora",
         "url": "https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora",
         "repo_type": "model",
-        "contents": "Sailor-7B QLoRA adapters and run metadata."
+        "contents": "Sailor-7B QLoRA adapters and run metadata.",
+        "verified_revision": "6b8af60242827d45ec3e32a6a666daa090c1ce20",
+        "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora/tree/6b8af60242827d45ec3e32a6a666daa090c1ce20",
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories."
       },
       "vistral_7b_qlora": {
         "repo_id": "Thundergod2007/vipragsent-vistral-7b-qlora",
         "url": "https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora",
         "repo_type": "model",
-        "contents": "Vistral-7B QLoRA adapters and run metadata."
+        "contents": "Vistral-7B QLoRA adapters and run metadata.",
+        "verified_revision": "d7d8750cc73f39a841b29cf9ee377234509cebb6",
+        "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora/tree/d7d8750cc73f39a841b29cf9ee377234509cebb6",
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories."
       }
     }
   },
@@ -40,7 +49,7 @@
   },
   "access_notes": [
     "No access token, secret, raw checkpoint, or adapter weight is committed to this repository.",
-    "Private Hugging Face archives are available to authorised reviewers through the owner profile above.",
+    "Pinned Hugging Face revisions identify the externally stored checkpoints and adapters without committing weights or credentials.",
     "Raw social-media text remains subject to the repository's data-governance and source-permission terms."
   ]
 }

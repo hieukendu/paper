@@ -7,13 +7,9 @@
     "three_seed_main_encoders": {
       "complete": true
     },
-    "single_seed_7b_baselines": {
+    "three_seed_7b_baselines": {
       "complete": true,
-      "note": "The repository protocol explicitly reports 7B baselines as single-seed, separately from the three-seed encoder protocol."
-    },
-    "requested_three_seed_7b_extension": {
-      "complete": true,
-      "note": "User-requested extension beyond the original single-seed 7B protocol."
+      "note": "The completed 7B baseline suite contains the three registered seeds 20260520, 20260521, and 20260522. Report all three seeds consistently with the archived QLoRA runs."
     },
     "iaa": {
       "complete": true,
@@ -24,7 +20,7 @@
     },
     "checkpoint_archive": {
       "complete": true,
-      "note": "Private Hugging Face archive URLs and reviewer access policy are recorded in configs/artifact_registry.json; Git intentionally excludes the weight files."
+      "note": "Pinned Hugging Face archive revisions are recorded in configs/artifact_registry.json; Git intentionally excludes the weight files."
     },
     "reproducibility_registry": {
       "complete": true,
@@ -47,7 +43,7 @@
       "note": "Waived by the final protocol. Generated rationales must not be described as manually faithfulness-verified."
     },
     "paper_manuscript": {
-      "complete": false,
+      "complete": true,
       "human_action": "Write the manuscript only from generated JSON/tables and cite no inherited main.pdf values."
     }
   }

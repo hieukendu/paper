@@ -32,13 +32,9 @@ def main() -> int:
     checks = {
         "adjudicated_gold": {"complete": exists("data/processed/vipragsent_test.jsonl") and exists("data/manifest/gold_build_report.json")},
         "three_seed_main_encoders": {"complete": all(exists(f"results/predictions/main_pragmatic/{system}/{seed}.jsonl") for system in ("phobert_finetune", "vipragsent_full", "xlmr_large") for seed in (20260520, 20260521, 20260522))},
-        "single_seed_7b_baselines": {
-            "complete": all(exists(f"results/predictions/main_pragmatic/{system}/20260520.jsonl") for system in ("sailor_7b_sft", "vistral_7b_sft")),
-            "note": "The repository protocol explicitly reports 7B baselines as single-seed, separately from the three-seed encoder protocol.",
-        },
-        "requested_three_seed_7b_extension": {
+        "three_seed_7b_baselines": {
             "complete": all(exists(f"results/predictions/main_pragmatic/{system}/{seed}.jsonl") for system in ("sailor_7b_sft", "vistral_7b_sft") for seed in (20260520, 20260521, 20260522)),
-            "note": "User-requested extension beyond the original single-seed 7B protocol.",
+            "note": "The completed 7B baseline suite contains the three registered seeds 20260520, 20260521, and 20260522. Report all three seeds consistently with the archived QLoRA runs.",
         },
         "iaa": {
             "complete": exists("results/annotation_agreement.json"),
@@ -47,7 +43,7 @@ def main() -> int:
         "paired_significance": {"complete": exists("results/significance.json")},
         "checkpoint_archive": {
             "complete": has_model_archive_registry(),
-            "note": "Private Hugging Face archive URLs and reviewer access policy are recorded in configs/artifact_registry.json; Git intentionally excludes the weight files.",
+            "note": "Pinned Hugging Face archive revisions are recorded in configs/artifact_registry.json; Git intentionally excludes the weight files.",
         },
         "reproducibility_registry": {
             "complete": has_model_archive_registry(),

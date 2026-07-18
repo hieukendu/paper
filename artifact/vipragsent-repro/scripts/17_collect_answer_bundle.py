@@ -3,6 +3,7 @@ from __future__ import annotations
 """Create a compact hand-off folder containing only reproducible results."""
 
 import argparse
+import hashlib
 import json
 import shutil
 import tempfile
@@ -35,6 +36,27 @@ def copy_if_exists(source: Path, destination: Path) -> bool:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, destination)
     return True
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def file_record(base: Path, path: Path) -> dict[str, object]:
+    return {
+        "path": path.relative_to(base).as_posix(),
+        "bytes": path.stat().st_size,
+        "sha256": f"sha256:{sha256(path)}",
+    }
+
+
+def records(base: Path, directory: Path, pattern: str, *, recursive: bool = False) -> list[dict[str, object]]:
+    matches = directory.rglob(pattern) if recursive else directory.glob(pattern)
+    return [file_record(base, path) for path in sorted(matches) if path.is_file()]
 
 
 def main() -> int:
@@ -81,11 +103,33 @@ def main() -> int:
         registry = ROOT / "configs" / "artifact_registry.json"
         if copy_if_exists(registry, output / "reproducibility" / "artifact_registry.json"):
             copied.append("reproducibility/artifact_registry.json")
+        archive_registry = json.loads(registry.read_text(encoding="utf-8")) if registry.exists() else {}
+        verification = {
+            "schema_version": "1.0",
+            "project": "ViPragSent",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "authoritative_results": "answer/results/",
+            "integrity_scope": (
+                "SHA-256 hashes cover portable result, table, figure, and run-manifest artifacts. "
+                "They establish file-level traceability only; they do not constitute a training rerun."
+            ),
+            "bundle_artifacts": {
+                "results": records(output, output / "results", "*"),
+                "tables": records(output, output / "tables", "*"),
+                "figures": records(output, output / "figures", "*"),
+                "run_manifests": records(output, output / "run_manifests", "*.json", recursive=True),
+            },
+            "external_model_archives": archive_registry.get("external_model_archives", {}),
+        }
+        verification_path = output / "reproducibility" / "verification_manifest.json"
+        verification_path.parent.mkdir(parents=True, exist_ok=True)
+        verification_path.write_text(json.dumps(verification, indent=2) + "\n", encoding="utf-8")
+        copied.append("reproducibility/verification_manifest.json")
         manifests_readme = output / "run_manifests" / "README.md"
         manifests_readme.write_text(
             "# External model archives\n\n"
             "These immutable run manifests describe the evaluated runs. Model weights and adapters are deliberately not duplicated in this hand-off bundle. "
-            "Use `../reproducibility/artifact_registry.json` for the GitHub source location, Hugging Face archive URLs, and private-reviewer access policy.\n",
+            "Use `../reproducibility/artifact_registry.json` for the GitHub source location and pinned Hugging Face archive revisions.\n",
             encoding="utf-8",
         )
         copied.append("run_manifests/README.md")
@@ -105,8 +149,9 @@ def main() -> int:
             "- Q3 is an exploratory single-seed comparison at 64, 128, 256, 512, and 1,024 sarcasm-positive examples.",
             "- Ordinary-task retention is an encoder-only comparison; UIT-VSMEC is reported as seven-way emotion macro-F1.",
             "- Calibration is reported only for systems with pragmatic-polarity confidence scores.",
-            "- Source code, datasets, prediction JSONL, and private model-archive locations are documented in `reproducibility/artifact_registry.json`.",
-            "- Run manifests are retained for audit; weights are retrieved from the registered private Hugging Face archives rather than copied into this bundle.",
+            "- Source code, datasets, prediction JSONL, and pinned external model archives are documented in `reproducibility/artifact_registry.json`.",
+            "- `reproducibility/verification_manifest.json` records SHA-256 hashes for the copied artifacts; it is an integrity check, not an experiment rerun.",
+            "- Run manifests are retained for audit; weights are retrieved from the registered Hugging Face archives rather than copied into this bundle.",
             "",
             "Copied files:",
             "",

@@ -1,6 +1,6 @@
 {
   "claim_ledger": "results/claim_ledger.csv",
-  "claim_rows": 85,
+  "claim_rows": 99,
   "figures": {
     "calibration": "figures/fig7_calibration.svg",
     "confusion": "figures/fig5_confusion.svg",
@@ -10,8 +10,23 @@
     "pipeline": "figures/fig1_pipeline.svg"
   },
   "results_dir": "results",
+  "schema_version": "1.1",
+  "source_result_sha256": {
+    "annotation_agreement.json": "sha256:021b990dc034b31be901a37132729e1a1a1d56899f1c51ee575dda4a685f6c45",
+    "calibration.json": "sha256:7c01983e42584a2ffe8ec377a4182aa964dc72202b0f147620bd8d4edb8ef15d",
+    "cost_breakdown.json": "sha256:eaa2d6157975fd10983cd0255887fce8e516d0e63f6746a4f772b76dde758952",
+    "error_confusion.json": "sha256:92acccacbe2526b69630bab66cca12a12e78b645a2401923d18c892f9e97a461",
+    "learning_curves.json": "sha256:999353003763a1c367391a48ffc3a238d5e4eb864c2371bdab7ed90d28806cb5",
+    "low_resource_sarcasm.json": "sha256:bdd381abae7454c3f3d9f51bce4daa3e47c1e09df78e718e9ae7c2a7217b67ef",
+    "main_pragmatic.json": "sha256:fbbe10b0ca70b269e4f4ff360bac50bf3d5033bfe19c308f0939ea21c2bb0aa3",
+    "multitask_ablation.json": "sha256:06799c125770ce750448f4a1a44730226d9f8e69a9f552e1ed17c131f1d7ce90",
+    "ordinary_sentiment.json": "sha256:d9cde92b4f60f999f5538a6be6fd2143a54a2313b4d4a10065672aa3e77121a1",
+    "paper_readiness.json": "sha256:c19f5b0a96d4120c348b9b4c9da4dec4b496bd09e6f121d952c25b0676061c4d",
+    "significance.json": "sha256:b53c4b28537b5e188b91040b74ec19d6054f0c1f2982965fc05347ca41dba70b"
+  },
   "status": "ok",
   "tables": {
+    "annotation_agreement": "tables/annotation_agreement.md",
     "calibration": "tables/calibration.md",
     "cost_breakdown": "tables/cost_breakdown.md",
     "error_confusion": "tables/error_confusion.md",

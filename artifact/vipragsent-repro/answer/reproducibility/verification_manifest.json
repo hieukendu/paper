@@ -1,0 +1,350 @@
+{
+  "schema_version": "1.0",
+  "project": "ViPragSent",
+  "generated_at": "2026-07-18T07:31:22.779628+00:00",
+  "authoritative_results": "answer/results/",
+  "integrity_scope": "SHA-256 hashes cover portable result, table, figure, and run-manifest artifacts. They establish file-level traceability only; they do not constitute a training rerun.",
+  "bundle_artifacts": {
+    "results": [
+      {
+        "path": "results/annotation_agreement.json",
+        "bytes": 6652,
+        "sha256": "sha256:021b990dc034b31be901a37132729e1a1a1d56899f1c51ee575dda4a685f6c45"
+      },
+      {
+        "path": "results/artifact_index.json",
+        "bytes": 2205,
+        "sha256": "sha256:5d45779b29a21e58b9b72fabf77a8a7809eb670095b95becff69e24ea50c8506"
+      },
+      {
+        "path": "results/calibration.json",
+        "bytes": 6809,
+        "sha256": "sha256:7c01983e42584a2ffe8ec377a4182aa964dc72202b0f147620bd8d4edb8ef15d"
+      },
+      {
+        "path": "results/claim_ledger.csv",
+        "bytes": 24304,
+        "sha256": "sha256:23cb8d17bca1dfb141d8d4fcf0d9fa8792fb7f0cde9a492d9981b1c75026e08d"
+      },
+      {
+        "path": "results/cost_breakdown.json",
+        "bytes": 5705,
+        "sha256": "sha256:eaa2d6157975fd10983cd0255887fce8e516d0e63f6746a4f772b76dde758952"
+      },
+      {
+        "path": "results/error_confusion.json",
+        "bytes": 2262,
+        "sha256": "sha256:92acccacbe2526b69630bab66cca12a12e78b645a2401923d18c892f9e97a461"
+      },
+      {
+        "path": "results/learning_curves.json",
+        "bytes": 96333,
+        "sha256": "sha256:999353003763a1c367391a48ffc3a238d5e4eb864c2371bdab7ed90d28806cb5"
+      },
+      {
+        "path": "results/low_resource_sarcasm.json",
+        "bytes": 25723,
+        "sha256": "sha256:bdd381abae7454c3f3d9f51bce4daa3e47c1e09df78e718e9ae7c2a7217b67ef"
+      },
+      {
+        "path": "results/main_pragmatic.json",
+        "bytes": 43152,
+        "sha256": "sha256:fbbe10b0ca70b269e4f4ff360bac50bf3d5033bfe19c308f0939ea21c2bb0aa3"
+      },
+      {
+        "path": "results/multitask_ablation.json",
+        "bytes": 6132,
+        "sha256": "sha256:06799c125770ce750448f4a1a44730226d9f8e69a9f552e1ed17c131f1d7ce90"
+      },
+      {
+        "path": "results/ordinary_sentiment.json",
+        "bytes": 27315,
+        "sha256": "sha256:d9cde92b4f60f999f5538a6be6fd2143a54a2313b4d4a10065672aa3e77121a1"
+      },
+      {
+        "path": "results/paper_readiness.json",
+        "bytes": 2017,
+        "sha256": "sha256:c19f5b0a96d4120c348b9b4c9da4dec4b496bd09e6f121d952c25b0676061c4d"
+      },
+      {
+        "path": "results/significance.json",
+        "bytes": 5806,
+        "sha256": "sha256:b53c4b28537b5e188b91040b74ec19d6054f0c1f2982965fc05347ca41dba70b"
+      }
+    ],
+    "tables": [
+      {
+        "path": "tables/annotation_agreement.md",
+        "bytes": 687,
+        "sha256": "sha256:3edbd37d45f2007d7d9bacfed4568f853c0bc438fe637f1d231c5ab405e0ac09"
+      },
+      {
+        "path": "tables/calibration.md",
+        "bytes": 309,
+        "sha256": "sha256:94492cd3790e9131bdff07923192039651d62ab0058d21eab80946b0c0dac4cb"
+      },
+      {
+        "path": "tables/cost_breakdown.md",
+        "bytes": 351,
+        "sha256": "sha256:cff789615e3eb07d0cb4ad0865a7817309bb7b1365f89096fb710134abfed45b"
+      },
+      {
+        "path": "tables/error_confusion.md",
+        "bytes": 767,
+        "sha256": "sha256:80875d32fa95cdaacb234a39b9f0b84b545f5ba1260aa38c64106496cc8daa5d"
+      },
+      {
+        "path": "tables/learning_curves.md",
+        "bytes": 1382,
+        "sha256": "sha256:c802d827fc4e7727e919af1b27ae20f293eef3c28889b03f94547b445ecbbe4f"
+      },
+      {
+        "path": "tables/low_resource_sarcasm.md",
+        "bytes": 741,
+        "sha256": "sha256:b99bcc0611e79858e25089d20dc9bfe1213d7ae35fccfaabf592f8f575914784"
+      },
+      {
+        "path": "tables/main_pragmatic.md",
+        "bytes": 1582,
+        "sha256": "sha256:42d34b957da7680c4a804430691c409a1ce760871e717de461a0aa6d809ebd3d"
+      },
+      {
+        "path": "tables/multitask_ablation.md",
+        "bytes": 640,
+        "sha256": "sha256:6e79cad1c09d3daffedcdad6be4f611ca12a560d4101b8c06365935eb8414008"
+      },
+      {
+        "path": "tables/ordinary_sentiment.md",
+        "bytes": 815,
+        "sha256": "sha256:c56d79d60b8c164b26572cb0870a7db2985028d005efacbc77e25df0c7d3409c"
+      },
+      {
+        "path": "tables/pending_summary.md",
+        "bytes": 235,
+        "sha256": "sha256:a81d9f6e285cabd6653b1db5fd0a4a643ef7b008f552a005698143e7c0c41e40"
+      },
+      {
+        "path": "tables/significance.md",
+        "bytes": 1403,
+        "sha256": "sha256:54d3c809c0bb9395e9b8f966ccaae51210db1d4dbf78eed23a00bb28bd17929f"
+      }
+    ],
+    "figures": [
+      {
+        "path": "figures/fig1_pipeline.svg",
+        "bytes": 1470,
+        "sha256": "sha256:9eec593027f6e9c714662682dfc99e27136ccb69a8f927756243b041559a76be"
+      },
+      {
+        "path": "figures/fig2_per_phenomenon.svg",
+        "bytes": 3857,
+        "sha256": "sha256:2ffc3ed7d5bfd6d2c98dcd7d221cbf02e016675b70d9073ace7868d3a1bfbc66"
+      },
+      {
+        "path": "figures/fig4_low_resource_sarcasm.svg",
+        "bytes": 1860,
+        "sha256": "sha256:7c8142a5656b375b78aa8ad028fc9b63d4e5aadc2bf533851d3b2591467f9b2e"
+      },
+      {
+        "path": "figures/fig5_confusion.svg",
+        "bytes": 6930,
+        "sha256": "sha256:3e72a3e857e2cea06dd757eb2689d8ed7c60bb6587bfe24d8c623fd5d7cafe2e"
+      },
+      {
+        "path": "figures/fig6_learning_curves.svg",
+        "bytes": 6013,
+        "sha256": "sha256:592e470ba8db044eff63e6b2111ac59adafe78049dcb23957bce9e149257953f"
+      },
+      {
+        "path": "figures/fig7_calibration.svg",
+        "bytes": 2929,
+        "sha256": "sha256:9a83ef00dc0b5c1f42225d4db4055fc53463a648598a9690ed2a32fee8a04fad"
+      },
+      {
+        "path": "figures/README.md",
+        "bytes": 348,
+        "sha256": "sha256:43ea46590be7b7b29a90ac813d592034fef9e9126b941ea143f1b604616c82ed"
+      }
+    ],
+    "run_manifests": [
+      {
+        "path": "run_manifests/low_resource/1024/phobert_finetune/20260520/run_manifest.json",
+        "bytes": 745,
+        "sha256": "sha256:a552b7f011b0fe4e1da6befb901e82af3b4f18933a571950115bd9ec36133b3f"
+      },
+      {
+        "path": "run_manifests/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
+        "bytes": 744,
+        "sha256": "sha256:221d242d67a71f2f78c9fb05778bc89e373b0ca18aae106e5e38c0f4f4a39941"
+      },
+      {
+        "path": "run_manifests/low_resource/128/phobert_finetune/20260520/run_manifest.json",
+        "bytes": 739,
+        "sha256": "sha256:8447d368c4c36f414f1be27d735b102b322cc82e25885b5352110ab04311690a"
+      },
+      {
+        "path": "run_manifests/low_resource/128/vipragsent_full/20260520/run_manifest.json",
+        "bytes": 741,
+        "sha256": "sha256:50bae1018b73c4eee8bba65a13933e80e134aea2016a8cb8036d4ac2836c78f9"
+      },
+      {
+        "path": "run_manifests/low_resource/256/phobert_finetune/20260520/run_manifest.json",
+        "bytes": 742,
+        "sha256": "sha256:49931242ab4cc2a8ecd1aded3445b95c5d7871d06ff6d89c66abf23d6effb7f3"
+      },
+      {
+        "path": "run_manifests/low_resource/256/vipragsent_full/20260520/run_manifest.json",
+        "bytes": 741,
+        "sha256": "sha256:aff8485fa8068bc7d50505316cab20a92549706089b3f5d323c41922e08aeb57"
+      },
+      {
+        "path": "run_manifests/low_resource/512/phobert_finetune/20260520/run_manifest.json",
+        "bytes": 743,
+        "sha256": "sha256:6c4e9b8cb8624f887f06b0e9126b3c07fba06ab28c437cf4787a4c4e5c4bb775"
+      },
+      {
+        "path": "run_manifests/low_resource/512/vipragsent_full/20260520/run_manifest.json",
+        "bytes": 743,
+        "sha256": "sha256:f7bb06090389fb59cda461959b12d7a7c7e646cdf13a645a2021399cb7d8c22d"
+      },
+      {
+        "path": "run_manifests/low_resource/64/phobert_finetune/20260520/run_manifest.json",
+        "bytes": 738,
+        "sha256": "sha256:216541f8204273a3dfb4cada8ac12a96598609ad78e4486df515cfec55055f17"
+      },
+      {
+        "path": "run_manifests/low_resource/64/vipragsent_full/20260520/run_manifest.json",
+        "bytes": 738,
+        "sha256": "sha256:77e9cf9c8761f337aedc05aff17f5befa03852fc32d500dc6a93fdefe2a5708a"
+      },
+      {
+        "path": "run_manifests/phobert_finetune/20260520/run_manifest.json",
+        "bytes": 761,
+        "sha256": "sha256:f3b5ac2a1bbd85e3eb60bb15321d03bc80b414483c334a168ef5d0be8d20bbf6"
+      },
+      {
+        "path": "run_manifests/phobert_finetune/20260521/run_manifest.json",
+        "bytes": 761,
+        "sha256": "sha256:2fbabe59faa1a3164702fed286d20213543872d79c24ec1b85772938f01bb3fe"
+      },
+      {
+        "path": "run_manifests/phobert_finetune/20260522/run_manifest.json",
+        "bytes": 761,
+        "sha256": "sha256:528e51dc438c097f1842887e1a716fbff065a3e0dc4e4613a762336c0820b858"
+      },
+      {
+        "path": "run_manifests/sailor_7b_sft/20260520/run_manifest.json",
+        "bytes": 515,
+        "sha256": "sha256:a7452eb3336221f5a292448d7ccb4041fcc261f6a518baeb14a8a7f44eeb7e51"
+      },
+      {
+        "path": "run_manifests/sailor_7b_sft/20260521/run_manifest.json",
+        "bytes": 741,
+        "sha256": "sha256:416ca6c01003fb100a608d602f4b79aa082d3a320d9b3b4b63b405868d0622b7"
+      },
+      {
+        "path": "run_manifests/sailor_7b_sft/20260522/run_manifest.json",
+        "bytes": 741,
+        "sha256": "sha256:ec4f6b26c5d3ede04a06053e762e61b79c96ca1e956f7a9c3525c60f598fb858"
+      },
+      {
+        "path": "run_manifests/vipragsent_full/20260520/run_manifest.json",
+        "bytes": 760,
+        "sha256": "sha256:75e4cfc2d3527f837970ff1e51cfaa9c9a5741c8105cf04a97f9b451d1e3caf7"
+      },
+      {
+        "path": "run_manifests/vipragsent_full/20260521/run_manifest.json",
+        "bytes": 761,
+        "sha256": "sha256:9f676fb6cece99e3eeea212f19e01e559f4c8ac57a53da8c925c3ce26d395b05"
+      },
+      {
+        "path": "run_manifests/vipragsent_full/20260522/run_manifest.json",
+        "bytes": 760,
+        "sha256": "sha256:acfd8f384f6609037c5f09bb631769b565a5071d39d1576123a87e38c042f177"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_emotion/20260520/run_manifest.json",
+        "bytes": 779,
+        "sha256": "sha256:bc9e4aa445771e5612579fe8fb7fab3993dbde7143f605e3c22a9ca6ee26976b"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_polarity/20260520/run_manifest.json",
+        "bytes": 781,
+        "sha256": "sha256:8cc05308dea9cd47dc45286fc702e9d1e2cb0e1e40043c61478298d1344f3f86"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_rationale/20260520/run_manifest.json",
+        "bytes": 784,
+        "sha256": "sha256:a3bf6063071c7d762e258b0e61ab6fd96ac3e595d3ec1a8af91f3a5dbb386c1b"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_uncertainty/20260520/run_manifest.json",
+        "bytes": 790,
+        "sha256": "sha256:ac63fdf1882d7fb641ef1fb5d46b5332bef586b252c04ecb04f272454ffcdd70"
+      },
+      {
+        "path": "run_manifests/vistral_7b_sft/20260520/run_manifest.json",
+        "bytes": 720,
+        "sha256": "sha256:bbd07da23c3af3ed44ac49198764eb8438650a44f54ffaffbec26ac43cfa835a"
+      },
+      {
+        "path": "run_manifests/vistral_7b_sft/20260521/run_manifest.json",
+        "bytes": 749,
+        "sha256": "sha256:4b428b5bc8985c9218ab1eea1f2d2fd4f3773654de2fdd754955bb9020982314"
+      },
+      {
+        "path": "run_manifests/vistral_7b_sft/20260522/run_manifest.json",
+        "bytes": 749,
+        "sha256": "sha256:555e9392a73aeaf3a484d02193362757cb3c47964be7544cff0075754fa639fd"
+      },
+      {
+        "path": "run_manifests/xlmr_large/20260520/run_manifest.json",
+        "bytes": 753,
+        "sha256": "sha256:8782cd7c2293828bc8421b01623469e24038c268203c3c18dd55496aa6ff072d"
+      },
+      {
+        "path": "run_manifests/xlmr_large/20260521/run_manifest.json",
+        "bytes": 753,
+        "sha256": "sha256:24616d9ae4a420428df5f3ff85562b17e0e457a6c2b744c5674f496cf3c4dac5"
+      },
+      {
+        "path": "run_manifests/xlmr_large/20260522/run_manifest.json",
+        "bytes": 751,
+        "sha256": "sha256:2c9bb6c43c599c0fd54e271a7575c26a23d3bdbc268242955214ef403429885b"
+      }
+    ]
+  },
+  "external_model_archives": {
+    "access": "Model archives may be temporarily public for audit; repository visibility is controlled by the owner and must be checked at the pinned revision below.",
+    "owner_profile": "https://huggingface.co/Thundergod2007",
+    "repositories": {
+      "encoder_checkpoints": {
+        "repo_id": "Thundergod2007/vipragsent-experiment-checkpoints",
+        "url": "https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints",
+        "repo_type": "model",
+        "contents": "PhoBERT, XLM-R, registered ablation, and low-resource checkpoints with histories and run manifests.",
+        "verified_revision": "94eb60def09d1942b01ed9ba0bf54ff030c35495",
+        "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints/tree/94eb60def09d1942b01ed9ba0bf54ff030c35495",
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository contains encoder, ablation, and low-resource run directories; weights remain external to Git."
+      },
+      "sailor_7b_qlora": {
+        "repo_id": "Thundergod2007/vipragsent-sailor-7b-qlora",
+        "url": "https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora",
+        "repo_type": "model",
+        "contents": "Sailor-7B QLoRA adapters and run metadata.",
+        "verified_revision": "6b8af60242827d45ec3e32a6a666daa090c1ce20",
+        "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora/tree/6b8af60242827d45ec3e32a6a666daa090c1ce20",
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories."
+      },
+      "vistral_7b_qlora": {
+        "repo_id": "Thundergod2007/vipragsent-vistral-7b-qlora",
+        "url": "https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora",
+        "repo_type": "model",
+        "contents": "Vistral-7B QLoRA adapters and run metadata.",
+        "verified_revision": "d7d8750cc73f39a841b29cf9ee377234509cebb6",
+        "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora/tree/d7d8750cc73f39a841b29cf9ee377234509cebb6",
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories."
+      }
+    }
+  }
+}

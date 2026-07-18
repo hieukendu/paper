@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import math
 from pathlib import Path
 from typing import Any
@@ -26,27 +27,35 @@ def make_final_artifacts(
 
     results = _load_results(results_dir)
     table_paths = {
+        "annotation_agreement": write_annotation_agreement_table(tables_dir / "annotation_agreement.md", results.get("annotation_agreement")),
         "main_pragmatic": write_main_pragmatic_table(tables_dir / "main_pragmatic.md", results.get("main_pragmatic")),
         "ordinary_sentiment": write_ordinary_table(tables_dir / "ordinary_sentiment.md", results.get("ordinary_sentiment")),
         "multitask_ablation": write_ablation_table(tables_dir / "multitask_ablation.md", results.get("multitask_ablation")),
         "low_resource_sarcasm": write_low_resource_table(tables_dir / "low_resource_sarcasm.md", results.get("low_resource_sarcasm")),
         "cost_breakdown": write_cost_table(tables_dir / "cost_breakdown.md", results.get("cost_breakdown")),
+        "calibration": write_calibration_table(tables_dir / "calibration.md", results.get("calibration")),
+        "error_confusion": write_confusion_table(tables_dir / "error_confusion.md", results.get("error_confusion")),
+        "learning_curves": write_learning_curves_table(tables_dir / "learning_curves.md", results.get("learning_curves")),
+        "significance": write_significance_table(tables_dir / "significance.md", results.get("significance")),
     }
     figure_paths = {
         "pipeline": write_pipeline_svg(figures_dir / "fig1_pipeline.svg"),
         "per_phenomenon": write_per_phenomenon_svg(figures_dir / "fig2_per_phenomenon.svg", results.get("main_pragmatic")),
         "low_resource": write_low_resource_svg(figures_dir / "fig4_low_resource_sarcasm.svg", results.get("low_resource_sarcasm")),
         "confusion": write_confusion_svg(figures_dir / "fig5_confusion.svg", results.get("error_confusion")),
+        "learning_curves": write_learning_curves_svg(figures_dir / "fig6_learning_curves.svg", results.get("learning_curves")),
         "calibration": write_calibration_svg(figures_dir / "fig7_calibration.svg", results.get("calibration")),
     }
-    ledger_rows = write_claim_ledger(claim_ledger, results)
+    ledger_rows = write_claim_ledger(claim_ledger, results, results_dir=results_dir)
     index = {
+        "schema_version": "1.1",
         "status": "ok",
         "results_dir": _portable_path(root, results_dir),
         "tables": {key: _portable_path(root, path) for key, path in table_paths.items()},
         "figures": {key: _portable_path(root, path) for key, path in figure_paths.items()},
         "claim_ledger": _portable_path(root, claim_ledger),
         "claim_rows": ledger_rows,
+        "source_result_sha256": _result_hashes(results_dir),
     }
     dump_json(results_dir / "artifact_index.json", index)
     return index
@@ -66,6 +75,28 @@ def write_main_pragmatic_table(path: Path, result: dict[str, Any] | None) -> Pat
             ]
         )
     _write_markdown_table(path, "Main Pragmatic Detection", header, rows, result)
+    return path
+
+
+def write_annotation_agreement_table(path: Path, result: dict[str, Any] | None) -> Path:
+    rows = []
+    for field, payload in ((result or {}).get("fields") or {}).items():
+        rows.append([
+            field,
+            payload.get("n", ""),
+            _decimal(payload.get("mean_pairwise_percent_agreement")),
+            _decimal(payload.get("mean_pairwise_cohen_kappa")),
+            _decimal(payload.get("fleiss_kappa_nominal")),
+            _decimal(payload.get("krippendorff_alpha_nominal")),
+        ])
+    macro = (result or {}).get("macro") or {}
+    if macro:
+        rows.append([
+            "**Macro**", "", _decimal(macro.get("mean_pairwise_percent_agreement")),
+            _decimal(macro.get("mean_pairwise_cohen_kappa")), _decimal(macro.get("fleiss_kappa_nominal")),
+            _decimal(macro.get("krippendorff_alpha_nominal")),
+        ])
+    _write_markdown_table(path, "Inter-annotator Agreement", ["Label", "N", "Mean pairwise agreement", "Mean pairwise Cohen's kappa", "Fleiss' kappa", "Krippendorff's alpha"], rows, result)
     return path
 
 
@@ -135,7 +166,57 @@ def write_cost_table(path: Path, result: dict[str, Any] | None) -> Path:
     return path
 
 
-def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None]) -> int:
+def write_calibration_table(path: Path, result: dict[str, Any] | None) -> Path:
+    rows = []
+    for system_id, payload in ((result or {}).get("systems") or {}).items():
+        rows.append([payload.get("label") or SYSTEM_LABELS.get(system_id, system_id), payload.get("n", ""), _plain_cell(payload.get("ece")), payload.get("missing_confidence", ""), payload.get("status", "")])
+    _write_markdown_table(path, "Calibration of Pragmatic-polarity Confidence", ["System", "Test records", "ECE", "Missing confidence", "status"], rows, result)
+    return path
+
+
+def write_confusion_table(path: Path, result: dict[str, Any] | None) -> Path:
+    labels = (result or {}).get("labels") or []
+    counts = (result or {}).get("counts") or []
+    normalised = (result or {}).get("row_normalised") or []
+    rows = []
+    for index, label in enumerate(labels):
+        count_row = counts[index] if index < len(counts) else []
+        normalised_row = normalised[index] if index < len(normalised) else []
+        cells = []
+        for prediction_index in range(len(labels)):
+            count = count_row[prediction_index] if prediction_index < len(count_row) else 0
+            rate = normalised_row[prediction_index] if prediction_index < len(normalised_row) else 0.0
+            cells.append(f"{count} ({float(rate) * 100:.2f}%)")
+        rows.append([label, *cells])
+    _write_markdown_table(path, "Pragmatic-polarity Confusion Matrix", ["Gold \\ Predicted", *labels], rows, result)
+    return path
+
+
+def write_learning_curves_table(path: Path, result: dict[str, Any] | None) -> Path:
+    rows = []
+    for system_id, runs in ((result or {}).get("curves") or {}).items():
+        for run in runs:
+            history = run.get("history") or []
+            dev_values = [item.get("dev_macro_pragmatic_f1") for item in history if item.get("dev_macro_pragmatic_f1") is not None]
+            if not dev_values:
+                continue
+            rows.append([SYSTEM_LABELS.get(system_id, system_id), run.get("seed", ""), len(history), f"{max(dev_values) * 100:.2f}", f"{dev_values[-1] * 100:.2f}"])
+    _write_markdown_table(path, "Main Encoder Learning Curves", ["System", "Seed", "Completed epochs", "Peak dev F1", "Final dev F1"], rows, result)
+    return path
+
+
+def write_significance_table(path: Path, result: dict[str, Any] | None) -> Path:
+    rows = []
+    for system_id, seeds in ((result or {}).get("comparisons") or {}).items():
+        for seed, payload in seeds.items():
+            ci = payload.get("paired_bootstrap_ci95") or []
+            ci_cell = f"[{float(ci[0]):.4f}, {float(ci[1]):.4f}]" if len(ci) == 2 else ""
+            rows.append([SYSTEM_LABELS.get(system_id, system_id), seed, f"{float(payload.get('delta_macro_pragmatic_f1', 0)):.4f}", ci_cell, _plain_cell(payload.get("two_sided_p"))])
+    _write_markdown_table(path, "Paired Bootstrap Significance Against ViPragSent", ["Challenger", "Seed", "Delta F1", "95% paired bootstrap CI", "Raw p"], rows, result)
+    return path
+
+
+def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None], *, results_dir: Path) -> int:
     ensure_dir(path.parent)
     rows = []
     main = results.get("main_pragmatic") or {}
@@ -161,6 +242,25 @@ def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None]) ->
                 "json_path": f"$.systems.{system_id}.ece",
             }
         )
+    confusion = results.get("error_confusion") or {}
+    for index, label in enumerate(confusion.get("labels") or []):
+        rows.append({
+            "anchor": f"Table8.confusion.diagonal.{label.replace('-', '_')}",
+            "claim": f"{label} diagonal recall = {float((confusion.get('row_normalised') or [[]])[index][index]) * 100:.2f}%" if index < len(confusion.get("row_normalised") or []) else f"{label} diagonal recall unavailable",
+            "source_file": "results/error_confusion.json",
+            "json_path": f"$.row_normalised[{index}][{index}]",
+        })
+    learning = results.get("learning_curves") or {}
+    for system_id, runs in (learning.get("curves") or {}).items():
+        for run in runs:
+            values = [item.get("dev_macro_pragmatic_f1") for item in (run.get("history") or []) if item.get("dev_macro_pragmatic_f1") is not None]
+            if values:
+                rows.append({"anchor": f"Figure6.{system_id}.seed_{run.get('seed')}", "claim": f"{SYSTEM_LABELS.get(system_id, system_id)} seed {run.get('seed')} peak development macro pragmatic F1 = {max(values) * 100:.2f}", "source_file": "results/learning_curves.json", "json_path": f"$.curves.{system_id}"})
+    significance = results.get("significance") or {}
+    for system_id, seeds in (significance.get("comparisons") or {}).items():
+        for seed, payload in seeds.items():
+            ci = payload.get("paired_bootstrap_ci95") or []
+            rows.append({"anchor": f"Table10.{system_id}.seed_{seed}", "claim": f"{SYSTEM_LABELS.get(system_id, system_id)} delta F1 versus ViPragSent = {float(payload.get('delta_macro_pragmatic_f1', 0)):.4f} [{float(ci[0]):.4f}, {float(ci[1]):.4f}]" if len(ci) == 2 else f"{SYSTEM_LABELS.get(system_id, system_id)} delta F1 versus ViPragSent", "source_file": "results/significance.json", "json_path": f"$.comparisons.{system_id}['{seed}'].delta_macro_pragmatic_f1"})
     if not rows:
         rows.append(
             {
@@ -171,9 +271,12 @@ def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None]) ->
             }
         )
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["anchor", "claim", "source_file", "json_path"], lineterminator="\n")
+        writer = csv.DictWriter(handle, fieldnames=["anchor", "claim", "source_file", "json_path", "source_sha256"], lineterminator="\n")
         writer.writeheader()
-        writer.writerows(rows)
+        for row in rows:
+            source = results_dir / Path(str(row["source_file"])).name
+            row["source_sha256"] = f"sha256:{_sha256(source)}" if source.exists() else ""
+            writer.writerow(row)
     return len(rows)
 
 
@@ -261,6 +364,23 @@ def write_calibration_svg(path: Path, result: dict[str, Any] | None) -> Path:
     return _write_line_svg(path, "Reliability diagram accuracy by confidence bin", [str(i) for i in range(10)], series, y_max=1.0)
 
 
+def write_learning_curves_svg(path: Path, result: dict[str, Any] | None) -> Path:
+    series: dict[str, list[float | None]] = {}
+    for system_id, runs in ((result or {}).get("curves") or {}).items():
+        encoder_runs = []
+        for run in runs:
+            values = [item.get("dev_macro_pragmatic_f1") for item in (run.get("history") or [])]
+            if any(value is not None for value in values):
+                encoder_runs.append(values)
+        if not encoder_runs:
+            continue
+        length = max(len(values) for values in encoder_runs)
+        series[system_id] = [sum(float(values[index]) for values in encoder_runs if index < len(values) and values[index] is not None) / sum(1 for values in encoder_runs if index < len(values) and values[index] is not None) if any(index < len(values) and values[index] is not None for values in encoder_runs) else None for index in range(length)]
+    if not series:
+        return _write_empty_svg(path, "Learning curves are blocked until development metrics exist.")
+    return _write_line_svg(path, "Mean development macro pragmatic F1", [str(index + 1) for index in range(max(len(values) for values in series.values()))], series, y_max=1.0)
+
+
 def _load_results(results_dir: Path) -> dict[str, dict[str, Any] | None]:
     names = [
         "main_pragmatic",
@@ -271,6 +391,8 @@ def _load_results(results_dir: Path) -> dict[str, dict[str, Any] | None]:
         "calibration",
         "cost_breakdown",
         "learning_curves",
+        "annotation_agreement",
+        "significance",
     ]
     out = {}
     for name in names:
@@ -284,6 +406,22 @@ def _portable_path(root: Path, path: Path) -> str:
         return path.resolve().relative_to(root.resolve()).as_posix()
     except ValueError:
         return path.as_posix()
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _result_hashes(results_dir: Path) -> dict[str, str]:
+    return {
+        path.name: f"sha256:{_sha256(path)}"
+        for path in sorted(results_dir.glob("*.json"))
+        if path.name != "artifact_index.json"
+    }
+
+
+def _decimal(value: Any) -> str:
+    return f"{float(value):.3f}" if value is not None else ""
 
 
 def _systems(result: dict[str, Any] | None) -> dict[str, Any]:
