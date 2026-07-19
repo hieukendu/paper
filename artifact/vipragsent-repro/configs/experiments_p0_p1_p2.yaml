@@ -6,6 +6,6 @@ p0:
 p1:
   source_stratified_sensitivity: {fine_tunes: 0, strata: [visobert_local, VIVID_seed_and_irony_generation], release_note: authorization_and_license_review_required}
 p2:
-  multi_seed_low_resource: {additional_fine_tunes: 20, budgets: [64, 128, 256, 512, 1024], systems: [phobert_finetune, vipragsent_full]}
+  multi_seed_low_resource: {additional_fine_tunes: 20, budgets: [64, 128, 256, 512, 1024], systems: [phobert_finetune, vipragsent_full], positive_to_other_ratio: "1:3", total_training_sizes: [256, 512, 1024, 2048, 4096]}
 logging: logs/p0_p1_p2
 answer: answer/

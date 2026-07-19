@@ -3,14 +3,16 @@
 
 \subsection{Evaluated Systems}
 
-% TRACE: S4-C01 | configs/experiments_q1.yaml | main_pragmatic_systems; answer/results/main_pragmatic.json | $.systems
-The main comparison contains seven named systems arranged in four groups.
+% TRACE: S4-C01 | answer/results/main_pragmatic.json | $.systems; answer/results/p0_visobert_baseline.json | $.aggregate | complete evaluated-system inventory
+The main comparison contains eight named systems across encoder, 7B, prompted-API, and multi-task groups.
 % TRACE: S4-C02 | configs/training_h100_20gb.yaml | encoder.models; src/vipragsent/experiments/constants.py | Q1_SYSTEMS
 First, the PhoBERT/XLM-R encoder group comprises a PhoBERT fine-tune and XLM-R-large fine-tune, representing Vietnamese and multilingual pretrained encoder families \citep{nguyen-tuan-nguyen-2020-phobert,conneau-etal-2020-unsupervised}.
+% TRACE: S4-C02a | configs/models.yaml | visobert; configs/experiments_p0_p1_p2.yaml | model_revision, tokenizer_revision; answer/results/p0_visobert_baseline.json | $.model.revision | recorded model/tokenizer provenance only
+The encoder comparison additionally includes a ViSoBERT fine-tune \citep{nguyen-etal-2023-visobert}, pinned in the recorded configuration and result trace to \texttt{uitnlp/visobert} revision {\scriptsize\texttt{196a62afad9cbe4f52a54aabad828b13f0eec59a}}; the tokenizer uses the repository's SentencePiece configuration at that revision.
 % TRACE: S4-C03 | configs/training_h100_20gb.yaml | qlora_7b; src/vipragsent/experiments/constants.py | Q1_SYSTEMS
 Second, the Sailor-7B/Vistral-7B QLoRA SFT group consists of instruction-tuned seven-billion-parameter systems evaluated from their recorded predictions \citep{dou-etal-2024-sailor,nguyen-etal-2023-vistral}.
-% TRACE: S4-C03a | manuscript/CITATION_LEDGER.md | Sailor-7B source/model card; Vistral-7B source/model card
-These citations identify the configured model families; the historical base-model revision used for the archived runs remains unavailable.
+% TRACE: S4-C03a | configs/artifact_registry.json | $.base_models.{sailor_7b,vistral_7b_chat}; manuscript/CITATION_LEDGER.md | documented download-time provenance, not independently logged runtime provenance
+The two Chat bases are pinned to \texttt{sail/Sailor-7B-Chat} revision {\scriptsize\texttt{19066fae0a8a3ba029c190d8e3\allowbreak dacccf4d1234b8}} and \texttt{Viet-Mistral/Vistral-7B-Chat} revision {\scriptsize\texttt{d331b64e61b935cc43c2b3010ae9\allowbreak fb4fde599b45}}.  The researcher attests that both were downloaded on 2026-07-14 before QLoRA setup and fine-tuning.  Since the archived run manifests retain local cache paths rather than remote revision fields, these pins are documented download-time provenance rather than independently logged runtime snapshots.
 % TRACE: S4-C04 | configs/experiments_q1.yaml | main_pragmatic_systems; configs/evaluation.yaml | api_baseline
 Third, the prompted API group contains GPT-4.1-mini zero-shot and GPT-4.1-mini eight-shot baselines, using the repository-recorded API model snapshot \citep{openai-2025-gpt-4-1-mini}.
 % TRACE: S4-C04a | scripts/predict_openai_baseline.py | argument parser and main
@@ -32,20 +34,31 @@ The evaluation configuration operates on imported prediction JSONL files; the no
 % TRACE: S4-C08a | src/vipragsent/experiments/evaluator.py | load_gold_records; src/vipragsent/experiments/predictions.py | join_gold_predictions
 Before scoring, the evaluator loads adjudicated gold records with complete task labels and joins each prediction record to gold by identifier. This keeps the reported comparisons tied to the fixed gold partition described in Section~\ref{sec:task-data} rather than to a reconstructed test set.
 
-% TRACE: S4-C09 | configs/training_h100_20gb.yaml | hardware, precision, max_sequence_length, encoder
+\subsection{Additional Experiment Protocols}
+
+% TRACE: S4-C08b | configs/experiments_p0_p1_p2.yaml | p0, seeds, ablations; answer/results/p0_multi_seed_ablation.json | $.systems | three-seed configuration comparison only
+The P0 ablation evaluates the full multi-task configuration, the PhoBERT fine-tune reference, and four recorded variants without rationale, emotion, polarity, or uncertainty components. Each configuration uses seeds 20260520, 20260521, and 20260522 on the fixed 2,000-record test partition. These comparisons identify recorded configuration-level differences; they do not isolate a causal effect of any one auxiliary objective.
+% TRACE: S4-C08c | configs/experiments_p0_p1_p2.yaml | $.p1.source_stratified_sensitivity.strata; answer/results/p1_source_stratified_sensitivity.json | $.test_source_counts; $.systems.*.{visobert_local,VIVID_seed_and_irony_generation}.aggregate | fixed source-labelled composition and three-seed coverage only
+For P1, the same fixed test partition is split by stored source label into 1,666 ViSoBERT-local and 334 VIVID-labelled records, with predictions scored separately for each stratum across three seeds. This is a descriptive source-stratified sensitivity analysis of the evaluated composition, not a randomized source-domain comparison.
+% TRACE: S4-C08d | configs/experiments_p0_p1_p2.yaml | $.p2.multi_seed_low_resource.{budgets,systems,positive_to_other_ratio,total_training_sizes}; NEW_EXPERIMENT_VALIDATION_REPORT.md | P2 subset composition; answer/results/p2_multi_seed_low_resource.json | $.budgets.*.{phobert_finetune,vipragsent_full}.aggregate.sarcasm | three-seed design and training composition only
+For P2, PhoBERT fine-tune and ViPragSent are trained at sarcasm-positive budgets of 64, 128, 256, 512, and 1,024, each with a 1:3 positive-to-other training composition and three seeds. The corresponding total training sizes are 256, 512, 1,024, 2,048, and 4,096. P2 is reported as an exploratory budget analysis because the design does not establish a general data-efficiency comparison.
+% TRACE: S4-C08e | answer/results/p0_multi_seed_ablation.json; answer/results/p0_visobert_baseline.json | external_benchmarks | three-seed external-evaluation scope only
+The new external evaluations score the recorded ablations and ViSoBERT across three seeds on UIT-VSFC, UIT-VSMEC, and AIVIVN-2019. They are external evaluation-only diagnostics and are not sources of ViPragSent records.
+
+% TRACE: S4-C09 | configs/training_h100_20gb.yaml | hardware, precision, encoder.max_sequence_length, encoder
 The documented encoder training profile specifies an H100 20GB device, bfloat16 precision, a maximum sequence length of 128, a learning rate of $2.0\times10^{-5}$, an effective batch size of 32, up to 10 epochs, and early stopping patience of 2.
-% TRACE: S4-C10 | configs/training_h100_20gb.yaml | qlora_7b
-The documented QLoRA profile specifies NF4 four-bit quantization, learning rate $1.0\times10^{-4}$, per-device batch size 2, gradient accumulation 8, 3 epochs, LoRA rank 16, LoRA scaling 32, and dropout 0.05.
-% TRACE: S4-C10a | answer/run_manifests/{sailor_7b_sft,vistral_7b_sft}/*/run_manifest.json; manuscript/CITATION_LEDGER.md | Archived QLoRA run provenance
-These current configuration values document a reproducibility profile for future retrieval; the historical 7B run manifests do not retrospectively identify immutable base-model revisions, the \texttt{transformers} version, or a frozen per-run configuration.
+% TRACE: S4-C10 | configs/training_h100_20gb.yaml | qlora_7b; scripts/train_qlora_sft.py | parser defaults
+The documented QLoRA profile specifies NF4 four-bit quantization, a maximum sequence length of 256, learning rate $1.0\times10^{-4}$, per-device batch size 1, gradient accumulation 16, 3 epochs, LoRA rank 16, LoRA scaling 32, and dropout 0.05.
+% TRACE: S4-C10a | answer/run_manifests/{sailor_7b_sft,vistral_7b_sft}/*/run_manifest.json; configs/artifact_registry.json | Archived QLoRA run provenance and attested base-model pins
+These current configuration values document a reproducibility profile for retrieval. The documented download-time pins resolve the 7B base-model revisions, but the historical run manifests still do not independently record the \texttt{transformers} version or a frozen per-run configuration.
 They are retained so that a future implementation can be specified explicitly, while avoiding an unsupported assertion that the archived 7B executions can be reconstructed bit-for-bit using these files alone.
 
 % TRACE: S4-C11 | src/vipragsent/evaluation/metrics.py | pragmatic_f1, binary_macro_f1
 Macro pragmatic F1 is computed by first taking the binary macro F1 for each pragmatic label, averaging the negative-class and positive-class F1 values, and then averaging those six label-level scores.
 % TRACE: S4-C11a | src/vipragsent/experiments/evaluator.py | aggregate_seed_reports, _normal_ci
 For multi-seed learned systems, the result aggregator reports the mean of seed-level metric values and a normal-approximation 95\% interval using $1.96\,s/\sqrt{n}$.
-% TRACE: S4-C12 | src/vipragsent/evaluation/bootstrap.py | bootstrap_ci; configs/evaluation.yaml | metrics
-For a point estimate, the evaluator resamples test records with replacement 1,000 times using the configured 0.95 interval and reports the empirical lower and upper quantiles.
+% TRACE: S4-C12 | src/vipragsent/evaluation/bootstrap.py | bootstrap_ci; configs/evaluation.yaml | metrics; NEW_EXPERIMENT_VALIDATION_REPORT.md | metric recomputation
+For a point estimate, the evaluator resamples test records with replacement and reports the empirical lower and upper quantiles at the configured 0.95 interval. The legacy/default evaluator configuration specifies 1,000 resamples; the validated P0, P1, and P2 result reports use 200 resamples.
 % TRACE: S4-C13 | scripts/20_paired_significance.py | paired_test, main; answer/results/significance.json | $.reference_system, $.test
 Paired bootstrap comparisons align records by identifier, resample those matched pairs 1,000 times, and record the challenger-minus-reference macro-F1 difference, a paired 95\% interval, and an uncorrected two-sided finite-resample tail proportion against ViPragSent on matching seeds.
 % TRACE: S4-C13a | answer/results/significance.json | $.multiple_comparison_note
@@ -53,14 +66,14 @@ The significance artifact notes that Holm correction should be applied when a fi
 
 \subsection{Reproducibility and Traceability}
 
-% TRACE: S4-C14 | answer/results/claim_ledger.csv; answer/reproducibility/verification_manifest.json; answer/reproducibility/local_prediction_split_manifest.json; answer/reproducibility/id_set_manifest.json | integrity_scope, global, partitions
-The retained evidence path connects result JSON, claim-ledger entries, run manifests, and verification-manifest hashes.  Separate local manifests record SHA-256 values and byte sizes for the fixed gold partitions and the main-comparison prediction JSONL files, together with per-split ID-set and ordered-ID-sequence hashes that verify split membership without releasing identifiers or text.
+% TRACE: S4-C14 | answer/results/claim_ledger.csv; answer/reproducibility/verification_manifest.json; answer/reproducibility/artifact_registry.json | result-prediction-manifest-config links and hashes | artifact-level traceability only
+The retained evidence path connects result JSON, claim-ledger entries, predictions, run manifests, configurations, model/checkpoint revisions, and verification-manifest hashes. Separate local manifests record SHA-256 values and byte sizes for the fixed gold partitions and prediction JSONL files, together with per-split ID-set and ordered-ID-sequence hashes that verify split membership without releasing identifiers or text.
 % TRACE: S4-C14a | answer/reproducibility/verification_manifest.json | bundle_artifacts; answer/reproducibility/artifact_registry.json
-The portable bundle enumerates result, table, figure, and run-manifest artifacts with SHA-256 entries; the local prediction-and-split manifest extends this file-level inspection to retained private inputs without releasing their text.
+The portable bundle includes checkpointed entries for ViSoBERT, the multi-seed ablation, P1, P2, and the new external predictions; the local prediction-and-split manifest extends file-level inspection to retained private inputs without releasing their text.
 % TRACE: S4-C15 | answer/reproducibility/artifact_registry.json | external_model_archives; configs/artifact_registry.json | external_model_archives
 The artifact registry additionally records pinned external archive metadata for encoder checkpoints and the two QLoRA adapter families, while keeping identifying archive URLs out of the anonymous manuscript.
 % TRACE: S4-C16 | answer/reproducibility/verification_manifest.json | integrity_scope
 This is artifact-level traceability: it supports inspection of recorded files and hashes, but is neither an independent reproduction nor a fresh training rerun.
 
 % TRACE: S4-C17 | README.md | Main pragmatic evaluation; configs/training_h100_20gb.yaml | seeds; answer/run_manifests/{sailor_7b_sft,vistral_7b_sft}/*/run_manifest.json; scripts/run_h100_qlora.sh | SEEDS
-The README, current training configuration, result JSON, archived 7B manifests, and current QLoRA launcher consistently specify three recorded 7B seeds. This statement describes the current repository and retained artifacts; it does not repair the missing historical per-run environment fields noted above.
+The README, current training configuration, result JSON, archived 7B manifests, and current QLoRA launcher consistently specify three recorded 7B seeds. This statement describes the current repository and retained artifacts; it does not supply the still-missing frozen historical software and hardware environment fields noted above.

@@ -1,23 +1,9 @@
 {
   "schema_version": "1.0",
   "project": "ViPragSent",
-  "generated_at": "2026-07-18T07:31:22.779628+00:00",
+  "generated_at": "2026-07-19T06:54:08.225480+00:00",
   "authoritative_results": "answer/results/",
   "integrity_scope": "SHA-256 hashes cover portable result, table, figure, and run-manifest artifacts. They establish file-level traceability only; they do not constitute a training rerun.",
-  "local_private_integrity_records": [
-    {
-      "path": "reproducibility/id_set_manifest.json",
-      "bytes": 2204,
-      "sha256": "sha256:fa5e1f00c254177285ab36827d5828276bf320c2d09b1fba000989088a81f2d9",
-      "scope": "Per-split ID-set, order, and private gold-file integrity; no identifiers or text are present."
-    },
-    {
-      "path": "reproducibility/local_prediction_split_manifest.json",
-      "bytes": 3827,
-      "sha256": "sha256:4ad59d493aad6289a0f07924b744d8f7a17589eacd89dda73e7e128c2ad8bfd5",
-      "scope": "Private gold-partition and main-comparison prediction-file integrity; no source text is present."
-    }
-  ],
   "bundle_artifacts": {
     "results": [
       {
@@ -27,8 +13,8 @@
       },
       {
         "path": "results/artifact_index.json",
-        "bytes": 2205,
-        "sha256": "sha256:5d45779b29a21e58b9b72fabf77a8a7809eb670095b95becff69e24ea50c8506"
+        "bytes": 2923,
+        "sha256": "sha256:3ed4e5007574c4f3358d488ea6194c1332f1f8125d8ebc2a815913a7addd6766"
       },
       {
         "path": "results/calibration.json",
@@ -37,8 +23,8 @@
       },
       {
         "path": "results/claim_ledger.csv",
-        "bytes": 24304,
-        "sha256": "sha256:23cb8d17bca1dfb141d8d4fcf0d9fa8792fb7f0cde9a492d9981b1c75026e08d"
+        "bytes": 41129,
+        "sha256": "sha256:2856617decf3af9c63da02dfb0726cc6043b81fb8d198e56a979dd1d344e0ddf"
       },
       {
         "path": "results/cost_breakdown.json",
@@ -74,6 +60,36 @@
         "path": "results/ordinary_sentiment.json",
         "bytes": 27315,
         "sha256": "sha256:d9cde92b4f60f999f5538a6be6fd2143a54a2313b4d4a10065672aa3e77121a1"
+      },
+      {
+        "path": "results/p0_multi_seed_ablation.json",
+        "bytes": 51908,
+        "sha256": "sha256:63016d0f0fad0a5f43fbdf80cdcb4481ad8ee11c5172f6833ac0f8a9652b8e7a"
+      },
+      {
+        "path": "results/p0_p1_p2_summary.json",
+        "bytes": 206334,
+        "sha256": "sha256:9f2bd2fe836809c6947f9e2a621bbe664ca26657033e75d4531e9a4b5f029e97"
+      },
+      {
+        "path": "results/p0_visobert_baseline.json",
+        "bytes": 11424,
+        "sha256": "sha256:d9c68eb0baf92c8d5c3d2614e799c79a90bd17ba51e79be59b54eee905bda1bd"
+      },
+      {
+        "path": "results/p0p1p2_runs.json",
+        "bytes": 19018,
+        "sha256": "sha256:760433b1a67c82ffe2cdc41ba00dda669fdc6a11710e90050e2d24f45b87e86d"
+      },
+      {
+        "path": "results/p1_source_stratified_sensitivity.json",
+        "bytes": 74973,
+        "sha256": "sha256:c0e9066368ae1d4bc0bfbe9d57b0f4b996e2a8d05326d5fd01abf8aaae0653df"
+      },
+      {
+        "path": "results/p2_multi_seed_low_resource.json",
+        "bytes": 53539,
+        "sha256": "sha256:28afd8e05e4d22310886156877e35a981c1ea86bcd2c111cfbeefe63b7c8c2ee"
       },
       {
         "path": "results/paper_readiness.json",
@@ -133,6 +149,11 @@
         "sha256": "sha256:c56d79d60b8c164b26572cb0870a7db2985028d005efacbc77e25df0c7d3409c"
       },
       {
+        "path": "tables/p0_p1_p2_experiments.md",
+        "bytes": 1990,
+        "sha256": "sha256:47118b96b06a2e42458b0e208d3b87d817d6b801e17c83e569936cdf91241b5c"
+      },
+      {
         "path": "tables/pending_summary.md",
         "bytes": 235,
         "sha256": "sha256:a81d9f6e285cabd6653b1db5fd0a4a643ef7b008f552a005698143e7c0c41e40"
@@ -187,9 +208,29 @@
         "sha256": "sha256:a552b7f011b0fe4e1da6befb901e82af3b4f18933a571950115bd9ec36133b3f"
       },
       {
+        "path": "run_manifests/low_resource/1024/phobert_finetune/20260521/run_manifest.json",
+        "bytes": 821,
+        "sha256": "sha256:5977c4457fed216d779413c3d5ac524c5536e0019e28e7ce9bc6fa984c868c99"
+      },
+      {
+        "path": "run_manifests/low_resource/1024/phobert_finetune/20260522/run_manifest.json",
+        "bytes": 821,
+        "sha256": "sha256:7bab5d42282e9af37618a7368697d00f000657cc9ff220f9066dc9438d132293"
+      },
+      {
         "path": "run_manifests/low_resource/1024/vipragsent_full/20260520/run_manifest.json",
         "bytes": 744,
         "sha256": "sha256:221d242d67a71f2f78c9fb05778bc89e373b0ca18aae106e5e38c0f4f4a39941"
+      },
+      {
+        "path": "run_manifests/low_resource/1024/vipragsent_full/20260521/run_manifest.json",
+        "bytes": 819,
+        "sha256": "sha256:84b4c10d924f92aa8de8d0e434327bfba960016d22049f941bd18fe9dc276b78"
+      },
+      {
+        "path": "run_manifests/low_resource/1024/vipragsent_full/20260522/run_manifest.json",
+        "bytes": 820,
+        "sha256": "sha256:966c857f9da3887c6af071ab734def7fea7a2f73c3727eec8d5e044a3437227d"
       },
       {
         "path": "run_manifests/low_resource/128/phobert_finetune/20260520/run_manifest.json",
@@ -197,9 +238,29 @@
         "sha256": "sha256:8447d368c4c36f414f1be27d735b102b322cc82e25885b5352110ab04311690a"
       },
       {
+        "path": "run_manifests/low_resource/128/phobert_finetune/20260521/run_manifest.json",
+        "bytes": 816,
+        "sha256": "sha256:2c5f6279bc33149a39e6d3b02bc2524658123c44c174dfac7d47e8b1f9345389"
+      },
+      {
+        "path": "run_manifests/low_resource/128/phobert_finetune/20260522/run_manifest.json",
+        "bytes": 816,
+        "sha256": "sha256:d73a814f049c1f048f704e6cd7d7bfc883bfeec792fba29ac2021b360ab839a8"
+      },
+      {
         "path": "run_manifests/low_resource/128/vipragsent_full/20260520/run_manifest.json",
         "bytes": 741,
         "sha256": "sha256:50bae1018b73c4eee8bba65a13933e80e134aea2016a8cb8036d4ac2836c78f9"
+      },
+      {
+        "path": "run_manifests/low_resource/128/vipragsent_full/20260521/run_manifest.json",
+        "bytes": 817,
+        "sha256": "sha256:d4a6227a8410012993eb1e6c883aa2e1aa81bf01923096a29bdb1222e566b1a6"
+      },
+      {
+        "path": "run_manifests/low_resource/128/vipragsent_full/20260522/run_manifest.json",
+        "bytes": 817,
+        "sha256": "sha256:56e4e37c740b789ac81f205d75467883a5d2ed70afb4769645fc19837b161d94"
       },
       {
         "path": "run_manifests/low_resource/256/phobert_finetune/20260520/run_manifest.json",
@@ -207,9 +268,29 @@
         "sha256": "sha256:49931242ab4cc2a8ecd1aded3445b95c5d7871d06ff6d89c66abf23d6effb7f3"
       },
       {
+        "path": "run_manifests/low_resource/256/phobert_finetune/20260521/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:1f8cec894f22cd80791ae108f0346ada0c40b1413536eb1e7ea652b6934d65cb"
+      },
+      {
+        "path": "run_manifests/low_resource/256/phobert_finetune/20260522/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:af310aadfb9298bae0fce753232f4c918ef6eb751708420fb0bc73f9925cfe2a"
+      },
+      {
         "path": "run_manifests/low_resource/256/vipragsent_full/20260520/run_manifest.json",
         "bytes": 741,
         "sha256": "sha256:aff8485fa8068bc7d50505316cab20a92549706089b3f5d323c41922e08aeb57"
+      },
+      {
+        "path": "run_manifests/low_resource/256/vipragsent_full/20260521/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:be00e2a548029e300fba4a79835458501feb6c692ae55fc8a90fa3afd60aeb9a"
+      },
+      {
+        "path": "run_manifests/low_resource/256/vipragsent_full/20260522/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:2d64e0d5d24f7fa40964f5b40faf536a9c4f0f4fe924059455f97c1ba6bb35cc"
       },
       {
         "path": "run_manifests/low_resource/512/phobert_finetune/20260520/run_manifest.json",
@@ -217,9 +298,29 @@
         "sha256": "sha256:6c4e9b8cb8624f887f06b0e9126b3c07fba06ab28c437cf4787a4c4e5c4bb775"
       },
       {
+        "path": "run_manifests/low_resource/512/phobert_finetune/20260521/run_manifest.json",
+        "bytes": 817,
+        "sha256": "sha256:0dd9c809c062874dd390f2575d06da3bc0aed8d06547b429a056dee7262e4557"
+      },
+      {
+        "path": "run_manifests/low_resource/512/phobert_finetune/20260522/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:fa513f439bd157b0a660a8ea1f43358cf9e55733003268b03613f2299dc77947"
+      },
+      {
         "path": "run_manifests/low_resource/512/vipragsent_full/20260520/run_manifest.json",
         "bytes": 743,
         "sha256": "sha256:f7bb06090389fb59cda461959b12d7a7c7e646cdf13a645a2021399cb7d8c22d"
+      },
+      {
+        "path": "run_manifests/low_resource/512/vipragsent_full/20260521/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:22ccbd65e0ce00293c4c2699a2bde4f6984ae059e580821a44e9a741f220e8af"
+      },
+      {
+        "path": "run_manifests/low_resource/512/vipragsent_full/20260522/run_manifest.json",
+        "bytes": 818,
+        "sha256": "sha256:d025d17d6b06e0121cbcb5c4fb457c9393b52b9439922a3b7f4a86808c0df209"
       },
       {
         "path": "run_manifests/low_resource/64/phobert_finetune/20260520/run_manifest.json",
@@ -227,9 +328,29 @@
         "sha256": "sha256:216541f8204273a3dfb4cada8ac12a96598609ad78e4486df515cfec55055f17"
       },
       {
+        "path": "run_manifests/low_resource/64/phobert_finetune/20260521/run_manifest.json",
+        "bytes": 814,
+        "sha256": "sha256:a0e401264a665e1641ddcf376033b4b1da3309b2f6c9dc07af0e8a8640e1eb33"
+      },
+      {
+        "path": "run_manifests/low_resource/64/phobert_finetune/20260522/run_manifest.json",
+        "bytes": 815,
+        "sha256": "sha256:9ee686d5bb2e7764b69740cc6927c38dcd5f9f49a4a6895bb1319854e8c9d7fd"
+      },
+      {
         "path": "run_manifests/low_resource/64/vipragsent_full/20260520/run_manifest.json",
         "bytes": 738,
         "sha256": "sha256:77e9cf9c8761f337aedc05aff17f5befa03852fc32d500dc6a93fdefe2a5708a"
+      },
+      {
+        "path": "run_manifests/low_resource/64/vipragsent_full/20260521/run_manifest.json",
+        "bytes": 815,
+        "sha256": "sha256:d9ddd049f8099e7505a6ee795f8bd45b6485f56aad3eb8fa4deb85388da4bdb6"
+      },
+      {
+        "path": "run_manifests/low_resource/64/vipragsent_full/20260522/run_manifest.json",
+        "bytes": 815,
+        "sha256": "sha256:0ae20db2d93ccfec97310345df50c8c9b2680835b27f2e6e9d25e8106ab06c2f"
       },
       {
         "path": "run_manifests/phobert_finetune/20260520/run_manifest.json",
@@ -282,9 +403,29 @@
         "sha256": "sha256:bc9e4aa445771e5612579fe8fb7fab3993dbde7143f605e3c22a9ca6ee26976b"
       },
       {
+        "path": "run_manifests/vipragsent_no_emotion/20260521/run_manifest.json",
+        "bytes": 808,
+        "sha256": "sha256:3a54d77ab5951ef2a8917a773add25882f85a2870459c0b7f85e01577f562f3e"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_emotion/20260522/run_manifest.json",
+        "bytes": 808,
+        "sha256": "sha256:b0413a203dc5465855944da21ae993d43cc1cf92885bc021e799237abf6ecf9b"
+      },
+      {
         "path": "run_manifests/vipragsent_no_polarity/20260520/run_manifest.json",
         "bytes": 781,
         "sha256": "sha256:8cc05308dea9cd47dc45286fc702e9d1e2cb0e1e40043c61478298d1344f3f86"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_polarity/20260521/run_manifest.json",
+        "bytes": 812,
+        "sha256": "sha256:67d36b4854b35f89f84b647b8e98ce47cceccef2e84b3f94f63398d284c70653"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_polarity/20260522/run_manifest.json",
+        "bytes": 811,
+        "sha256": "sha256:c722e8297629bf5e26f5796106874a11f52a5ff2203d2336cc6c78ba307b84a2"
       },
       {
         "path": "run_manifests/vipragsent_no_rationale/20260520/run_manifest.json",
@@ -292,9 +433,44 @@
         "sha256": "sha256:a3bf6063071c7d762e258b0e61ab6fd96ac3e595d3ec1a8af91f3a5dbb386c1b"
       },
       {
+        "path": "run_manifests/vipragsent_no_rationale/20260521/run_manifest.json",
+        "bytes": 814,
+        "sha256": "sha256:9004a027384a18913b90f633a8f7b36839a2444e83b3cfcf3b5b3d0bbb6ad1c8"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_rationale/20260522/run_manifest.json",
+        "bytes": 814,
+        "sha256": "sha256:6ed245b6e75b64696d6285eb76d8a7260638d6f6e087b611bd77ecf9cf402e2b"
+      },
+      {
         "path": "run_manifests/vipragsent_no_uncertainty/20260520/run_manifest.json",
         "bytes": 790,
         "sha256": "sha256:ac63fdf1882d7fb641ef1fb5d46b5332bef586b252c04ecb04f272454ffcdd70"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_uncertainty/20260521/run_manifest.json",
+        "bytes": 820,
+        "sha256": "sha256:a8cf689bac7a4295abcec0de83baa9e6a0a8c3501799a883fb83eab52f92cde6"
+      },
+      {
+        "path": "run_manifests/vipragsent_no_uncertainty/20260522/run_manifest.json",
+        "bytes": 820,
+        "sha256": "sha256:847457c0f85d66df29a9b553ec0dd0d3a227d73ece3081ed11c412d5a1dbfaa5"
+      },
+      {
+        "path": "run_manifests/visobert_finetune/20260520/run_manifest.json",
+        "bytes": 824,
+        "sha256": "sha256:45cd505aef3f5f8b1fe75d94f500857644ec92731a2625264576c82d14cde1b3"
+      },
+      {
+        "path": "run_manifests/visobert_finetune/20260521/run_manifest.json",
+        "bytes": 824,
+        "sha256": "sha256:ee36ee0b2938f5b5f6d57271b5a0b4d5bee8e32c1863f86de719a269d03e7bcc"
+      },
+      {
+        "path": "run_manifests/visobert_finetune/20260522/run_manifest.json",
+        "bytes": 823,
+        "sha256": "sha256:661f8f02ae9fa4b9b3c30dcadc50bbb2245e375f322cd99f29ec08edf5e895df"
       },
       {
         "path": "run_manifests/vistral_7b_sft/20260520/run_manifest.json",
@@ -326,6 +502,329 @@
         "bytes": 751,
         "sha256": "sha256:2c9bb6c43c599c0fd54e271a7575c26a23d3bdbc268242955214ef403429885b"
       }
+    ],
+    "supplementary_experiments": [],
+    "p0_p1_p2_logs": [
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_emotion_20260521.log",
+        "bytes": 1091,
+        "sha256": "sha256:2eeaa230335017b8f405b01cb58a9f839e407ec431b2d1bc85d2ac7ba5a6308f"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_emotion_20260522.log",
+        "bytes": 1091,
+        "sha256": "sha256:c3c1cbbc424e8e7eb1aa63bc88370cf5950fd709794e2fe0e28c0d13516aecb8"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_polarity_20260521.log",
+        "bytes": 1097,
+        "sha256": "sha256:1919352aa6cee4bdd807038bf033973325dffb71c0204edcddb80568dcff9133"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_polarity_20260522.log",
+        "bytes": 1097,
+        "sha256": "sha256:fa160ef75e283d79d9988e6c2d7d00c1c3530334264169101a78d45bb8174d8b"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_rationale_20260521.log",
+        "bytes": 1103,
+        "sha256": "sha256:4bba743cc9d5d91256ae4503589878eddc0d0ce604a31758d24222ad38104665"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_rationale_20260522.log",
+        "bytes": 1103,
+        "sha256": "sha256:196b636f9bdf5d528ccdd3a1f51b849144eb319940a6ada8d30444c06644626f"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_uncertainty_20260521.log",
+        "bytes": 1115,
+        "sha256": "sha256:2486a087dc7cd4578de42cd51bdc3ae4ae04a5514a8f84bc4fd104ef659a519d"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_uncertainty_20260522.log",
+        "bytes": 1115,
+        "sha256": "sha256:42ffd29d2314b2b4c09696b9ae9a60a86f90fec2eab0b82aab0e18c98ce65f92"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_visobert_20260520.log",
+        "bytes": 1486,
+        "sha256": "sha256:0b47a1ed1b0ee234c10da2ccde349988db943312bb1ff317dca9107921003b75"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_visobert_20260521.log",
+        "bytes": 1486,
+        "sha256": "sha256:728c52c626c25e9cb448d538c14170b9e142d0d47b5aa7572e43765e137bf0e3"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_aivivn_2019_visobert_20260522.log",
+        "bytes": 1486,
+        "sha256": "sha256:6799963f1c818ed692dad5d13c12969d888e43453ccd549f10f42ca3f6eb05a9"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_emotion_20260521.log",
+        "bytes": 1082,
+        "sha256": "sha256:f7661662d5141260ca80cbc7514af243e2453140b03bedfec4b5c0019e57d945"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_emotion_20260522.log",
+        "bytes": 1082,
+        "sha256": "sha256:fbbbeacd740791e44bf2ccc234e9411c5a3df31c56ed176bb98193584c57d609"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_polarity_20260521.log",
+        "bytes": 1088,
+        "sha256": "sha256:51045524c7e7266f7a9f656523b9ecab1baf7bd2cb7d9b0ca86580055e6e58a2"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_polarity_20260522.log",
+        "bytes": 1088,
+        "sha256": "sha256:74aed35a7fc8e1ea11ce6beb1f8fb259d8d84097c3de828bbfd7b71c8e349c99"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_rationale_20260521.log",
+        "bytes": 1094,
+        "sha256": "sha256:a752ec92b2f6e6d88d9c5ba6855f7fe9877269eefb131cb721db3a814aac4487"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_rationale_20260522.log",
+        "bytes": 1094,
+        "sha256": "sha256:d6811b2711acf7ff3800c6c3dd7a5b7bc7f3dcae2f76821a8ae95ddb1f2a531b"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_uncertainty_20260521.log",
+        "bytes": 1106,
+        "sha256": "sha256:f8a7c78bb51ec365b06f3c8e81a3f80bcf2f3057ccad56c60d4ba4b53856cf92"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_uncertainty_20260522.log",
+        "bytes": 1106,
+        "sha256": "sha256:74121c645e36e796f350be763089b881dcaefdd87cfcdc41120792de1e477f4b"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_visobert_20260520.log",
+        "bytes": 1477,
+        "sha256": "sha256:0ec1ea9c1981ed52b9b85cb36cd390c06e0f9e2c87e40e799c2500d281c29697"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_visobert_20260521.log",
+        "bytes": 1477,
+        "sha256": "sha256:1a863829672a1138078b0fdd21af89df1c24209c2486dcdf9c651beee84f4e05"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsfc_visobert_20260522.log",
+        "bytes": 1477,
+        "sha256": "sha256:aca6212e527e024d4b6aa18803ff6d0d882e0853c5eb503f4a850057a4f269ee"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_emotion_20260521.log",
+        "bytes": 1084,
+        "sha256": "sha256:eb1beac1429980a6139a01c750f0f3c61151575dbb7d1504ed7f7c05ab7c49d6"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_emotion_20260522.log",
+        "bytes": 1084,
+        "sha256": "sha256:3a296cef422f66aced21a2826457741a03126b032b61e27c85a93664ff5c41e7"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_polarity_20260521.log",
+        "bytes": 1090,
+        "sha256": "sha256:91b7cef39f075ffc0e13cd8c4830a660d0be1e451ad5ec3bf7e69daae46db8c9"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_polarity_20260522.log",
+        "bytes": 1090,
+        "sha256": "sha256:96d67b28c1753d2decc5caad7479935babc4e9c7cc1a74ce24e2afa8328d92a1"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_rationale_20260521.log",
+        "bytes": 1096,
+        "sha256": "sha256:3b87ef5f387c87e079146feb099f38ae75899923db4d5547472521e4500a93cd"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_rationale_20260522.log",
+        "bytes": 1096,
+        "sha256": "sha256:3ba16035ddee806d1c826fca86b30f77767c7c42b4a0808eb3c62b751a3a157a"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_uncertainty_20260521.log",
+        "bytes": 1108,
+        "sha256": "sha256:570aad2da7398180ba92f20b44c7666c093effdebfba83d84d7689e41cadcf7c"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_uncertainty_20260522.log",
+        "bytes": 1108,
+        "sha256": "sha256:13e357b631b9b81e520ab46ecba7861331e1ec98f400130fb1f399266de26b93"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_visobert_20260520.log",
+        "bytes": 1479,
+        "sha256": "sha256:8499ab26ef9cfb323eba196d67b2e646bbc0f4f3a10c844066d0b90e5dd1f896"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_visobert_20260521.log",
+        "bytes": 1479,
+        "sha256": "sha256:001ee5d3437c61fff49f276ba3ff0bef4262081e99a214d4e4bb29f2f06d937e"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_predict_uit_vsmec_visobert_20260522.log",
+        "bytes": 1479,
+        "sha256": "sha256:88d34bd7f104be1fd695acaeeca9702fa299b8c07cfd90962ebb12afdc237a8f"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_emotion_20260521.log",
+        "bytes": 1432,
+        "sha256": "sha256:8f4412962149fe4f3ddc2557a9dc22ce42218bda8623dcabf18e57d6c47f3eb8"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_emotion_20260522.log",
+        "bytes": 1432,
+        "sha256": "sha256:5400818d874c7223e51cd14b26d5818e11f84b0ebabad23f0f5e62cc8cd3d7e1"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_polarity_20260521.log",
+        "bytes": 1438,
+        "sha256": "sha256:5bad89c5ab62a30ad6ba0b2c0fb4221bdba33a208fa4e21fcecf5fb975c23fd7"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_polarity_20260522.log",
+        "bytes": 1437,
+        "sha256": "sha256:265424081090d093415c837a287de27b713c2d90bdd9f8f4c8b46a6cb482c22e"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_rationale_20260521.log",
+        "bytes": 1442,
+        "sha256": "sha256:98415fc65fec968e1b9564be781ac5e693d309dd18e368b46ef607672754228b"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_rationale_20260522.log",
+        "bytes": 1442,
+        "sha256": "sha256:9b35bcacaf0596e488ca6c712371fc1c2bfbebb36289ddaf147e11621707fc7f"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_uncertainty_20260521.log",
+        "bytes": 1452,
+        "sha256": "sha256:7514211ea27406eab549adc682b50b4decbb1d7adb4ef9cbe7060e35f66f12c3"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_vipragsent_no_uncertainty_20260522.log",
+        "bytes": 1452,
+        "sha256": "sha256:bf4e165599410718dab9c83b3d1480e61533b2d8e1d7db918049c19fc7588619"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_visobert_20260520.log",
+        "bytes": 1859,
+        "sha256": "sha256:bb8e99d77b827246dba06438ed2250abca7012a359d8ec97e9b59d9f6602c77f"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_visobert_20260521.log",
+        "bytes": 1859,
+        "sha256": "sha256:3366d3c3776b54a0aa18a9cb559ac33a49de595027a90d123039ffe12b0336c8"
+      },
+      {
+        "path": "p0_p1_p2/logs/p0_train_visobert_20260522.log",
+        "bytes": 1858,
+        "sha256": "sha256:6af541ed34932c89410d82ceda6a1ab704d17d90d11a43433b6b54d3bcbdafe7"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_1024_phobert_finetune_20260521.log",
+        "bytes": 1603,
+        "sha256": "sha256:2eaeb4763cdfe5da37ac4dd23c9e685d1b22820e0a9885fa53100b60b1fe6cbe"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_1024_phobert_finetune_20260522.log",
+        "bytes": 1603,
+        "sha256": "sha256:c0a4370b99446ac8db6334f41ffc773ed8bd482c787d1b7ef0eab1d02b085ef8"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_1024_vipragsent_full_20260521.log",
+        "bytes": 1549,
+        "sha256": "sha256:c555dd74ae2a0e8a6d7f7d157dcdcc2c3222f915b93402c8e833fcb221767595"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_1024_vipragsent_full_20260522.log",
+        "bytes": 1550,
+        "sha256": "sha256:1f83bef20f62d77978e08c309fd764e1c179610462ab095a3949cc91d8e6f486"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_128_phobert_finetune_20260521.log",
+        "bytes": 1595,
+        "sha256": "sha256:7e2969b948d4c4234cd27b56bb75b54de129634ec818d3a193712e4db8478d9b"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_128_phobert_finetune_20260522.log",
+        "bytes": 1595,
+        "sha256": "sha256:70c27bbe801ebbbe9cfef7b240b28c3f87ff150a6fe1752d7376e02ea5ccead9"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_128_vipragsent_full_20260521.log",
+        "bytes": 1544,
+        "sha256": "sha256:d7fe94f1925c7357f713552dda857fa506968cf1565f0e8324a2546b2e3ed7c1"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_128_vipragsent_full_20260522.log",
+        "bytes": 1544,
+        "sha256": "sha256:3b6298f8585546ce504dceb68a221c17342467d7acf3b547dbcb8e3ccfbeb0e5"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_256_phobert_finetune_20260521.log",
+        "bytes": 1597,
+        "sha256": "sha256:7d45daa127c03d5d208a17369a3a46d528fd7ba18f9d678c980fca7a6a25480a"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_256_phobert_finetune_20260522.log",
+        "bytes": 1597,
+        "sha256": "sha256:f2b961f0bba1eeead3b053bf9b2e88552c1688ed2077e3b7c0ab8b0129c87888"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_256_vipragsent_full_20260521.log",
+        "bytes": 1545,
+        "sha256": "sha256:45986ac8056a4f7609914cd7c870f39080ae6491545510f9362df81256d66372"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_256_vipragsent_full_20260522.log",
+        "bytes": 1545,
+        "sha256": "sha256:77ffd6469ebb6c892a26a370c2894de15fb3cd1e5165aa8a72e9fb3ba45e561e"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_512_phobert_finetune_20260521.log",
+        "bytes": 1596,
+        "sha256": "sha256:8d8d60bec10d53fccd37ec9f1fc5c5ec027e211a8c08451f61467d3bb4a57843"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_512_phobert_finetune_20260522.log",
+        "bytes": 1597,
+        "sha256": "sha256:8b2ddfdc73a3f170abd703485833adbbb7c24a1a42af4f443951c13f30dfb33e"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_512_vipragsent_full_20260521.log",
+        "bytes": 1545,
+        "sha256": "sha256:b841b969f35885f04ec254a1fec80f4dcd737d38773868ff1692dea419105fab"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_512_vipragsent_full_20260522.log",
+        "bytes": 1545,
+        "sha256": "sha256:04bee9ade2e06c70e47643715e62fc27ba887619e9906af504c9307b70abc0a7"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_64_phobert_finetune_20260521.log",
+        "bytes": 1590,
+        "sha256": "sha256:82017298fffa97e22042de36919007c531e2585358e584e662fe2e96b4766d5e"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_64_phobert_finetune_20260522.log",
+        "bytes": 1591,
+        "sha256": "sha256:b9c6b400c99897815a557f6ed52eb788249abe476a5880fb275c0f9cab6479f9"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_64_vipragsent_full_20260521.log",
+        "bytes": 1539,
+        "sha256": "sha256:1bdfbabdc9f78e458fb55f777f91ad43bac48d0f4c7758d611aa34d787c44e2d"
+      },
+      {
+        "path": "p0_p1_p2/logs/p2_train_64_vipragsent_full_20260522.log",
+        "bytes": 1539,
+        "sha256": "sha256:c55be891292b917e228f6cbb143d1014d9f2d2184b380e3ea2407091e0a03303"
+      }
     ]
   },
   "external_model_archives": {
@@ -339,7 +838,16 @@
         "contents": "PhoBERT, XLM-R, registered ablation, and low-resource checkpoints with histories and run manifests.",
         "verified_revision": "94eb60def09d1942b01ed9ba0bf54ff030c35495",
         "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-experiment-checkpoints/tree/94eb60def09d1942b01ed9ba0bf54ff030c35495",
-        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository contains encoder, ablation, and low-resource run directories; weights remain external to Git."
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository contains encoder, ablation, and low-resource run directories; weights remain external to Git.",
+        "archive_verification": {
+          "status": "verified_at_pinned_revision",
+          "verified_scope": [
+            "repository tree",
+            "run manifests",
+            "history files"
+          ],
+          "limitation": "This archive verifies checkpoint/run availability, not the original base-model revisions for the separate 7B QLoRA systems."
+        }
       },
       "sailor_7b_qlora": {
         "repo_id": "Thundergod2007/vipragsent-sailor-7b-qlora",
@@ -348,7 +856,35 @@
         "contents": "Sailor-7B QLoRA adapters and run metadata.",
         "verified_revision": "6b8af60242827d45ec3e32a6a666daa090c1ce20",
         "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora/tree/6b8af60242827d45ec3e32a6a666daa090c1ce20",
-        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories."
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories.",
+        "historical_run_archive": {
+          "status": "verified_at_pinned_revision",
+          "verified_scope": [
+            "three per-seed run manifests",
+            "three PEFT adapter configurations",
+            "three adapter weight LFS SHA-256 identifiers"
+          ],
+          "base_model_id": "sail/Sailor-7B-Chat",
+          "seeds": [
+            20260520,
+            20260521,
+            20260522
+          ],
+          "run_manifest_paths": [
+            "seeds/20260520/run_manifest.json",
+            "seeds/20260521/run_manifest.json",
+            "seeds/20260522/run_manifest.json"
+          ],
+          "adapter_weight_sha256": {
+            "20260520": "sha256:d891219821745d297c21391c2a681f7a0c6828faf3205c5c6ef6e93566b083b1",
+            "20260521": "sha256:8fabb1e3ae274830342fcebf0cdb700198744c0276f68f93f420cac7b8c8ccbe",
+            "20260522": "sha256:1288000ad08d0028863ca0ae7e05af4b810139d13eb3e0cdff687f54ade593ad"
+          },
+          "historical_base_model_revision": "19066fae0a8a3ba029c190d8e3dacccf4d1234b8",
+          "historical_base_model_revision_provenance": "user_attested_download_time_pin_2026-07-14",
+          "historical_transformers_version": "not_recorded",
+          "interpretation": "The archived adapters and per-seed runs are traceable. The immutable Sailor-7B-Chat revision is supplied by documented user attestation of the pre-fine-tuning download, while the archive itself does not independently log the remote revision or a frozen software environment."
+        }
       },
       "vistral_7b_qlora": {
         "repo_id": "Thundergod2007/vipragsent-vistral-7b-qlora",
@@ -357,8 +893,50 @@
         "contents": "Vistral-7B QLoRA adapters and run metadata.",
         "verified_revision": "d7d8750cc73f39a841b29cf9ee377234509cebb6",
         "verified_tree_url": "https://huggingface.co/Thundergod2007/vipragsent-vistral-7b-qlora/tree/d7d8750cc73f39a841b29cf9ee377234509cebb6",
-        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories."
+        "verification_note": "Public metadata and file hierarchy were inspected on 2026-07-18. The repository exposes adapter and per-seed archive directories.",
+        "historical_run_archive": {
+          "status": "verified_at_pinned_revision",
+          "verified_scope": [
+            "three per-seed run manifests",
+            "three PEFT adapter configurations",
+            "three adapter weight LFS SHA-256 identifiers"
+          ],
+          "base_model_id": "Viet-Mistral/Vistral-7B-Chat",
+          "seeds": [
+            20260520,
+            20260521,
+            20260522
+          ],
+          "run_manifest_paths": [
+            "seeds/20260520/run_manifest.json",
+            "seeds/20260521/run_manifest.json",
+            "seeds/20260522/run_manifest.json"
+          ],
+          "adapter_weight_sha256": {
+            "20260520": "sha256:33495f215b692c47c104d251c465ac830051cb2cd9425a4a8d53ba24411eb9bb",
+            "20260521": "sha256:b95f5c56aee57ad49bb9d58b9893defe79f5eca129a494c4949d972186ed3f52",
+            "20260522": "sha256:7eca18ff9fe1a58505c2b05d5d4ecd89ec911a3f19ee557056901d56f3d73670"
+          },
+          "historical_base_model_revision": "d331b64e61b935cc43c2b3010ae9fb4fde599b45",
+          "historical_base_model_revision_provenance": "user_attested_download_time_pin_2026-07-14",
+          "historical_transformers_version": "not_recorded",
+          "interpretation": "The archived adapters and per-seed runs are traceable. The immutable Vistral-7B-Chat revision is supplied by documented user attestation of the pre-fine-tuning download, while the archive itself does not independently log the remote revision or a frozen software environment."
+        }
       }
     }
-  }
+  },
+  "local_private_integrity_records": [
+    {
+      "path": "reproducibility/id_set_manifest.json",
+      "bytes": 2204,
+      "sha256": "sha256:fa5e1f00c254177285ab36827d5828276bf320c2d09b1fba000989088a81f2d9",
+      "scope": "Private split/prediction integrity metadata; no identifiers or source text are present."
+    },
+    {
+      "path": "reproducibility/local_prediction_split_manifest.json",
+      "bytes": 3827,
+      "sha256": "sha256:4ad59d493aad6289a0f07924b744d8f7a17589eacd89dda73e7e128c2ad8bfd5",
+      "scope": "Private split/prediction integrity metadata; no identifiers or source text are present."
+    }
+  ]
 }

@@ -14,7 +14,7 @@ from vipragsent.utils.io import dump_json
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Prepare Q1-Q4 command plan without running training.")
+    parser = argparse.ArgumentParser(description="Prepare the active experiment-config plan without running training.")
     parser.add_argument("--output", default=str(ROOT / "results" / "pending" / "experiment_command_plan.json"))
     args = parser.parse_args()
 
@@ -24,7 +24,7 @@ def main() -> int:
         "commands": [
             {"experiment": "q1", "config": "configs/experiments_q1.yaml", "training": "deferred"},
             {"experiment": "q2", "config": "configs/experiments_q2.yaml", "training": "deferred"},
-            {"experiment": "q3", "config": "configs/experiments_q3.yaml", "training": "deferred"},
+            {"experiment": "p0_p1_p2", "config": "configs/experiments_p0_p1_p2.yaml", "training": "artifact_validation_only"},
             {"experiment": "q4", "config": "configs/experiments_q4.yaml", "training": "deferred"},
         ],
     }

@@ -40,12 +40,12 @@
 Pragmatic interpretation in Vietnamese-language text can depend on signals that extend beyond surface polarity. Such phenomena can shift apparent polarity or communicative intent, making a single polarity label insufficient for the defined evaluation considered here.
 % TRACE: ABS-S1 | configs/labels.yaml; answer/data_provenance/gold_build_report.json | six phenomena | bounded setting only
 We present ViPragSent, an adjudicated evaluation setting combining a documented social-media source component with author-created, context-augmented figurative-language derivatives. It covers six pragmatic phenomena: implicit sentiment, sarcasm, irony, idiom/figurative language, code-switching, and mocking, without claiming comprehensive coverage of Vietnamese pragmatics.
-% TRACE: ABS-S2 | answer/results/main_pragmatic.json; configs/experiments_q1.yaml | four approved system groups | protocol scope only
-We compare Vietnamese and multilingual encoders, 7B QLoRA SFT models, prompted API baselines, and a multi-task encoder under a common protocol.
+% TRACE: ABS-S2 | answer/results/main_pragmatic.json; answer/results/p0_visobert_baseline.json; configs/experiments_p0_p1_p2.yaml | evaluated systems and pinned ViSoBERT revision | protocol scope only
+We compare Vietnamese, multilingual, and Vietnamese-social-media encoders, including ViSoBERT, alongside 7B QLoRA SFT models, prompted API baselines, and a multi-task encoder under a common protocol.
 % TRACE: ABS-S3 | answer/results/main_pragmatic.json | vistral_7b_sft macro pragmatic F1 mean | strongest recorded evaluated system
 Vistral-7B SFT is the strongest recorded evaluated system, with macro pragmatic F1 of 82.83.
-% TRACE: ABS-S4 | answer/results/multitask_ablation.json | full versus no_multitask, seed 20260520 | observed trade-off only
-ViPragSent is not the leading recorded system; instead, its single-seed ablation records an observed trade-off between pragmatic detection and the external three-benchmark diagnostic relative to its no-multitask reference. Reported comparisons are traceable to prediction files, run manifests, result hashes, and pinned external model archives. Source text remains private and is not redistributed: the manuscript reports aggregate results and provenance, not a public raw-text release.
+% TRACE: ABS-S4 | answer/results/p0_multi_seed_ablation.json | $.systems.*.aggregate.macro_pragmatic_f1; three seeds | descriptive association only; no causal or universal auxiliary-task claim
+ViPragSent is not the leading recorded system; its three-seed ablation instead records a pragmatic-performance difference between the full configuration (73.75) and the PhoBERT no-multitask reference (81.71), with the recorded ablation variants spanning 73.56--74.34. Source-stratified and low-resource analyses are descriptive or exploratory and do not establish causal source effects or data-efficiency superiority. Reported comparisons are traceable to prediction files, run manifests, result hashes, and pinned external model archives. Source text remains private and is not redistributed: the manuscript reports aggregate results and provenance, not a public raw-text release.
 \end{abstract}
 
 \input{sections/01_introduction}
@@ -70,5 +70,25 @@ This appendix reports the per-label post-adjudication agreement values summarize
 \section{Label Prevalence}
 \label{app:label-prevalence}
 \input{appendix/table_label_prevalence}
+
+\section{Source-stratified and Low-resource Results}
+\label{app:source-lowresource}
+% TRACE: APP-C01 | answer/results/p1_source_stratified_sensitivity.json | $.test_source_counts; $.systems.*.{visobert_local,VIVID_seed_and_irony_generation}.aggregate.macro_pragmatic_f1; answer/results/p2_multi_seed_low_resource.json | $.budgets.*.{phobert_finetune,vipragsent_full}.aggregate.sarcasm; configs/experiments_p0_p1_p2.yaml | $.p2.multi_seed_low_resource.{budgets,positive_to_other_ratio,total_training_sizes} | descriptive/exploratory appendix only
+\begin{table}[!ht]
+  \centering
+  \input{tables/table_source_lowresource}
+  \caption{Supplementary three-seed analyses (mean macro F1 [normal 95\% interval]). The upper panel is a descriptive source-stratified sensitivity analysis on 1,666 ViSoBERT-local and 334 VIVID-labelled test records; it displays ViPragSent, PhoBERT, and ViSoBERT. The lower panel reports sarcasm macro F1 for the two systems at the five verified positive-label budgets. Each budget uses a 1:3 positive-to-other training composition, giving total training sizes of 256, 512, 1,024, 2,048, and 4,096. Neither panel identifies a causal source effect or a data-efficiency advantage.}
+  \label{tab:source-lowresource}
+\end{table}
+
+\section{External Diagnostics}
+\label{app:external-diagnostics}
+% TRACE: APP-C02 | answer/results/p0_multi_seed_ablation.json; answer/results/p0_visobert_baseline.json | external_benchmarks aggregates | three-seed, evaluation-only diagnostics
+\begin{table*}[!ht]
+  \centering
+  \input{tables/table_external_diagnostics}
+  \caption{Three-seed external diagnostic macro F1 (mean [normal 95\% interval]) for the four P0 ablations and ViSoBERT. UIT-VSFC and AIVIVN-2019 use polarity macro F1; UIT-VSMEC uses emotion macro F1. These datasets have distinct label spaces and are evaluation-only diagnostics, not a pooled transfer result.}
+  \label{tab:external-diagnostics}
+\end{table*}
 
 \end{document}

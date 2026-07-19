@@ -1,7 +1,7 @@
 ---
 library_name: peft
 license: other
-base_model: sail/Sailor-7B
+base_model: sail/Sailor-7B-Chat
 language:
 - vi
 pipeline_tag: text-classification
@@ -13,7 +13,7 @@ tags:
 - vietnamese
 ---
 
-# ViPragSent Sailor-7B QLoRA Adapter
+# ViPragSent Sailor-7B-Chat QLoRA Adapter
 
 Archive: [Thundergod2007/vipragsent-sailor-7b-qlora](https://huggingface.co/Thundergod2007/vipragsent-sailor-7b-qlora) (private before the associated submission decision).
 
@@ -25,7 +25,9 @@ The model emits one JSON object containing six binary pragmatic labels (`implici
 
 ## Training protocol
 
-- Base model: `sail/Sailor-7B`
+- Base model: `sail/Sailor-7B-Chat` at revision
+  `19066fae0a8a3ba029c190d8e3dacccf4d1234b8`. The researcher attests that
+  this base was downloaded on 2026-07-14 before QLoRA setup and fine-tuning.
 - Method: NF4 4-bit QLoRA SFT
 - LoRA rank/alpha/dropout: 16/32/0.05
 - Epochs: 3
@@ -43,10 +45,11 @@ Exact run-specific settings and elapsed time are recorded in `run_manifest.json`
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-base_id = "sail/Sailor-7B"
-base = AutoModelForCausalLM.from_pretrained(base_id, device_map="auto")
+base_id = "sail/Sailor-7B-Chat"
+base_revision = "19066fae0a8a3ba029c190d8e3dacccf4d1234b8"
+base = AutoModelForCausalLM.from_pretrained(base_id, revision=base_revision, device_map="auto")
 model = PeftModel.from_pretrained(base, "Thundergod2007/vipragsent-sailor-7b-qlora", subfolder="seeds/20260520/adapter")
-tokenizer = AutoTokenizer.from_pretrained(base_id)
+tokenizer = AutoTokenizer.from_pretrained(base_id, revision=base_revision)
 ```
 
 Use the prompt and deterministic JSON parser from `scripts/train_qlora_sft.py` in the [ViPragSent repository](https://github.com/hieukendu/paper/tree/main/artifact/vipragsent-repro). Loading the adapter alone without the registered prompt/parser does not reproduce reported predictions.
@@ -63,4 +66,4 @@ Machine-readable metrics, predictions, bootstrap intervals, significance results
 
 Outputs may reflect annotation subjectivity, class imbalance, social-media bias, and generation/JSON parsing failures. Do not use the model for decisions about individuals, surveillance, or fully automated high-impact moderation. Generated rationales used elsewhere in the project were not manually faithfulness-audited.
 
-The adapter is a research artifact. Use of the base model remains governed by Sailor-7B's license and access terms. ViPragSent raw-text redistribution remains restricted pending confirmation of the source ViSoBERT export terms.
+The adapter is a research artifact. Use of the base model remains governed by Sailor-7B-Chat's Apache-2.0 license and access terms. The archived run manifests retain local cache paths rather than remote revision fields, so the listed base revision is documented download-time provenance rather than an independently logged runtime snapshot. ViPragSent raw-text redistribution remains restricted pending confirmation of the source ViSoBERT export terms.

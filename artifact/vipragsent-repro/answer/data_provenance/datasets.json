@@ -6,26 +6,10 @@
       "name": "visobert_local",
       "path": "D:\\hf_cache\\exports\\visobert_12000_api",
       "records": 12000,
-      "final_gold_records": 10000,
-      "final_gold_note": "2000 earlier ViSoBERT rows were replaced before the fixed gold partitions were formed.",
       "split_counts": {
         "unassigned": 12000
       },
       "task": "social_text_pool"
-    },
-    {
-      "label_status": "adjudicated_project_labels",
-      "license": "upstream_source_and_license_manual_review_required",
-      "name": "VIVID_seed_and_irony_generation",
-      "path": "Quynh_Nhu_synced-1.xlsx",
-      "records": 2000,
-      "split_counts": {
-        "dev": 333,
-        "test": 334,
-        "train": 1333
-      },
-      "task": "final_gold_replacement_candidates",
-      "notes": "Identified from stored per-record provenance. These rows replace earlier ViSoBERT rows and are included in the final experimental gold partitions."
     },
     {
       "label_status": "reviewed_source_labels",
@@ -77,18 +61,9 @@
       ],
       "license": "manual_review_required",
       "name": "AIVIVN-2019 Kaggle mirror",
-      "notes": "Source has train/test only; dev was sampled from train. Not the 3-way split expected by workflow or asserted as an organizer-canonical split.",
+      "notes": "Source has train/test only; dev was sampled from train. Not the 3-way split expected by workflow.",
       "path": "data/raw/aivivn_2019",
       "preserve_original_splits": false,
-      "provenance": {
-        "artifact_identity_status": "verified_local_sha256",
-        "artifact_source_role": "unofficial_mirror",
-        "canonical_organizer_record_status": "unresolved",
-        "historical_organizer_url": "https://www.aivivn.com/contests/1",
-        "historical_organizer_url_status": "verified_in_scholarly_source",
-        "scholarly_reference": "Nguyen et al. (2020), doi:10.3233/FAIA200579",
-        "scholarly_reference_scope": "Published AIVIVN-2019 dataset description only; it does not establish the local mirror's identity, license, or canonical split."
-      },
       "records": 16087,
       "split_counts": {
         "dev": 1287,

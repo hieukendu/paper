@@ -19,7 +19,7 @@ MODELS = {
     "phobert-base": {"repo_id": "vinai/phobert-base", "revision": None},
     "xlm-roberta-large": {"repo_id": "FacebookAI/xlm-roberta-large", "revision": None},
     "ViSoBERT": {"repo_id": "uitnlp/visobert", "revision": "196a62afad9cbe4f52a54aabad828b13f0eec59a"},
-    "Sailor-7B": {"repo_id": "sail/Sailor-7B", "revision": "b8b49a0f02073e58db2e42e5811955dfe87ca970"},
+    "Sailor-7B-Chat": {"repo_id": "sail/Sailor-7B-Chat", "revision": "19066fae0a8a3ba029c190d8e3dacccf4d1234b8"},
     "Vistral-7B-Chat": {"repo_id": "Viet-Mistral/Vistral-7B-Chat", "revision": "d331b64e61b935cc43c2b3010ae9fb4fde599b45"},
 }
 
@@ -33,7 +33,7 @@ def main() -> int:
     token = os.getenv("HF_TOKEN") or os.getenv("HUGGINGFACE_HUB_TOKEN")
     root = Path(args.cache_root) / "models"
     for name, spec in MODELS.items():
-        if args.skip_7b and name in {"Sailor-7B", "Vistral-7B-Chat"}:
+        if args.skip_7b and name in {"Sailor-7B-Chat", "Vistral-7B-Chat"}:
             continue
         repo_id = spec["repo_id"]
         revision = spec["revision"]

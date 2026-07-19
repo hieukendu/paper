@@ -6,7 +6,7 @@ This section separates observations stored in the analysis artifacts from their 
 \subsection{Confusion Analysis}
 
 % TRACE: S6-C01 | answer/results/error_confusion.json | $.system, $.label, $.labels, $.row_normalised | exact matrix system and scope
-\textbf{OBSERVED EVIDENCE.} The stored row-normalized pragmatic-polarity confusion matrix is for ViPragSent (ours), using its seed-20260520 prediction file, with six recorded classes: positive, negative, neutral, ironic-positive, sarcastic-negative, and mocking.  Rows are gold classes and columns are predicted classes.  It is therefore a single-seed diagnostic for this evaluated system and class construction, rather than an error analysis of the other systems or a three-seed aggregate from the main comparison.  The source graphic is reserved for an appendix placement so that its six class labels remain legible.
+\textbf{OBSERVED EVIDENCE.} The stored row-normalized pragmatic-polarity confusion matrix is for ViPragSent (ours), using its seed-20260520 prediction file, with six recorded classes: positive, negative, neutral, ironic-positive, sarcastic-negative, and mocking.  Rows are gold classes and columns are predicted classes.  It is therefore a single-seed diagnostic for this evaluated system and class construction, rather than an error analysis of the other systems or a three-seed aggregate from the main comparison.  The source graphic is retained in the verified artifact bundle rather than included in the current appendix, so that its six class labels remain legible when inspected.
 % TRACE: S6-C02 | answer/results/error_confusion.json | $.row_normalised[1][2], $.row_normalised[2][2], $.row_normalised[4][4], $.row_normalised[5][5] | descriptive matrix entries only
 The recorded neutral diagonal is 79.76\%, whereas the negative row assigns 47.06\% of its records to neutral; the sarcastic-negative and mocking diagonals are 55.04\% and 55.08\%, respectively.
 The ironic-positive row has no counts in this stored matrix, so it cannot support a row-level recall observation.  These values are descriptive entries in a row-normalized artifact, not independent estimates for every pragmatic label in the study.
@@ -18,23 +18,33 @@ The ironic-positive row has no counts in this stored matrix, so it cannot suppor
 \subsection{Calibration}
 
 % TRACE: S6-C03 | answer/results/calibration.json | $.provenance.reporting_scope, $.systems.{phobert_finetune,xlmr_large,vipragsent_full} | eligible-system scope
-\textbf{OBSERVED EVIDENCE.} Calibration is reported only for seed-20260520 prediction files with stored pragmatic-polarity confidence scores: PhoBERT fine-tune, XLM-R-large, and ViPragSent (ours).  The artifact excludes systems without those recorded scores, so it does not justify a calibration ranking across all seven main-comparison systems or a three-seed calibration estimate.
+\textbf{OBSERVED EVIDENCE.} Calibration is reported only for seed-20260520 prediction files with stored pragmatic-polarity confidence scores: PhoBERT fine-tune, XLM-R-large, and ViPragSent (ours).  The artifact excludes systems without those recorded scores, so it does not justify a calibration ranking across all eight main-comparison systems or a three-seed calibration estimate.
 % TRACE: S6-C04 | answer/results/calibration.json | $.systems.{phobert_finetune,vipragsent_full,xlmr_large}.{n,ece,missing_confidence}; answer/tables/calibration.md | stored calibration values only
 Each eligible system has 2,000 scored records and zero missing confidence entries; the stored ECE values are 0.09 for PhoBERT fine-tune, 0.07 for ViPragSent (ours), and 0.15 for XLM-R-large.
-The bin-level reliability outputs and their visual detail are reserved for the appendix, where they can be read with the corresponding confidence-scope qualification.
+The bin-level reliability outputs and their visual detail are retained in the verified artifact bundle rather than included in the current appendix; they should be read with the corresponding confidence-scope qualification.
 
 \textbf{PLAUSIBLE INTERPRETATION.} Within this restricted set of recorded confidence outputs, ViPragSent has the lowest stored ECE.  This statement concerns calibration error on the defined pragmatic-polarity target; it neither changes the macro-F1 ordering nor implies that the same ordering would hold for systems without archived confidence values.
 
 \textbf{UNTESTED HYPOTHESIS.} Whether calibration post-processing or a different confidence extraction procedure would alter these values is not tested here.  Accordingly, no causal account of the ECE differences is made.
 
+\subsection{Source-stratified Sensitivity}
+
+% TRACE: S6-C05 | answer/results/p1_source_stratified_sensitivity.json | $.test_source_counts; manuscript/latex/tables/table_source_lowresource.tex | fixed source-labelled sample sizes and three-seed coverage | descriptive sensitivity only
+\textbf{OBSERVED EVIDENCE.} P1 splits the fixed test partition into 1,666 ViSoBERT-local records and 334 VIVID-labelled records, with all reported systems scored separately across three seeds. Appendix Table~\ref{tab:source-lowresource} displays ViPragSent, PhoBERT, and ViSoBERT to make the scale and uncertainty of the source-stratified results inspectable.
+% TRACE: S6-C06 | answer/results/p1_source_stratified_sensitivity.json | $.systems.{vipragsent_full,phobert_finetune,visobert_finetune}.{visobert_local,VIVID_seed_and_irony_generation}.aggregate.macro_pragmatic_f1 | descriptive stratum estimates and intervals only
+For ViPragSent, PhoBERT, and ViSoBERT respectively, macro pragmatic F1 is 52.56 [52.38, 52.73], 60.60 [58.63, 62.57], and 62.08 [60.69, 63.47] on the ViSoBERT-local stratum, versus 79.84 [79.71, 79.96], 87.21 [85.48, 88.95], and 93.04 [90.55, 95.54] on the VIVID-labelled stratum. The latter stratum is smaller, so its intervals should be read with its 334-record scope in view.
+
+\textbf{PLAUSIBLE INTERPRETATION.} These results describe the recorded, source-labelled composition of this test partition. They do not identify a source-domain cause, establish that one source is intrinsically easier, or generalize to a broader domain-transfer setting.
+
+\textbf{UNTESTED HYPOTHESIS.} Differences between strata could reflect the constructed labels, class composition, source provenance, or other coupled properties. The present observational split does not isolate those alternatives.
+
 \subsection{Exploratory Low-resource Sarcasm}
 
-% TRACE: S6-C05 | answer/results/low_resource_sarcasm.json | $.provenance.reporting_scope, $.budgets.*.positive_budget, $.budgets.*.systems.*.metrics.sarcasm.n_seeds | exploratory one-seed scope
-\textbf{OBSERVED EVIDENCE.} The low-resource sarcasm artifact is an exploratory comparison between PhoBERT fine-tune and ViPragSent (ours) at positive budgets of 64, 128, 256, 512, and 1024.  Each system--budget result has one registered seed, so the point values are not multi-seed estimates.
-% TRACE: S6-C06 | answer/results/low_resource_sarcasm.json | $.budgets.{64,128,256,512,1024}.systems.*.metrics.sarcasm.mean | non-monotonic descriptive outcome only
-The stored sarcasm F1 sequence for PhoBERT is 45.24, 44.96, 76.13, 75.99, and 76.33, while the ViPragSent sequence is 47.19, 48.72, 45.22, 74.31, and 74.49 across those budgets.
-Both recorded sequences are non-monotonic: for example, the ViPragSent value falls from 48.72 at 128 to 45.22 at 256 before increasing at the later budgets.  The result is therefore reported as an exploratory pattern, not as evidence of data efficiency.
+% TRACE: S6-C07 | answer/results/p2_multi_seed_low_resource.json | $.budgets.*.{phobert_finetune,vipragsent_full}.aggregate.sarcasm; configs/experiments_p0_p1_p2.yaml | $.p2.multi_seed_low_resource.{budgets,positive_to_other_ratio,total_training_sizes} | three-seed exploratory budget scope only
+\textbf{OBSERVED EVIDENCE.} P2 compares PhoBERT fine-tune and ViPragSent (ours) at sarcasm-positive budgets of 64, 128, 256, 512, and 1,024, corresponding to total training sizes of 256, 512, 1,024, 2,048, and 4,096 under the verified 1:3 positive-to-other composition. Every system--budget condition has three recorded seeds; Appendix Table~\ref{tab:source-lowresource} reports the aggregate sarcasm macro F1 and normal 95\% intervals.
+% TRACE: S6-C08 | answer/results/p2_multi_seed_low_resource.json | $.budgets.{64,128,256,512,1024}.{phobert_finetune,vipragsent_full}.aggregate.sarcasm | mixed-monotonicity descriptive outcome only
+The PhoBERT means are 45.24, 45.15, 75.72, 75.41, and 76.34, whereas the ViPragSent means are 47.45, 47.79, 64.44, 74.35, and 74.89 across the increasing positive budgets. The PhoBERT sequence is non-monotonic, whereas the recorded ViPragSent sequence increases across the five budgets; the ViPragSent interval at 256 is wide [45.57, 83.30].
 
-\textbf{PLAUSIBLE INTERPRETATION.} The stored curves show that budget alone does not provide a monotone description of these single-run outcomes.  They are useful for motivating a pre-registered multi-seed follow-up, but do not establish stable behavior across different sampled training subsets.
+\textbf{PLAUSIBLE INTERPRETATION.} The mixed patterns across systems show that the recorded positive-budget increase does not yield one uniform response across the two systems. They provide a three-seed exploratory characterization of these sampled training subsets, not a comparative data-efficiency conclusion.
 
-\textbf{UNTESTED HYPOTHESIS.} The observed changes could depend on the composition of the selected examples, optimization variation, or other unrecorded factors.  The present study does not isolate those alternatives, and it makes no architectural explanation or general low-resource claim.
+\textbf{UNTESTED HYPOTHESIS.} The changes could depend on subset composition, optimization variation, or other unrecorded factors. The present design does not isolate those alternatives or establish an architectural explanation.

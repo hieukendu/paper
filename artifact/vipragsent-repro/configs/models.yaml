@@ -24,21 +24,21 @@ backbones:
   vistral_7b:
     model_id: Viet-Mistral/Vistral-7B-Chat
     revision: d331b64e61b935cc43c2b3010ae9fb4fde599b45
-    revision_status: upstream_head_resolved_2026-07-18_not_historical_run_provenance
+    revision_status: user_attested_download_time_pin_2026-07-14;_upstream_main_requeried_2026-07-19
     local_path: null
-    download_status: blocked_gated_hf_access
+    download_status: historical_download_attested_2026-07-14_not_retained_locally
     size_note: HF reports about 29.2 GB used storage; access approval is required before git clone.
     adapter: qlora
-    local_training: disabled
+    local_training: archived_run_only_no_current_local_training
   sailor_7b:
-    model_id: sail/Sailor-7B
-    revision: b8b49a0f02073e58db2e42e5811955dfe87ca970
-    revision_status: upstream_head_resolved_2026-07-18_not_historical_run_provenance
+    model_id: sail/Sailor-7B-Chat
+    revision: 19066fae0a8a3ba029c190d8e3dacccf4d1234b8
+    revision_status: user_attested_download_time_pin_2026-07-14;_upstream_main_requeried_2026-07-19
     local_path: null
-    download_status: removed_local_not_required_for_no_finetune
-    size_note: model.safetensors is about 15.4 GB; use third-party inference and import prediction JSONL instead of hosting locally.
+    download_status: historical_download_attested_2026-07-14_not_retained_locally
+    size_note: Sailor-7B-Chat was the historical QLoRA base; use the pinned upstream revision and archived prediction JSONL for inspection rather than asserting a retained local base-model copy.
     adapter: qlora
-    local_training: disabled
+    local_training: archived_run_only_no_current_local_training
 heads:
   pragmatic_binary: 6
   polarity: 3

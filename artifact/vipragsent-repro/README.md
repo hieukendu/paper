@@ -5,10 +5,10 @@ This package contains the evaluated ViPragSent experiments, their machine-readab
 ## Scope of the completed study
 
 - **Data:** 12,000 adjudicated ViPragSent records, split into 8,000 train / 2,000 development / 2,000 test examples.
-- **Main pragmatic evaluation:** PhoBERT, XLM-R, Sailor-7B, Vistral-7B, GPT-4.1-mini zero-/8-shot, and the ViPragSent multitask model. Encoder and 7B systems have three recorded seeds; API baselines are single-run prompted baselines.
-- **External ordinary-task diagnostic:** PhoBERT, XLM-R, and ViPragSent on UIT-VSFC, UIT-VSMEC, and AIVIVN. These datasets are external evaluation benchmarks, not ViPragSent sources.
-- **Ablation:** full model, removal of emotion, ordinary-sentiment, rationale, and uncertainty auxiliaries, plus the no-multitask PhoBERT reference. Inference-time rationale generation and hard-label distillation are outside this study's scope.
-- **Supplementary analyses:** low-resource sarcasm (PhoBERT versus ViPragSent, one registered seed), calibration for systems with pragmatic-polarity confidence scores, confusion analysis, learning curves, measured GPU wall-clock time, paired bootstrap significance, and inter-annotator agreement.
+- **Main pragmatic evaluation:** PhoBERT, XLM-R, ViSoBERT, Sailor-7B-Chat, Vistral-7B-Chat, GPT-4.1-mini zero-/8-shot, and the ViPragSent multitask model. Learned encoders and 7B systems have three recorded seeds; API baselines are single-run prompted baselines. ViSoBERT is pinned to revision `196a62afad9cbe4f52a54aabad828b13f0eec59a`; the two 7B Chat pins are documented in `configs/artifact_registry.json` as user-attested 2026-07-14 download-time provenance.
+- **External ordinary-task diagnostic:** PhoBERT, XLM-R, ViPragSent, four ablations, and ViSoBERT have retained evaluation artifacts on UIT-VSFC, UIT-VSMEC, and AIVIVN with their recorded system/seed scopes. These datasets are external evaluation benchmarks, not ViPragSent sources.
+- **Ablation:** full model, the no-multitask PhoBERT reference, and removal of emotion, ordinary-sentiment, rationale, and uncertainty auxiliaries all have recorded three-seed pragmatic results. Inference-time rationale generation and hard-label distillation are outside this study's scope.
+- **Supplementary analyses:** P1 is a descriptive source-stratified sensitivity analysis (1,666 `visobert_local` and 334 VIVID-labelled test records); P2 is a three-seed low-resource sarcasm study (PhoBERT versus ViPragSent at five positive budgets). Calibration, confusion analysis, learning curves, measured GPU wall-clock time, paired-bootstrap diagnostics, and inter-annotator agreement remain separately scoped analyses.
 
 The completed results do not establish that ViPragSent outperforms every baseline. Any manuscript must state the observed comparison faithfully and must not reuse values from the separate draft manuscript package.
 
@@ -37,8 +37,10 @@ python scripts/12_import_annotation_workbooks.py
 python scripts/summarize_ablation_predictions.py
 python scripts/19_compute_iaa.py
 python scripts/20_paired_significance.py
+python scripts/run_p0_p1_p2_experiments.py --bootstrap-resamples 200
 python scripts/run_experiments.py --vipragsent-test data/processed/vipragsent_test.jsonl --external-evaluation-data data/processed/all_unified.jsonl --predictions-dir results/predictions --output-dir results --bootstrap-resamples 1000
 python scripts/make_artifacts.py
+python scripts/22_generate_manuscript_experiment_tables.py
 python scripts/21_paper_readiness.py
 python scripts/17_collect_answer_bundle.py
 python -m pytest -q
@@ -50,5 +52,6 @@ python -m pytest -q
 
 - Use only values in generated `results/*.json` and tables derived from them.
 - Report calibration only for systems with stored confidence scores; missing confidence is `N/A`, not zero calibration error.
-- Treat the low-resource study as exploratory because it has one registered seed per budget.
+- Treat P1 as a descriptive source-stratified sensitivity analysis, not causal evidence of a source-domain effect or source superiority.
+- Treat P2 as exploratory three-seed evidence: its mixed monotonicity across systems and uncertainty do not establish a data-efficiency advantage.
 - Report the observed inter-annotator agreement and the adjudication protocol; do not describe generated rationales as manually faithfulness-verified.

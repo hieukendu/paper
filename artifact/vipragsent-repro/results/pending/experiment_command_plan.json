@@ -11,9 +11,9 @@
       "training": "deferred"
     },
     {
-      "config": "configs/experiments_q3.yaml",
-      "experiment": "q3",
-      "training": "deferred"
+      "config": "configs/experiments_p0_p1_p2.yaml",
+      "experiment": "p0_p1_p2",
+      "training": "artifact_validation_only"
     },
     {
       "config": "configs/experiments_q4.yaml",

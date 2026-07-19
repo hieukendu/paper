@@ -8,20 +8,34 @@
     "clone_command": "git clone https://github.com/hieukendu/paper.git"
   },
   "base_models": {
-    "resolution_note": "These immutable upstream revisions were resolved on 2026-07-18 for future retrieval. Historical result runs did not record base-model revisions, so these values are not retrospective evidence of the exact historical snapshots.",
+    "resolution_note": "The immutable revisions below are user-attested download-time pins: the researcher confirms both Chat bases were downloaded on 2026-07-14 before QLoRA setup and fine-tuning. The Hugging Face main references were re-queried on 2026-07-19. Archived run manifests record local cache paths rather than remote IDs or revisions, so this attestation improves historical retrieval traceability without constituting an independently logged runtime snapshot.",
     "sailor_7b": {
-      "repo_id": "sail/Sailor-7B",
-      "revision": "b8b49a0f02073e58db2e42e5811955dfe87ca970",
-      "revision_tree_url": "https://huggingface.co/sail/Sailor-7B/tree/b8b49a0f02073e58db2e42e5811955dfe87ca970",
-      "resolved_at": "2026-07-18",
-      "historical_run_provenance": "unverified"
+      "repo_id": "sail/Sailor-7B-Chat",
+      "revision": "19066fae0a8a3ba029c190d8e3dacccf4d1234b8",
+      "revision_tree_url": "https://huggingface.co/sail/Sailor-7B-Chat/tree/19066fae0a8a3ba029c190d8e3dacccf4d1234b8",
+      "downloaded_at": "2026-07-14",
+      "resolved_at": "2026-07-19",
+      "license": "apache-2.0",
+      "historical_run_provenance": "user_attested_download_time_pin",
+      "attestation_scope": "The researcher confirms Sailor-7B-Chat was downloaded before setup and QLoRA fine-tuning. The archived adapter and run manifests record only /root/hf_cache/models/Sailor-7B."
     },
     "vistral_7b_chat": {
       "repo_id": "Viet-Mistral/Vistral-7B-Chat",
       "revision": "d331b64e61b935cc43c2b3010ae9fb4fde599b45",
       "revision_tree_url": "https://huggingface.co/Viet-Mistral/Vistral-7B-Chat/tree/d331b64e61b935cc43c2b3010ae9fb4fde599b45",
+      "downloaded_at": "2026-07-14",
+      "resolved_at": "2026-07-19",
+      "license": "afl-3.0",
+      "historical_run_provenance": "user_attested_download_time_pin",
+      "attestation_scope": "The researcher confirms Vistral-7B-Chat was downloaded before setup and QLoRA fine-tuning. The archived adapter and run manifests record only /root/hf_cache/models/Vistral-7B-Chat."
+    },
+    "visobert": {
+      "repo_id": "uitnlp/visobert",
+      "revision": "196a62afad9cbe4f52a54aabad828b13f0eec59a",
+      "revision_tree_url": "https://huggingface.co/uitnlp/visobert/tree/196a62afad9cbe4f52a54aabad828b13f0eec59a",
       "resolved_at": "2026-07-18",
-      "historical_run_provenance": "unverified"
+      "historical_run_provenance": "recorded_in_p0_run_manifests",
+      "tokenizer": "SentencePiece tokenizer resolved from the same pinned model revision"
     }
   },
   "external_model_archives": {
@@ -53,7 +67,7 @@
         "historical_run_archive": {
           "status": "verified_at_pinned_revision",
           "verified_scope": ["three per-seed run manifests", "three PEFT adapter configurations", "three adapter weight LFS SHA-256 identifiers"],
-          "base_model_id": "sail/Sailor-7B",
+          "base_model_id": "sail/Sailor-7B-Chat",
           "seeds": [20260520, 20260521, 20260522],
           "run_manifest_paths": ["seeds/20260520/run_manifest.json", "seeds/20260521/run_manifest.json", "seeds/20260522/run_manifest.json"],
           "adapter_weight_sha256": {
@@ -61,9 +75,10 @@
             "20260521": "sha256:8fabb1e3ae274830342fcebf0cdb700198744c0276f68f93f420cac7b8c8ccbe",
             "20260522": "sha256:1288000ad08d0028863ca0ae7e05af4b810139d13eb3e0cdff687f54ade593ad"
           },
-          "historical_base_model_revision": "not_recorded",
+          "historical_base_model_revision": "19066fae0a8a3ba029c190d8e3dacccf4d1234b8",
+          "historical_base_model_revision_provenance": "user_attested_download_time_pin_2026-07-14",
           "historical_transformers_version": "not_recorded",
-          "interpretation": "The archived adapters and per-seed runs are traceable, but this archive cannot retrospectively identify the immutable Sailor base-model commit used for the historical runs."
+          "interpretation": "The archived adapters and per-seed runs are traceable. The immutable Sailor-7B-Chat revision is supplied by documented user attestation of the pre-fine-tuning download, while the archive itself does not independently log the remote revision or a frozen software environment."
         }
       },
       "vistral_7b_qlora": {
@@ -85,9 +100,10 @@
             "20260521": "sha256:b95f5c56aee57ad49bb9d58b9893defe79f5eca129a494c4949d972186ed3f52",
             "20260522": "sha256:7eca18ff9fe1a58505c2b05d5d4ecd89ec911a3f19ee557056901d56f3d73670"
           },
-          "historical_base_model_revision": "not_recorded",
+          "historical_base_model_revision": "d331b64e61b935cc43c2b3010ae9fb4fde599b45",
+          "historical_base_model_revision_provenance": "user_attested_download_time_pin_2026-07-14",
           "historical_transformers_version": "not_recorded",
-          "interpretation": "The archived adapters and per-seed runs are traceable, but this archive cannot retrospectively identify the immutable Vistral base-model commit used for the historical runs."
+          "interpretation": "The archived adapters and per-seed runs are traceable. The immutable Vistral-7B-Chat revision is supplied by documented user attestation of the pre-fine-tuning download, while the archive itself does not independently log the remote revision or a frozen software environment."
         }
       }
     }
@@ -97,7 +113,18 @@
     "generated_results": "results/",
     "portable_hand_off": "answer/",
     "gold_and_public_evaluation_data": "data/processed/",
-    "integrity_metadata": "data/manifest/checksums.json"
+    "integrity_metadata": "data/manifest/checksums.json",
+    "p0_p1_p2_config": "configs/experiments_p0_p1_p2.yaml",
+    "p0_p1_p2_results": [
+      "results/p0_multi_seed_ablation.json",
+      "results/p0_visobert_baseline.json",
+      "results/p1_source_stratified_sensitivity.json",
+      "results/p2_multi_seed_low_resource.json",
+      "results/p0_p1_p2_summary.json",
+      "results/p0p1p2_runs.json"
+    ],
+    "p0_p1_p2_prediction_root": "results/predictions/",
+    "p0_p1_p2_run_manifest_root": "answer/run_manifests/"
   },
   "access_notes": [
     "No access token, secret, raw checkpoint, or adapter weight is committed to this repository.",

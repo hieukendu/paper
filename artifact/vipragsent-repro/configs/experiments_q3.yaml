@@ -1,5 +1,6 @@
 experiment: q3_low_resource_sarcasm
-status: exploratory_complete
+status: historical_single_seed
+superseded_by: configs/experiments_p0_p1_p2.yaml#p2
 output: results/low_resource_sarcasm.json
 positive_budgets: [64, 128, 256, 512, 1024]
 fixed_test_set: true

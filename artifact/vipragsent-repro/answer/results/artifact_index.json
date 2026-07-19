@@ -1,6 +1,6 @@
 {
   "claim_ledger": "results/claim_ledger.csv",
-  "claim_rows": 99,
+  "claim_rows": 151,
   "figures": {
     "calibration": "figures/fig7_calibration.svg",
     "confusion": "figures/fig5_confusion.svg",
@@ -21,6 +21,12 @@
     "main_pragmatic.json": "sha256:fbbe10b0ca70b269e4f4ff360bac50bf3d5033bfe19c308f0939ea21c2bb0aa3",
     "multitask_ablation.json": "sha256:06799c125770ce750448f4a1a44730226d9f8e69a9f552e1ed17c131f1d7ce90",
     "ordinary_sentiment.json": "sha256:d9cde92b4f60f999f5538a6be6fd2143a54a2313b4d4a10065672aa3e77121a1",
+    "p0_multi_seed_ablation.json": "sha256:63016d0f0fad0a5f43fbdf80cdcb4481ad8ee11c5172f6833ac0f8a9652b8e7a",
+    "p0_p1_p2_summary.json": "sha256:9f2bd2fe836809c6947f9e2a621bbe664ca26657033e75d4531e9a4b5f029e97",
+    "p0_visobert_baseline.json": "sha256:d9c68eb0baf92c8d5c3d2614e799c79a90bd17ba51e79be59b54eee905bda1bd",
+    "p0p1p2_runs.json": "sha256:760433b1a67c82ffe2cdc41ba00dda669fdc6a11710e90050e2d24f45b87e86d",
+    "p1_source_stratified_sensitivity.json": "sha256:c0e9066368ae1d4bc0bfbe9d57b0f4b996e2a8d05326d5fd01abf8aaae0653df",
+    "p2_multi_seed_low_resource.json": "sha256:28afd8e05e4d22310886156877e35a981c1ea86bcd2c111cfbeefe63b7c8c2ee",
     "paper_readiness.json": "sha256:c19f5b0a96d4120c348b9b4c9da4dec4b496bd09e6f121d952c25b0676061c4d",
     "significance.json": "sha256:b53c4b28537b5e188b91040b74ec19d6054f0c1f2982965fc05347ca41dba70b"
   },
@@ -35,6 +41,7 @@
     "main_pragmatic": "tables/main_pragmatic.md",
     "multitask_ablation": "tables/multitask_ablation.md",
     "ordinary_sentiment": "tables/ordinary_sentiment.md",
+    "p0_p1_p2_experiments": "tables/p0_p1_p2_experiments.md",
     "significance": "tables/significance.md"
   }
 }

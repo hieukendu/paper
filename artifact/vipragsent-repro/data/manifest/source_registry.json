@@ -4,7 +4,8 @@
     "AIVIVN Kaggle mirror is binary train/test, not the 3-way split described in the workflow; confirm whether to keep it or provide the exact source.",
     "Rule-based social labels are silver_agent only; two reviewers plus adjudicator must approve before gold splits.",
     "Rare label thresholds are low for sarcasm, irony, idiom_figurative, code_switching, implicit_sentiment; use enrichment queue for targeted human review.",
-    "No social-media crawling was performed because ENABLE_SOCIAL_CRAWL=false and ToS/legal review is pending."
+    "No social-media crawling was performed because ENABLE_SOCIAL_CRAWL=false and ToS/legal review is pending.",
+    "VIVID-derived rows are retained as a separately labelled evaluation stratum; authorization and license review remain required before release or unrestricted use."
   ],
   "outputs": {
     "agent_prelabeled_social": "data/interim/agent_prelabeled.jsonl",
@@ -45,6 +46,12 @@
       "label_status": "silver_agent_rule_based",
       "path": "D:\\hf_cache\\exports\\visobert_12000_api",
       "records": 12000
+    },
+    "VIVID_seed_and_irony_generation": {
+      "license_status": "unknown_or_dataset_card",
+      "note": "Author-created, context-augmented derivatives used as a labelled sensitivity stratum; descriptive P1 analysis does not establish redistribution rights or causal source effects.",
+      "records_in_vipragsent_test": 334,
+      "source_authorization": "manual_review_required"
     }
   },
   "status": "downloaded_and_unified_for_human_review"

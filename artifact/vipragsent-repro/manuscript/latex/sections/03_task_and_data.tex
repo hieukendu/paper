@@ -28,7 +28,7 @@ Appendix~\ref{app:label-prevalence} reports positive pragmatic-label counts by f
 % TRACE: S3-C04 | answer/data_provenance/gold_build_report.json | $.final_gold_records
 The gold corpus contains 12,000 adjudicated records.
 % TRACE: S3-C04a | data/processed/vipragsent_{train,dev,test}.jsonl | $.source.dataset; answer/data_provenance/gold_build_report.json | $.split_counts.*.platforms; scripts/12_import_annotation_workbooks.py | lines 109--110
-Its stored source metadata identifies 10,000 retained local ViSoBERT-export records and 2,000 author-created, context-augmented derivatives based on Vietnamese idiom/proverb materials from VIVID \\citep{rem-lab-2026-vivid}.  The contextualization was informed in part by verbal-irony strategies described by \\citet{ghosh-etal-2019-verbal-irony}; it is not presented as a reproduction of that English-language study.
+Its stored source metadata identifies 10,000 retained local ViSoBERT-export records and 2,000 author-created, context-augmented derivatives based on Vietnamese idiom/proverb materials from VIVID \citep{rem-lab-2026-vivid}.  The contextualization was informed in part by verbal-irony strategies described by \citet{ghosh-etal-2019-verbal-irony}; it is not presented as a reproduction of that English-language study.
 % TRACE: S3-C04b | scripts/12_import_annotation_workbooks.py | lines 109--110; data/processed/vipragsent_{train,dev,test}.jsonl | $.source.dataset
 Those 2,000 rows replace earlier ViSoBERT rows and are present in the fixed gold partitions used for all reported experiments; the replaced rows are not corpus members.
 % TRACE: S3-C05 | answer/data_provenance/gold_build_report.json | $.split_counts.train.total, $.split_counts.dev.total, $.split_counts.test.total

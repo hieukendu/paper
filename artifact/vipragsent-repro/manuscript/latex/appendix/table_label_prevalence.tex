@@ -1,7 +1,7 @@
 % TRACE: Appendix label prevalence | answer/data_provenance/gold_build_report.json | split_counts.{train,dev,test}.labels
 \begin{table}[!htbp]
   \centering
-  \small
+  \resizebox{\columnwidth}{!}{%
   \begin{tabular}{lrrr}
     \toprule
     Label & Train ($n=8{,}000$) & Dev ($n=2{,}000$) & Test ($n=2{,}000$) \\
@@ -13,7 +13,8 @@
     code\_switching & 722 & 181 & 181 \\
     mocking & 1,222 & 305 & 305 \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}%
+  }
   \caption{Positive pragmatic-label counts in the fixed gold partitions. Labels are multi-label and may co-occur; counts therefore do not sum to the partition size.}
   \label{tab:label-prevalence}
 \end{table}

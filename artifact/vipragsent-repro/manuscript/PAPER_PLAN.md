@@ -7,7 +7,7 @@ Status: **active manuscript drafting – Sections 1--9, title, and abstract are 
 | Item | Decision / status |
 | --- | --- |
 | Paper type | Empirical NLP conference paper |
-| Target shape | Generic ACL/ARR-style long paper. The eight-page content allocation is an internal planning target only; final page limits and inclusions remain venue-specific and TBD. |
+| Target shape | Generic ACL/ARR-style long paper. No page limit is active until a target venue and its current call are selected. |
 | Audience | NLP researchers in discourse/pragmatics, multilingual NLP, and sentiment/social-media analysis |
 | Body and citations | English, LaTeX, official ACL style, BibTeX |
 | Primary source of numbers | `../answer/results/` and tables generated from it |
@@ -17,13 +17,13 @@ Status: **active manuscript drafting – Sections 1--9, title, and abstract are 
 
 ## 2. Strongest defensible research question
 
-**RQ:** *On an adjudicated Vietnamese-language test set covering six pragmatic phenomena and including a documented social-media source component, how do standard Vietnamese/multilingual encoders, 7B instruction-tuned models, prompted API baselines, and a multi-task encoder compare; and what trade-off does the recorded ablation study show between pragmatic detection and an external ordinary-task diagnostic?*
+**RQ:** *On an adjudicated Vietnamese-language test set covering six pragmatic phenomena and including a documented social-media source component, how do Vietnamese, multilingual, and Vietnamese-social-media encoders, 7B instruction-tuned models, prompted API baselines, and a multi-task encoder compare; and what does the three-seed ablation record about the corresponding configurations?*
 
 This is deliberately an **evaluative and analytical** RQ. It does not presume that the proposed model outperforms its baselines.
 
 ### Evidence and inference
 
-- **Evidence:** the study has 12,000 adjudicated records (8,000/2,000/2,000 train/dev/test), seven main systems, three seeds for learned encoders and 7B systems, and generated result/analysis artifacts.
+- **Evidence:** the study has 12,000 adjudicated records (8,000/2,000/2,000 train/dev/test), eight main systems including ViSoBERT, three seeds for learned encoders and 7B systems, and generated result/analysis artifacts.
 - **Evidence:** Vistral-7B SFT has the highest recorded main macro pragmatic F1 (82.83); the recorded ViPragSent multi-task model has 73.75.
 - **Inference:** a benchmark-and-trade-off framing is more credible than a method-superiority framing.
 - **Recommendation:** submit as an empirical resource/evaluation paper, with the multi-task model treated as an analyzed baseline rather than the headline state-of-the-art contribution.
@@ -32,12 +32,13 @@ This is deliberately an **evaluative and analytical** RQ. It does not presume th
 
 | ID | Permitted claim | Evidence | Strength | Boundary |
 | --- | --- | --- | --- | --- |
-| C1 | The study defines and evaluates six pragmatic phenomena in 12,000 adjudicated Vietnamese-language records: 10,000 retained local social-media export records and 2,000 VIVID-identified replacement candidates, alongside polarity and emotion annotations. | `answer/data_provenance/gold_build_report.json`; `answer/results/annotation_agreement.json`; `README.md` | Strong | Do not call all records social-media or claim the raw text is publicly released. |
-| C2 | The study provides a reproducible comparative evaluation across encoders, 7B SFT models, and prompted API baselines. | `answer/results/main_pragmatic.json`; `answer/run_manifests/`; `answer/reproducibility/verification_manifest.json` | Strong | API baselines are single-run prompted baselines, not three-seed training runs. |
+| C1 | The study defines and evaluates six pragmatic phenomena in 12,000 adjudicated Vietnamese-language records: 10,000 retained local social-media export records and 2,000 author-created, context-augmented derivatives based on VIVID idiom/proverb materials, alongside polarity and emotion annotations. | `answer/data_provenance/gold_build_report.json`; `answer/results/annotation_agreement.json`; `README.md` | Strong | Do not call all records social-media or claim the raw text is publicly released. |
+| C2 | The study provides a reproducible comparative evaluation across encoders (including ViSoBERT), 7B SFT models, and prompted API baselines, with recorded external three-seed diagnostics where available. | `answer/results/main_pragmatic.json`; `answer/results/p0_visobert_baseline.json`; `answer/run_manifests/`; `answer/reproducibility/verification_manifest.json` | Strong | API baselines are single-run prompted baselines, not three-seed training runs. |
 | C3 | The recorded main evaluation identifies Vistral-7B SFT as the strongest evaluated system (82.83 macro F1), while ViPragSent records 73.75 macro F1. | `answer/tables/main_pragmatic.md`; `answer/results/main_pragmatic.json` | Strong | Do not claim ViPragSent wins this comparison. |
-| C4 | In the single-seed ablation, the full multi-task configuration records lower pragmatic F1 than the no-multitask PhoBERT reference, but higher stored average external ordinary-task F1. | `answer/results/multitask_ablation.json`; `answer/tables/multitask_ablation.md` | Moderate | Say “observed trade-off”; do not assert causality, robustness, or a universal effect. |
+| C4 | In the three-seed ablation, the full multi-task configuration records lower pragmatic F1 than the no-multitask PhoBERT reference; external diagnostics remain separately scoped evidence. | `answer/results/p0_multi_seed_ablation.json`; `answer/results/p0_visobert_baseline.json`; `answer/tables/p0_p1_p2_experiments.md` | Moderate | Say “recorded trade-off association”; do not assert causality, robustness, or a universal effect. |
 | C5 | The comparison is traceable from reported values to prediction files, run manifests, result hashes, and pinned external model archives. | `answer/results/claim_ledger.csv`; `answer/reproducibility/verification_manifest.json`; `answer/reproducibility/artifact_registry.json` | Strong | This is file-level reproducibility, not an independent rerun. |
-| C6 | The low-resource sarcasm results are exploratory and non-monotonic across budgets. | `answer/results/low_resource_sarcasm.json`; `answer/tables/low_resource_sarcasm.md` | Moderate | One seed per budget; place in appendix or explicitly exploratory analysis. |
+| C6 | The three-seed low-resource sarcasm results are exploratory, with mixed monotonicity across the two systems. | `answer/results/p2_multi_seed_low_resource.json`; `answer/tables/p0_p1_p2_experiments.md` | Moderate | Do not claim data-efficiency superiority; summarize in analysis and retain full detail in the appendix. |
+| C7 | The source-stratified sensitivity analysis reports descriptive results for the evaluated `visobert_local` and VIVID-labelled strata. | `answer/results/p1_source_stratified_sensitivity.json`; `answer/tables/p0_p1_p2_experiments.md` | Moderate | No causal source effect, dataset-source superiority, or general domain-transfer claim. |
 
 ## 4. Claims that must not appear
 
@@ -46,25 +47,23 @@ This is deliberately an **evaluative and analytical** RQ. It does not presume th
 - A claim that generated rationales were manually faithfulness-verified.
 - A claim that the low-resource experiment establishes a consistent data-efficiency advantage.
 - A general transfer or retention claim based on the external ordinary-task diagnostic: the recorded external results do not support it.
-- A causal claim about auxiliary tasks based on one-seed ablations.
+- A causal, universal, or robustness claim about auxiliary tasks based on the recorded ablations.
 
-## 5. Proposed architecture and page budget
+## 5. Proposed architecture
 
-Planning target: **approximately 8 pages of main content**, plus references and appendices as permitted by the eventual venue. Word budgets are planning estimates; they are not a submission-validity criterion until a venue is selected.
+No page or word-count constraint is active at this stage. Section lengths are editorial guidance only and will be recalibrated after the target venue is selected.
 
-| Section | Target words | Approx. content pages | Purpose and evidence |
-| --- | ---: | ---: | --- |
-| Abstract | 170–200 | — | RQ, data/task scope, comparative result, and bounded trade-off finding. Draft only after claims are confirmed. |
-| 1. Introduction | 550–650 | 0.9 | Gap: Vietnamese social-media evaluation rarely isolates the recorded pragmatic phenomena. End with RQ and bounded contributions C1–C5. |
-| 2. Related Work | 500–600 | 0.8 | Vietnamese social-media resources/models; pragmatic/sentiment evaluation; multi-task auxiliary-task trade-offs. |
-| 3. Task and Data | 650–750 | 1.1 | Six phenomena, annotation/adjudication, splits, label scope, governance/access boundary, agreement. |
-| 4. Systems and Evaluation | 650–750 | 1.1 | Systems, seeds, training/evaluation protocol, macro-F1, bootstrap CI, significance, traceability. |
-| 5. Results | 950–1,100 | 1.8 | Main comparison, per-phenomenon behavior, ablation/external-ordinary-task trade-off. Report rather than explain unverified mechanisms. |
-| 6. Analysis | 550–650 | 0.9 | Confusion/calibration; exploratory low-resource results, clearly bounded. |
-| 7. Conclusion | 150–200 | 0.3 | Answer the RQ without a superiority conclusion. |
-| Main-content reserve | — | 1.1 | Tables, figures, captions, and layout variance. |
-| Limitations | 250–350 | outside limit | Required dedicated section before references. |
-| Ethical Considerations | 200–300 | outside limit | Data governance, sensitive social text, access, annotation, misuse. |
+| Section | Purpose and evidence |
+| --- | --- |
+| Abstract | RQ, data/task scope, comparative result, and bounded trade-off finding. Draft only after claims are confirmed. |
+| 1. Introduction | Gap: Vietnamese social-media evaluation rarely isolates the recorded pragmatic phenomena. End with RQ and bounded contributions C1–C7. |
+| 2. Related Work | Vietnamese social-media resources/models; pragmatic/sentiment evaluation; multi-task auxiliary-task trade-offs. |
+| 3. Task and Data | Six phenomena, annotation/adjudication, splits, label scope, governance/access boundary, agreement. |
+| 4. Systems and Evaluation | Systems, seeds, training/evaluation protocol, macro-F1, bootstrap CI, significance, traceability. |
+| 5. Results | Main comparison, per-phenomenon behavior, three-seed ablation, and qualified external diagnostics. |
+| 6. Analysis | Confusion/calibration plus descriptive P1 and exploratory P2 analyses. |
+| 7. Conclusion | Answer the RQ without a superiority conclusion. |
+| Limitations and Ethical Considerations | Data governance, sensitive social text, access, annotation, and misuse. |
 
 ### Section transitions
 
@@ -81,32 +80,31 @@ Planning target: **approximately 8 pages of main content**, plus references and 
 | --- | --- | --- | --- |
 | Main Table 1 | Dataset/task inventory: six pragmatic labels, polarity/emotion auxiliaries, split sizes | `README.md`; `configs/labels.yaml`; `answer/data_provenance/gold_build_report.json` | New compact presentation is allowed only if it reproduces source facts exactly. |
 | Main Table 2 | Main pragmatic results by system and macro F1 | `answer/tables/main_pragmatic.md` | Include confidence intervals and seed/run qualification in caption or note. |
-| Main Table 3 | Ablation plus external ordinary-task diagnostic | `answer/tables/multitask_ablation.md`; `answer/tables/ordinary_sentiment.md` | Separate the one-seed ablation from the three-seed main evaluation. |
+| Main Table 3 | Three-seed ablation | `answer/tables/p0_p1_p2_experiments.md` | Keep configuration scope and intervals explicit. |
 | Main Figure 1 | Per-phenomenon comparison | `answer/figures/fig2_per_phenomenon.svg` | Use to show variation across phenomena, not a claim of general superiority. |
 | Main Figure 2 (if space) | Pragmatic-polarity confusion | `answer/figures/fig5_confusion.svg`; `answer/tables/error_confusion.md` | Analysis only; name the evaluated system in caption. |
 | Appendix Table A1 | Inter-annotator agreement | `answer/tables/annotation_agreement.md` | State the fixed adjudicator/post-adjudication qualification. |
-| Appendix Table A2 | Paired bootstrap results | `answer/tables/significance.md` | Retain comparison direction and intervals; if tail proportions are shown, label them as uncorrected finite-resample diagnostics rather than inferential p values. |
-| Appendix Figure A1 | Learning curves | `answer/figures/fig6_learning_curves.svg` | Supplemental diagnosis, not a performance claim. |
-| Appendix Figure A2 | Calibration | `answer/figures/fig7_calibration.svg`; `answer/tables/calibration.md` | Compare only systems with stored confidence. |
-| Appendix Table A3 | Low-resource sarcasm | `answer/tables/low_resource_sarcasm.md` | Label exploratory, one seed per budget. |
+| Appendix Table A2 | Label prevalence | `answer/data_provenance/gold_build_report.json` | Included to document evaluated label composition. |
+| Appendix Table A3 | P1 source sensitivity and P2 low-resource sarcasm | `answer/tables/p0_p1_p2_experiments.md` | Label P1 descriptive and P2 exploratory three-seed evidence. |
+| Appendix Table A4 | Three-seed external diagnostics | `answer/results/p0_multi_seed_ablation.json`; `answer/results/p0_visobert_baseline.json` | Keep distinct datasets and label spaces explicit; do not pool results. |
+| Retained artifact detail (not current appendix) | Paired bootstrap, learning curves, calibration, reproducibility manifest | `answer/tables/significance.md`; `answer/figures/fig6_learning_curves.svg`; `answer/figures/fig7_calibration.svg`; `answer/reproducibility/verification_manifest.json` | Keep available in the verified artifact bundle; add only if a future venue requires these supplementary items. |
 
 ## 7. Missing information and experiments
 
 | Priority | Gap | Why it matters | Recommended action |
 | --- | --- | --- |
 | High | No public raw-data release or confirmed controlled-access protocol | A resource claim needs an access story. | Obtain source-rights permission or document a reviewer-access protocol and release only permitted metadata/code. |
-| High | Ablation is single seed | It cannot establish robust auxiliary-task effects. | Run three seeds for the ablation suite and recompute paired tests before making a strong mechanism claim. |
-| High | ViSoBERT is the source-domain model but is not an evaluated baseline | Reviewers may consider it an expected social-media baseline. | Add it if legally/technically feasible; otherwise state this as a limitation. |
 | Medium | No qualitative error examples suitable for release | Confusion matrices alone give limited pragmatic insight. | Prepare de-identified, permission-safe error examples or state that privacy prevents sharing examples. |
 | Medium | Rationale faithfulness audit is waived | Rationale outputs cannot support explanation-quality claims. | Do not claim faithful explanations; add a human audit only if the paper needs that contribution. |
-| Medium | Low-resource comparison is one-seed and non-monotonic | It cannot support data-efficiency claims. | Keep it exploratory or repeat with multiple seeds. |
+| Medium | P1 source strata are observational and unbalanced (1,666/334) | They cannot establish a causal source-domain effect. | Retain descriptive wording and the VIVID governance boundary. |
+| Medium | Low-resource comparison is three-seed, has mixed monotonicity across systems, and includes wide intervals | It cannot support data-efficiency superiority. | Keep it exploratory and report uncertainty. |
 | Medium | External ordinary-task diagnostic does not demonstrate broad retention | The proposed model is not the best reported system on those datasets. | Present as a trade-off diagnostic, not positive transfer. |
 | Submission gate | Next target venue is unknown | EACL 2026’s cycle is complete. | Before drafting for submission, identify the target ARR venue/cycle and re-verify its current call, template, anonymity, checklist, and page rules. |
 
 ## 8. Drafting roadmap
 
 1. **Confirm this framing.** Decide whether the paper is an evaluation/resource paper (recommended) rather than a proposed-method paper.
-2. **Lock the contribution ledger.** Use C1–C6 as the only claim pool; add no claim until it has an evidence row.
+2. **Lock the contribution ledger.** Use C1–C7 as the current claim pool; add no claim until it has an evidence row.
 3. **Build related-work matrix.** Start from verified records in `references.bib`; add dataset, pragmatics, and multi-task sources only after primary-source verification.
 4. **Create an anonymous ACL project.** Download the current official style files into `manuscript/latex/` only after the submission venue/cycle is chosen. Do not put identifiable repository links in the anonymous version.
 5. **Draft in evidence order.** Task/Data → Systems/Evaluation → Results → Analysis → Related Work → Introduction → Abstract → Limitations/Ethics.
@@ -115,9 +113,9 @@ Planning target: **approximately 8 pages of main content**, plus references and 
 
 ## 9. Current plan gate
 
-Before any full manuscript drafting, confirm:
+Before submission preparation, confirm:
 
 1. the evaluation-and-trade-off RQ;
-2. that C1–C6 are the permitted contribution claims;
-3. whether to pursue the missing three-seed ablations and a ViSoBERT baseline; and
-4. the intended future venue/cycle.
+2. that C1–C7 are the permitted contribution claims;
+3. that the P0 three-seed ablation and ViSoBERT baseline are verified at artifact level; and
+4. the intended future venue/cycle, whose page rules will be checked then.

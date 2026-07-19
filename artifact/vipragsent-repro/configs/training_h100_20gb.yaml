@@ -1,12 +1,12 @@
 hardware: H100_20GB
 precision: bf16
-max_sequence_length: 128
 seeds: [20260520, 20260521, 20260522]
 encoder:
   models:
     phobert_finetune: vinai/phobert-base
     xlmr_large: FacebookAI/xlm-roberta-large
   learning_rate: 2.0e-5
+  max_sequence_length: 128
   batch_size: 16
   gradient_accumulation: 2
   effective_batch_size: 32
@@ -16,16 +16,18 @@ encoder:
   task_uncertainty_weighting: true
 qlora_7b:
   models:
-    sailor_7b_sft: sail/Sailor-7B
+    sailor_7b_sft: sail/Sailor-7B-Chat
     vistral_7b_sft: Viet-Mistral/Vistral-7B-Chat
   revisions:
-    sailor_7b_sft: b8b49a0f02073e58db2e42e5811955dfe87ca970
+    sailor_7b_sft: 19066fae0a8a3ba029c190d8e3dacccf4d1234b8
     vistral_7b_sft: d331b64e61b935cc43c2b3010ae9fb4fde599b45
-  revision_note: Upstream HEADs resolved on 2026-07-18; not evidence of the snapshot used by historical result runs.
+  revision_note: "Both Chat base-model revisions are user-attested download-time pins: downloaded 2026-07-14 before QLoRA setup/fine-tuning and Hugging Face main re-queried 2026-07-19. Archived run manifests use local paths and do not independently record remote IDs/revisions."
   quantization: nf4_4bit
   learning_rate: 1.0e-4
-  per_device_batch_size: 2
-  gradient_accumulation: 8
+  max_sequence_length: 256
+  per_device_batch_size: 1
+  gradient_accumulation: 16
+  effective_batch_size: 16
   epochs: 3
   lora_r: 16
   lora_alpha: 32

@@ -37,6 +37,7 @@ def make_final_artifacts(
         "error_confusion": write_confusion_table(tables_dir / "error_confusion.md", results.get("error_confusion")),
         "learning_curves": write_learning_curves_table(tables_dir / "learning_curves.md", results.get("learning_curves")),
         "significance": write_significance_table(tables_dir / "significance.md", results.get("significance")),
+        "p0_p1_p2_experiments": tables_dir / "p0_p1_p2_experiments.md",
     }
     figure_paths = {
         "pipeline": write_pipeline_svg(figures_dir / "fig1_pipeline.svg"),
@@ -261,6 +262,33 @@ def write_claim_ledger(path: Path, results: dict[str, dict[str, Any] | None], *,
         for seed, payload in seeds.items():
             ci = payload.get("paired_bootstrap_ci95") or []
             rows.append({"anchor": f"Table10.{system_id}.seed_{seed}", "claim": f"{SYSTEM_LABELS.get(system_id, system_id)} delta F1 versus ViPragSent = {float(payload.get('delta_macro_pragmatic_f1', 0)):.4f} [{float(ci[0]):.4f}, {float(ci[1]):.4f}]" if len(ci) == 2 else f"{SYSTEM_LABELS.get(system_id, system_id)} delta F1 versus ViPragSent", "source_file": "results/significance.json", "json_path": f"$.comparisons.{system_id}['{seed}'].delta_macro_pragmatic_f1"})
+    p0 = results.get("p0_multi_seed_ablation") or {}
+    for system_id, payload in (p0.get("systems") or {}).items():
+        metric = ((payload.get("aggregate") or {}).get("macro_pragmatic_f1") or {})
+        if metric:
+            rows.append({"anchor": f"P0.ablation.{system_id}.macro_pragmatic_f1", "claim": f"{system_id} three-seed macro pragmatic F1 = {_metric_cell(metric)}", "source_file": "results/p0_multi_seed_ablation.json", "json_path": f"$.systems.{system_id}.aggregate.macro_pragmatic_f1.mean"})
+    visobert = results.get("p0_visobert_baseline") or {}
+    for metric_name, metric in (((visobert.get("system") or {}).get("aggregate") or {}).items()):
+        rows.append({"anchor": f"P0.visobert_finetune.{metric_name}", "claim": f"visobert_finetune three-seed {metric_name} = {_metric_cell(metric)}", "source_file": "results/p0_visobert_baseline.json", "json_path": f"$.system.aggregate.{metric_name}.mean"})
+    p1 = results.get("p1_source_stratified_sensitivity") or {}
+    for system_id, strata in (p1.get("systems") or {}).items():
+        for stratum, payload in strata.items():
+            metric = ((payload.get("aggregate") or {}).get("macro_pragmatic_f1") or {})
+            if metric:
+                rows.append({"anchor": f"P1.{system_id}.{stratum}.macro_pragmatic_f1", "claim": f"{system_id} {stratum} macro pragmatic F1 = {_metric_cell(metric)}", "source_file": "results/p1_source_stratified_sensitivity.json", "json_path": f"$.systems.{system_id}.{stratum}.aggregate.macro_pragmatic_f1.mean"})
+    p2 = results.get("p2_multi_seed_low_resource") or {}
+    for budget, systems in (p2.get("budgets") or {}).items():
+        for system_id, payload in systems.items():
+            metric = ((payload.get("aggregate") or {}).get("sarcasm") or {})
+            if metric:
+                rows.append({"anchor": f"P2.budget_{budget}.{system_id}.sarcasm", "claim": f"budget {budget} {system_id} three-seed sarcasm macro F1 = {_metric_cell(metric)}", "source_file": "results/p2_multi_seed_low_resource.json", "json_path": f"$.budgets.{budget}.{system_id}.aggregate.sarcasm.mean"})
+    for system_id, datasets in (p0.get("external_benchmarks") or {}).items():
+        for dataset, report in datasets.items():
+            for metric_name, metric in ((report.get("aggregate") or {}).items()):
+                rows.append({"anchor": f"External.p0_multi_seed_ablation.{system_id}.{dataset}.{metric_name}", "claim": f"{system_id} {dataset} three-seed {metric_name} = {_metric_cell(metric)}", "source_file": "results/p0_multi_seed_ablation.json", "json_path": f"$.external_benchmarks.{system_id}.{dataset}.aggregate.{metric_name}.mean"})
+    for dataset, report in (visobert.get("external_benchmarks") or {}).items():
+        for metric_name, metric in ((report.get("aggregate") or {}).items()):
+            rows.append({"anchor": f"External.p0_visobert_baseline.visobert_finetune.{dataset}.{metric_name}", "claim": f"visobert_finetune {dataset} three-seed {metric_name} = {_metric_cell(metric)}", "source_file": "results/p0_visobert_baseline.json", "json_path": f"$.external_benchmarks.{dataset}.aggregate.{metric_name}.mean"})
     if not rows:
         rows.append(
             {
@@ -393,6 +421,10 @@ def _load_results(results_dir: Path) -> dict[str, dict[str, Any] | None]:
         "learning_curves",
         "annotation_agreement",
         "significance",
+        "p0_multi_seed_ablation",
+        "p0_visobert_baseline",
+        "p1_source_stratified_sensitivity",
+        "p2_multi_seed_low_resource",
     ]
     out = {}
     for name in names:

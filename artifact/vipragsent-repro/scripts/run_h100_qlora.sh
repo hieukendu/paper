@@ -13,7 +13,7 @@ export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-backend:cudaMallocAsy
 # stops the launcher before any aggregate result is produced.
 SEEDS=(20260520 20260521 20260522)
 for seed in "${SEEDS[@]}"; do
-  python scripts/train_qlora_sft.py --model-id "$HF_HOME/models/Sailor-7B" --model-revision b8b49a0f02073e58db2e42e5811955dfe87ca970 --system sailor_7b_sft --seed "$seed"
+  python scripts/train_qlora_sft.py --model-id "$HF_HOME/models/Sailor-7B-Chat" --model-revision 19066fae0a8a3ba029c190d8e3dacccf4d1234b8 --system sailor_7b_sft --seed "$seed"
   python scripts/train_qlora_sft.py --model-id "$HF_HOME/models/Vistral-7B-Chat" --model-revision d331b64e61b935cc43c2b3010ae9fb4fde599b45 --system vistral_7b_sft --seed "$seed" --attn-implementation sdpa --prediction-batch-size 16
 done
 python scripts/15_summarize_training_runs.py

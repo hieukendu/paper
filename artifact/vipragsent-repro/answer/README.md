@@ -1,6 +1,6 @@
 # ViPragSent experiment hand-off
 
-Created: 2026-07-18T07:31:22.828574+00:00
+Created: 2026-07-19T06:54:08.550478+00:00
 Status: `results_generated`
 
 All metrics in `results/`, tables, and figures are generated from prediction JSONL and trainer manifests in this run; no values are copied from `main.pdf`.
@@ -9,13 +9,16 @@ Important protocol notes:
 
 - Gold split: 8,000 train / 2,000 dev / 2,000 test adjudicated records.
 - Rationale coverage: 8,000 train records; manual faithfulness audit was waived and is documented in data_provenance/.
-- Q3 is an exploratory single-seed comparison at 64, 128, 256, 512, and 1,024 sarcasm-positive examples.
+- P0 adds three-seed ablation and ViSoBERT evaluations; P1 is a descriptive source-stratified sensitivity analysis; P2 is a three-seed low-resource comparison at 64, 128, 256, 512, and 1,024 sarcasm-positive examples.
 - The external ordinary-task diagnostic is an encoder-only comparison; UIT-VSMEC is reported as seven-way emotion macro-F1.
 - Calibration is reported only for systems with pragmatic-polarity confidence scores.
 - Source code, datasets, prediction JSONL, and pinned external model archives are documented in `reproducibility/artifact_registry.json`.
+- Sailor-7B-Chat and Vistral-7B-Chat are recorded at user-attested 2026-07-14 download-time revisions; the archived run manifests retain local paths rather than independently logged remote revisions or a frozen environment.
 - `reproducibility/verification_manifest.json` records SHA-256 hashes for the copied artifacts; it is an integrity check, not an experiment rerun.
-- `reproducibility/id_set_manifest.json` records non-disclosing ID-set and ordered-ID hashes for the private train/dev/test partitions; it verifies split membership without releasing identifiers or text.
+- P1 does not resolve VIVID authorization or licensing; no public-release or causal source-domain claim is made.
 - Run manifests are retained for audit; weights are retrieved from the registered Hugging Face archives rather than copied into this bundle.
+- `supplementary_experiments/` contains the newly-run multi-seed ablation, ViSoBERT baseline, VIVID exclusion sensitivity predictions, histories and combined training logs; checkpoint tensors are intentionally omitted.
+- `p0_p1_p2/logs/` contains the complete stdout/stderr traces for the sequential P0/P1/P2 fine-tuning runner.
 
 Copied files:
 
@@ -34,6 +37,12 @@ Copied files:
 - `results/annotation_agreement.json`
 - `results/significance.json`
 - `results/paper_readiness.json`
+- `results/p0_multi_seed_ablation.json`
+- `results/p0_visobert_baseline.json`
+- `results/p1_source_stratified_sensitivity.json`
+- `results/p2_multi_seed_low_resource.json`
+- `results/p0_p1_p2_summary.json`
+- `results/p0p1p2_runs.json`
 - `tables/annotation_agreement.md`
 - `tables/calibration.md`
 - `tables/cost_breakdown.md`
@@ -43,6 +52,7 @@ Copied files:
 - `tables/main_pragmatic.md`
 - `tables/multitask_ablation.md`
 - `tables/ordinary_sentiment.md`
+- `tables/p0_p1_p2_experiments.md`
 - `tables/pending_summary.md`
 - `tables/significance.md`
 - `figures/fig1_pipeline.svg`
@@ -52,16 +62,100 @@ Copied files:
 - `figures/fig6_learning_curves.svg`
 - `figures/fig7_calibration.svg`
 - `figures/README.md`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_emotion_20260521.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_emotion_20260522.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_polarity_20260521.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_polarity_20260522.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_rationale_20260521.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_rationale_20260522.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_uncertainty_20260521.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_vipragsent_no_uncertainty_20260522.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_visobert_20260520.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_visobert_20260521.log`
+- `p0_p1_p2/logs/p0_predict_aivivn_2019_visobert_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_emotion_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_emotion_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_polarity_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_polarity_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_rationale_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_rationale_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_uncertainty_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_vipragsent_no_uncertainty_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_visobert_20260520.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_visobert_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsfc_visobert_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_emotion_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_emotion_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_polarity_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_polarity_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_rationale_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_rationale_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_uncertainty_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_vipragsent_no_uncertainty_20260522.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_visobert_20260520.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_visobert_20260521.log`
+- `p0_p1_p2/logs/p0_predict_uit_vsmec_visobert_20260522.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_emotion_20260521.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_emotion_20260522.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_polarity_20260521.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_polarity_20260522.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_rationale_20260521.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_rationale_20260522.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_uncertainty_20260521.log`
+- `p0_p1_p2/logs/p0_train_vipragsent_no_uncertainty_20260522.log`
+- `p0_p1_p2/logs/p0_train_visobert_20260520.log`
+- `p0_p1_p2/logs/p0_train_visobert_20260521.log`
+- `p0_p1_p2/logs/p0_train_visobert_20260522.log`
+- `p0_p1_p2/logs/p2_train_1024_phobert_finetune_20260521.log`
+- `p0_p1_p2/logs/p2_train_1024_phobert_finetune_20260522.log`
+- `p0_p1_p2/logs/p2_train_1024_vipragsent_full_20260521.log`
+- `p0_p1_p2/logs/p2_train_1024_vipragsent_full_20260522.log`
+- `p0_p1_p2/logs/p2_train_128_phobert_finetune_20260521.log`
+- `p0_p1_p2/logs/p2_train_128_phobert_finetune_20260522.log`
+- `p0_p1_p2/logs/p2_train_128_vipragsent_full_20260521.log`
+- `p0_p1_p2/logs/p2_train_128_vipragsent_full_20260522.log`
+- `p0_p1_p2/logs/p2_train_256_phobert_finetune_20260521.log`
+- `p0_p1_p2/logs/p2_train_256_phobert_finetune_20260522.log`
+- `p0_p1_p2/logs/p2_train_256_vipragsent_full_20260521.log`
+- `p0_p1_p2/logs/p2_train_256_vipragsent_full_20260522.log`
+- `p0_p1_p2/logs/p2_train_512_phobert_finetune_20260521.log`
+- `p0_p1_p2/logs/p2_train_512_phobert_finetune_20260522.log`
+- `p0_p1_p2/logs/p2_train_512_vipragsent_full_20260521.log`
+- `p0_p1_p2/logs/p2_train_512_vipragsent_full_20260522.log`
+- `p0_p1_p2/logs/p2_train_64_phobert_finetune_20260521.log`
+- `p0_p1_p2/logs/p2_train_64_phobert_finetune_20260522.log`
+- `p0_p1_p2/logs/p2_train_64_vipragsent_full_20260521.log`
+- `p0_p1_p2/logs/p2_train_64_vipragsent_full_20260522.log`
 - `run_manifests/low_resource\1024\phobert_finetune\20260520\run_manifest.json`
+- `run_manifests/low_resource\1024\phobert_finetune\20260521\run_manifest.json`
+- `run_manifests/low_resource\1024\phobert_finetune\20260522\run_manifest.json`
 - `run_manifests/low_resource\1024\vipragsent_full\20260520\run_manifest.json`
+- `run_manifests/low_resource\1024\vipragsent_full\20260521\run_manifest.json`
+- `run_manifests/low_resource\1024\vipragsent_full\20260522\run_manifest.json`
 - `run_manifests/low_resource\128\phobert_finetune\20260520\run_manifest.json`
+- `run_manifests/low_resource\128\phobert_finetune\20260521\run_manifest.json`
+- `run_manifests/low_resource\128\phobert_finetune\20260522\run_manifest.json`
 - `run_manifests/low_resource\128\vipragsent_full\20260520\run_manifest.json`
+- `run_manifests/low_resource\128\vipragsent_full\20260521\run_manifest.json`
+- `run_manifests/low_resource\128\vipragsent_full\20260522\run_manifest.json`
 - `run_manifests/low_resource\256\phobert_finetune\20260520\run_manifest.json`
+- `run_manifests/low_resource\256\phobert_finetune\20260521\run_manifest.json`
+- `run_manifests/low_resource\256\phobert_finetune\20260522\run_manifest.json`
 - `run_manifests/low_resource\256\vipragsent_full\20260520\run_manifest.json`
+- `run_manifests/low_resource\256\vipragsent_full\20260521\run_manifest.json`
+- `run_manifests/low_resource\256\vipragsent_full\20260522\run_manifest.json`
 - `run_manifests/low_resource\512\phobert_finetune\20260520\run_manifest.json`
+- `run_manifests/low_resource\512\phobert_finetune\20260521\run_manifest.json`
+- `run_manifests/low_resource\512\phobert_finetune\20260522\run_manifest.json`
 - `run_manifests/low_resource\512\vipragsent_full\20260520\run_manifest.json`
+- `run_manifests/low_resource\512\vipragsent_full\20260521\run_manifest.json`
+- `run_manifests/low_resource\512\vipragsent_full\20260522\run_manifest.json`
 - `run_manifests/low_resource\64\phobert_finetune\20260520\run_manifest.json`
+- `run_manifests/low_resource\64\phobert_finetune\20260521\run_manifest.json`
+- `run_manifests/low_resource\64\phobert_finetune\20260522\run_manifest.json`
 - `run_manifests/low_resource\64\vipragsent_full\20260520\run_manifest.json`
+- `run_manifests/low_resource\64\vipragsent_full\20260521\run_manifest.json`
+- `run_manifests/low_resource\64\vipragsent_full\20260522\run_manifest.json`
 - `run_manifests/phobert_finetune\20260520\run_manifest.json`
 - `run_manifests/phobert_finetune\20260521\run_manifest.json`
 - `run_manifests/phobert_finetune\20260522\run_manifest.json`
@@ -72,9 +166,20 @@ Copied files:
 - `run_manifests/vipragsent_full\20260521\run_manifest.json`
 - `run_manifests/vipragsent_full\20260522\run_manifest.json`
 - `run_manifests/vipragsent_no_emotion\20260520\run_manifest.json`
+- `run_manifests/vipragsent_no_emotion\20260521\run_manifest.json`
+- `run_manifests/vipragsent_no_emotion\20260522\run_manifest.json`
 - `run_manifests/vipragsent_no_polarity\20260520\run_manifest.json`
+- `run_manifests/vipragsent_no_polarity\20260521\run_manifest.json`
+- `run_manifests/vipragsent_no_polarity\20260522\run_manifest.json`
 - `run_manifests/vipragsent_no_rationale\20260520\run_manifest.json`
+- `run_manifests/vipragsent_no_rationale\20260521\run_manifest.json`
+- `run_manifests/vipragsent_no_rationale\20260522\run_manifest.json`
 - `run_manifests/vipragsent_no_uncertainty\20260520\run_manifest.json`
+- `run_manifests/vipragsent_no_uncertainty\20260521\run_manifest.json`
+- `run_manifests/vipragsent_no_uncertainty\20260522\run_manifest.json`
+- `run_manifests/visobert_finetune\20260520\run_manifest.json`
+- `run_manifests/visobert_finetune\20260521\run_manifest.json`
+- `run_manifests/visobert_finetune\20260522\run_manifest.json`
 - `run_manifests/vistral_7b_sft\20260520\run_manifest.json`
 - `run_manifests/vistral_7b_sft\20260521\run_manifest.json`
 - `run_manifests/vistral_7b_sft\20260522\run_manifest.json`
@@ -89,7 +194,7 @@ Copied files:
 - `data_provenance/checksums.json`
 - `data_provenance/manifest.json`
 - `reproducibility/artifact_registry.json`
-- `reproducibility/verification_manifest.json`
 - `reproducibility/id_set_manifest.json`
 - `reproducibility/local_prediction_split_manifest.json`
+- `reproducibility/verification_manifest.json`
 - `run_manifests/README.md`
