@@ -1,0 +1,35 @@
+{
+  "status": "frozen_before_test_evaluation",
+  "prediction_path": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_candidates/frozen_exact_target_cross/final_test_predictions.jsonl",
+  "ids": 2000,
+  "thresholds": {
+    "implicit_sentiment": 0.55,
+    "sarcasm": 0.87,
+    "mocking": 0.35,
+    "irony": 0.9622951745986937,
+    "idiom_figurative": 0.9264976292848586,
+    "code_switching": 0.4979324186919256
+  },
+  "sources": {
+    "visobert_uniform3": [
+      "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_candidates/frozen_test_components/visobert_20260901.jsonl",
+      "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/visobert_20260902.jsonl",
+      "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/visobert_20260903.jsonl"
+    ],
+    "phobert_uniform3": [
+      "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/phobert_20260901.jsonl",
+      "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_candidates/frozen_test_components/phobert_20260902.jsonl",
+      "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_candidates/frozen_test_components/phobert_20260903.jsonl"
+    ],
+    "protected": {
+      "implicit_sentiment": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/visobert_20260902.jsonl",
+      "sarcasm": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/visobert_20260903.jsonl",
+      "mocking": [
+        "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/mocking_targeted_20260833.jsonl",
+        "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/mocking_targeted_20260834.jsonl",
+        "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/candidates/test/mocking_targeted_20260835.jsonl"
+      ]
+    }
+  },
+  "test_labels_read": false
+}

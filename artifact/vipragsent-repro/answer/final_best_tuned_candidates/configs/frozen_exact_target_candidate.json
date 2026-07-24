@@ -1,0 +1,28 @@
+{
+  "status": "frozen_from_development_only",
+  "candidate": "exact_target_cross_backbone",
+  "source": {
+    "irony": {
+      "visobert_uniform3_weight": 0.5,
+      "phobert_uniform3_weight": 0.5
+    },
+    "idiom_figurative": {
+      "visobert_uniform3_weight": 0.475,
+      "phobert_uniform3_weight": 0.525
+    },
+    "code_switching": {
+      "visobert_uniform3_weight": 0.525,
+      "phobert_uniform3_weight": 0.475
+    }
+  },
+  "thresholds": {
+    "implicit_sentiment": 0.55,
+    "sarcasm": 0.87,
+    "mocking": 0.35,
+    "irony": 0.9622951745986937,
+    "idiom_figurative": 0.9264976292848586,
+    "code_switching": 0.4979324186919256
+  },
+  "selection_protocol": "five-fold metadata-aware OOF; target alpha selected by mean fold F1 - .25*std; exact threshold refit on full development only",
+  "test_labels_used_for_selection": false
+}

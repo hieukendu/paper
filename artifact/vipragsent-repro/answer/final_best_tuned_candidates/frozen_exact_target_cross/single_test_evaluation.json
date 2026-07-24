@@ -1,0 +1,85 @@
+{
+  "status": "single_post_freeze_test_evaluation",
+  "test_labels_used_for_selection": false,
+  "per_label": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 67.98288340906893,
+      "positive_precision": 0.39661016949152544,
+      "positive_recall": 0.5043103448275862,
+      "tp": 117,
+      "tn": 1590,
+      "fp": 178,
+      "fn": 115
+    },
+    "sarcasm": {
+      "binary_macro_f1": 80.27805934101688,
+      "positive_precision": 0.8185654008438819,
+      "positive_recall": 0.5574712643678161,
+      "tp": 194,
+      "tn": 1609,
+      "fp": 43,
+      "fn": 154
+    },
+    "irony": {
+      "binary_macro_f1": 96.85261421863001,
+      "positive_precision": 1.0,
+      "positive_recall": 0.8913043478260869,
+      "tp": 164,
+      "tn": 1816,
+      "fp": 0,
+      "fn": 20
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 97.34540704669507,
+      "positive_precision": 1.0,
+      "positive_recall": 0.907608695652174,
+      "tp": 167,
+      "tn": 1816,
+      "fp": 0,
+      "fn": 17
+    },
+    "code_switching": {
+      "binary_macro_f1": 81.76655987080306,
+      "positive_precision": 0.6368159203980099,
+      "positive_recall": 0.7071823204419889,
+      "tp": 128,
+      "tn": 1746,
+      "fp": 73,
+      "fn": 53
+    },
+    "mocking": {
+      "binary_macro_f1": 82.05283323250656,
+      "positive_precision": 0.730909090909091,
+      "positive_recall": 0.659016393442623,
+      "tp": 201,
+      "tn": 1621,
+      "fp": 74,
+      "fn": 104
+    }
+  },
+  "macro_pragmatic_f1": 84.37972618645341,
+  "incumbent_per_label": {
+    "implicit_sentiment": 67.98288340906893,
+    "sarcasm": 80.27805934101688,
+    "irony": 97.0177342785546,
+    "idiom_figurative": 97.18199608610567,
+    "code_switching": 81.8164481314183,
+    "mocking": 82.05283323250656
+  },
+  "incumbent_macro_pragmatic_f1": 84.38832574644515,
+  "delta_vs_incumbent": {
+    "implicit_sentiment": 0.0,
+    "sarcasm": 0.0,
+    "irony": -0.16512005992458967,
+    "idiom_figurative": 0.16341096058940252,
+    "code_switching": -0.04988826061523355,
+    "mocking": 0.0
+  },
+  "promotion": {
+    "macro_strictly_higher": false,
+    "at_least_one_target_improved": true,
+    "no_target_drop_over_0_02": false,
+    "no_protected_drop_over_0_05": true,
+    "eligible": false
+  }
+}

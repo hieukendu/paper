@@ -1,0 +1,17 @@
+{
+  "status": "verified",
+  "prediction_path": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned/predictions/final_test_predictions.jsonl",
+  "gold_path": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
+  "records": 2000,
+  "metrics": {
+    "implicit_sentiment": 67.98288340906893,
+    "sarcasm": 80.27805934101688,
+    "irony": 97.0177342785546,
+    "idiom_figurative": 97.18199608610567,
+    "code_switching": 81.8164481314183,
+    "mocking": 82.05283323250656
+  },
+  "macro_pragmatic_f1": 84.38832574644515,
+  "selection_use": false,
+  "purpose": "incumbent verification only"
+}
