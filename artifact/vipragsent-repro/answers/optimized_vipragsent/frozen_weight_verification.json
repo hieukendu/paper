@@ -1,0 +1,23 @@
+{
+  "method": "sha256_before_after_frozen_inference",
+  "neural_weight_updates": false,
+  "optimizer_or_backward_called": false,
+  "checkpoints": {
+    "20260520": {
+      "before": "64a499d3575a797d725571dafe34473824f0b386754c5bba4c521665752efdb9",
+      "after": "64a499d3575a797d725571dafe34473824f0b386754c5bba4c521665752efdb9",
+      "unchanged": true
+    },
+    "20260521": {
+      "before": "8e3cf36afad81a9fd955cbd738237e5114f45d678f1f22649c2bc730ccf2d790",
+      "after": "8e3cf36afad81a9fd955cbd738237e5114f45d678f1f22649c2bc730ccf2d790",
+      "unchanged": true
+    },
+    "20260522": {
+      "before": "4f8bcd6fcf10ca0f3082e7b9a844fb6bdc60c72ca602ec5ecbd52a68215717ef",
+      "after": "4f8bcd6fcf10ca0f3082e7b9a844fb6bdc60c72ca602ec5ecbd52a68215717ef",
+      "unchanged": true
+    }
+  },
+  "status": "PASS"
+}

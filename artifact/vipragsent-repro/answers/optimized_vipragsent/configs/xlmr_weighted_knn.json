@@ -1,0 +1,74 @@
+{
+  "method": "similarity_softmax_weighted_knn_blended_with_frozen_head",
+  "selection_split": "development",
+  "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/xlm-roberta-large",
+  "checkpoint": null,
+  "pooling": "cls",
+  "max_length": 128,
+  "k_values": [
+    3,
+    5,
+    11,
+    25,
+    50,
+    100,
+    200,
+    500
+  ],
+  "temperatures": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5
+  ],
+  "labels": {
+    "implicit_sentiment": {
+      "k": 11,
+      "temperature": 0.05,
+      "alpha_knn": 0.4,
+      "threshold": 0.19,
+      "development_binary_macro_f1": 61.7595
+    },
+    "sarcasm": {
+      "k": 3,
+      "temperature": 0.02,
+      "alpha_knn": 0.3,
+      "threshold": 0.59,
+      "development_binary_macro_f1": 77.5253
+    },
+    "irony": {
+      "k": 3,
+      "temperature": 0.02,
+      "alpha_knn": 0.2,
+      "threshold": 0.63,
+      "development_binary_macro_f1": 97.5207
+    },
+    "idiom_figurative": {
+      "k": 3,
+      "temperature": 0.02,
+      "alpha_knn": 0.0,
+      "threshold": 0.31,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "k": 25,
+      "temperature": 0.02,
+      "alpha_knn": 0.5,
+      "threshold": 0.14,
+      "development_binary_macro_f1": 64.8931
+    },
+    "mocking": {
+      "k": 3,
+      "temperature": 0.02,
+      "alpha_knn": 0.2,
+      "threshold": 0.46,
+      "development_binary_macro_f1": 79.3074
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

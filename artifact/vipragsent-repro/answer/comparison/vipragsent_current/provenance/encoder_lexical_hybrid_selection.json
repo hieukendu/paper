@@ -1,0 +1,55 @@
+{
+  "method": "development_only_per_label_candidate_selection",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "visobert": "answers/optimized_vipragsent/flexible_dev_predictions/visobert_weighted_cls_s1_thresholded.json",
+    "phobert": "answers/optimized_vipragsent/flexible_dev_predictions/phobert_weighted_cls_s2_thresholded.json",
+    "tfidf": "answers/optimized_vipragsent/flexible_dev_predictions/tfidf_charword_c1_thresholded.json"
+  },
+  "selected_source": {
+    "implicit_sentiment": "visobert",
+    "sarcasm": "visobert",
+    "irony": "visobert",
+    "idiom_figurative": "phobert",
+    "code_switching": "phobert",
+    "mocking": "visobert"
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": {
+      "visobert": 67.5939,
+      "phobert": 65.2091,
+      "tfidf": 65.1649
+    },
+    "sarcasm": {
+      "visobert": 80.8124,
+      "phobert": 78.498,
+      "tfidf": 79.1584
+    },
+    "irony": {
+      "visobert": 97.6816,
+      "phobert": 97.0782,
+      "tfidf": 97.6816
+    },
+    "idiom_figurative": {
+      "visobert": 97.0022,
+      "phobert": 97.0483,
+      "tfidf": 97.0022
+    },
+    "code_switching": {
+      "visobert": 79.8026,
+      "phobert": 80.3963,
+      "tfidf": 77.8491
+    },
+    "mocking": {
+      "visobert": 80.5806,
+      "phobert": 79.1906,
+      "tfidf": 78.5658
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

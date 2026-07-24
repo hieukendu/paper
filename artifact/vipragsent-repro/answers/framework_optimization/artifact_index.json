@@ -1,0 +1,206 @@
+{
+  "protocol": {
+    "source": "/root/paper/artifact/vipragsent-repro/configs/framework_optimization_dev_matrix.yaml",
+    "exists": true,
+    "bytes": 1811,
+    "sha256": "cf895880f3cef03b6a2411d09518862836d6a475bafd51c9d41d8b0c1c26f7f1"
+  },
+  "visobert_full_uncertainty": {
+    "run_manifest": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_uncertainty/20260731/run_manifest.json",
+      "exists": true,
+      "bytes": 1121,
+      "sha256": "79def4110b6c856b977e4efc7e4496a4263098a6759f98cf0757495ef296fd74"
+    },
+    "history": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_uncertainty/20260731/history.json",
+      "exists": true,
+      "bytes": 4145,
+      "sha256": "e10ddc330a9729a68508c7c8d0ca51ba4e7977ea83ff91935fded113e63591b6"
+    },
+    "checkpoint": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_uncertainty/20260731/best.pt",
+      "exists": true,
+      "bytes": 392748502
+    },
+    "development_raw_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_predictions/visobert_full_uncertainty/predictions.jsonl",
+      "exists": true,
+      "bytes": 2466534,
+      "sha256": "db7e34eb15a7d7fda08ac73fe9fd6db7c6ac65eff22d83f3e9e152c66f72bf34"
+    },
+    "threshold_config": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/thresholds/visobert_full_uncertainty.json",
+      "exists": true,
+      "bytes": 952,
+      "sha256": "8ab1e144eb6ac932081871911e21c404dd7c21ce396adda9e6667775c42277ee"
+    },
+    "development_thresholded_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_uncertainty.jsonl",
+      "exists": true,
+      "bytes": 1127681,
+      "sha256": "79631469714f112723af0f0918f671042d74375e94209a1db3b53a8767ed2796"
+    },
+    "development_metrics": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_uncertainty_metrics.csv",
+      "exists": true,
+      "bytes": 169,
+      "sha256": "e4e74dbee0ed61f025cdd8a40e113cc408b443e3ad47a927727ba7391b2bc12e"
+    }
+  },
+  "visobert_full_fixed_weights": {
+    "run_manifest": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_fixed_weights/20260732/run_manifest.json",
+      "exists": true,
+      "bytes": 1123,
+      "sha256": "2485d3f2fc638f1bea8bb3676bd369396a4f613d3d6fe0f35782714404d74fec"
+    },
+    "history": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_fixed_weights/20260732/history.json",
+      "exists": true,
+      "bytes": 3720,
+      "sha256": "caa5dc3180d73f77a3a8020e21ef9d5626c215a0e1a55a3ea83a6919e672c8fe"
+    },
+    "checkpoint": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_fixed_weights/20260732/best.pt",
+      "exists": true,
+      "bytes": 392748187
+    },
+    "development_raw_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_predictions/visobert_full_fixed_weights/predictions.jsonl",
+      "exists": true,
+      "bytes": 2468744,
+      "sha256": "0efb13bf3ef0d2d3794725f4bda21c5538e3fa660885652548cb2ca0253158e6"
+    },
+    "threshold_config": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/thresholds/visobert_full_fixed_weights.json",
+      "exists": true,
+      "bytes": 952,
+      "sha256": "4004dd779fb010e1588b25a6d62c4fadb691d93cc9b8683e729e6f353e568796"
+    },
+    "development_thresholded_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_fixed_weights.jsonl",
+      "exists": true,
+      "bytes": 1126015,
+      "sha256": "03e2be90150a45979aca309421de5acf15e1665ed9b7354231fc70920a73af9b"
+    },
+    "development_metrics": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_fixed_weights_metrics.csv",
+      "exists": true,
+      "bytes": 169,
+      "sha256": "d10f56e14638e448126ae5b6e230d63260ecd93d41433b9d2f7dd8997f50a512"
+    }
+  },
+  "visobert_full_mlp_focal": {
+    "run_manifest": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_mlp_focal/20260733/run_manifest.json",
+      "exists": true,
+      "bytes": 1112,
+      "sha256": "5953f0f709b239fc92960e86daa1970da3efb05a8a3fd1ed7a63db0b351024da"
+    },
+    "history": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_mlp_focal/20260733/history.json",
+      "exists": true,
+      "bytes": 2860,
+      "sha256": "db7db11f923d8a1f069c502a446e39d20ba35c64d060249a48a86f1d3cfeee89"
+    },
+    "checkpoint": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/visobert_full_mlp_focal/20260733/best.pt",
+      "exists": true,
+      "bytes": 395111185
+    },
+    "development_raw_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_predictions/visobert_full_mlp_focal/predictions.jsonl",
+      "exists": true,
+      "bytes": 2453794,
+      "sha256": "2d1c896a2933e9eaf43e08e973f437ea00cb4b7e532ef9f4b215cd264483217f"
+    },
+    "threshold_config": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/thresholds/visobert_full_mlp_focal.json",
+      "exists": true,
+      "bytes": 950,
+      "sha256": "4ee54b30a440a282d8a4fd91277da8ad66951d60c69c984011c9047c6095d349"
+    },
+    "development_thresholded_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_mlp_focal.jsonl",
+      "exists": true,
+      "bytes": 1120085,
+      "sha256": "95b1584d8adf9a4f9a61e62b66fac15ee4b9653231358631ba65966e87d5a737"
+    },
+    "development_metrics": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_mlp_focal_metrics.csv",
+      "exists": true,
+      "bytes": 169,
+      "sha256": "a800a90ca7ff41bd6adcb347e1465f8fc573058eb15e555bc4183b1264bff1e3"
+    }
+  },
+  "phobert_full_fixed_weights": {
+    "run_manifest": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/phobert_full_fixed_weights/20260734/run_manifest.json",
+      "exists": true,
+      "bytes": 1126,
+      "sha256": "6f2721a5e1f3fe1a9c1cdfd53912f12f681132a7f51358c6fcc1fe67a49fa6c6"
+    },
+    "history": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/phobert_full_fixed_weights/20260734/history.json",
+      "exists": true,
+      "bytes": 4545,
+      "sha256": "c6ffe2b42c03d1fd07abf9443bee178534ab68376259e9f98c09326186e646d6"
+    },
+    "checkpoint": {
+      "source": "/root/paper/artifact/vipragsent-repro/outputs/framework_optimization/phobert_full_fixed_weights/20260734/best.pt",
+      "exists": true,
+      "bytes": 542477467
+    },
+    "development_raw_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_predictions/phobert_full_fixed_weights/predictions.jsonl",
+      "exists": true,
+      "bytes": 2455796,
+      "sha256": "224f0f997452ca07508f096ebe10170b5c62820e8f5bba1da52d9a0e58246faf"
+    },
+    "threshold_config": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/thresholds/phobert_full_fixed_weights.json",
+      "exists": true,
+      "bytes": 952,
+      "sha256": "97a030957af711ccccfcd8e14a2df08c9b8f34899b644074b23335d4e3816623"
+    },
+    "development_thresholded_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/phobert_full_fixed_weights.jsonl",
+      "exists": true,
+      "bytes": 1117813,
+      "sha256": "1a38946b3b69c08e1493e478b9de5000fb31e40409878b24fdf9fdd2d0d31382"
+    },
+    "development_metrics": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/phobert_full_fixed_weights_metrics.csv",
+      "exists": true,
+      "bytes": 169,
+      "sha256": "e7e17378c401a5fd922eac4cac022e0dd121f454824a49fb0f1cd05368718007"
+    }
+  },
+  "dev_selected_hybrid": {
+    "previous_selection": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/optimized_vipragsent/flexible_configs/encoder_lexical_hybrid_selection.json",
+      "exists": true,
+      "bytes": 1541,
+      "sha256": "ba5d526f4e29ba7c6c3e844fc0711768a2476e5bbda467d185451508fb9687ea"
+    },
+    "new_selection": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/selection/locked_plus_full_multitask_dev_selection.json",
+      "exists": true,
+      "bytes": 1464,
+      "sha256": "129351c2b26ad99d738eaad10d6a36c2443c086dc26302f25ca592da8170207a"
+    },
+    "development_predictions": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/selected/locked_plus_full_multitask_dev.jsonl",
+      "exists": true,
+      "bytes": 1550991,
+      "sha256": "7432e4c6128a8285087ab0ee6b7be4c1a43d50145b11025f37a47d3bc220ca7f"
+    },
+    "development_metrics": {
+      "source": "/root/paper/artifact/vipragsent-repro/answers/framework_optimization/selected/locked_plus_full_multitask_dev_metrics.csv",
+      "exists": true,
+      "bytes": 169,
+      "sha256": "e64043085401741c36839a101fd298d1c679cc69915128cd156f3c3905d2c5fe"
+    }
+  }
+}

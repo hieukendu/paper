@@ -1,0 +1,27 @@
+experiment_id,hypothesis,selection_split,result,status
+E001,dev-selected label thresholds plus frozen three-seed ensemble,dev,macro 76.5697 on test,kept
+E002,increase frozen inference max length from 128 to 256,dev,identical output; no improvement,rejected
+E003,train-only English-token retrieval for code switching,dev,macro 80.4160 on test; code switching 75.8134,kept
+E004,frozen contextual embedding k-NN blended with the frozen head,dev,improved implicit/sarcasm/mocking candidates; retained for label selection,kept
+E005,"per-label development selection over threshold, lexical, PhoBERT k-NN, and ViSoBERT k-NN",dev,macro 81.3969 on test,kept
+E006,source-conditioned frozen thresholds,dev,macro 75.3852 on test,rejected
+E007,"extended k-NN neighborhoods (up to 1,000)",dev,no label selection advantage over E004/E005 candidates,rejected
+E008,test-time lowercase and social-token normalization variants,dev,no per-label selection advantage over E005 candidates,rejected
+E009,mean-pooled frozen contextual k-NN,dev,no per-label selection advantage over E005 candidates,rejected
+E010,"train-set linear calibration over frozen pragmatic, polarity, and emotion logits",dev,no per-label selection advantage over E005 candidates,rejected
+E011,train-centroid prototype retrieval over frozen contextual embeddings,dev,no per-label selection advantage over E005 candidates,rejected
+E012,similarity-weighted k-NN followed by six-way per-label development selection,dev,macro 81.4475 on test,kept
+E013,XLM-R frozen embedding and pairwise frozen-score blends,dev,macro 81.7627 on test,kept
+E014,expanded train-token posterior rule for code switching,dev,macro 81.8533 on test,kept
+E015,Vistral-base frozen embeddings in pairwise score blend,dev,macro 81.9650 on test,kept
+E016,additional lexical-neighbour retrieval and lexical/retrieval blend,dev,no per-label selection advantage over E015 candidates,rejected
+E017,train-label dependency adjustment of frozen score blends,dev,macro 82.0991 on test,superseded_by_dev_selection
+E018,per-label convex weights over the three frozen ViPragSent seeds,dev,no per-label selection advantage over E017 candidates,rejected
+E019,similarity-weighted ViSoBERT and XLM-R frozen embedding retrieval,dev,no per-label selection advantage over E017 candidates,rejected
+E020,source-conditioned frozen score blend integrated with label dependencies,dev,macro 82.0699 on test,kept
+E021,nonlinear minimum/maximum/quantile frozen-score aggregation,dev,no per-label selection advantage over E020 candidates,rejected
+E022,retrieval-augmented frozen Vistral-base few-shot inference without adapters,dev,no per-label selection advantage over E020 candidates,rejected
+E023,static Vietnamese teencode normalization before frozen encoder inference,dev,no per-label selection advantage over E020 candidates,rejected
+E024,retrieval-augmented frozen Sailor-base few-shot inference without adapters,dev_probe,base model echoed demonstrations instead of producing usable target completions,rejected
+E025,k-NN over the frozen archived rationale-projection representation,dev,no per-label selection advantage over E020 candidates,rejected
+E026,map emoji and laughter cues to static Vietnamese text before frozen inference,dev,no per-label selection advantage over E020 candidates,rejected

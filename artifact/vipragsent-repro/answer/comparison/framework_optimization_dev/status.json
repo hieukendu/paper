@@ -1,0 +1,19 @@
+{
+  "scope": "development-only framework optimization",
+  "test_set_policy": {
+    "new_test_prediction_or_scoring": false,
+    "test_labels_used_for_selection": false,
+    "reason": "The historical test split was already evaluated before this search; it is not a fresh confirmatory split."
+  },
+  "result": {
+    "selected_system": "locked_plus_full_multitask_dev",
+    "development_macro_pragmatic_f1": 84.0411,
+    "change_from_locked_dev_hybrid": "+0.0223 macro-F1; the full multitask candidate is selected only for mocking."
+  },
+  "claims_not_established": [
+    "Strict superiority over every historical best-tuned baseline on every metric.",
+    "Strict per-label dominance over every deployment-default baseline."
+  ],
+  "deployment_default_policy": "Unchanged. The existing fixed deployment-default protocol is retained rather than weakened or altered to obtain a desired ranking.",
+  "manuscript_modified": false
+}

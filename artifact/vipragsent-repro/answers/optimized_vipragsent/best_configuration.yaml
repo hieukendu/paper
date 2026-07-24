@@ -1,0 +1,906 @@
+{
+  "experiment_id": "E020_frozen_source_dependency_hybrid",
+  "base": "frozen ViPragSent checkpoints 20260520/20260521/20260522",
+  "ensemble": "mean probabilities",
+  "thresholds": {
+    "implicit_sentiment": 0.29,
+    "sarcasm": 0.43,
+    "irony": 0.55,
+    "idiom_figurative": 0.5,
+    "code_switching": 0.16,
+    "mocking": 0.49
+  },
+  "code_switch_lexicon_candidate": {
+    "method": "train_lexicon_max_score_blended_with_frozen_probability",
+    "label": "code_switching",
+    "selection_split": "development",
+    "train_path": "data/processed/vipragsent_train.jsonl",
+    "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+    "alpha_lexical": 0.4,
+    "threshold": 0.27,
+    "development_binary_macro_f1": 75.7241,
+    "token_pattern": "(?<![\\w])([A-Za-z]{2,})(?![\\w])",
+    "smoothing": "(positive_count + 1) / (token_count + 2); token_count >= 2",
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "code_switch_rule": {
+    "method": "development_selected_train_token_posterior_rule_blended_with_frozen_probability",
+    "label": "code_switching",
+    "selection_split": "development",
+    "train_path": "data/processed/vipragsent_train.jsonl",
+    "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+    "rule": {
+      "mode": "max",
+      "min_count": 1,
+      "smoothing": 1.0
+    },
+    "alpha_lexical": 0.3,
+    "threshold": 0.23,
+    "development_binary_macro_f1": 78.6874,
+    "search": {
+      "modes": [
+        "max",
+        "mean",
+        "top2_mean",
+        "noisy_or",
+        "log_odds_sum"
+      ],
+      "min_counts": [
+        1,
+        2,
+        3,
+        5,
+        10
+      ],
+      "smoothing": [
+        0.0,
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        8.0
+      ]
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "phobert_knn_rule": {
+    "method": "frozen_contextual_embedding_knn_blended_with_frozen_head",
+    "selection_split": "development",
+    "train_path": "data/processed/vipragsent_train.jsonl",
+    "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+    "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base",
+    "checkpoint": "/root/paper/huggingface/vipragsent-experiment-checkpoints/vipragsent_full/20260520/best.pt",
+    "max_length": 128,
+    "k_values": [
+      1,
+      3,
+      5,
+      7,
+      11,
+      15,
+      25,
+      35,
+      50,
+      75,
+      100
+    ],
+    "alpha_values": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "threshold_grid": [
+      0.01,
+      0.99,
+      0.01
+    ],
+    "labels": {
+      "implicit_sentiment": {
+        "k": 7,
+        "alpha_knn": 0.3,
+        "threshold": 0.22,
+        "development_binary_macro_f1": 65.8731
+      },
+      "sarcasm": {
+        "k": 11,
+        "alpha_knn": 0.9,
+        "threshold": 0.52,
+        "development_binary_macro_f1": 78.8714
+      },
+      "irony": {
+        "k": 100,
+        "alpha_knn": 0.5,
+        "threshold": 0.5,
+        "development_binary_macro_f1": 97.2249
+      },
+      "idiom_figurative": {
+        "k": 1,
+        "alpha_knn": 0.5,
+        "threshold": 0.54,
+        "development_binary_macro_f1": 97.0177
+      },
+      "code_switching": {
+        "k": 15,
+        "alpha_knn": 0.3,
+        "threshold": 0.19,
+        "development_binary_macro_f1": 62.7586
+      },
+      "mocking": {
+        "k": 3,
+        "alpha_knn": 0.3,
+        "threshold": 0.47,
+        "development_binary_macro_f1": 79.2714
+      }
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "visobert_knn_rule": {
+    "method": "frozen_contextual_embedding_knn_blended_with_frozen_head",
+    "selection_split": "development",
+    "train_path": "data/processed/vipragsent_train.jsonl",
+    "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+    "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/visobert",
+    "checkpoint": null,
+    "max_length": 128,
+    "k_values": [
+      1,
+      3,
+      5,
+      7,
+      11,
+      15,
+      25,
+      35,
+      50,
+      75,
+      100
+    ],
+    "alpha_values": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "threshold_grid": [
+      0.01,
+      0.99,
+      0.01
+    ],
+    "labels": {
+      "implicit_sentiment": {
+        "k": 7,
+        "alpha_knn": 0.7,
+        "threshold": 0.25,
+        "development_binary_macro_f1": 65.4099
+      },
+      "sarcasm": {
+        "k": 5,
+        "alpha_knn": 0.4,
+        "threshold": 0.49,
+        "development_binary_macro_f1": 78.2588
+      },
+      "irony": {
+        "k": 11,
+        "alpha_knn": 0.5,
+        "threshold": 0.56,
+        "development_binary_macro_f1": 97.5207
+      },
+      "idiom_figurative": {
+        "k": 100,
+        "alpha_knn": 0.5,
+        "threshold": 0.58,
+        "development_binary_macro_f1": 97.0022
+      },
+      "code_switching": {
+        "k": 75,
+        "alpha_knn": 0.7,
+        "threshold": 0.17,
+        "development_binary_macro_f1": 69.9964
+      },
+      "mocking": {
+        "k": 11,
+        "alpha_knn": 0.4,
+        "threshold": 0.42,
+        "development_binary_macro_f1": 79.6734
+      }
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "xlmr_knn_rule": {
+    "method": "frozen_contextual_embedding_knn_blended_with_frozen_head",
+    "selection_split": "development",
+    "train_path": "data/processed/vipragsent_train.jsonl",
+    "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+    "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/xlm-roberta-large",
+    "checkpoint": null,
+    "max_length": 128,
+    "pooling": "cls",
+    "k_values": [
+      1,
+      3,
+      5,
+      7,
+      11,
+      15,
+      25,
+      35,
+      50,
+      75,
+      100,
+      150,
+      200,
+      300,
+      500,
+      750,
+      1000
+    ],
+    "alpha_values": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "threshold_grid": [
+      0.01,
+      0.99,
+      0.01
+    ],
+    "labels": {
+      "implicit_sentiment": {
+        "k": 7,
+        "alpha_knn": 0.3,
+        "threshold": 0.22,
+        "development_binary_macro_f1": 61.8529
+      },
+      "sarcasm": {
+        "k": 1,
+        "alpha_knn": 0.5,
+        "threshold": 0.71,
+        "development_binary_macro_f1": 77.6016
+      },
+      "irony": {
+        "k": 15,
+        "alpha_knn": 0.4,
+        "threshold": 0.59,
+        "development_binary_macro_f1": 97.5207
+      },
+      "idiom_figurative": {
+        "k": 7,
+        "alpha_knn": 0.5,
+        "threshold": 0.5,
+        "development_binary_macro_f1": 97.0022
+      },
+      "code_switching": {
+        "k": 25,
+        "alpha_knn": 0.5,
+        "threshold": 0.14,
+        "development_binary_macro_f1": 64.837
+      },
+      "mocking": {
+        "k": 7,
+        "alpha_knn": 0.4,
+        "threshold": 0.4,
+        "development_binary_macro_f1": 79.6532
+      }
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "vistral_base_knn_rule": {
+    "method": "frozen_pretrained_causal_lm_embedding_knn_blended_with_frozen_vipragsent_head",
+    "selection_split": "development",
+    "base": "/root/paper/huggingface/vipragsent-vistral-7b-qlora/pretrained/Vistral-7B-Chat",
+    "adapter_loaded": false,
+    "max_length": 128,
+    "pooling": "mean",
+    "k_values": [
+      1,
+      3,
+      5,
+      7,
+      11,
+      15,
+      25,
+      35,
+      50,
+      75,
+      100,
+      150,
+      200,
+      300,
+      500,
+      750,
+      1000
+    ],
+    "alpha_values": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "labels": {
+      "implicit_sentiment": {
+        "k": 5,
+        "alpha_knn": 0.3,
+        "threshold": 0.21,
+        "development_binary_macro_f1": 63.2271
+      },
+      "sarcasm": {
+        "k": 7,
+        "alpha_knn": 0.6,
+        "threshold": 0.68,
+        "development_binary_macro_f1": 77.8282
+      },
+      "irony": {
+        "k": 3,
+        "alpha_knn": 0.5,
+        "threshold": 0.62,
+        "development_binary_macro_f1": 97.5207
+      },
+      "idiom_figurative": {
+        "k": 1000,
+        "alpha_knn": 0.5,
+        "threshold": 0.5,
+        "development_binary_macro_f1": 97.0022
+      },
+      "code_switching": {
+        "k": 1000,
+        "alpha_knn": 0.8,
+        "threshold": 0.13,
+        "development_binary_macro_f1": 71.389
+      },
+      "mocking": {
+        "k": 7,
+        "alpha_knn": 0.3,
+        "threshold": 0.45,
+        "development_binary_macro_f1": 79.2046
+      }
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "weighted_knn_rule": {
+    "method": "similarity_softmax_weighted_knn_blended_with_frozen_head",
+    "selection_split": "development",
+    "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base",
+    "checkpoint": "/root/paper/huggingface/vipragsent-experiment-checkpoints/vipragsent_full/20260520/best.pt",
+    "pooling": "cls",
+    "max_length": 128,
+    "k_values": [
+      3,
+      5,
+      11,
+      25,
+      50,
+      100,
+      200,
+      500
+    ],
+    "temperatures": [
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "labels": {
+      "implicit_sentiment": {
+        "k": 5,
+        "temperature": 0.02,
+        "alpha_knn": 0.3,
+        "threshold": 0.2,
+        "development_binary_macro_f1": 65.2425
+      },
+      "sarcasm": {
+        "k": 100,
+        "temperature": 0.02,
+        "alpha_knn": 1.0,
+        "threshold": 0.36,
+        "development_binary_macro_f1": 79.077
+      },
+      "irony": {
+        "k": 100,
+        "temperature": 0.02,
+        "alpha_knn": 0.8,
+        "threshold": 0.91,
+        "development_binary_macro_f1": 97.3724
+      },
+      "idiom_figurative": {
+        "k": 3,
+        "temperature": 0.02,
+        "alpha_knn": 0.0,
+        "threshold": 0.31,
+        "development_binary_macro_f1": 97.0022
+      },
+      "code_switching": {
+        "k": 50,
+        "temperature": 0.05,
+        "alpha_knn": 0.3,
+        "threshold": 0.19,
+        "development_binary_macro_f1": 63.6615
+      },
+      "mocking": {
+        "k": 3,
+        "temperature": 0.02,
+        "alpha_knn": 0.3,
+        "threshold": 0.48,
+        "development_binary_macro_f1": 79.4896
+      }
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "score_blend_rule": {
+    "method": "development_only_pairwise_convex_blend_of_frozen_scores",
+    "selection_split": "development",
+    "gold_path": "data/processed/vipragsent_dev.jsonl",
+    "candidates": {
+      "phobert": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+        "probability_suffix": "_knn_blend"
+      },
+      "visobert": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+        "probability_suffix": "_knn_blend"
+      },
+      "weighted": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/weighted_knn_dev.jsonl",
+        "probability_suffix": "_weighted_knn"
+      },
+      "xlmr": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/xlmr_knn_dev.jsonl",
+        "probability_suffix": "_knn_blend"
+      },
+      "vistral_base": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/vistral_base_knn_dev.jsonl",
+        "probability_suffix": "_causal_knn_blend"
+      },
+      "sailor_base": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/sailor_base_knn_dev.jsonl",
+        "probability_suffix": "_causal_knn_blend"
+      }
+    },
+    "labels": {
+      "implicit_sentiment": {
+        "first": "phobert",
+        "second": "visobert",
+        "first_weight": 0.7,
+        "threshold": 0.2,
+        "development_binary_macro_f1": 66.6777
+      },
+      "sarcasm": {
+        "first": "phobert",
+        "second": "vistral_base",
+        "first_weight": 0.5,
+        "threshold": 0.4,
+        "development_binary_macro_f1": 79.1422
+      },
+      "irony": {
+        "first": "visobert",
+        "second": "visobert",
+        "first_weight": 0.0,
+        "threshold": 0.56,
+        "development_binary_macro_f1": 97.5207
+      },
+      "idiom_figurative": {
+        "first": "phobert",
+        "second": "visobert",
+        "first_weight": 0.5,
+        "threshold": 0.33,
+        "development_binary_macro_f1": 97.1674
+      },
+      "code_switching": {
+        "first": "visobert",
+        "second": "vistral_base",
+        "first_weight": 0.2,
+        "threshold": 0.13,
+        "development_binary_macro_f1": 73.525
+      },
+      "mocking": {
+        "first": "visobert",
+        "second": "xlmr",
+        "first_weight": 0.8,
+        "threshold": 0.4,
+        "development_binary_macro_f1": 79.8758
+      }
+    },
+    "development_binary_macro_f1": {
+      "implicit_sentiment": 66.6777,
+      "sarcasm": 79.1422,
+      "irony": 97.5207,
+      "idiom_figurative": 97.1674,
+      "code_switching": 73.525,
+      "mocking": 79.8758
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "label_dependency_rule": {
+    "method": "development_selected_train_label_dependency_adjustment_of_frozen_scores",
+    "selection_split": "development",
+    "train_path": "data/processed/vipragsent_train.jsonl",
+    "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+    "probability_suffix": "_score_blend",
+    "labels": {
+      "implicit_sentiment": {
+        "parent_label": "mocking",
+        "source_specific": false,
+        "smoothing": 0.0,
+        "alpha_dependency": 0.4,
+        "threshold": 0.17,
+        "development_binary_macro_f1": 67.4491
+      },
+      "sarcasm": {
+        "parent_label": "code_switching",
+        "source_specific": false,
+        "smoothing": 0.0,
+        "alpha_dependency": 0.3,
+        "threshold": 0.33,
+        "development_binary_macro_f1": 79.2034
+      },
+      "irony": {
+        "parent_label": "implicit_sentiment",
+        "source_specific": false,
+        "smoothing": 0.0,
+        "alpha_dependency": 0.1,
+        "threshold": 0.52,
+        "development_binary_macro_f1": 97.5207
+      },
+      "idiom_figurative": {
+        "parent_label": "implicit_sentiment",
+        "source_specific": false,
+        "smoothing": 0.0,
+        "alpha_dependency": 0.9,
+        "threshold": 0.13,
+        "development_binary_macro_f1": 97.3317
+      },
+      "code_switching": {
+        "parent_label": "implicit_sentiment",
+        "source_specific": false,
+        "smoothing": 0.0,
+        "alpha_dependency": 0.8,
+        "threshold": 0.1,
+        "development_binary_macro_f1": 74.2626
+      },
+      "mocking": {
+        "parent_label": "idiom_figurative",
+        "source_specific": false,
+        "smoothing": 0.0,
+        "alpha_dependency": 0.9,
+        "threshold": 0.18,
+        "development_binary_macro_f1": 80.0485
+      }
+    },
+    "search": {
+      "smoothing": [
+        0.0,
+        0.5,
+        1.0,
+        2.0,
+        4.0
+      ],
+      "alpha_dependency": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "source_specific": [
+        false,
+        true
+      ]
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "source_score_blend_rule": {
+    "method": "development_only_source_conditioned_pairwise_convex_blend_of_frozen_scores",
+    "selection_split": "development",
+    "gold_path": "data/processed/vipragsent_dev.jsonl",
+    "candidates": {
+      "phobert": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+        "probability_suffix": "_knn_blend"
+      },
+      "visobert": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+        "probability_suffix": "_knn_blend"
+      },
+      "weighted": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/weighted_knn_dev.jsonl",
+        "probability_suffix": "_weighted_knn"
+      },
+      "xlmr": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/xlmr_knn_dev.jsonl",
+        "probability_suffix": "_knn_blend"
+      },
+      "vistral_base": {
+        "path": "answers/optimized_vipragsent/predictions/candidates/vistral_base_knn_dev.jsonl",
+        "probability_suffix": "_causal_knn_blend"
+      }
+    },
+    "labels": {
+      "implicit_sentiment": {
+        "VIVID_seed_and_irony_generation": {
+          "first": "weighted",
+          "second": "xlmr",
+          "first_weight": 0.2,
+          "threshold": 0.29,
+          "source_development_binary_macro_f1": 77.4131
+        },
+        "visobert_local": {
+          "first": "phobert",
+          "second": "visobert",
+          "first_weight": 0.5,
+          "threshold": 0.19,
+          "source_development_binary_macro_f1": 62.9335
+        }
+      },
+      "sarcasm": {
+        "VIVID_seed_and_irony_generation": {
+          "first": "phobert",
+          "second": "phobert",
+          "first_weight": 0.0,
+          "threshold": 0.49,
+          "source_development_binary_macro_f1": 100.0
+        },
+        "visobert_local": {
+          "first": "weighted",
+          "second": "vistral_base",
+          "first_weight": 0.9,
+          "threshold": 0.29,
+          "source_development_binary_macro_f1": 62.1155
+        }
+      },
+      "irony": {
+        "VIVID_seed_and_irony_generation": {
+          "first": "phobert",
+          "second": "phobert",
+          "first_weight": 0.0,
+          "threshold": 0.11,
+          "source_development_binary_macro_f1": 100.0
+        },
+        "visobert_local": {
+          "first": "visobert",
+          "second": "visobert",
+          "first_weight": 0.0,
+          "threshold": 0.47,
+          "source_development_binary_macro_f1": 53.8343
+        }
+      },
+      "idiom_figurative": {
+        "VIVID_seed_and_irony_generation": {
+          "first": "phobert",
+          "second": "phobert",
+          "first_weight": 0.0,
+          "threshold": 0.14,
+          "source_development_binary_macro_f1": 100.0
+        },
+        "visobert_local": {
+          "first": "phobert",
+          "second": "visobert",
+          "first_weight": 0.3,
+          "threshold": 0.34,
+          "source_development_binary_macro_f1": 56.5183
+        }
+      },
+      "code_switching": {
+        "VIVID_seed_and_irony_generation": {
+          "first": "phobert",
+          "second": "weighted",
+          "first_weight": 0.2,
+          "threshold": 0.18,
+          "source_development_binary_macro_f1": 100.0
+        },
+        "visobert_local": {
+          "first": "visobert",
+          "second": "vistral_base",
+          "first_weight": 0.2,
+          "threshold": 0.13,
+          "source_development_binary_macro_f1": 73.2428
+        }
+      },
+      "mocking": {
+        "VIVID_seed_and_irony_generation": {
+          "first": "xlmr",
+          "second": "xlmr",
+          "first_weight": 0.0,
+          "threshold": 0.46,
+          "source_development_binary_macro_f1": 97.7508
+        },
+        "visobert_local": {
+          "first": "visobert",
+          "second": "xlmr",
+          "first_weight": 0.8,
+          "threshold": 0.38,
+          "source_development_binary_macro_f1": 74.6069
+        }
+      }
+    },
+    "development_binary_macro_f1": {
+      "implicit_sentiment": 66.9752,
+      "sarcasm": 77.6856,
+      "irony": 96.659,
+      "idiom_figurative": 96.1555,
+      "code_switching": 74.294,
+      "mocking": 80.2448
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "per_label_selector": {
+    "method": "development_only_per_label_candidate_selection",
+    "selection_split": "development",
+    "gold_path": "data/processed/vipragsent_dev.jsonl",
+    "candidates": {
+      "threshold": "answers/optimized_vipragsent/predictions/candidates/threshold_dev.jsonl",
+      "lexical": "answers/optimized_vipragsent/predictions/candidates/lexical_dev.jsonl",
+      "lexical_rules": "answers/optimized_vipragsent/predictions/candidates/lexical_rules_dev.jsonl",
+      "phobert_knn": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+      "visobert_knn": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+      "source_thresholds": "answers/optimized_vipragsent/predictions/candidates/source_thresholds_dev.jsonl",
+      "weighted_knn": "answers/optimized_vipragsent/predictions/candidates/weighted_knn_dev.jsonl",
+      "score_blend": "answers/optimized_vipragsent/predictions/candidates/score_blend_extended_dev.jsonl",
+      "label_dependency": "answers/optimized_vipragsent/predictions/candidates/label_dependency_dev.jsonl",
+      "source_score_blend": "answers/optimized_vipragsent/predictions/candidates/source_score_blend_dev.jsonl"
+    },
+    "selected_source": {
+      "implicit_sentiment": "label_dependency",
+      "sarcasm": "label_dependency",
+      "irony": "visobert_knn",
+      "idiom_figurative": "label_dependency",
+      "code_switching": "lexical_rules",
+      "mocking": "source_score_blend"
+    },
+    "development_binary_macro_f1": {
+      "implicit_sentiment": {
+        "threshold": 60.2002,
+        "lexical": 60.2002,
+        "lexical_rules": 60.2002,
+        "phobert_knn": 65.8731,
+        "visobert_knn": 65.4099,
+        "source_thresholds": 60.5276,
+        "weighted_knn": 65.2425,
+        "score_blend": 66.6777,
+        "label_dependency": 67.4491,
+        "source_score_blend": 66.9752
+      },
+      "sarcasm": {
+        "threshold": 76.2672,
+        "lexical": 76.2672,
+        "lexical_rules": 76.2672,
+        "phobert_knn": 78.8714,
+        "visobert_knn": 78.2588,
+        "source_thresholds": 74.6623,
+        "weighted_knn": 79.077,
+        "score_blend": 79.1422,
+        "label_dependency": 79.2034,
+        "source_score_blend": 77.6856
+      },
+      "irony": {
+        "threshold": 97.2249,
+        "lexical": 97.2249,
+        "lexical_rules": 97.2249,
+        "phobert_knn": 97.2249,
+        "visobert_knn": 97.5207,
+        "source_thresholds": 97.5207,
+        "weighted_knn": 97.3724,
+        "score_blend": 97.5207,
+        "label_dependency": 97.5207,
+        "source_score_blend": 96.659
+      },
+      "idiom_figurative": {
+        "threshold": 97.0022,
+        "lexical": 97.0022,
+        "lexical_rules": 97.0022,
+        "phobert_knn": 97.0177,
+        "visobert_knn": 97.0022,
+        "source_thresholds": 90.9908,
+        "weighted_knn": 97.0022,
+        "score_blend": 97.1674,
+        "label_dependency": 97.3317,
+        "source_score_blend": 96.1555
+      },
+      "code_switching": {
+        "threshold": 52.3721,
+        "lexical": 75.7241,
+        "lexical_rules": 78.6874,
+        "phobert_knn": 62.7586,
+        "visobert_knn": 69.9964,
+        "source_thresholds": 56.3321,
+        "weighted_knn": 63.6615,
+        "score_blend": 73.525,
+        "label_dependency": 74.2626,
+        "source_score_blend": 74.294
+      },
+      "mocking": {
+        "threshold": 77.3067,
+        "lexical": 77.3067,
+        "lexical_rules": 77.3067,
+        "phobert_knn": 79.2714,
+        "visobert_knn": 79.6734,
+        "source_thresholds": 77.3693,
+        "weighted_knn": 79.4896,
+        "score_blend": 79.8758,
+        "label_dependency": 80.0485,
+        "source_score_blend": 80.2448
+      }
+    },
+    "frozen_weight_compliance": {
+      "neural_weight_updates": false,
+      "selection_uses_test_labels": false,
+      "optimizer_or_backward_called": false
+    }
+  },
+  "selection_split": "development only",
+  "test_labels_used_for_selection": false
+}

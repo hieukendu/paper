@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "created_at": "2026-07-24T00:44:18.925482+00:00",
+  "system": "finetune_visobert_weighted_cls_s1",
+  "seed": 20260726,
+  "model_id": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/visobert",
+  "device": "cuda",
+  "bf16": true,
+  "train_records": 8000,
+  "dev_records": 2000,
+  "test_records": 2000,
+  "epochs_completed": 5,
+  "elapsed_seconds": 220.924,
+  "best_dev_macro_pragmatic_f1": 0.8304623333515143,
+  "checkpoint": "outputs/flexible_optimization/finetune_visobert_weighted_cls_s1/20260726/best.pt",
+  "predictions": "answers/optimized_vipragsent/flexible_dev_predictions/finetune_visobert_weighted_cls_s1/20260726.jsonl",
+  "rationales_loaded": 8000,
+  "flags": {
+    "no_rationale": true,
+    "no_emotion": true,
+    "no_polarity": true,
+    "no_uncertainty": false
+  },
+  "advanced_options": {
+    "pooling": "cls",
+    "dropout": 0.1,
+    "positive_weight_power": 0.5,
+    "pragmatic_pos_weight": [
+      2.7605597972869873,
+      2.1806869506835938,
+      3.136894702911377,
+      3.1486587524414062,
+      3.1749539375305176,
+      2.3551316261291504
+    ]
+  }
+}

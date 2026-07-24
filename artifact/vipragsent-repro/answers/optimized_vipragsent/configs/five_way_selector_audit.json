@@ -1,0 +1,69 @@
+{
+  "method": "development_only_per_label_candidate_selection",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "threshold": "answers/optimized_vipragsent/predictions/candidates/threshold_dev.jsonl",
+    "lexical": "answers/optimized_vipragsent/predictions/candidates/lexical_dev.jsonl",
+    "phobert_knn": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+    "visobert_knn": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+    "source_thresholds": "answers/optimized_vipragsent/predictions/candidates/source_thresholds_dev.jsonl"
+  },
+  "selected_source": {
+    "implicit_sentiment": "phobert_knn",
+    "sarcasm": "phobert_knn",
+    "irony": "visobert_knn",
+    "idiom_figurative": "phobert_knn",
+    "code_switching": "lexical",
+    "mocking": "visobert_knn"
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": {
+      "threshold": 60.2002,
+      "lexical": 60.2002,
+      "phobert_knn": 65.8731,
+      "visobert_knn": 65.4099,
+      "source_thresholds": 60.5276
+    },
+    "sarcasm": {
+      "threshold": 76.2672,
+      "lexical": 76.2672,
+      "phobert_knn": 78.8714,
+      "visobert_knn": 78.2588,
+      "source_thresholds": 74.6623
+    },
+    "irony": {
+      "threshold": 97.2249,
+      "lexical": 97.2249,
+      "phobert_knn": 97.2249,
+      "visobert_knn": 97.5207,
+      "source_thresholds": 97.5207
+    },
+    "idiom_figurative": {
+      "threshold": 97.0022,
+      "lexical": 97.0022,
+      "phobert_knn": 97.0177,
+      "visobert_knn": 97.0022,
+      "source_thresholds": 90.9908
+    },
+    "code_switching": {
+      "threshold": 52.3721,
+      "lexical": 75.7241,
+      "phobert_knn": 62.7586,
+      "visobert_knn": 69.9964,
+      "source_thresholds": 56.3321
+    },
+    "mocking": {
+      "threshold": 77.3067,
+      "lexical": 77.3067,
+      "phobert_knn": 79.2714,
+      "visobert_knn": 79.6734,
+      "source_thresholds": 77.3693
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

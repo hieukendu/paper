@@ -1,0 +1,72 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 125.89339150488377,
+    "dev_macro_pragmatic_f1": 0.7946566615496756,
+    "per_label": {
+      "implicit_sentiment": 0.5835516328806136,
+      "sarcasm": 0.7592243709144619,
+      "irony": 0.9485057471264368,
+      "idiom_figurative": 0.9685261421863001,
+      "code_switching": 0.721128299824763,
+      "mocking": 0.7870037763654785
+    },
+    "elapsed_seconds": 43.098
+  },
+  {
+    "epoch": 2,
+    "train_loss": 66.25447486341,
+    "dev_macro_pragmatic_f1": 0.8304623333515143,
+    "per_label": {
+      "implicit_sentiment": 0.6653645441594765,
+      "sarcasm": 0.8004161756615336,
+      "irony": 0.9694749694749695,
+      "idiom_figurative": 0.9642688196515278,
+      "code_switching": 0.788316935565516,
+      "mocking": 0.7949325555960627
+    },
+    "elapsed_seconds": 85.82
+  },
+  {
+    "epoch": 3,
+    "train_loss": 35.25669029355049,
+    "dev_macro_pragmatic_f1": 0.8143192983879567,
+    "per_label": {
+      "implicit_sentiment": 0.6164429994157445,
+      "sarcasm": 0.769891091137159,
+      "irony": 0.9583054128508675,
+      "idiom_figurative": 0.9570498130132931,
+      "code_switching": 0.7932226727332036,
+      "mocking": 0.7910038011774714
+    },
+    "elapsed_seconds": 127.816
+  },
+  {
+    "epoch": 4,
+    "train_loss": 12.971154684200883,
+    "dev_macro_pragmatic_f1": 0.8141580645156153,
+    "per_label": {
+      "implicit_sentiment": 0.6095768164952328,
+      "sarcasm": 0.7788745709483424,
+      "irony": 0.9581018961884696,
+      "idiom_figurative": 0.9685261421863001,
+      "code_switching": 0.7733573333683699,
+      "mocking": 0.7965116279069768
+    },
+    "elapsed_seconds": 169.572
+  },
+  {
+    "epoch": 5,
+    "train_loss": -2.08678100630641,
+    "dev_macro_pragmatic_f1": 0.8234709222086085,
+    "per_label": {
+      "implicit_sentiment": 0.6425968351748966,
+      "sarcasm": 0.7865524249911221,
+      "irony": 0.9665896203062214,
+      "idiom_figurative": 0.9670381157103404,
+      "code_switching": 0.7924605618259228,
+      "mocking": 0.7855879752431476
+    },
+    "elapsed_seconds": 211.592
+  }
+]

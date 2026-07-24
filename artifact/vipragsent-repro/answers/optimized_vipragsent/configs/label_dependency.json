@@ -1,0 +1,87 @@
+{
+  "method": "development_selected_train_label_dependency_adjustment_of_frozen_scores",
+  "selection_split": "development",
+  "train_path": "data/processed/vipragsent_train.jsonl",
+  "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+  "probability_suffix": "_score_blend",
+  "labels": {
+    "implicit_sentiment": {
+      "parent_label": "mocking",
+      "source_specific": false,
+      "smoothing": 0.0,
+      "alpha_dependency": 0.4,
+      "threshold": 0.17,
+      "development_binary_macro_f1": 67.4491
+    },
+    "sarcasm": {
+      "parent_label": "code_switching",
+      "source_specific": false,
+      "smoothing": 0.0,
+      "alpha_dependency": 0.3,
+      "threshold": 0.33,
+      "development_binary_macro_f1": 79.2034
+    },
+    "irony": {
+      "parent_label": "implicit_sentiment",
+      "source_specific": false,
+      "smoothing": 0.0,
+      "alpha_dependency": 0.1,
+      "threshold": 0.52,
+      "development_binary_macro_f1": 97.5207
+    },
+    "idiom_figurative": {
+      "parent_label": "implicit_sentiment",
+      "source_specific": false,
+      "smoothing": 0.0,
+      "alpha_dependency": 0.9,
+      "threshold": 0.13,
+      "development_binary_macro_f1": 97.3317
+    },
+    "code_switching": {
+      "parent_label": "implicit_sentiment",
+      "source_specific": false,
+      "smoothing": 0.0,
+      "alpha_dependency": 0.8,
+      "threshold": 0.1,
+      "development_binary_macro_f1": 74.2626
+    },
+    "mocking": {
+      "parent_label": "idiom_figurative",
+      "source_specific": false,
+      "smoothing": 0.0,
+      "alpha_dependency": 0.9,
+      "threshold": 0.18,
+      "development_binary_macro_f1": 80.0485
+    }
+  },
+  "search": {
+    "smoothing": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "alpha_dependency": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "source_specific": [
+      false,
+      true
+    ]
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

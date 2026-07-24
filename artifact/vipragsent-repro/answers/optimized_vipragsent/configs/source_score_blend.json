@@ -1,0 +1,138 @@
+{
+  "method": "development_only_source_conditioned_pairwise_convex_blend_of_frozen_scores",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "phobert": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+      "probability_suffix": "_knn_blend"
+    },
+    "visobert": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+      "probability_suffix": "_knn_blend"
+    },
+    "weighted": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/weighted_knn_dev.jsonl",
+      "probability_suffix": "_weighted_knn"
+    },
+    "xlmr": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/xlmr_knn_dev.jsonl",
+      "probability_suffix": "_knn_blend"
+    },
+    "vistral_base": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/vistral_base_knn_dev.jsonl",
+      "probability_suffix": "_causal_knn_blend"
+    }
+  },
+  "labels": {
+    "implicit_sentiment": {
+      "VIVID_seed_and_irony_generation": {
+        "first": "weighted",
+        "second": "xlmr",
+        "first_weight": 0.2,
+        "threshold": 0.29,
+        "source_development_binary_macro_f1": 77.4131
+      },
+      "visobert_local": {
+        "first": "phobert",
+        "second": "visobert",
+        "first_weight": 0.5,
+        "threshold": 0.19,
+        "source_development_binary_macro_f1": 62.9335
+      }
+    },
+    "sarcasm": {
+      "VIVID_seed_and_irony_generation": {
+        "first": "phobert",
+        "second": "phobert",
+        "first_weight": 0.0,
+        "threshold": 0.49,
+        "source_development_binary_macro_f1": 100.0
+      },
+      "visobert_local": {
+        "first": "weighted",
+        "second": "vistral_base",
+        "first_weight": 0.9,
+        "threshold": 0.29,
+        "source_development_binary_macro_f1": 62.1155
+      }
+    },
+    "irony": {
+      "VIVID_seed_and_irony_generation": {
+        "first": "phobert",
+        "second": "phobert",
+        "first_weight": 0.0,
+        "threshold": 0.11,
+        "source_development_binary_macro_f1": 100.0
+      },
+      "visobert_local": {
+        "first": "visobert",
+        "second": "visobert",
+        "first_weight": 0.0,
+        "threshold": 0.47,
+        "source_development_binary_macro_f1": 53.8343
+      }
+    },
+    "idiom_figurative": {
+      "VIVID_seed_and_irony_generation": {
+        "first": "phobert",
+        "second": "phobert",
+        "first_weight": 0.0,
+        "threshold": 0.14,
+        "source_development_binary_macro_f1": 100.0
+      },
+      "visobert_local": {
+        "first": "phobert",
+        "second": "visobert",
+        "first_weight": 0.3,
+        "threshold": 0.34,
+        "source_development_binary_macro_f1": 56.5183
+      }
+    },
+    "code_switching": {
+      "VIVID_seed_and_irony_generation": {
+        "first": "phobert",
+        "second": "weighted",
+        "first_weight": 0.2,
+        "threshold": 0.18,
+        "source_development_binary_macro_f1": 100.0
+      },
+      "visobert_local": {
+        "first": "visobert",
+        "second": "vistral_base",
+        "first_weight": 0.2,
+        "threshold": 0.13,
+        "source_development_binary_macro_f1": 73.2428
+      }
+    },
+    "mocking": {
+      "VIVID_seed_and_irony_generation": {
+        "first": "xlmr",
+        "second": "xlmr",
+        "first_weight": 0.0,
+        "threshold": 0.46,
+        "source_development_binary_macro_f1": 97.7508
+      },
+      "visobert_local": {
+        "first": "visobert",
+        "second": "xlmr",
+        "first_weight": 0.8,
+        "threshold": 0.38,
+        "source_development_binary_macro_f1": 74.6069
+      }
+    }
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": 66.9752,
+    "sarcasm": 77.6856,
+    "irony": 96.659,
+    "idiom_figurative": 96.1555,
+    "code_switching": 74.294,
+    "mocking": 80.2448
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

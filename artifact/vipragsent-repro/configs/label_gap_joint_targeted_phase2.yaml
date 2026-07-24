@@ -1,0 +1,50 @@
+# Phase 2 follows the documented phase-1 result: pure one-label experts did
+# not retain their advantage under three-seed ensembling. These candidates keep
+# multi-label contextual learning while making the target label more prominent.
+protocol:
+  train: data/processed/vipragsent_train.jsonl
+  dev: data/processed/vipragsent_dev.jsonl
+  test_used_for_selection: false
+  test_prediction_during_search: false
+  stage_1_rule: >
+    Each candidate is run once. It is replicated with two additional fixed
+    seeds only if its calibrated target-label development macro-F1 is at least
+    the locked source reference.
+  common:
+    epochs: 14
+    patience: 3
+    batch_size: 16
+    grad_accum: 2
+    lr: 2.0e-5
+    max_length: 128
+    pooling: cls
+    dropout: 0.10
+    auxiliary_tasks: disabled
+    uncertainty_weighting: disabled
+    threshold_selection: dev_grid_0.01_to_0.99
+
+candidates:
+  - id: visobert_irony_joint_targeted
+    target_label: irony
+    label_weights: [1, 1, 3, 1, 1, 1]
+    positive_weight_power: 0.75
+    seed_stage_1: 20260831
+    replication_seeds: [20260834, 20260835]
+    locked_dev_reference: 97.6816
+    hypothesis: Preserve sarcasm/mocking context while addressing irony false negatives.
+  - id: phobert_idiom_joint_targeted
+    target_label: idiom_figurative
+    label_weights: [1, 1, 1, 3, 1, 1]
+    positive_weight_power: 0.0
+    seed_stage_1: 20260832
+    replication_seeds: [20260834, 20260835]
+    locked_dev_reference: 97.0483
+    hypothesis: Keep semantic context while avoiding class-upweighting-driven idiom false positives.
+  - id: visobert_mocking_joint_targeted
+    target_label: mocking
+    label_weights: [1, 1, 1, 1, 1, 3]
+    positive_weight_power: 0.0
+    seed_stage_1: 20260833
+    replication_seeds: [20260834, 20260835]
+    locked_dev_reference: 80.5806
+    hypothesis: Preserve sarcasm and implicit-sentiment context while improving mocking precision.

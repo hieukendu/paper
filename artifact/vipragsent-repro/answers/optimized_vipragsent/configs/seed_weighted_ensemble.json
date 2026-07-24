@@ -1,0 +1,75 @@
+{
+  "method": "development_selected_per_label_convex_ensemble_of_frozen_vipragsent_seeds",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "seeds": [
+    "20260520",
+    "20260521",
+    "20260522"
+  ],
+  "weight_grid": {
+    "step": 0.1,
+    "count": 66
+  },
+  "labels": {
+    "implicit_sentiment": {
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "threshold": 0.23,
+      "development_binary_macro_f1": 60.71
+    },
+    "sarcasm": {
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "threshold": 0.44,
+      "development_binary_macro_f1": 76.7442
+    },
+    "irony": {
+      "weights": [
+        0.4,
+        0.2,
+        0.4
+      ],
+      "threshold": 0.54,
+      "development_binary_macro_f1": 97.2249
+    },
+    "idiom_figurative": {
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "threshold": 0.34,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "weights": [
+        0.0,
+        0.1,
+        0.9
+      ],
+      "threshold": 0.16,
+      "development_binary_macro_f1": 57.9713
+    },
+    "mocking": {
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "threshold": 0.49,
+      "development_binary_macro_f1": 77.744
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

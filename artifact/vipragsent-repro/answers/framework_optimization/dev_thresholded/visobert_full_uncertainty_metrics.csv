@@ -1,0 +1,8 @@
+metric,value
+implicit_sentiment,65.3069
+sarcasm,79.5901
+irony,97.5207
+idiom_figurative,97.0177
+code_switching,78.2291
+mocking,80.4899
+macro_pragmatic_f1,83.0257

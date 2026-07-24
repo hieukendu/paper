@@ -1,0 +1,44 @@
+{
+  "method": "development_selected_train_token_posterior_rule_blended_with_frozen_probability",
+  "label": "code_switching",
+  "selection_split": "development",
+  "train_path": "data/processed/vipragsent_train.jsonl",
+  "dev_gold_path": "data/processed/vipragsent_dev.jsonl",
+  "rule": {
+    "mode": "max",
+    "min_count": 1,
+    "smoothing": 1.0
+  },
+  "alpha_lexical": 0.3,
+  "threshold": 0.23,
+  "development_binary_macro_f1": 78.6874,
+  "search": {
+    "modes": [
+      "max",
+      "mean",
+      "top2_mean",
+      "noisy_or",
+      "log_odds_sum"
+    ],
+    "min_counts": [
+      1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "smoothing": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ]
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

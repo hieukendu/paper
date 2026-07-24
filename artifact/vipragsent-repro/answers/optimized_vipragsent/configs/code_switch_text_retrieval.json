@@ -1,0 +1,75 @@
+{
+  "method": "development_selected_train_only_lexical_neighbour_retrieval_blended_with_frozen_probability",
+  "label": "code_switching",
+  "selection_split": "development",
+  "train_path": "data/processed/vipragsent_train.jsonl",
+  "representation": {
+    "name": "char_2_4",
+    "analyzer": "char_wb",
+    "ngram_range": [
+      2,
+      4
+    ]
+  },
+  "k": 50,
+  "similarity_power": 2.0,
+  "alpha_retrieval": 0.7,
+  "threshold": 0.15,
+  "development_binary_macro_f1": 77.1341,
+  "search": {
+    "representations": [
+      {
+        "name": "char_2_4",
+        "analyzer": "char_wb",
+        "ngram_range": [
+          2,
+          4
+        ]
+      },
+      {
+        "name": "char_3_5",
+        "analyzer": "char_wb",
+        "ngram_range": [
+          3,
+          5
+        ]
+      },
+      {
+        "name": "char_3_6",
+        "analyzer": "char_wb",
+        "ngram_range": [
+          3,
+          6
+        ]
+      },
+      {
+        "name": "word_1_2",
+        "analyzer": "word",
+        "ngram_range": [
+          1,
+          2
+        ]
+      }
+    ],
+    "k_values": [
+      1,
+      3,
+      5,
+      11,
+      25,
+      50,
+      100
+    ],
+    "powers": [
+      0.0,
+      1.0,
+      2.0,
+      4.0
+    ]
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

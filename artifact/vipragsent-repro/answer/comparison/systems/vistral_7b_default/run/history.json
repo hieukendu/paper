@@ -1,0 +1,25 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 29.42624205350876,
+    "train_batches": 64,
+    "development_macro_pragmatic_f1": 67.24021855856519,
+    "development_binary_macro_f1": {
+      "implicit_sentiment": 47.3812867968462,
+      "sarcasm": 70.43900029366519,
+      "irony": 86.21041879468845,
+      "idiom_figurative": 94.75819879376903,
+      "code_switching": 51.354212868241454,
+      "mocking": 53.29819380418085
+    },
+    "thresholds": {
+      "implicit_sentiment": 0.5,
+      "sarcasm": 0.5,
+      "irony": 0.5,
+      "idiom_figurative": 0.5,
+      "code_switching": 0.5,
+      "mocking": 0.5
+    },
+    "elapsed_seconds": 145.419
+  }
+]

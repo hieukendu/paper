@@ -1,0 +1,334 @@
+{
+  "scope": "post-hoc diagnostic only; no test-driven model selection",
+  "current_system": "/root/paper/artifact/vipragsent-repro/answers/optimized_vipragsent/flexible_test_predictions/encoder_lexical_hybrid_test.json",
+  "test_gold": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_test.jsonl",
+  "labels": {
+    "irony": {
+      "historical_best": "Sailor-7B SFT",
+      "historical_reported_score": 97.4132,
+      "current_source": "ViSoBERT weighted encoder",
+      "current_dev_selected_threshold": 0.59,
+      "prevalence": 0.092,
+      "current": {
+        "binary_macro_f1": 97.3454,
+        "tn": 1816,
+        "fp": 0,
+        "fn": 17,
+        "tp": 167,
+        "positive_precision": 1.0,
+        "positive_recall": 0.9076,
+        "negative_precision": 0.9907,
+        "negative_recall": 1.0
+      },
+      "historical_baseline_runs": {
+        "20260520.jsonl": {
+          "binary_macro_f1": 97.508,
+          "tn": 1816,
+          "fp": 0,
+          "fn": 16,
+          "tp": 168,
+          "positive_precision": 1.0,
+          "positive_recall": 0.913,
+          "negative_precision": 0.9913,
+          "negative_recall": 1.0
+        },
+        "20260521.jsonl": {
+          "binary_macro_f1": 97.5207,
+          "tn": 1815,
+          "fp": 1,
+          "fn": 15,
+          "tp": 169,
+          "positive_precision": 0.9941,
+          "positive_recall": 0.9185,
+          "negative_precision": 0.9918,
+          "negative_recall": 0.9994
+        },
+        "20260522.jsonl": {
+          "binary_macro_f1": 97.2108,
+          "tn": 1814,
+          "fp": 2,
+          "fn": 16,
+          "tp": 168,
+          "positive_precision": 0.9882,
+          "positive_recall": 0.913,
+          "negative_precision": 0.9913,
+          "negative_recall": 0.9989
+        }
+      },
+      "current_probability_slices": {
+        "true_positive": {
+          "records": 167,
+          "mean_probability": 0.9914,
+          "min_probability": 0.8034,
+          "max_probability": 0.9987
+        },
+        "false_negative": {
+          "records": 17,
+          "mean_probability": 0.0743,
+          "min_probability": 0.0038,
+          "max_probability": 0.4337
+        },
+        "false_positive": {
+          "records": 0,
+          "mean_probability": null,
+          "min_probability": null,
+          "max_probability": null
+        },
+        "true_negative": {
+          "records": 1816,
+          "mean_probability": 0.0177,
+          "min_probability": 0.0004,
+          "max_probability": 0.5619
+        }
+      },
+      "current_error_label_cooccurrence": {
+        "false_negative": {
+          "records": 17,
+          "implicit_sentiment": 0.4118,
+          "sarcasm": 0.4706,
+          "idiom_figurative": 0.0588,
+          "code_switching": 0.0,
+          "mocking": 0.5294
+        },
+        "false_positive": {
+          "records": 0,
+          "implicit_sentiment": 0.0,
+          "sarcasm": 0.0,
+          "idiom_figurative": 0.0,
+          "code_switching": 0.0,
+          "mocking": 0.0
+        }
+      },
+      "current_error_source_slices": {
+        "VIVID_seed_and_irony_generation": {
+          "records": 334,
+          "fn": 0,
+          "fp": 0
+        },
+        "visobert_local": {
+          "records": 1666,
+          "fn": 17,
+          "fp": 0
+        }
+      }
+    },
+    "idiom_figurative": {
+      "historical_best": "PhoBERT fine-tune",
+      "historical_reported_score": 97.2958,
+      "current_source": "PhoBERT weighted encoder",
+      "current_dev_selected_threshold": 0.66,
+      "prevalence": 0.092,
+      "current": {
+        "binary_macro_f1": 96.1748,
+        "tn": 1808,
+        "fp": 8,
+        "fn": 17,
+        "tp": 167,
+        "positive_precision": 0.9543,
+        "positive_recall": 0.9076,
+        "negative_precision": 0.9907,
+        "negative_recall": 0.9956
+      },
+      "historical_baseline_runs": {
+        "20260520.jsonl": {
+          "binary_macro_f1": 97.3454,
+          "tn": 1816,
+          "fp": 0,
+          "fn": 17,
+          "tp": 167,
+          "positive_precision": 1.0,
+          "positive_recall": 0.9076,
+          "negative_precision": 0.9907,
+          "negative_recall": 1.0
+        },
+        "20260521.jsonl": {
+          "binary_macro_f1": 97.3454,
+          "tn": 1816,
+          "fp": 0,
+          "fn": 17,
+          "tp": 167,
+          "positive_precision": 1.0,
+          "positive_recall": 0.9076,
+          "negative_precision": 0.9907,
+          "negative_recall": 1.0
+        },
+        "20260522.jsonl": {
+          "binary_macro_f1": 97.1965,
+          "tn": 1815,
+          "fp": 1,
+          "fn": 17,
+          "tp": 167,
+          "positive_precision": 0.994,
+          "positive_recall": 0.9076,
+          "negative_precision": 0.9907,
+          "negative_recall": 0.9994
+        }
+      },
+      "current_probability_slices": {
+        "true_positive": {
+          "records": 167,
+          "mean_probability": 0.9987,
+          "min_probability": 0.9943,
+          "max_probability": 0.9996
+        },
+        "false_negative": {
+          "records": 17,
+          "mean_probability": 0.123,
+          "min_probability": 0.0042,
+          "max_probability": 0.2909
+        },
+        "false_positive": {
+          "records": 8,
+          "mean_probability": 0.3258,
+          "min_probability": 0.0747,
+          "max_probability": 0.687
+        },
+        "true_negative": {
+          "records": 1808,
+          "mean_probability": 0.0207,
+          "min_probability": 0.0011,
+          "max_probability": 0.5524
+        }
+      },
+      "current_error_label_cooccurrence": {
+        "false_negative": {
+          "records": 17,
+          "implicit_sentiment": 0.2941,
+          "sarcasm": 0.3529,
+          "irony": 0.0588,
+          "code_switching": 0.0,
+          "mocking": 0.1765
+        },
+        "false_positive": {
+          "records": 8,
+          "implicit_sentiment": 0.625,
+          "sarcasm": 0.5,
+          "irony": 0.125,
+          "code_switching": 0.0,
+          "mocking": 0.25
+        }
+      },
+      "current_error_source_slices": {
+        "VIVID_seed_and_irony_generation": {
+          "records": 334,
+          "fn": 0,
+          "fp": 0
+        },
+        "visobert_local": {
+          "records": 1666,
+          "fn": 17,
+          "fp": 8
+        }
+      }
+    },
+    "mocking": {
+      "historical_best": "Vistral-7B SFT",
+      "historical_reported_score": 81.9802,
+      "current_source": "ViSoBERT weighted encoder",
+      "current_dev_selected_threshold": 0.65,
+      "prevalence": 0.1525,
+      "current": {
+        "binary_macro_f1": 81.897,
+        "tn": 1624,
+        "fp": 71,
+        "fn": 107,
+        "tp": 198,
+        "positive_precision": 0.7361,
+        "positive_recall": 0.6492,
+        "negative_precision": 0.9382,
+        "negative_recall": 0.9581
+      },
+      "historical_baseline_runs": {
+        "20260520.jsonl": {
+          "binary_macro_f1": 82.5285,
+          "tn": 1644,
+          "fp": 51,
+          "fn": 114,
+          "tp": 191,
+          "positive_precision": 0.7893,
+          "positive_recall": 0.6262,
+          "negative_precision": 0.9352,
+          "negative_recall": 0.9699
+        },
+        "20260521.jsonl": {
+          "binary_macro_f1": 81.688,
+          "tn": 1647,
+          "fp": 48,
+          "fn": 122,
+          "tp": 183,
+          "positive_precision": 0.7922,
+          "positive_recall": 0.6,
+          "negative_precision": 0.931,
+          "negative_recall": 0.9717
+        },
+        "20260522.jsonl": {
+          "binary_macro_f1": 81.7241,
+          "tn": 1644,
+          "fp": 51,
+          "fn": 120,
+          "tp": 185,
+          "positive_precision": 0.7839,
+          "positive_recall": 0.6066,
+          "negative_precision": 0.932,
+          "negative_recall": 0.9699
+        }
+      },
+      "current_probability_slices": {
+        "true_positive": {
+          "records": 198,
+          "mean_probability": 0.8993,
+          "min_probability": 0.6507,
+          "max_probability": 0.9944
+        },
+        "false_negative": {
+          "records": 107,
+          "mean_probability": 0.2854,
+          "min_probability": 0.0071,
+          "max_probability": 0.6452
+        },
+        "false_positive": {
+          "records": 71,
+          "mean_probability": 0.7867,
+          "min_probability": 0.6501,
+          "max_probability": 0.9718
+        },
+        "true_negative": {
+          "records": 1624,
+          "mean_probability": 0.0913,
+          "min_probability": 0.0023,
+          "max_probability": 0.6438
+        }
+      },
+      "current_error_label_cooccurrence": {
+        "false_negative": {
+          "records": 107,
+          "implicit_sentiment": 0.4112,
+          "sarcasm": 0.4486,
+          "irony": 0.0561,
+          "idiom_figurative": 0.0654,
+          "code_switching": 0.0654
+        },
+        "false_positive": {
+          "records": 71,
+          "implicit_sentiment": 0.1972,
+          "sarcasm": 0.2394,
+          "irony": 0.0,
+          "idiom_figurative": 0.1408,
+          "code_switching": 0.0845
+        }
+      },
+      "current_error_source_slices": {
+        "VIVID_seed_and_irony_generation": {
+          "records": 334,
+          "fn": 5,
+          "fp": 7
+        },
+        "visobert_local": {
+          "records": 1666,
+          "fn": 102,
+          "fp": 64
+        }
+      }
+    }
+  }
+}
