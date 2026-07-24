@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "label": "irony",
+  "records": 8000,
+  "folds": 5,
+  "coverage_exact_once": true,
+  "test_labels_read": false,
+  "test_predictions_created": false,
+  "metrics": {
+    "binary_macro_f1": 0.9648146663296995,
+    "pr_auc": 0.9361125412740111,
+    "tp": 664,
+    "tn": 7245,
+    "fp": 17,
+    "fn": 74
+  },
+  "fold_manifests": {
+    "0": {
+      "path": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_0/run_manifest.json",
+      "checkpoint": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_0/best.pt",
+      "threshold": 0.7219937443733215
+    },
+    "1": {
+      "path": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_1/run_manifest.json",
+      "checkpoint": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_1/best.pt",
+      "threshold": 0.6347377151250839
+    },
+    "2": {
+      "path": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_2/run_manifest.json",
+      "checkpoint": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_2/best.pt",
+      "threshold": 0.6954549252986908
+    },
+    "3": {
+      "path": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_3/run_manifest.json",
+      "checkpoint": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_3/best.pt",
+      "threshold": 0.6863535493612289
+    },
+    "4": {
+      "path": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_4/run_manifest.json",
+      "checkpoint": "outputs/final_best_tuned_targeted_cycle/irony_true_oof/headonly_fold_4/best.pt",
+      "threshold": 0.7387275248765945
+    }
+  },
+  "output": "answer/final_best_tuned_candidates/targeted_cycle/oof_train/irony_train_oof.jsonl"
+}
