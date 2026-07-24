@@ -1,0 +1,51 @@
+protocol:
+  train_split: data/processed/vipragsent_train.jsonl
+  development_split: data/processed/vipragsent_dev.jsonl
+  test_split: data/processed/vipragsent_test.jsonl
+  test_labels_used_for_selection: false
+  checkpoint_selection: deterministic_sha256_id_dev_calibration_selection
+  threshold_grid_step: 0.01
+  final_test_evaluation: once_after_development_freeze
+
+models:
+  visobert: /root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/visobert
+  phobert: /root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base
+
+shared_encoder_args:
+  epochs: 12
+  patience: 3
+  batch_size: 16
+  grad_accum: 2
+  learning_rate: 2.0e-5
+  bf16: true
+  pragmatic_only: true
+  pooling: cls
+  dropout: 0.1
+
+probes:
+  - name: visobert_corrected_uncertainty_probe
+    encoder: visobert
+    seed: 20260901
+    uncertainty: corrected
+    positive_weight_powers: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+  - name: visobert_fixed_weight_probe
+    encoder: visobert
+    seed: 20260901
+    uncertainty: disabled
+    positive_weight_powers: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+  - name: phobert_corrected_uncertainty_idiom0_probe
+    encoder: phobert
+    seed: 20260901
+    uncertainty: corrected
+    positive_weight_powers: [0.5, 0.5, 0.5, 0.0, 0.5, 0.5]
+  - name: phobert_fixed_weight_idiom0_probe
+    encoder: phobert
+    seed: 20260901
+    uncertainty: disabled
+    positive_weight_powers: [0.5, 0.5, 0.5, 0.0, 0.5, 0.5]
+
+selected_configuration_seed_grid: [20260901, 20260902, 20260903]
+irony_label_loss_weight_grid: [1.0, 1.5]
+label_roles:
+  visobert: [implicit_sentiment, sarcasm, irony, mocking]
+  phobert: [idiom_figurative, code_switching]

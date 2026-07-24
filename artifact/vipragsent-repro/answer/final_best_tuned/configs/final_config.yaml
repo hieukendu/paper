@@ -1,0 +1,29 @@
+protocol:
+  selection_data: vipragsent_dev.jsonl
+  test_labels_used_for_selection: false
+  final_test_inference_started_after_freeze: true
+  calibration: full_development_split_after_holdout_selection
+
+selected_sources:
+  implicit_sentiment:
+    source: visobert_corrected_seed_20260902
+    checkpoint: outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt
+  sarcasm:
+    source: visobert_corrected_seed_20260903
+    checkpoint: outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt
+  irony:
+    source: phobert_corrected_idiom0_seed_20260901
+    checkpoint: outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt
+  idiom_figurative:
+    source: phobert_corrected_idiom0_seed_20260901
+    checkpoint: outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt
+  code_switching:
+    source: visobert_corrected_seed_20260902
+    checkpoint: outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt
+  mocking:
+    source: visobert_mocking_joint_targeted_uniform_3seed
+    checkpoints:
+      - outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt
+      - outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt
+      - outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt
+    ensemble_weights: [0.3333333333, 0.3333333333, 0.3333333333]

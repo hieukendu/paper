@@ -1,34 +1,19 @@
-# ViPragSent comparison bundle
+# ViPragSent vs verified best-tuned baselines
 
-This directory is a comparison artifact; it does not edit or replace the manuscript.
+This directory compares only the final, raw-verified ViPragSent run with verified best-tuned baselines. Deployment-default artifacts were removed. All scores are binary macro-F1 (%).
 
-The green system in `macro_f1_comparison.svg` is the locked current ViPragSent fine-tuned hybrid. The other rows are newly executed **deployment-default** runs. They use the fixed, non-searched profile in `protocol/deployment_default_baselines.yaml`; they are not replacements for historical best-tuned baseline upper bounds.
+## Metric gaps
 
-## Test-set comparison
+| Metric | ViPragSent final | Best-tuned leader | Leader score | Gap | Status |
+|---|---:|---|---:|---:|---|
+| implicit_sentiment | 67.9829 | PhoBERT best-tuned | 60.8470 | +7.1359 | PASS |
+| sarcasm | 80.2781 | Vistral-7B best-tuned | 80.0318 | +0.2463 | PASS |
+| irony | 96.9009 | Sailor-7B best-tuned | 97.4132 | -0.5123 | BELOW |
+| idiom_figurative | 97.1965 | PhoBERT best-tuned, XLM-R-large best-tuned | 97.2958 | -0.0993 | BELOW |
+| code_switching | 80.1313 | Vistral-7B best-tuned | 81.9458 | -1.8145 | BELOW |
+| mocking | 82.0528 | Vistral-7B best-tuned | 81.9802 | +0.0726 | PASS |
+| macro_pragmatic_f1 | 84.0904 | Vistral-7B best-tuned | 82.8250 | +1.2654 | PASS |
 
-| System | Implicit | Sarcasm | Irony | Idiom | Code-switch | Mocking | Macro-F1 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| ViPragSent current | 68.0293 | 80.4581 | 97.3454 | 96.1748 | 82.0607 | 81.8970 | 84.3275 |
-| ViSoBERT default | 57.4438 | 80.7630 | 97.0483 | 97.3454 | 76.9682 | 81.6943 | 81.8772 |
-| XLM-R large default | 52.3036 | 77.4534 | 97.3454 | 97.1965 | 80.3129 | 81.0874 | 80.9499 |
-| PhoBERT default | 46.9214 | 77.3049 | 96.9009 | 97.1965 | 73.4842 | 80.6390 | 78.7411 |
-| Vistral-7B default | 49.4282 | 71.5297 | 87.0266 | 94.1710 | 50.1903 | 52.9180 | 67.5440 |
-| Sailor-7B default | 47.6599 | 46.2759 | 47.4928 | 47.5341 | 48.6504 | 47.5468 | 47.5267 |
+## Conclusion
 
-## Contents
-
-- `comparison_metrics.csv`: every metric for every system.
-- `macro_f1_comparison.svg`: visual macro-F1 comparison.
-- `systems/`: test predictions, metrics, run history, configuration manifests, and symbolic links to canonical trained weights/adapters.
-- `vipragsent_current/`: selected-hybrid provenance and locked current output.
-- `protocol/`: fixed deployment-default configuration and the 512-example sample provenance. The raw private training texts are intentionally not copied.
-- `artifact_index.json`: source paths and checksums for copied artifacts.
-
-## Framework-optimization addendum
-
-`framework_optimization_dev/` contains the subsequent development-only
-ViPragSent ablation, calibrated development predictions, run histories, and
-canonical artifact aliases. It is explicitly separate from this locked test
-comparison: the historical test split was already observed, so the addendum
-does not make a new test-superiority claim or alter the deployment-default
-protocol.
+ViPragSent final leads on four of seven reported metrics (implicit sentiment, sarcasm, mocking, and macro pragmatic F1). It remains below best-tuned baselines on irony, idiom, and code-switching; strict all-metric superiority is therefore not established.
