@@ -62,7 +62,7 @@
     "mocking": 78.0213,
     "macro_pragmatic_f1": 73.7469,
     "seed_count": 3,
-    "provenance": "main result"
+    "provenance": "baseline_registry.csv"
   },
   {
     "system": "ViPragSent previous optimized",
@@ -78,16 +78,29 @@
     "provenance": "optimized_vipragsent"
   },
   {
-    "system": "ViPragSent final optimized",
-    "regime": "final_best_tuned",
+    "system": "ViPragSent final incumbent",
+    "regime": "incumbent",
+    "seed_count": 6,
+    "provenance": "archive/38fa5fc",
     "implicit_sentiment": 67.9829,
     "sarcasm": 80.2781,
     "irony": 96.9009,
     "idiom_figurative": 97.1965,
     "code_switching": 80.1313,
     "mocking": 82.0528,
-    "macro_pragmatic_f1": 84.0904,
+    "macro_pragmatic_f1": 84.0904
+  },
+  {
+    "system": "ViPragSent final continuation",
+    "regime": "final_best_tuned_continuation",
     "seed_count": 6,
-    "provenance": "direct recomputation from frozen final_test_predictions.jsonl and data/processed/vipragsent_test.jsonl (binary macro-F1)"
+    "provenance": "frozen 5-fold OOF target mixture",
+    "implicit_sentiment": 67.9829,
+    "sarcasm": 80.2781,
+    "irony": 97.0177,
+    "idiom_figurative": 97.182,
+    "code_switching": 81.8164,
+    "mocking": 82.0528,
+    "macro_pragmatic_f1": 84.3883
   }
 ]

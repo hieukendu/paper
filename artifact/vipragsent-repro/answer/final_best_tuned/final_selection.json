@@ -1,116 +1,58 @@
 {
   "selected_source": {
-    "implicit_sentiment": "visobert_seed2",
-    "sarcasm": "visobert_seed3",
-    "irony": "phobert_seed1",
-    "idiom_figurative": "phobert_seed1",
-    "code_switching": "visobert_seed2",
-    "mocking": "targeted_mocking_3seed"
-  },
-  "checkpoints": {
-    "implicit_sentiment": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
-    "sarcasm": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt",
-    "irony": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
-    "idiom_figurative": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
-    "code_switching": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
-    "mocking": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt|outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt|outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt"
-  },
-  "seed_lists": {
-    "visobert": [
-      20260901,
-      20260902,
-      20260903
-    ],
-    "phobert": [
-      20260901,
-      20260902,
-      20260903
-    ],
-    "mocking": [
-      20260833,
-      20260834,
-      20260835
-    ]
-  },
-  "ensemble_weights": {
-    "mocking": [
-      0.3333333333333333,
-      0.3333333333333333,
-      0.3333333333333333
-    ]
+    "implicit_sentiment": "visobert_20260902",
+    "sarcasm": "visobert_20260903",
+    "irony": "probability_blend(visobert_3seed=0.6, phobert_3seed=0.4)",
+    "idiom_figurative": "visobert_3seed_uniform",
+    "code_switching": "probability_blend(visobert_3seed=0.6, phobert_3seed=0.4)",
+    "mocking": "targeted_mocking_uniform_3seed"
   },
   "thresholds": {
     "implicit_sentiment": 0.55,
     "sarcasm": 0.87,
-    "irony": 0.88,
-    "idiom_figurative": 0.59,
-    "code_switching": 0.59,
-    "mocking": 0.35000000000000003
+    "irony": 0.96,
+    "idiom_figurative": 0.99,
+    "code_switching": 0.5,
+    "mocking": 0.35
   },
-  "development_metrics_after_freeze": {
-    "implicit_sentiment": 68.0862,
-    "sarcasm": 80.3834,
-    "irony": 97.5207,
-    "idiom_figurative": 97.0022,
-    "code_switching": 79.8899,
-    "mocking": 81.4572,
-    "macro_pragmatic_f1": 84.0566
+  "fold_selection": {
+    "folds": 5,
+    "selection_score": "mean target label F1 - 0.25 * standard deviation across folds",
+    "test_labels_used_for_selection": false
   },
-  "test_labels_used_for_selection": false,
-  "repository_commit_sha": "22add211d9a378b41211af91fa1528af39a52977",
+  "checkpoint_paths": {
+    "visobert_seed_20260901": "outputs/final_best_tuned/visobert_corrected_uncertainty_probe/20260901/best.pt",
+    "visobert_seed_20260902": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
+    "visobert_seed_20260903": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt",
+    "phobert_seed_20260901": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
+    "phobert_seed_20260902": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260902/best.pt",
+    "phobert_seed_20260903": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260903/best.pt",
+    "mocking_seed_20260833": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt",
+    "mocking_seed_20260834": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt",
+    "mocking_seed_20260835": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt"
+  },
+  "checkpoint_sha256": {
+    "visobert_seed_20260901": "c38f0913f6da66ede9d6d8b44395b5bf91ef08a6bb68ec1fe1ee2936ef2aef2e",
+    "visobert_seed_20260902": "9fe982bc000d187c8f56aa789c37674f251f86d0bd5381ef5795d852ba518c90",
+    "visobert_seed_20260903": "8b760f882fbf0f9903ace9e7fa282f038ef834e8b16554582ea0df234e72583f",
+    "phobert_seed_20260901": "0886551dca660c8d1320277af129fcfa5e490d707ad62c4ea1e7219d6da83c78",
+    "phobert_seed_20260902": "de4a56ba297196d0e8e6ba4aef6d4234de4e3373518f6caecdef5e52d731baae",
+    "phobert_seed_20260903": "9d37f96c550d4e05fda10bb5a347925df94a6c056601754a073de9760412bc65",
+    "mocking_seed_20260833": "a8ce7751320fcfb507ec30ffac70e7268e0bb243f54a8eeef7844b3a071a9c09",
+    "mocking_seed_20260834": "a9771f2d8b5d6e9f739007505100deeba68eaef5de634f93500a1cb33c586ea0",
+    "mocking_seed_20260835": "f009480513c5121f5e08c11f037bcd3f8704333a1ce8874e64d7c2100dd9e93c"
+  },
   "rejected_candidates": [
-    "fixed-weight uncertainty probes",
-    "irony logistic stacker",
-    "mocking logistic stacker",
-    "idiom agreement gate"
+    "character TF-IDF code-switch experts",
+    "three-seed residual code-switch specialist",
+    "rank blend",
+    "fixed-weight and logistic stacker candidates from the incumbent cycle"
   ],
-  "checkpoint_hashes": {
-    "implicit_sentiment": [
-      {
-        "path": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
-        "sha256": "9fe982bc000d187c8f56aa789c37674f251f86d0bd5381ef5795d852ba518c90"
-      }
-    ],
-    "sarcasm": [
-      {
-        "path": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt",
-        "sha256": "8b760f882fbf0f9903ace9e7fa282f038ef834e8b16554582ea0df234e72583f"
-      }
-    ],
-    "irony": [
-      {
-        "path": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
-        "sha256": "0886551dca660c8d1320277af129fcfa5e490d707ad62c4ea1e7219d6da83c78"
-      }
-    ],
-    "idiom_figurative": [
-      {
-        "path": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
-        "sha256": "0886551dca660c8d1320277af129fcfa5e490d707ad62c4ea1e7219d6da83c78"
-      }
-    ],
-    "code_switching": [
-      {
-        "path": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
-        "sha256": "9fe982bc000d187c8f56aa789c37674f251f86d0bd5381ef5795d852ba518c90"
-      }
-    ],
-    "mocking": [
-      {
-        "path": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt",
-        "sha256": "a8ce7751320fcfb507ec30ffac70e7268e0bb243f54a8eeef7844b3a071a9c09"
-      },
-      {
-        "path": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt",
-        "sha256": "a9771f2d8b5d6e9f739007505100deeba68eaef5de634f93500a1cb33c586ea0"
-      },
-      {
-        "path": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt",
-        "sha256": "f009480513c5121f5e08c11f037bcd3f8704333a1ce8874e64d7c2100dd9e93c"
-      }
-    ]
-  },
-  "development_selection_protocol": "Candidate sources were compared only on a deterministic SHA-256 ID-derived development selection partition after threshold calibration on its disjoint development calibration partition.",
-  "final_inference_protocol": "After final_config.yaml and selected sources were frozen, thresholds were fitted on the full development split and applied once to the adjudicated test split.",
-  "test_metric_validation": "Final reported metrics were directly recomputed from frozen test predictions and canonical test labels using sklearn binary macro-F1 (average=\"macro\"), matching the baseline registry."
+  "repository_commit_sha": "38fa5fc",
+  "promotion_rule": {
+    "macro_strictly_higher": true,
+    "target_improved": true,
+    "no_label_drop_over_0_10": true,
+    "eligible": true
+  }
 }

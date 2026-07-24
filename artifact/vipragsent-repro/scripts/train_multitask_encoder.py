@@ -120,21 +120,24 @@ class MultiTaskModel(nn.Module):
         self.encoder = encoder if encoder is not None else AutoModel.from_pretrained(model_id)
         hidden = self.encoder.config.hidden_size
         self.pooling = pooling
+        feature_dim = hidden * {"cls": 1, "mean": 1, "max": 1, "clsmean": 2, "meanmax": 2, "clsmeanmax": 3}[pooling]
         self.dropout = nn.Dropout(dropout)
         if pragmatic_head == "linear":
-            self.pragmatic = nn.Linear(hidden, len(PRAGMATIC_LABELS))
+            self.pragmatic = nn.Linear(feature_dim, len(PRAGMATIC_LABELS))
         elif pragmatic_head == "mlp":
             self.pragmatic = nn.Sequential(
-                nn.Linear(hidden, hidden),
+                nn.Linear(feature_dim, hidden),
                 nn.GELU(),
                 nn.Dropout(dropout),
                 nn.Linear(hidden, len(PRAGMATIC_LABELS)),
             )
+        elif pragmatic_head == "residual_mlp":
+            self.pragmatic = ResidualPragmaticHead(feature_dim, hidden, dropout)
         else:
             raise ValueError(f"unsupported pragmatic head: {pragmatic_head}")
-        self.polarity = nn.Linear(hidden, len(POLARITIES))
-        self.emotion = nn.Linear(hidden, len(EMOTIONS))
-        self.rationale_projection = nn.Linear(hidden, hidden) if rationale_aux else None
+        self.polarity = nn.Linear(feature_dim, len(POLARITIES))
+        self.emotion = nn.Linear(feature_dim, len(EMOTIONS))
+        self.rationale_projection = nn.Linear(feature_dim, hidden) if rationale_aux else None
         self.log_vars = nn.Parameter(torch.zeros(4)) if uncertainty else None
 
     def forward(self, input_ids, attention_mask):
@@ -144,10 +147,34 @@ class MultiTaskModel(nn.Module):
         elif self.pooling == "mean":
             weights = attention_mask.unsqueeze(-1).to(hidden.dtype)
             pooled = (hidden * weights).sum(dim=1) / weights.sum(dim=1).clamp_min(1)
+        elif self.pooling in {"max", "clsmean", "meanmax", "clsmeanmax"}:
+            weights = attention_mask.unsqueeze(-1).to(hidden.dtype)
+            mean = (hidden * weights).sum(dim=1) / weights.sum(dim=1).clamp_min(1)
+            maximum = hidden.masked_fill(~attention_mask.unsqueeze(-1).bool(), torch.finfo(hidden.dtype).min).max(dim=1).values
+            if self.pooling == "max":
+                pooled = maximum
+            elif self.pooling == "clsmean":
+                pooled = torch.cat([hidden[:, 0], mean], dim=-1)
+            elif self.pooling == "meanmax":
+                pooled = torch.cat([mean, maximum], dim=-1)
+            else:
+                pooled = torch.cat([hidden[:, 0], mean, maximum], dim=-1)
         else:
             raise ValueError(f"unsupported pooling method: {self.pooling}")
         pooled = self.dropout(pooled)
         return self.pragmatic(pooled), self.polarity(pooled), self.emotion(pooled), pooled
+
+
+class ResidualPragmaticHead(nn.Module):
+    def __init__(self, feature_dim: int, hidden: int, dropout: float):
+        super().__init__()
+        self.project = nn.Linear(feature_dim, hidden)
+        self.block = nn.Sequential(nn.GELU(), nn.Dropout(dropout), nn.Linear(hidden, hidden), nn.GELU(), nn.Dropout(dropout))
+        self.output = nn.Linear(hidden, len(PRAGMATIC_LABELS))
+
+    def forward(self, pooled):
+        base = self.project(pooled)
+        return self.output(base + self.block(base))
 
 
 def load_rationales(path: Path | None) -> dict[str, str]:
@@ -400,9 +427,12 @@ def main() -> int:
     parser.add_argument("--max-length", type=int, default=128)
     parser.add_argument("--patience", type=int, default=2)
     parser.add_argument("--beta", type=float, default=0.3)
-    parser.add_argument("--pooling", choices=("cls", "mean"), default="cls")
+    parser.add_argument("--pooling", choices=("cls", "mean", "max", "clsmean", "meanmax", "clsmeanmax"), default="cls")
     parser.add_argument("--dropout", type=float, default=0.1)
-    parser.add_argument("--pragmatic-head", choices=("linear", "mlp"), default="linear")
+    parser.add_argument("--pragmatic-head", choices=("linear", "mlp", "residual_mlp"), default="linear")
+    parser.add_argument("--weight-decay", type=float, default=0.01)
+    parser.add_argument("--warmup-ratio", type=float, default=0.06)
+    parser.add_argument("--gradient-clip", type=float, default=1.0)
     parser.add_argument(
         "--auxiliary-weight",
         type=float,
@@ -539,9 +569,11 @@ def main() -> int:
         dropout=args.dropout,
         pragmatic_head=args.pragmatic_head,
     ).to(device)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
+    if args.weight_decay < 0 or not 0 <= args.warmup_ratio < 1 or args.gradient_clip <= 0:
+        raise SystemExit("weight decay must be non-negative, warmup in [0,1), and gradient clip positive")
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     steps = math.ceil(len(train) / args.grad_accum) * args.epochs
-    scheduler = get_linear_schedule_with_warmup(optimizer, int(0.06 * steps), steps)
+    scheduler = get_linear_schedule_with_warmup(optimizer, int(args.warmup_ratio * steps), steps)
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda" and not args.bf16)
     run_dir = args.output_root / args.system / str(args.seed); run_dir.mkdir(parents=True, exist_ok=True)
     started = time.monotonic()
@@ -576,7 +608,7 @@ def main() -> int:
                 loss = loss / args.grad_accum
             scaler.scale(loss).backward(); running += loss.item()
             if step % args.grad_accum == 0 or step == len(train):
-                scaler.unscale_(optimizer); nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                scaler.unscale_(optimizer); nn.utils.clip_grad_norm_(model.parameters(), args.gradient_clip)
                 scaler.step(optimizer); scaler.update(); optimizer.zero_grad(set_to_none=True); scheduler.step()
         if args.threshold_aware_selection:
             score, per_label, calibrated_thresholds, selection_protocol = threshold_aware_evaluate(
@@ -623,6 +655,9 @@ def main() -> int:
             "pooling": args.pooling,
             "dropout": args.dropout,
             "pragmatic_head": args.pragmatic_head,
+            "weight_decay": args.weight_decay,
+            "warmup_ratio": args.warmup_ratio,
+            "gradient_clip": args.gradient_clip,
             "auxiliary_weight": args.auxiliary_weight,
             "focal_gamma": args.focal_gamma,
             "positive_weight_power": args.positive_weight_power,

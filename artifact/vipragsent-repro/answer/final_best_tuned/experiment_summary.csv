@@ -1,8 +1,3 @@
-candidate,dev_score,outcome
-visobert_corrected,82.6055,selected
-visobert_fixed_weight,82.4987,rejected
-phobert_corrected_idiom0,83.1613,selected
-phobert_fixed_weight_idiom0,83.0998,rejected
-irony_weight_1.5,82.1564,rejected
-logistic_stackers,,rejected
-idiom_gate,,rejected
+candidate,selection_score,mean_target_label_f1,std_target_label_f1,overall_pragmatic_macro_f1,outcome
+target_cross,91.51428204535775,91.81259802786745,1.193263930038797,84.06358580813158,promoted
+residual_code_specialist_3seed,,,,,rejected

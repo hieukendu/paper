@@ -1,0 +1,12 @@
+{
+  "train_records": 8000,
+  "dev_records": 2000,
+  "ngram_range": [
+    2,
+    6
+  ],
+  "negative_weight": 1.5,
+  "C": 1.0,
+  "vocabulary": 108266,
+  "test_labels_used": false
+}

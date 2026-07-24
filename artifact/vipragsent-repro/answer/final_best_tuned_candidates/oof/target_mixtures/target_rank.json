@@ -1,0 +1,131 @@
+{
+  "candidate": "target_rank",
+  "selection_score": 91.34413008538596,
+  "mean_target_label_f1": 91.6898891973987,
+  "std_target_label_f1": 1.3830364480510007,
+  "overall_pragmatic_macro_f1": 84.00379618052058,
+  "per_label_oof_f1": {
+    "implicit_sentiment": 67.94274112611075,
+    "sarcasm": 79.73183898932152,
+    "irony": 96.78682660109752,
+    "idiom_figurative": 97.00218761414368,
+    "code_switching": 81.417628476452,
+    "mocking": 81.14155427599799
+  },
+  "fold_metrics": [
+    {
+      "fold": 0,
+      "macro_pragmatic_f1": 85.20740415825692,
+      "implicit_sentiment": 69.05393457117594,
+      "sarcasm": 79.47716834978914,
+      "irony": 97.73887810668727,
+      "idiom_figurative": 96.86888454011742,
+      "code_switching": 85.10907601816693,
+      "mocking": 82.99648336360474
+    },
+    {
+      "fold": 1,
+      "macro_pragmatic_f1": 81.77786189224108,
+      "implicit_sentiment": 66.00373958864525,
+      "sarcasm": 77.81810848961483,
+      "irony": 96.1359377113159,
+      "idiom_figurative": 97.6208885981086,
+      "code_switching": 74.49718889468497,
+      "mocking": 78.59130807107687
+    },
+    {
+      "fold": 2,
+      "macro_pragmatic_f1": 84.27215440720097,
+      "implicit_sentiment": 69.54087346024636,
+      "sarcasm": 79.00088417329796,
+      "irony": 96.86888454011742,
+      "idiom_figurative": 95.92759259636334,
+      "code_switching": 82.44351199985955,
+      "mocking": 81.85117967332123
+    },
+    {
+      "fold": 3,
+      "macro_pragmatic_f1": 84.56091757526139,
+      "implicit_sentiment": 67.19518862766539,
+      "sarcasm": 83.93359218101486,
+      "irony": 97.73887810668727,
+      "idiom_figurative": 96.86888454011742,
+      "code_switching": 78.63247863247864,
+      "mocking": 82.99648336360474
+    },
+    {
+      "fold": 4,
+      "macro_pragmatic_f1": 84.03591505244056,
+      "implicit_sentiment": 67.97136263011635,
+      "sarcasm": 78.16566169470009,
+      "irony": 95.42124542124542,
+      "idiom_figurative": 97.68156262678954,
+      "code_switching": 85.79444562824065,
+      "mocking": 79.18121231355126
+    }
+  ],
+  "confusion": {
+    "implicit_sentiment": {
+      "tp": 124,
+      "tn": 1570,
+      "fp": 198,
+      "fn": 108,
+      "positive_precision": 0.38509316770186336,
+      "positive_recall": 0.5344827586206896,
+      "binary_macro_f1": 67.94274112611075
+    },
+    "sarcasm": {
+      "tp": 187,
+      "tn": 1614,
+      "fp": 38,
+      "fn": 161,
+      "positive_precision": 0.8311111111111111,
+      "positive_recall": 0.5373563218390804,
+      "binary_macro_f1": 79.73183898932152
+    },
+    "irony": {
+      "tp": 169,
+      "tn": 1810,
+      "fp": 5,
+      "fn": 16,
+      "positive_precision": 0.9712643678160919,
+      "positive_recall": 0.9135135135135135,
+      "binary_macro_f1": 96.78682660109752
+    },
+    "idiom_figurative": {
+      "tp": 164,
+      "tn": 1817,
+      "fp": 0,
+      "fn": 19,
+      "positive_precision": 1.0,
+      "positive_recall": 0.8961748633879781,
+      "binary_macro_f1": 97.00218761414368
+    },
+    "code_switching": {
+      "tp": 124,
+      "tn": 1750,
+      "fp": 69,
+      "fn": 57,
+      "positive_precision": 0.6424870466321243,
+      "positive_recall": 0.6850828729281768,
+      "binary_macro_f1": 81.417628476452
+    },
+    "mocking": {
+      "tp": 191,
+      "tn": 1626,
+      "fp": 69,
+      "fn": 114,
+      "positive_precision": 0.7346153846153847,
+      "positive_recall": 0.6262295081967213,
+      "binary_macro_f1": 81.14155427599799
+    }
+  },
+  "full_dev_thresholds": {
+    "implicit_sentiment": 0.55,
+    "sarcasm": 0.87,
+    "irony": 0.91,
+    "idiom_figurative": 0.99,
+    "code_switching": 0.89,
+    "mocking": 0.35000000000000003
+  }
+}

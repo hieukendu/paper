@@ -1,8 +1,12 @@
 {
-  "implicit_sentiment": 0.55,
-  "sarcasm": 0.87,
-  "irony": 0.88,
-  "idiom_figurative": 0.59,
-  "code_switching": 0.59,
-  "mocking": 0.35000000000000003
+  "method": "full-development refit after five-fold OOF source selection",
+  "thresholds": {
+    "implicit_sentiment": 0.55,
+    "sarcasm": 0.87,
+    "irony": 0.96,
+    "idiom_figurative": 0.99,
+    "code_switching": 0.5,
+    "mocking": 0.35
+  },
+  "raw_and_calibrated_probabilities": "raw probabilities retained; selected calibration is per-label stability-aware grid thresholding"
 }

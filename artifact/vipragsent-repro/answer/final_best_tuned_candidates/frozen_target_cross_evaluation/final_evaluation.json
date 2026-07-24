@@ -1,0 +1,85 @@
+{
+  "candidate": "target_cross",
+  "metrics": {
+    "implicit_sentiment": 67.9829,
+    "sarcasm": 80.2781,
+    "irony": 97.0177,
+    "idiom_figurative": 97.182,
+    "code_switching": 81.8164,
+    "mocking": 82.0528,
+    "macro_pragmatic_f1": 84.3883
+  },
+  "incumbent": {
+    "implicit_sentiment": 67.9829,
+    "sarcasm": 80.2781,
+    "irony": 96.9009,
+    "idiom_figurative": 97.1965,
+    "code_switching": 80.1313,
+    "mocking": 82.0528,
+    "macro_pragmatic_f1": 84.0904
+  },
+  "delta": {
+    "implicit_sentiment": 0.0,
+    "sarcasm": 0.0,
+    "irony": 0.1168,
+    "idiom_figurative": -0.0145,
+    "code_switching": 1.6851,
+    "mocking": 0.0,
+    "macro_pragmatic_f1": 0.2979
+  },
+  "confusion": {
+    "implicit_sentiment": {
+      "tp": 117,
+      "tn": 1590,
+      "fp": 178,
+      "fn": 115,
+      "binary_macro_f1": 67.9829
+    },
+    "sarcasm": {
+      "tp": 194,
+      "tn": 1609,
+      "fp": 43,
+      "fn": 154,
+      "binary_macro_f1": 80.2781
+    },
+    "irony": {
+      "tp": 165,
+      "tn": 1816,
+      "fp": 0,
+      "fn": 19,
+      "binary_macro_f1": 97.0177
+    },
+    "idiom_figurative": {
+      "tp": 166,
+      "tn": 1816,
+      "fp": 0,
+      "fn": 18,
+      "binary_macro_f1": 97.182
+    },
+    "code_switching": {
+      "tp": 125,
+      "tn": 1752,
+      "fp": 67,
+      "fn": 56,
+      "binary_macro_f1": 81.8164
+    },
+    "mocking": {
+      "tp": 201,
+      "tn": 1621,
+      "fp": 74,
+      "fn": 104,
+      "binary_macro_f1": 82.0528
+    }
+  },
+  "id_validation": {
+    "test_count": 2000,
+    "unique_ids": 2000,
+    "exact_id_match": true
+  },
+  "promotion_rule": {
+    "macro_strictly_higher": true,
+    "target_improved": true,
+    "no_label_drop_over_0_10": true,
+    "eligible": true
+  }
+}

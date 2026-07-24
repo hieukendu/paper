@@ -2,11 +2,11 @@
   "metrics": {
     "implicit_sentiment": 67.9829,
     "sarcasm": 80.2781,
-    "irony": 96.9009,
-    "idiom_figurative": 97.1965,
-    "code_switching": 80.1313,
+    "irony": 97.0177,
+    "idiom_figurative": 97.182,
+    "code_switching": 81.8164,
     "mocking": 82.0528,
-    "macro_pragmatic_f1": 84.0904
+    "macro_pragmatic_f1": 84.3883
   },
   "per_label": {
     "implicit_sentiment": {
@@ -14,55 +14,48 @@
       "tn": 1590,
       "fp": 178,
       "fn": 115,
-      "binary_macro_f1": 0.679829,
-      "positive_class_f1": 0.444022770398482
+      "binary_macro_f1": 67.9829
     },
     "sarcasm": {
       "tp": 194,
       "tn": 1609,
       "fp": 43,
       "fn": 154,
-      "binary_macro_f1": 0.802781,
-      "positive_class_f1": 0.6632478632478632
+      "binary_macro_f1": 80.2781
     },
     "irony": {
-      "tp": 167,
-      "tn": 1813,
-      "fp": 3,
-      "fn": 17,
-      "binary_macro_f1": 0.9690089999999999,
-      "positive_class_f1": 0.943502824858757
+      "tp": 165,
+      "tn": 1816,
+      "fp": 0,
+      "fn": 19,
+      "binary_macro_f1": 97.0177
     },
     "idiom_figurative": {
-      "tp": 167,
-      "tn": 1815,
-      "fp": 1,
-      "fn": 17,
-      "binary_macro_f1": 0.971965,
-      "positive_class_f1": 0.9488636363636364
+      "tp": 166,
+      "tn": 1816,
+      "fp": 0,
+      "fn": 18,
+      "binary_macro_f1": 97.182
     },
     "code_switching": {
-      "tp": 136,
-      "tn": 1714,
-      "fp": 105,
-      "fn": 45,
-      "binary_macro_f1": 0.8013129999999999,
-      "positive_class_f1": 0.6445497630331753
+      "tp": 125,
+      "tn": 1752,
+      "fp": 67,
+      "fn": 56,
+      "binary_macro_f1": 81.8164
     },
     "mocking": {
       "tp": 201,
       "tn": 1621,
       "fp": 74,
       "fn": 104,
-      "binary_macro_f1": 0.820528,
-      "positive_class_f1": 0.6931034482758621
+      "binary_macro_f1": 82.0528
     }
   },
   "id_validation": {
     "test_count": 2000,
-    "duplicate_ids": false,
-    "missing_ids": false,
-    "exact_match": true
+    "unique_ids": 2000,
+    "exact_id_match": true
   },
-  "metric_definition": "binary macro-F1 per label; aggregate is the arithmetic mean across six labels"
+  "metric_definition": "binary macro-F1"
 }
