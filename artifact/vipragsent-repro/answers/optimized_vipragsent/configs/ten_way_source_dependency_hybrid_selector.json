@@ -1,0 +1,104 @@
+{
+  "method": "development_only_per_label_candidate_selection",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "threshold": "answers/optimized_vipragsent/predictions/candidates/threshold_dev.jsonl",
+    "lexical": "answers/optimized_vipragsent/predictions/candidates/lexical_dev.jsonl",
+    "lexical_rules": "answers/optimized_vipragsent/predictions/candidates/lexical_rules_dev.jsonl",
+    "phobert_knn": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+    "visobert_knn": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+    "source_thresholds": "answers/optimized_vipragsent/predictions/candidates/source_thresholds_dev.jsonl",
+    "weighted_knn": "answers/optimized_vipragsent/predictions/candidates/weighted_knn_dev.jsonl",
+    "score_blend": "answers/optimized_vipragsent/predictions/candidates/score_blend_extended_dev.jsonl",
+    "label_dependency": "answers/optimized_vipragsent/predictions/candidates/label_dependency_dev.jsonl",
+    "source_score_blend": "answers/optimized_vipragsent/predictions/candidates/source_score_blend_dev.jsonl"
+  },
+  "selected_source": {
+    "implicit_sentiment": "label_dependency",
+    "sarcasm": "label_dependency",
+    "irony": "visobert_knn",
+    "idiom_figurative": "label_dependency",
+    "code_switching": "lexical_rules",
+    "mocking": "source_score_blend"
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": {
+      "threshold": 60.2002,
+      "lexical": 60.2002,
+      "lexical_rules": 60.2002,
+      "phobert_knn": 65.8731,
+      "visobert_knn": 65.4099,
+      "source_thresholds": 60.5276,
+      "weighted_knn": 65.2425,
+      "score_blend": 66.6777,
+      "label_dependency": 67.4491,
+      "source_score_blend": 66.9752
+    },
+    "sarcasm": {
+      "threshold": 76.2672,
+      "lexical": 76.2672,
+      "lexical_rules": 76.2672,
+      "phobert_knn": 78.8714,
+      "visobert_knn": 78.2588,
+      "source_thresholds": 74.6623,
+      "weighted_knn": 79.077,
+      "score_blend": 79.1422,
+      "label_dependency": 79.2034,
+      "source_score_blend": 77.6856
+    },
+    "irony": {
+      "threshold": 97.2249,
+      "lexical": 97.2249,
+      "lexical_rules": 97.2249,
+      "phobert_knn": 97.2249,
+      "visobert_knn": 97.5207,
+      "source_thresholds": 97.5207,
+      "weighted_knn": 97.3724,
+      "score_blend": 97.5207,
+      "label_dependency": 97.5207,
+      "source_score_blend": 96.659
+    },
+    "idiom_figurative": {
+      "threshold": 97.0022,
+      "lexical": 97.0022,
+      "lexical_rules": 97.0022,
+      "phobert_knn": 97.0177,
+      "visobert_knn": 97.0022,
+      "source_thresholds": 90.9908,
+      "weighted_knn": 97.0022,
+      "score_blend": 97.1674,
+      "label_dependency": 97.3317,
+      "source_score_blend": 96.1555
+    },
+    "code_switching": {
+      "threshold": 52.3721,
+      "lexical": 75.7241,
+      "lexical_rules": 78.6874,
+      "phobert_knn": 62.7586,
+      "visobert_knn": 69.9964,
+      "source_thresholds": 56.3321,
+      "weighted_knn": 63.6615,
+      "score_blend": 73.525,
+      "label_dependency": 74.2626,
+      "source_score_blend": 74.294
+    },
+    "mocking": {
+      "threshold": 77.3067,
+      "lexical": 77.3067,
+      "lexical_rules": 77.3067,
+      "phobert_knn": 79.2714,
+      "visobert_knn": 79.6734,
+      "source_thresholds": 77.3693,
+      "weighted_knn": 79.4896,
+      "score_blend": 79.8758,
+      "label_dependency": 80.0485,
+      "source_score_blend": 80.2448
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "label-gap diagnosis and development-only optimization",
+  "manuscript_modified": false,
+  "test_labels_used_for_selection": false,
+  "new_test_evaluation": false,
+  "selected_dev_hybrid": {
+    "macro_pragmatic_f1": 84.1649,
+    "source_by_label": {
+      "implicit_sentiment": "locked_hybrid",
+      "sarcasm": "locked_hybrid",
+      "irony": "locked_hybrid",
+      "idiom_figurative": "locked_hybrid",
+      "code_switching": "locked_hybrid",
+      "mocking": "visobert_mocking_joint_targeted_3seed"
+    }
+  },
+  "claim_not_established": "Strict test-set superiority over every historical best-tuned baseline on every metric."
+}

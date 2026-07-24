@@ -1,0 +1,54 @@
+# Development-only ViPragSent framework ablations.
+#
+# Selection may use vipragsent_dev.jsonl only. Test prediction is disabled in
+# these runs so the previous test evaluation cannot influence the search.
+protocol:
+  training_split: data/processed/vipragsent_train.jsonl
+  selection_split: data/processed/vipragsent_dev.jsonl
+  test_labels_used_for_selection: false
+  test_prediction_during_search: false
+  fixed_common:
+    epochs: 14
+    patience: 3
+    batch_size: 16
+    grad_accum: 2
+    learning_rate: 2.0e-5
+    max_length: 256
+    pooling: cls
+    dropout: 0.10
+    pragmatic_positive_weight_power: 0.50
+    rationale_weight: 0.10
+    auxiliary_weight: 0.50
+    generated_rationales: data/generated/rationales.jsonl
+
+candidates:
+  - id: visobert_full_uncertainty
+    seed: 20260731
+    encoder: huggingface/vipragsent-experiment-checkpoints/pretrained/visobert
+    pragmatic_head: linear
+    focal_gamma: 0.0
+    uncertainty_weighting: true
+  - id: visobert_full_fixed_weights
+    seed: 20260732
+    encoder: huggingface/vipragsent-experiment-checkpoints/pretrained/visobert
+    pragmatic_head: linear
+    focal_gamma: 0.0
+    uncertainty_weighting: false
+  - id: visobert_full_mlp_focal
+    seed: 20260733
+    encoder: huggingface/vipragsent-experiment-checkpoints/pretrained/visobert
+    pragmatic_head: mlp
+    focal_gamma: 0.5
+    uncertainty_weighting: false
+  - id: phobert_full_fixed_weights
+    seed: 20260734
+    encoder: huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base
+    pragmatic_head: linear
+    focal_gamma: 0.0
+    uncertainty_weighting: false
+
+selection:
+  primary: mean_binary_macro_f1
+  secondary: per_label_binary_macro_f1
+  candidate_pool: existing_locked_encoder_hybrid_and_candidates
+  final_test_policy: no_new_test_claim_without_an_unseen_evaluation_split

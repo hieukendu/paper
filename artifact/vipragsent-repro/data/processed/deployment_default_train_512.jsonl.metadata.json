@@ -1,0 +1,17 @@
+{
+  "method": "seeded_uniform_sample_without_replacement",
+  "source": "/root/paper/artifact/vipragsent-repro/data/processed/vipragsent_train.jsonl",
+  "source_sha256": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e",
+  "output": "data/processed/deployment_default_train_512.jsonl",
+  "output_sha256": "12693949c3a39080d1731ccdf58b6f075bf0838eeca6ecfecc192b9a6ed8b1f1",
+  "seed": 20260730,
+  "records": 512,
+  "pragmatic_positive_counts": {
+    "implicit_sentiment": 58,
+    "sarcasm": 96,
+    "irony": 50,
+    "idiom_figurative": 49,
+    "code_switching": 39,
+    "mocking": 86
+  }
+}

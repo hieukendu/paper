@@ -1,0 +1,34 @@
+{
+  "method": "mean_probability_ensemble_with_label_thresholds",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "prediction_files": [
+    "answers/optimized_vipragsent/flexible_dev_predictions/finetune_visobert_weighted_cls_s1/20260726.jsonl"
+  ],
+  "threshold_grid": {
+    "start": 0.01,
+    "stop": 0.99,
+    "step": 0.01
+  },
+  "thresholds": {
+    "implicit_sentiment": 0.48,
+    "sarcasm": 0.54,
+    "irony": 0.59,
+    "idiom_figurative": 0.98,
+    "code_switching": 0.36,
+    "mocking": 0.65
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": 67.5939,
+    "sarcasm": 80.8124,
+    "irony": 97.6816,
+    "idiom_figurative": 97.0022,
+    "code_switching": 79.8026,
+    "mocking": 80.5806
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

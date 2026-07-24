@@ -1,0 +1,76 @@
+{
+  "method": "development_only_source_conditioned_label_thresholds",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "thresholds": {
+    "VIVID_seed_and_irony_generation": {
+      "implicit_sentiment": {
+        "threshold": 0.3,
+        "development_binary_macro_f1": 74.0431,
+        "n": 333
+      },
+      "sarcasm": {
+        "threshold": 0.49,
+        "development_binary_macro_f1": 94.8883,
+        "n": 333
+      },
+      "irony": {
+        "threshold": 0.55,
+        "development_binary_macro_f1": 100.0,
+        "n": 333
+      },
+      "idiom_figurative": {
+        "threshold": 0.6,
+        "development_binary_macro_f1": 100.0,
+        "n": 333
+      },
+      "code_switching": {
+        "threshold": 0.23,
+        "development_binary_macro_f1": 50.9423,
+        "n": 333
+      },
+      "mocking": {
+        "threshold": 0.64,
+        "development_binary_macro_f1": 93.1078,
+        "n": 333
+      }
+    },
+    "visobert_local": {
+      "implicit_sentiment": {
+        "threshold": 0.19,
+        "development_binary_macro_f1": 53.2136,
+        "n": 1667
+      },
+      "sarcasm": {
+        "threshold": 0.31,
+        "development_binary_macro_f1": 58.7406,
+        "n": 1667
+      },
+      "irony": {
+        "threshold": 0.99,
+        "development_binary_macro_f1": 49.7589,
+        "n": 1667
+      },
+      "idiom_figurative": {
+        "threshold": 0.15,
+        "development_binary_macro_f1": 50.536,
+        "n": 1667
+      },
+      "code_switching": {
+        "threshold": 0.16,
+        "development_binary_macro_f1": 55.9832,
+        "n": 1667
+      },
+      "mocking": {
+        "threshold": 0.39,
+        "development_binary_macro_f1": 72.4864,
+        "n": 1667
+      }
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

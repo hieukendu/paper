@@ -1,0 +1,60 @@
+{
+  "method": "train_centroid_prototype_similarity_blended_with_frozen_head",
+  "selection_split": "development",
+  "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base",
+  "checkpoint": "/root/paper/huggingface/vipragsent-experiment-checkpoints/vipragsent_full/20260520/best.pt",
+  "pooling": "cls",
+  "max_length": 128,
+  "temperatures": [
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "labels": {
+    "implicit_sentiment": {
+      "temperature": 0.02,
+      "alpha_prototype": 0.1,
+      "threshold": 0.36,
+      "development_binary_macro_f1": 60.2002
+    },
+    "sarcasm": {
+      "temperature": 0.05,
+      "alpha_prototype": 0.6,
+      "threshold": 0.77,
+      "development_binary_macro_f1": 76.4737
+    },
+    "irony": {
+      "temperature": 1.0,
+      "alpha_prototype": 0.5,
+      "threshold": 0.56,
+      "development_binary_macro_f1": 97.2249
+    },
+    "idiom_figurative": {
+      "temperature": 1.0,
+      "alpha_prototype": 0.5,
+      "threshold": 0.5,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "temperature": 0.01,
+      "alpha_prototype": 0.1,
+      "threshold": 0.24,
+      "development_binary_macro_f1": 56.4714
+    },
+    "mocking": {
+      "temperature": 0.5,
+      "alpha_prototype": 0.6,
+      "threshold": 0.62,
+      "development_binary_macro_f1": 77.4536
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

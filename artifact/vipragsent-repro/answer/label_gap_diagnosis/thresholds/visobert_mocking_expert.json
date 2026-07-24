@@ -1,0 +1,34 @@
+{
+  "method": "mean_probability_ensemble_with_label_thresholds",
+  "selection_split": "development",
+  "gold_path": "artifact/vipragsent-repro/data/processed/vipragsent_dev.jsonl",
+  "prediction_files": [
+    "artifact/vipragsent-repro/answer/label_gap_diagnosis/dev_predictions/visobert_mocking_expert/20260821.jsonl"
+  ],
+  "threshold_grid": {
+    "start": 0.01,
+    "stop": 0.99,
+    "step": 0.01
+  },
+  "thresholds": {
+    "implicit_sentiment": 0.73,
+    "sarcasm": 0.53,
+    "irony": 0.78,
+    "idiom_figurative": 0.81,
+    "code_switching": 0.57,
+    "mocking": 0.68
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": 48.2932,
+    "sarcasm": 49.9278,
+    "irony": 51.5487,
+    "idiom_figurative": 47.6028,
+    "code_switching": 48.4726,
+    "mocking": 80.7692
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

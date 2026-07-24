@@ -1,0 +1,5 @@
+experiment_id,seed,metric,value,split
+original_imported,20260520,macro_pragmatic_f1,73.7182,test
+original_imported,20260521,macro_pragmatic_f1,73.7685,test
+original_imported,20260522,macro_pragmatic_f1,73.7541,test
+E020_frozen_source_dependency_hybrid,ensemble_3_seed,macro_pragmatic_f1,82.0699,test

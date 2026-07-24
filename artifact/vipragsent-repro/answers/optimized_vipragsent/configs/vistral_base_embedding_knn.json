@@ -1,0 +1,83 @@
+{
+  "method": "frozen_pretrained_causal_lm_embedding_knn_blended_with_frozen_vipragsent_head",
+  "selection_split": "development",
+  "base": "/root/paper/huggingface/vipragsent-vistral-7b-qlora/pretrained/Vistral-7B-Chat",
+  "adapter_loaded": false,
+  "max_length": 128,
+  "pooling": "mean",
+  "k_values": [
+    1,
+    3,
+    5,
+    7,
+    11,
+    15,
+    25,
+    35,
+    50,
+    75,
+    100,
+    150,
+    200,
+    300,
+    500,
+    750,
+    1000
+  ],
+  "alpha_values": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "labels": {
+    "implicit_sentiment": {
+      "k": 5,
+      "alpha_knn": 0.3,
+      "threshold": 0.21,
+      "development_binary_macro_f1": 63.2271
+    },
+    "sarcasm": {
+      "k": 7,
+      "alpha_knn": 0.6,
+      "threshold": 0.68,
+      "development_binary_macro_f1": 77.8282
+    },
+    "irony": {
+      "k": 3,
+      "alpha_knn": 0.5,
+      "threshold": 0.62,
+      "development_binary_macro_f1": 97.5207
+    },
+    "idiom_figurative": {
+      "k": 1000,
+      "alpha_knn": 0.5,
+      "threshold": 0.5,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "k": 1000,
+      "alpha_knn": 0.8,
+      "threshold": 0.13,
+      "development_binary_macro_f1": 71.389
+    },
+    "mocking": {
+      "k": 7,
+      "alpha_knn": 0.3,
+      "threshold": 0.45,
+      "development_binary_macro_f1": 79.2046
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

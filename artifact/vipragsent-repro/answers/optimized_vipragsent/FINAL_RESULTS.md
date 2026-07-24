@@ -1,0 +1,17 @@
+# Final status
+
+NOT_YET_ACHIEVED
+
+The completion criterion requires a strict win on every listed metric. This candidate does not meet it; no success claim is made.
+
+| Task/Metric | Original ViPragSent | Best Baseline | Optimized ViPragSent | Difference | Status |
+| --- | ---: | ---: | ---: | ---: | --- |
+| implicit_sentiment | 46.9214 | 60.8470 (phobert_finetune) | 64.6340 | 3.7870 | PASS |
+| sarcasm | 75.6892 | 80.0318 (vistral_7b_sft) | 77.4834 | -2.5484 | FAIL |
+| irony | 96.9829 | 97.4132 (sailor_7b_sft) | 97.3454 | -0.0678 | FAIL |
+| idiom_figurative | 97.2365 | 97.2958 (phobert_finetune) | 96.7542 | -0.5416 | FAIL |
+| code_switching | 47.6303 | 81.9458 (vistral_7b_sft) | 76.3569 | -5.5889 | FAIL |
+| mocking | 78.0213 | 81.9802 (vistral_7b_sft) | 79.8453 | -2.1349 | FAIL |
+| macro_pragmatic_f1 | 73.7469 | 82.8250 (vistral_7b_sft) | 82.0699 | -0.7551 | FAIL |
+
+Frozen checkpoint hashes: `PASS`.

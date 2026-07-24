@@ -1,0 +1,45 @@
+{
+  "method": "mean_probability_ensemble_with_label_thresholds",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "prediction_files": [
+    "/tmp/vp-tta/lower_20260520.jsonl",
+    "/tmp/vp-tta/lower_20260521.jsonl",
+    "/tmp/vp-tta/lower_20260522.jsonl",
+    "/tmp/vp-tta/reproduction_20260520.jsonl",
+    "/tmp/vp-tta/reproduction_20260521.jsonl",
+    "/tmp/vp-tta/reproduction_20260522.jsonl",
+    "/tmp/vp-tta/social_20260520.jsonl",
+    "/tmp/vp-tta/social_20260521.jsonl",
+    "/tmp/vp-tta/social_20260522.jsonl",
+    "/tmp/vp-tta/social_lower_20260520.jsonl",
+    "/tmp/vp-tta/social_lower_20260521.jsonl",
+    "/tmp/vp-tta/social_lower_20260522.jsonl"
+  ],
+  "threshold_grid": {
+    "start": 0.01,
+    "stop": 0.99,
+    "step": 0.01
+  },
+  "thresholds": {
+    "implicit_sentiment": 0.28,
+    "sarcasm": 0.45,
+    "irony": 0.5,
+    "idiom_figurative": 0.5,
+    "code_switching": 0.16,
+    "mocking": 0.49
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": 60.0872,
+    "sarcasm": 76.1792,
+    "irony": 97.0782,
+    "idiom_figurative": 97.0022,
+    "code_switching": 52.2734,
+    "mocking": 77.4536
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

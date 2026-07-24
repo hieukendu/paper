@@ -1,0 +1,72 @@
+{
+  "method": "development_selected_nonlinear_aggregation_of_frozen_scores",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "phobert": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl",
+      "probability_suffix": "_knn_blend"
+    },
+    "visobert": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/visobert_knn_dev.jsonl",
+      "probability_suffix": "_knn_blend"
+    },
+    "weighted": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/weighted_knn_dev.jsonl",
+      "probability_suffix": "_weighted_knn"
+    },
+    "xlmr": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/xlmr_knn_dev.jsonl",
+      "probability_suffix": "_knn_blend"
+    },
+    "vistral_base": {
+      "path": "answers/optimized_vipragsent/predictions/candidates/vistral_base_knn_dev.jsonl",
+      "probability_suffix": "_causal_knn_blend"
+    }
+  },
+  "methods": [
+    "minimum",
+    "maximum",
+    "median",
+    "lower_quartile",
+    "upper_quartile",
+    "geometric_mean"
+  ],
+  "labels": {
+    "implicit_sentiment": {
+      "method": "upper_quartile",
+      "threshold": 0.22,
+      "development_binary_macro_f1": 66.458
+    },
+    "sarcasm": {
+      "method": "median",
+      "threshold": 0.45,
+      "development_binary_macro_f1": 78.5479
+    },
+    "irony": {
+      "method": "minimum",
+      "threshold": 0.35,
+      "development_binary_macro_f1": 97.5207
+    },
+    "idiom_figurative": {
+      "method": "minimum",
+      "threshold": 0.16,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "method": "geometric_mean",
+      "threshold": 0.14,
+      "development_binary_macro_f1": 70.3647
+    },
+    "mocking": {
+      "method": "upper_quartile",
+      "threshold": 0.47,
+      "development_binary_macro_f1": 79.4793
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "method": "development_only_per_label_candidate_selection",
+  "selection_split": "development",
+  "gold_path": "data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "threshold": "answers/optimized_vipragsent/predictions/candidates/threshold_dev.jsonl",
+    "lexical": "answers/optimized_vipragsent/predictions/candidates/lexical_dev.jsonl",
+    "knn": "answers/optimized_vipragsent/predictions/candidates/knn_dev.jsonl"
+  },
+  "selected_source": {
+    "implicit_sentiment": "knn",
+    "sarcasm": "knn",
+    "irony": "threshold",
+    "idiom_figurative": "knn",
+    "code_switching": "lexical",
+    "mocking": "knn"
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": {
+      "threshold": 60.2002,
+      "lexical": 60.2002,
+      "knn": 65.8731
+    },
+    "sarcasm": {
+      "threshold": 76.2672,
+      "lexical": 76.2672,
+      "knn": 78.8714
+    },
+    "irony": {
+      "threshold": 97.2249,
+      "lexical": 97.2249,
+      "knn": 97.2249
+    },
+    "idiom_figurative": {
+      "threshold": 97.0022,
+      "lexical": 97.0022,
+      "knn": 97.0177
+    },
+    "code_switching": {
+      "threshold": 52.3721,
+      "lexical": 75.7241,
+      "knn": 62.7586
+    },
+    "mocking": {
+      "threshold": 77.3067,
+      "lexical": 77.3067,
+      "knn": 79.2714
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

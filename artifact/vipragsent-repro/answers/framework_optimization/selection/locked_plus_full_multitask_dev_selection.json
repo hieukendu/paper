@@ -1,0 +1,48 @@
+{
+  "method": "development_only_per_label_candidate_selection",
+  "selection_split": "development",
+  "gold_path": "artifact/vipragsent-repro/data/processed/vipragsent_dev.jsonl",
+  "candidates": {
+    "locked_hybrid": "artifact/vipragsent-repro/answers/optimized_vipragsent/flexible_dev_predictions/encoder_lexical_hybrid_dev.json",
+    "full_multitask": "artifact/vipragsent-repro/answers/framework_optimization/dev_thresholded/visobert_full_fixed_weights.jsonl"
+  },
+  "selected_source": {
+    "implicit_sentiment": "locked_hybrid",
+    "sarcasm": "locked_hybrid",
+    "irony": "locked_hybrid",
+    "idiom_figurative": "locked_hybrid",
+    "code_switching": "locked_hybrid",
+    "mocking": "full_multitask"
+  },
+  "development_binary_macro_f1": {
+    "implicit_sentiment": {
+      "locked_hybrid": 67.5939,
+      "full_multitask": 65.8534
+    },
+    "sarcasm": {
+      "locked_hybrid": 80.8124,
+      "full_multitask": 79.8894
+    },
+    "irony": {
+      "locked_hybrid": 97.6816,
+      "full_multitask": 97.5207
+    },
+    "idiom_figurative": {
+      "locked_hybrid": 97.0483,
+      "full_multitask": 97.0177
+    },
+    "code_switching": {
+      "locked_hybrid": 80.3963,
+      "full_multitask": 78.0093
+    },
+    "mocking": {
+      "locked_hybrid": 80.5806,
+      "full_multitask": 80.7145
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

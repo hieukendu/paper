@@ -1,0 +1,83 @@
+{
+  "method": "frozen_pretrained_causal_lm_embedding_knn_blended_with_frozen_vipragsent_head",
+  "selection_split": "development",
+  "base": "/root/paper/huggingface/vipragsent-sailor-7b-qlora/pretrained/Sailor-7B",
+  "adapter_loaded": false,
+  "max_length": 128,
+  "pooling": "mean",
+  "k_values": [
+    1,
+    3,
+    5,
+    7,
+    11,
+    15,
+    25,
+    35,
+    50,
+    75,
+    100,
+    150,
+    200,
+    300,
+    500,
+    750,
+    1000
+  ],
+  "alpha_values": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "labels": {
+    "implicit_sentiment": {
+      "k": 25,
+      "alpha_knn": 0.3,
+      "threshold": 0.2,
+      "development_binary_macro_f1": 63.0319
+    },
+    "sarcasm": {
+      "k": 1,
+      "alpha_knn": 0.6,
+      "threshold": 0.73,
+      "development_binary_macro_f1": 78.2036
+    },
+    "irony": {
+      "k": 15,
+      "alpha_knn": 0.5,
+      "threshold": 0.56,
+      "development_binary_macro_f1": 97.5207
+    },
+    "idiom_figurative": {
+      "k": 1000,
+      "alpha_knn": 0.5,
+      "threshold": 0.5,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "k": 150,
+      "alpha_knn": 0.6,
+      "threshold": 0.14,
+      "development_binary_macro_f1": 71.4583
+    },
+    "mocking": {
+      "k": 11,
+      "alpha_knn": 0.4,
+      "threshold": 0.38,
+      "development_binary_macro_f1": 78.865
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}

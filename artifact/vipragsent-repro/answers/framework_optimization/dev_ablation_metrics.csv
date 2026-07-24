@@ -1,0 +1,6 @@
+system,implicit_sentiment,sarcasm,irony,idiom_figurative,code_switching,mocking,macro_pragmatic_f1
+ViSoBERT full multitask + uncertainty,65.3069,79.5901,97.5207,97.0177,78.2291,80.4899,83.0257
+"ViSoBERT full multitask, fixed loss weights",65.8534,79.8894,97.5207,97.0177,78.0093,80.7145,83.1675
+"ViSoBERT full multitask, MLP + focal",66.7774,79.4927,97.5207,96.8689,74.9409,80.1131,82.6189
+"PhoBERT full multitask, fixed loss weights",65.9071,77.6723,97.3724,97.0022,79.7292,78.5177,82.7002
+Dev-selected hybrid: locked + full multitask mocking,67.5939,80.8124,97.6816,97.0483,80.3963,80.7145,84.0411

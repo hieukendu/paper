@@ -1,0 +1,156 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 196.89111989736557,
+    "dev_macro_pragmatic_f1": 0.7612221713304934,
+    "per_label": {
+      "implicit_sentiment": 0.5850671598439853,
+      "sarcasm": 0.7383362417773126,
+      "irony": 0.9363276693901059,
+      "idiom_figurative": 0.9700218761414368,
+      "code_switching": 0.6429010061728586,
+      "mocking": 0.6946790746572615
+    },
+    "elapsed_seconds": 41.89
+  },
+  {
+    "epoch": 2,
+    "train_loss": 126.5440119355917,
+    "dev_macro_pragmatic_f1": 0.8066215948201075,
+    "per_label": {
+      "implicit_sentiment": 0.593804770537306,
+      "sarcasm": 0.7639742575976635,
+      "irony": 0.9635523130613324,
+      "idiom_figurative": 0.9700218761414368,
+      "code_switching": 0.756330715450507,
+      "mocking": 0.7920456361323991
+    },
+    "elapsed_seconds": 83.706
+  },
+  {
+    "epoch": 3,
+    "train_loss": 102.63922579586506,
+    "dev_macro_pragmatic_f1": 0.8150248692103065,
+    "per_label": {
+      "implicit_sentiment": 0.6174063925464299,
+      "sarcasm": 0.7749255952380952,
+      "irony": 0.9523490432581342,
+      "idiom_figurative": 0.9700218761414368,
+      "code_switching": 0.7884959521788166,
+      "mocking": 0.7869503558989256
+    },
+    "elapsed_seconds": 125.287
+  },
+  {
+    "epoch": 4,
+    "train_loss": 86.16169779002666,
+    "dev_macro_pragmatic_f1": 0.8209324278547107,
+    "per_label": {
+      "implicit_sentiment": 0.6472828501331619,
+      "sarcasm": 0.7684362731320673,
+      "irony": 0.9607103567499607,
+      "idiom_figurative": 0.9686888454011742,
+      "code_switching": 0.7880078951379172,
+      "mocking": 0.7924683465739821
+    },
+    "elapsed_seconds": 171.822
+  },
+  {
+    "epoch": 5,
+    "train_loss": 71.00598086416721,
+    "dev_macro_pragmatic_f1": 0.8216232167526542,
+    "per_label": {
+      "implicit_sentiment": 0.645453731993411,
+      "sarcasm": 0.7709464857693633,
+      "irony": 0.9592998059203708,
+      "idiom_figurative": 0.9673758788122644,
+      "code_switching": 0.7879897436920713,
+      "mocking": 0.7986736543284442
+    },
+    "elapsed_seconds": 225.111
+  },
+  {
+    "epoch": 6,
+    "train_loss": 58.607436859980226,
+    "dev_macro_pragmatic_f1": 0.8054811476465265,
+    "per_label": {
+      "implicit_sentiment": 0.6520506320359792,
+      "sarcasm": 0.7411931868924191,
+      "irony": 0.9178729940652799,
+      "idiom_figurative": 0.9659095487353992,
+      "code_switching": 0.7932222996161615,
+      "mocking": 0.7626382245339195
+    },
+    "elapsed_seconds": 282.736
+  },
+  {
+    "epoch": 7,
+    "train_loss": 47.72332742996514,
+    "dev_macro_pragmatic_f1": 0.8179184699455989,
+    "per_label": {
+      "implicit_sentiment": 0.6493141263057393,
+      "sarcasm": 0.7639019994387267,
+      "irony": 0.9455632183908046,
+      "idiom_figurative": 0.963185554011394,
+      "code_switching": 0.7934831244916334,
+      "mocking": 0.7920627970352954
+    },
+    "elapsed_seconds": 339.529
+  },
+  {
+    "epoch": 8,
+    "train_loss": 40.09251996874809,
+    "dev_macro_pragmatic_f1": 0.8217787175616017,
+    "per_label": {
+      "implicit_sentiment": 0.6446440046960129,
+      "sarcasm": 0.7727789138832084,
+      "irony": 0.9607103567499607,
+      "idiom_figurative": 0.9617479357273515,
+      "code_switching": 0.8031391327480712,
+      "mocking": 0.787651961565005
+    },
+    "elapsed_seconds": 396.483
+  },
+  {
+    "epoch": 9,
+    "train_loss": 32.30062051489949,
+    "dev_macro_pragmatic_f1": 0.8177806161779507,
+    "per_label": {
+      "implicit_sentiment": 0.6435835966728416,
+      "sarcasm": 0.7690037511032657,
+      "irony": 0.94690750993272,
+      "idiom_figurative": 0.9688496810207337,
+      "code_switching": 0.7906876955761843,
+      "mocking": 0.7876514627619592
+    },
+    "elapsed_seconds": 444.719
+  },
+  {
+    "epoch": 10,
+    "train_loss": 26.832365181297064,
+    "dev_macro_pragmatic_f1": 0.8193540219953969,
+    "per_label": {
+      "implicit_sentiment": 0.6475210278661141,
+      "sarcasm": 0.7705678882613074,
+      "irony": 0.9496152979810553,
+      "idiom_figurative": 0.9615547564070921,
+      "code_switching": 0.7986013986013987,
+      "mocking": 0.7882637628554144
+    },
+    "elapsed_seconds": 485.264
+  },
+  {
+    "epoch": 11,
+    "train_loss": 22.27162355929613,
+    "dev_macro_pragmatic_f1": 0.8198812265578752,
+    "per_label": {
+      "implicit_sentiment": 0.6421589163524648,
+      "sarcasm": 0.7774466223891423,
+      "irony": 0.9551091744876461,
+      "idiom_figurative": 0.9660824627832114,
+      "code_switching": 0.7933938000811762,
+      "mocking": 0.7850963832536102
+    },
+    "elapsed_seconds": 593.137
+  }
+]

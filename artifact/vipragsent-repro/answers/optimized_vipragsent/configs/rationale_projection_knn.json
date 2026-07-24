@@ -1,0 +1,83 @@
+{
+  "method": "frozen_archived_rationale_projection_knn_blended_with_frozen_head",
+  "selection_split": "development",
+  "base": "/root/paper/huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base",
+  "checkpoint": "/root/paper/huggingface/vipragsent-experiment-checkpoints/vipragsent_full/20260520/best.pt",
+  "max_length": 128,
+  "k_values": [
+    1,
+    3,
+    5,
+    7,
+    11,
+    15,
+    25,
+    35,
+    50,
+    75,
+    100,
+    150,
+    200,
+    300,
+    500,
+    750,
+    1000
+  ],
+  "alpha_values": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "labels": {
+    "implicit_sentiment": {
+      "k": 11,
+      "alpha_knn": 0.7,
+      "threshold": 0.24,
+      "development_binary_macro_f1": 65.8192
+    },
+    "sarcasm": {
+      "k": 1,
+      "alpha_knn": 0.5,
+      "threshold": 0.61,
+      "development_binary_macro_f1": 78.9071
+    },
+    "irony": {
+      "k": 500,
+      "alpha_knn": 0.5,
+      "threshold": 0.5,
+      "development_binary_macro_f1": 97.2249
+    },
+    "idiom_figurative": {
+      "k": 1000,
+      "alpha_knn": 0.5,
+      "threshold": 0.5,
+      "development_binary_macro_f1": 97.0022
+    },
+    "code_switching": {
+      "k": 50,
+      "alpha_knn": 0.5,
+      "threshold": 0.19,
+      "development_binary_macro_f1": 67.6534
+    },
+    "mocking": {
+      "k": 11,
+      "alpha_knn": 0.5,
+      "threshold": 0.5,
+      "development_binary_macro_f1": 78.9389
+    }
+  },
+  "frozen_weight_compliance": {
+    "neural_weight_updates": false,
+    "rationale_generation": false,
+    "selection_uses_test_labels": false,
+    "optimizer_or_backward_called": false
+  }
+}
