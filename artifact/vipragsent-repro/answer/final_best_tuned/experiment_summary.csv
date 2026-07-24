@@ -1,0 +1,8 @@
+candidate,dev_score,outcome
+visobert_corrected,82.6055,selected
+visobert_fixed_weight,82.4987,rejected
+phobert_corrected_idiom0,83.1613,selected
+phobert_fixed_weight_idiom0,83.0998,rejected
+irony_weight_1.5,82.1564,rejected
+logistic_stackers,,rejected
+idiom_gate,,rejected

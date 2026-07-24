@@ -188,23 +188,32 @@ def task_loss(
         pragmatic_loss = (
             (pragmatic_loss * label_weights).sum(dim=-1) / label_weights.sum().clamp_min(1e-8)
         ).mean()
-    losses = [pragmatic_loss]
-    losses.append(auxiliary_weight * F.cross_entropy(polarity, batch["polarity"]) if use_polarity else pragmatic.sum() * 0)
-    losses.append(auxiliary_weight * F.cross_entropy(emotion, batch["emotion"]) if use_emotion else pragmatic.sum() * 0)
+    # Keep task identity separate from its contribution.  In particular, a
+    # disabled task must not add its uncertainty regularizer (``log_var``).
+    # Adding ``log_var`` for a zero loss drives it to -infinity and changes the
+    # relative weighting of the active objectives.
+    task_terms = [(0, pragmatic_loss)]
+    if use_polarity:
+        task_terms.append((1, auxiliary_weight * F.cross_entropy(polarity, batch["polarity"])))
+    if use_emotion:
+        task_terms.append((2, auxiliary_weight * F.cross_entropy(emotion, batch["emotion"])))
     if use_rationale:
         with torch.no_grad():
             embeddings = model.encoder.get_input_embeddings()(batch["rationale_input_ids"])
             mask = batch["rationale_attention_mask"].unsqueeze(-1)
             target = (embeddings * mask).sum(1) / mask.sum(1).clamp_min(1)
-        rationale_loss = F.mse_loss(model.rationale_projection(pooled), target)
-    else:
-        rationale_loss = pragmatic.sum() * 0
-    weighted = [losses[0], losses[1], losses[2], beta * rationale_loss]
+        task_terms.append((3, beta * F.mse_loss(model.rationale_projection(pooled), target)))
     if model.log_vars is None:
-        total = sum(weighted)
+        total = sum(loss for _, loss in task_terms)
     else:
-        total = sum(torch.exp(-model.log_vars[i]) * loss + model.log_vars[i] for i, loss in enumerate(weighted))
-    return total, (pragmatic, polarity, emotion), [x.detach().item() for x in weighted]
+        total = sum(
+            torch.exp(-model.log_vars[index]) * loss + model.log_vars[index]
+            for index, loss in task_terms
+        )
+    losses_by_task = [0.0] * 4
+    for index, loss in task_terms:
+        losses_by_task[index] = loss.detach().item()
+    return total, (pragmatic, polarity, emotion), losses_by_task
 
 
 def move(batch, device):
@@ -263,6 +272,75 @@ def evaluate(model, loader, device):
     for i in range(len(PRAGMATIC_LABELS)):
         values.append(binary_macro_f1([row[i] for row in gold], [row[i] for row in pred]))
     return sum(values) / len(values), dict(zip(PRAGMATIC_LABELS, values))
+
+
+@torch.no_grad()
+def collect_pragmatic_probabilities(model, loader, device):
+    """Return development IDs, gold labels, and unthresholded probabilities."""
+    model.eval(); ids = []; gold = []; probabilities = []
+    for batch in loader:
+        batch = move(batch, device)
+        logits, _, _, _ = model(batch["input_ids"], batch["attention_mask"])
+        ids.extend(batch["ids"])
+        gold.extend(batch["pragmatic"].cpu().int().tolist())
+        probabilities.extend(torch.sigmoid(logits).cpu().tolist())
+    return ids, gold, probabilities
+
+
+def score_thresholds(gold, probabilities, thresholds):
+    values = []
+    for label_index in range(len(PRAGMATIC_LABELS)):
+        values.append(binary_macro_f1(
+            [row[label_index] for row in gold],
+            [int(row[label_index] >= thresholds[label_index]) for row in probabilities],
+        ))
+    return sum(values) / len(values), dict(zip(PRAGMATIC_LABELS, values))
+
+
+def calibrate_thresholds(gold, probabilities, *, step: float):
+    """Fit independent label thresholds on a calibration partition only."""
+    if not 0 < step <= 0.5:
+        raise ValueError("threshold step must be in (0, 0.5]")
+    candidates = [round(value * step, 6) for value in range(1, int(1 / step))]
+    thresholds = []
+    for label_index in range(len(PRAGMATIC_LABELS)):
+        label_gold = [row[label_index] for row in gold]
+        label_probabilities = [row[label_index] for row in probabilities]
+        best_threshold, best_score = 0.5, -1.0
+        for threshold in candidates:
+            score = binary_macro_f1(label_gold, [int(value >= threshold) for value in label_probabilities])
+            # Deterministic tie-breaker: prefer a threshold closest to 0.5.
+            if score > best_score or (score == best_score and abs(threshold - 0.5) < abs(best_threshold - 0.5)):
+                best_threshold, best_score = threshold, score
+        thresholds.append(best_threshold)
+    return thresholds
+
+
+def calibration_selection_partition(ids):
+    """Stable, ID-hashed 50/50 dev split for threshold-aware selection."""
+    calibration, selection = [], []
+    for index, record_id in enumerate(ids):
+        bucket = hashlib.sha256(str(record_id).encode("utf-8")).digest()[0] & 1
+        (calibration if bucket == 0 else selection).append(index)
+    if not calibration or not selection:
+        raise ValueError("development calibration/selection partition is empty")
+    return calibration, selection
+
+
+def threshold_aware_evaluate(model, loader, device, *, step: float):
+    ids, gold, probabilities = collect_pragmatic_probabilities(model, loader, device)
+    calibration, selection = calibration_selection_partition(ids)
+    calibration_gold = [gold[index] for index in calibration]
+    calibration_probabilities = [probabilities[index] for index in calibration]
+    thresholds = calibrate_thresholds(calibration_gold, calibration_probabilities, step=step)
+    selection_gold = [gold[index] for index in selection]
+    selection_probabilities = [probabilities[index] for index in selection]
+    macro, per_label = score_thresholds(selection_gold, selection_probabilities, thresholds)
+    return macro, per_label, dict(zip(PRAGMATIC_LABELS, thresholds)), {
+        "calibration_records": len(calibration),
+        "selection_records": len(selection),
+        "partition": "sha256(id) parity",
+    }
 
 
 @torch.no_grad()
@@ -344,6 +422,13 @@ def main() -> int:
         help="Use ((negative / positive) ** power) for each pragmatic BCE label; 0 disables class weighting.",
     )
     parser.add_argument(
+        "--positive-weight-powers",
+        help=(
+            "Optional comma-separated per-label positive-weight powers in PRAGMATIC_LABELS order. "
+            "Overrides --positive-weight-power; use 0 for a label with no upweighting."
+        ),
+    )
+    parser.add_argument(
         "--pragmatic-label-weights",
         help=(
             "Comma-separated non-negative loss weights in PRAGMATIC_LABELS order. "
@@ -354,6 +439,17 @@ def main() -> int:
         "--selection-label",
         choices=PRAGMATIC_LABELS,
         help="Select the checkpoint by this label's dev macro-F1 instead of six-label macro-F1.",
+    )
+    parser.add_argument(
+        "--threshold-aware-selection",
+        action="store_true",
+        help="Select epochs with per-label thresholds calibrated on a deterministic dev calibration split.",
+    )
+    parser.add_argument(
+        "--threshold-grid-step",
+        type=float,
+        default=0.01,
+        help="Threshold grid step for dev-only calibrated checkpoint selection.",
     )
     parser.add_argument("--no-rationale", action="store_true")
     parser.add_argument("--no-emotion", action="store_true")
@@ -389,6 +485,13 @@ def main() -> int:
                 "--pragmatic-label-weights must give six non-negative values with at least one positive weight"
             )
         pragmatic_label_weights = torch.tensor(values, dtype=torch.float32)
+    if args.positive_weight_power < 0:
+        raise SystemExit("--positive-weight-power must be non-negative")
+    positive_weight_powers = [args.positive_weight_power] * len(PRAGMATIC_LABELS)
+    if args.positive_weight_powers:
+        positive_weight_powers = [float(value.strip()) for value in args.positive_weight_powers.split(",")]
+        if len(positive_weight_powers) != len(PRAGMATIC_LABELS) or any(value < 0 for value in positive_weight_powers):
+            raise SystemExit("--positive-weight-powers must give six non-negative values")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     tokenizer = AutoTokenizer.from_pretrained(args.model_id, use_fast=True)
     rationales = load_rationales(args.rationales)
@@ -442,17 +545,16 @@ def main() -> int:
     scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda" and not args.bf16)
     run_dir = args.output_root / args.system / str(args.seed); run_dir.mkdir(parents=True, exist_ok=True)
     started = time.monotonic()
-    best_selection = -1.0; best_macro = -1.0; stale = 0; history = []
+    best_selection = -1.0; best_macro = -1.0; best_thresholds = None; selection_protocol = None; stale = 0; history = []
     pragmatic_pos_weight = None
-    if args.positive_weight_power:
-        if args.positive_weight_power < 0:
-            raise SystemExit("--positive-weight-power must be non-negative")
+    if any(positive_weight_powers):
         pragmatic_targets = torch.tensor(
             [row["pragmatic"] for row in train.dataset], dtype=torch.float32
         )
         positive = pragmatic_targets.sum(dim=0).clamp_min(1)
         negative = len(train.dataset) - positive
-        pragmatic_pos_weight = (negative / positive).pow(args.positive_weight_power).to(device)
+        powers = torch.tensor(positive_weight_powers, dtype=torch.float32)
+        pragmatic_pos_weight = (negative / positive).pow(powers).to(device)
     for epoch in range(1, args.epochs + 1):
         model.train(); optimizer.zero_grad(set_to_none=True); running = 0.0
         for step, batch in enumerate(train, 1):
@@ -476,13 +578,20 @@ def main() -> int:
             if step % args.grad_accum == 0 or step == len(train):
                 scaler.unscale_(optimizer); nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 scaler.step(optimizer); scaler.update(); optimizer.zero_grad(set_to_none=True); scheduler.step()
-        score, per_label = evaluate(model, dev, device)
+        if args.threshold_aware_selection:
+            score, per_label, calibrated_thresholds, selection_protocol = threshold_aware_evaluate(
+                model, dev, device, step=args.threshold_grid_step,
+            )
+        else:
+            score, per_label = evaluate(model, dev, device)
+            calibrated_thresholds = None
         selection_score = per_label[args.selection_label] if args.selection_label else score
-        history.append({"epoch": epoch, "train_loss": running, "dev_macro_pragmatic_f1": score, "selection_score": selection_score, "per_label": per_label, "elapsed_seconds": round(time.monotonic() - started, 3)})
+        history.append({"epoch": epoch, "train_loss": running, "dev_macro_pragmatic_f1": score, "selection_score": selection_score, "per_label": per_label, "thresholds": calibrated_thresholds, "elapsed_seconds": round(time.monotonic() - started, 3)})
         (run_dir / "history.json").write_text(json.dumps(history, indent=2) + "\n")
         if selection_score > best_selection:
             best_selection = selection_score; best_macro = score; stale = 0
-            torch.save({"model": model.state_dict(), "args": vars(args), "best_dev": best_selection}, run_dir / "best.pt")
+            best_thresholds = calibrated_thresholds
+            torch.save({"model": model.state_dict(), "args": vars(args), "best_dev": best_selection, "selection_thresholds": best_thresholds}, run_dir / "best.pt")
         else:
             stale += 1
             if stale >= args.patience: break
@@ -517,9 +626,14 @@ def main() -> int:
             "auxiliary_weight": args.auxiliary_weight,
             "focal_gamma": args.focal_gamma,
             "positive_weight_power": args.positive_weight_power,
+            "positive_weight_powers": positive_weight_powers,
             "pragmatic_pos_weight": pragmatic_pos_weight.cpu().tolist() if pragmatic_pos_weight is not None else None,
             "pragmatic_label_weights": pragmatic_label_weights.tolist() if pragmatic_label_weights is not None else None,
             "selection_label": args.selection_label,
+            "threshold_aware_selection": args.threshold_aware_selection,
+            "threshold_grid_step": args.threshold_grid_step,
+            "best_selection_thresholds": best_thresholds,
+            "selection_protocol": selection_protocol,
         },
     }
     (run_dir / "run_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")

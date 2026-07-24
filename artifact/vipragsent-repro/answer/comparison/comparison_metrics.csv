@@ -1,7 +1,0 @@
-system,regime,implicit_sentiment,sarcasm,irony,idiom_figurative,code_switching,mocking,macro_pragmatic_f1
-ViPragSent current,locked_finetuned_hybrid,68.0293,80.4581,97.3454,96.1748,82.0607,81.8970,84.3275
-PhoBERT default,deployment_default,46.9214,77.3049,96.9009,97.1965,73.4842,80.6390,78.7411
-ViSoBERT default,deployment_default,57.4438,80.7630,97.0483,97.3454,76.9682,81.6943,81.8772
-XLM-R large default,deployment_default,52.3036,77.4534,97.3454,97.1965,80.3129,81.0874,80.9499
-Vistral-7B default,deployment_default,49.4282,71.5297,87.0266,94.1710,50.1903,52.9180,67.5440
-Sailor-7B default,deployment_default,47.6599,46.2759,47.4928,47.5341,48.6504,47.5468,47.5267

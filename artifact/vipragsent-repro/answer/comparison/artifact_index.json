@@ -1,301 +1,100 @@
 {
-  "bundle": "answer/comparison",
-  "artifacts": [
+  "scope": "verified best-tuned comparison only",
+  "files": [
     {
-      "bundle_path": "protocol/deployment_default_baselines.yaml",
-      "source_path": "configs/deployment_default_baselines.yaml",
-      "sha256": "fb49d37983a661a15bb615501bf129cb859171825c5372b8ed70e84770e78661",
-      "bytes": 1364,
-      "kind": "copied_file"
+      "path": "README.md",
+      "bytes": 1195,
+      "sha256": "478b6a661b22938efec03c38c461d7243dd2a7a196024650962dc2fd33ab4947"
     },
     {
-      "bundle_path": "protocol/deployment_default_train_512.metadata.json",
-      "source_path": "data/processed/deployment_default_train_512.jsonl.metadata.json",
-      "sha256": "6f9857f8da5f903ce2272a056432d1caae0b84f7151c62f3485f985a6c7f950d",
-      "bytes": 604,
-      "kind": "copied_file"
+      "path": "best_tuned_comparison.csv",
+      "bytes": 799,
+      "sha256": "cbc0ea77dc9d81dcee8fd64aadadefbfb118c5e73878a7d4598027f535f61fe7"
     },
     {
-      "bundle_path": "vipragsent_current/provenance/encoder_lexical_hybrid_selection.json",
-      "source_path": "answers/optimized_vipragsent/flexible_configs/encoder_lexical_hybrid_selection.json",
-      "sha256": "ba5d526f4e29ba7c6c3e844fc0711768a2476e5bbda467d185451508fb9687ea",
-      "bytes": 1541,
-      "kind": "copied_file"
+      "path": "framework_optimization_dev/README.md",
+      "bytes": 2449,
+      "sha256": "95dbce71339cb443574fb86815f1e435bf85fd931d4ddef1ff735f29289e67f6"
     },
     {
-      "bundle_path": "vipragsent_current/provenance/visobert_weighted_cls_s1_thresholds.json",
-      "source_path": "answers/optimized_vipragsent/flexible_configs/visobert_weighted_cls_s1_thresholds.json",
-      "sha256": "b665fc9a1bd37cf4d1a5af71ccc48a1c9d786ac05a5ba6bf811100c77661d462",
-      "bytes": 912,
-      "kind": "copied_file"
+      "path": "framework_optimization_dev/dev_ablation_metrics.csv",
+      "bytes": 606,
+      "sha256": "5494cd3672b98c2877971bb0417177c739263ab2d2f8b0f8cc416eac62bff69a"
     },
     {
-      "bundle_path": "vipragsent_current/provenance/phobert_weighted_cls_s2_thresholds.json",
-      "source_path": "answers/optimized_vipragsent/flexible_configs/phobert_weighted_cls_s2_thresholds.json",
-      "sha256": "e67871ac9f414a324c8f34dd8cb647214676cda294cfabb96302bbdf41ce3fc8",
-      "bytes": 910,
-      "kind": "copied_file"
+      "path": "framework_optimization_dev/protocol_config",
+      "bytes": 1811,
+      "sha256": "cf895880f3cef03b6a2411d09518862836d6a475bafd51c9d41d8b0c1c26f7f1"
     },
     {
-      "bundle_path": "vipragsent_current/provenance/run_registry.json",
-      "source_path": "answers/optimized_vipragsent/flexible_finetuning/run_registry.json",
-      "sha256": "226baeb0aa75db81ef9306f09725f60d426652594ab13a641acecb89a9ccdba1",
-      "bytes": 16863,
-      "kind": "copied_file"
+      "path": "framework_optimization_dev/status.json",
+      "bytes": 926,
+      "sha256": "7deb294d5a10dbe2f788de6010b90db877ef86de2645707b2ca7e3d2e6d29448"
     },
     {
-      "bundle_path": "vipragsent_current/provenance/runs/finetune_visobert_weighted_cls_s1/history.json",
-      "source_path": "outputs/flexible_optimization/finetune_visobert_weighted_cls_s1/20260726/history.json",
-      "sha256": "6ed1684006d00c62bc18e778292b9681e042f2affb2592a6e80350973cf0f329",
-      "bytes": 2071,
-      "kind": "copied_file"
+      "path": "gap_to_best_tuned.csv",
+      "bytes": 566,
+      "sha256": "b7591c7262d19ad12a32fc659ccc9955ac86b07d0e17c9093b9ca970bb31d27b"
     },
     {
-      "bundle_path": "vipragsent_current/provenance/runs/finetune_visobert_weighted_cls_s1/run_manifest.json",
-      "source_path": "outputs/flexible_optimization/finetune_visobert_weighted_cls_s1/20260726/run_manifest.json",
-      "sha256": "61f29b2de20b27bdc9dcb1a020f59d0349bb9e1ae8b078ec3ad6c078ea94d5a9",
-      "bytes": 1121,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "vipragsent_current/provenance/runs/finetune_visobert_weighted_cls_s1/canonical_weights/best.pt",
-      "source_path": "outputs/flexible_optimization/finetune_visobert_weighted_cls_s1/20260726/best.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
-    },
-    {
-      "bundle_path": "vipragsent_current/provenance/runs/finetune_phobert_weighted_cls_s2/history.json",
-      "source_path": "outputs/flexible_optimization/finetune_phobert_weighted_cls_s2/20260725/history.json",
-      "sha256": "cd3c2ae4ade14171b59b789a67bdcc9d43a7a244c5b303362858e67aa7100812",
-      "bytes": 4564,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "vipragsent_current/provenance/runs/finetune_phobert_weighted_cls_s2/run_manifest.json",
-      "source_path": "outputs/flexible_optimization/finetune_phobert_weighted_cls_s2/20260725/run_manifest.json",
-      "sha256": "b55ee87dda0fa5518a25e7f43f8e6e905a43065f52d94128df4b1cefd770496c",
-      "bytes": 1122,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "vipragsent_current/provenance/runs/finetune_phobert_weighted_cls_s2/canonical_weights/best.pt",
-      "source_path": "outputs/flexible_optimization/finetune_phobert_weighted_cls_s2/20260725/best.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
-    },
-    {
-      "bundle_path": "systems/vipragsent_current/metrics_test.csv",
-      "source_path": "answers/optimized_vipragsent/flexible_metrics/encoder_lexical_hybrid_test.csv",
-      "sha256": "04a4389bf6bb5250c14f3055d284ac3136c3075644527046d724a1ac8eb907b7",
+      "path": "systems/vipragsent_current/metrics_test.csv",
       "bytes": 169,
-      "kind": "copied_file"
+      "sha256": "04a4389bf6bb5250c14f3055d284ac3136c3075644527046d724a1ac8eb907b7"
     },
     {
-      "bundle_path": "systems/vipragsent_current/predictions_test.jsonl",
-      "source_path": "answers/optimized_vipragsent/flexible_test_predictions/encoder_lexical_hybrid_test.json",
-      "sha256": "bb1cd9eecdb5345a34c48066c204aec7623af2f805c3ab8a604b7040d8806e72",
+      "path": "systems/vipragsent_current/predictions_test.jsonl",
       "bytes": 1490467,
-      "kind": "copied_file"
+      "sha256": "bb1cd9eecdb5345a34c48066c204aec7623af2f805c3ab8a604b7040d8806e72"
     },
     {
-      "bundle_path": "systems/phobert_default/metrics_test.csv",
-      "source_path": "answers/optimized_vipragsent/deployment_default_metrics/deployment_default_phobert_test.csv",
-      "sha256": "04c400f508596bd16ef3cd355172b5a7787c787d42eb380a17c01c201a96d084",
-      "bytes": 169,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/encoder_lexical_hybrid_selection.json",
+      "bytes": 1541,
+      "sha256": "ba5d526f4e29ba7c6c3e844fc0711768a2476e5bbda467d185451508fb9687ea"
     },
     {
-      "bundle_path": "systems/phobert_default/predictions_test.jsonl",
-      "source_path": "answers/optimized_vipragsent/deployment_default_predictions/deployment_default_phobert/20260730.jsonl",
-      "sha256": "4862ffc4152c4182219e68f8040e286237dd1709e526ede81f733e979d45baca",
-      "bytes": 2464914,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/phobert_weighted_cls_s2_thresholds.json",
+      "bytes": 910,
+      "sha256": "e67871ac9f414a324c8f34dd8cb647214676cda294cfabb96302bbdf41ce3fc8"
     },
     {
-      "bundle_path": "systems/phobert_default/run/history.json",
-      "source_path": "outputs/deployment_default/deployment_default_phobert/20260730/history.json",
-      "sha256": "c68c3db0fd57189e2894105443e1bd19bede51952a828f0fac6d3ea49a04cac7",
-      "bytes": 1247,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/run_registry.json",
+      "bytes": 16863,
+      "sha256": "226baeb0aa75db81ef9306f09725f60d426652594ab13a641acecb89a9ccdba1"
     },
     {
-      "bundle_path": "systems/phobert_default/run/run_manifest.json",
-      "source_path": "outputs/deployment_default/deployment_default_phobert/20260730/run_manifest.json",
-      "sha256": "7ee04d089ca9ba5fdf5cbf290e9a4df89c0882ce2fcca84bd3900f9672edb0f3",
-      "bytes": 948,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/runs/finetune_phobert_weighted_cls_s2/canonical_weights/best.pt",
+      "bytes": 540114720,
+      "sha256": "b880854aab489625479f338af88468e6ea04ab68c62cddcf98bb358e2edb6fa2"
     },
     {
-      "bundle_path": "systems/phobert_default/canonical_weights/best.pt",
-      "source_path": "outputs/deployment_default/deployment_default_phobert/20260730/best.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
+      "path": "vipragsent_current/provenance/runs/finetune_phobert_weighted_cls_s2/history.json",
+      "bytes": 4564,
+      "sha256": "cd3c2ae4ade14171b59b789a67bdcc9d43a7a244c5b303362858e67aa7100812"
     },
     {
-      "bundle_path": "systems/visobert_default/metrics_test.csv",
-      "source_path": "answers/optimized_vipragsent/deployment_default_metrics/deployment_default_visobert_test.csv",
-      "sha256": "e9610ebbe979061ad4b1802ac9b4b7f55b65cdeca16d6ca8557a6d4342d7136e",
-      "bytes": 169,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/runs/finetune_phobert_weighted_cls_s2/run_manifest.json",
+      "bytes": 1122,
+      "sha256": "b55ee87dda0fa5518a25e7f43f8e6e905a43065f52d94128df4b1cefd770496c"
     },
     {
-      "bundle_path": "systems/visobert_default/predictions_test.jsonl",
-      "source_path": "answers/optimized_vipragsent/deployment_default_predictions/deployment_default_visobert/20260730.jsonl",
-      "sha256": "d2be26a5ff87d57899adc014a03deba312fdd8f3d33277627913ec86287660a9",
-      "bytes": 2462893,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/runs/finetune_visobert_weighted_cls_s1/canonical_weights/best.pt",
+      "bytes": 390385376,
+      "sha256": "204f4716029be2033216c2bd63730e1156f11042166e980c5809b91a1e6caf67"
     },
     {
-      "bundle_path": "systems/visobert_default/run/history.json",
-      "source_path": "outputs/deployment_default/deployment_default_visobert/20260730/history.json",
-      "sha256": "336aa9935890db035b536c649105b2fd5396560fcb4cc5bb24e2d9bf50964e59",
-      "bytes": 1246,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/runs/finetune_visobert_weighted_cls_s1/history.json",
+      "bytes": 2071,
+      "sha256": "6ed1684006d00c62bc18e778292b9681e042f2affb2592a6e80350973cf0f329"
     },
     {
-      "bundle_path": "systems/visobert_default/run/run_manifest.json",
-      "source_path": "outputs/deployment_default/deployment_default_visobert/20260730/run_manifest.json",
-      "sha256": "8c5a74f4347abe9172d4d6ff24be0c6f6e64784d7cc3be1253fde571a98f71ed",
-      "bytes": 947,
-      "kind": "copied_file"
+      "path": "vipragsent_current/provenance/runs/finetune_visobert_weighted_cls_s1/run_manifest.json",
+      "bytes": 1121,
+      "sha256": "61f29b2de20b27bdc9dcb1a020f59d0349bb9e1ae8b078ec3ad6c078ea94d5a9"
     },
     {
-      "bundle_path": "systems/visobert_default/canonical_weights/best.pt",
-      "source_path": "outputs/deployment_default/deployment_default_visobert/20260730/best.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
-    },
-    {
-      "bundle_path": "systems/xlm_r_large_default/metrics_test.csv",
-      "source_path": "answers/optimized_vipragsent/deployment_default_metrics/deployment_default_xlmr_large_test.csv",
-      "sha256": "ddad97398ea2b41a92989a3c9c655ab997060e03c9efaa0fac8c4289dd39f87c",
-      "bytes": 169,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/xlm_r_large_default/predictions_test.jsonl",
-      "source_path": "answers/optimized_vipragsent/deployment_default_predictions/deployment_default_xlmr_large/20260730.jsonl",
-      "sha256": "d8d48b1764f29e571caa64172f51d089dbefa1b4c7655cd7f9245f3afa19ac06",
-      "bytes": 2468778,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/xlm_r_large_default/run/history.json",
-      "source_path": "outputs/deployment_default/deployment_default_xlmr_large/20260730/history.json",
-      "sha256": "dc73819add679cc1a80653cbadf7da53a1df74042ede9cc783dac760ae003d88",
-      "bytes": 1241,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/xlm_r_large_default/run/run_manifest.json",
-      "source_path": "outputs/deployment_default/deployment_default_xlmr_large/20260730/run_manifest.json",
-      "sha256": "eb19bccd1ed7371233803eadacbf9560664f15181581b37d3f208a4e4b939099",
-      "bytes": 963,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/xlm_r_large_default/canonical_weights/best.pt",
-      "source_path": "outputs/deployment_default/deployment_default_xlmr_large/20260730/best.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
-    },
-    {
-      "bundle_path": "systems/vistral_7b_default/metrics_test.csv",
-      "source_path": "answers/optimized_vipragsent/deployment_default_metrics/deployment_default_vistral_7b_test.csv",
-      "sha256": "099e0903e66cc3f83263511755ef92b46d9dfc3d777fdedf65d78d727c4c6e33",
-      "bytes": 169,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/vistral_7b_default/predictions_test.jsonl",
-      "source_path": "answers/optimized_vipragsent/deployment_default_predictions/deployment_default_vistral_7b/20260730.jsonl",
-      "sha256": "7ae4b3e67e139e081edd60c2fd5d0c2518a66b0d7cfbfa92a9ec085be09e50fc",
-      "bytes": 837976,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/vistral_7b_default/run/history.json",
-      "source_path": "outputs/deployment_default/deployment_default_vistral_7b/20260730/history.json",
-      "sha256": "a6228f23cd49b5601450d69f657e2e14682e31f2bf1bb2d3452cd248069823ea",
-      "bytes": 645,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/vistral_7b_default/run/selection.json",
-      "source_path": "outputs/deployment_default/deployment_default_vistral_7b/20260730/selection.json",
-      "sha256": "85d5e0321f73820418ef159df7276eb31a1c57d26803f0cfa6b57475cb31f330",
-      "bytes": 1638,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/vistral_7b_default/canonical_weights/classification_head.pt",
-      "source_path": "outputs/deployment_default/deployment_default_vistral_7b/20260730/classification_head.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
-    },
-    {
-      "bundle_path": "systems/vistral_7b_default/canonical_weights/adapter",
-      "source_path": "outputs/deployment_default/deployment_default_vistral_7b/20260730/adapter",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": true
-    },
-    {
-      "bundle_path": "systems/sailor_7b_default/metrics_test.csv",
-      "source_path": "answers/optimized_vipragsent/deployment_default_metrics/deployment_default_sailor_7b_test.csv",
-      "sha256": "ca6e58454d4be5ddfc50f07274d3a90ff99b2c38ae37b1df7bc626885679655c",
-      "bytes": 169,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/sailor_7b_default/predictions_test.jsonl",
-      "source_path": "answers/optimized_vipragsent/deployment_default_predictions/deployment_default_sailor_7b/20260730.jsonl",
-      "sha256": "edc90d09391c572e96ce81130ba09193320f5f7bd89af2a13fd20ec74e389018",
-      "bytes": 826575,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/sailor_7b_default/run/history.json",
-      "source_path": "outputs/deployment_default/deployment_default_sailor_7b/20260730/history.json",
-      "sha256": "dd17ad1d7b5213de9bd37f47f9457978890cce094aed5844911587dacade1e86",
-      "bytes": 644,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/sailor_7b_default/run/selection.json",
-      "source_path": "outputs/deployment_default/deployment_default_sailor_7b/20260730/selection.json",
-      "sha256": "1e8be0fb56753aee6b82adcbba2e88d5f66b0785dd2d96c390a503a47f1938ad",
-      "bytes": 1629,
-      "kind": "copied_file"
-    },
-    {
-      "bundle_path": "systems/sailor_7b_default/canonical_weights/classification_head.pt",
-      "source_path": "outputs/deployment_default/deployment_default_sailor_7b/20260730/classification_head.pt",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": false
-    },
-    {
-      "bundle_path": "systems/sailor_7b_default/canonical_weights/adapter",
-      "source_path": "outputs/deployment_default/deployment_default_sailor_7b/20260730/adapter",
-      "kind": "symbolic_link_to_canonical_artifact",
-      "is_directory": true
-    },
-    {
-      "bundle_path": "comparison_metrics.csv",
-      "kind": "generated_summary",
-      "sha256": "1737cf19f546587be3a01bf0baa1c2c892f852b2e270479d10e118a28279b503",
-      "bytes": 677
-    },
-    {
-      "bundle_path": "macro_f1_comparison.svg",
-      "kind": "generated_visualization",
-      "sha256": "9537cfb991588ac7a45c04cfbdf6935031919a47fca90758fd294819cc81f19d",
-      "bytes": 2520
-    },
-    {
-      "bundle_path": "README.md",
-      "kind": "generated_readme",
-      "sha256": "936a8eac010f98e4b1deeef12a453ab25a0d9302d6e672313cdab1cb4f762a79",
-      "bytes": 1736
+      "path": "vipragsent_current/provenance/visobert_weighted_cls_s1_thresholds.json",
+      "bytes": 912,
+      "sha256": "b665fc9a1bd37cf4d1a5af71ccc48a1c9d786ac05a5ba6bf811100c77661d462"
     }
   ]
 }

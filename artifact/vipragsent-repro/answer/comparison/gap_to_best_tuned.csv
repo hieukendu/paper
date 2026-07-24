@@ -1,0 +1,8 @@
+metric,vipragsent_final,best_tuned_max,best_tuned_system,delta_final_minus_best,status
+implicit_sentiment,67.9829,60.8470,PhoBERT best-tuned,+7.1359,PASS
+sarcasm,80.2781,80.0318,Vistral-7B best-tuned,+0.2463,PASS
+irony,96.9009,97.4132,Sailor-7B best-tuned,-0.5123,BELOW
+idiom_figurative,97.1965,97.2958,"PhoBERT best-tuned, XLM-R-large best-tuned",-0.0993,BELOW
+code_switching,80.1313,81.9458,Vistral-7B best-tuned,-1.8145,BELOW
+mocking,82.0528,81.9802,Vistral-7B best-tuned,+0.0726,PASS
+macro_pragmatic_f1,84.0904,82.8250,Vistral-7B best-tuned,+1.2654,PASS

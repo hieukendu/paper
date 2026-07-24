@@ -1,0 +1,125 @@
+{
+  "scope": "final best-tuned bundle",
+  "files": [
+    {
+      "path": "FINAL_RESULTS.md",
+      "bytes": 1221,
+      "sha256": "fb8726aece42600767d5de88dc9a2d65bdcd60d1ddfe9ac89424af795b8ca11b"
+    },
+    {
+      "path": "candidates/dev/phobert_20260901.jsonl",
+      "bytes": 2503754,
+      "sha256": "67b16a76b87a29a1d1737f6c839795f2188056a03ff2de2c18861ce54a2502d0"
+    },
+    {
+      "path": "candidates/dev/phobert_20260902.jsonl",
+      "bytes": 2509253,
+      "sha256": "a4574643dba52db563ce16f7767e8da704571ca0840115ccf113509c7f43c274"
+    },
+    {
+      "path": "candidates/dev/phobert_20260903.jsonl",
+      "bytes": 2502052,
+      "sha256": "9af6575a6407ee3022e2a787db3cb1b95b6e3c81951c20929dd62dabd9b7844f"
+    },
+    {
+      "path": "candidates/dev/visobert_20260901.jsonl",
+      "bytes": 2502671,
+      "sha256": "2774162b292422339cbaf5711635b3109a1df41a66ce2b8201c9108880359661"
+    },
+    {
+      "path": "candidates/dev/visobert_20260902.jsonl",
+      "bytes": 2486217,
+      "sha256": "5f3cd662c14458a9ffc73c4999928850081528c1b426aa39933990bd479db210"
+    },
+    {
+      "path": "candidates/dev/visobert_20260903.jsonl",
+      "bytes": 2494480,
+      "sha256": "6f289991f8579a69eb60b730c2e4024fbbf60d734b97c5e86e48d3391881050e"
+    },
+    {
+      "path": "candidates/test/mocking_targeted_20260833.jsonl",
+      "bytes": 2456902,
+      "sha256": "e9b459226044520ea02d08c862aa433cfca8e647900deff884cab2da2a19a1c6"
+    },
+    {
+      "path": "candidates/test/mocking_targeted_20260834.jsonl",
+      "bytes": 2458020,
+      "sha256": "6b4f5604bb661998a2e4d9b3f99169178d625e08e86aac95dc9d6a98aef2199c"
+    },
+    {
+      "path": "candidates/test/mocking_targeted_20260835.jsonl",
+      "bytes": 2452885,
+      "sha256": "21f6352b029b89cf5a1459d77a7d2f5114f5c875c9c4f336e4d64bd1f49dab81"
+    },
+    {
+      "path": "candidates/test/phobert_20260901.jsonl",
+      "bytes": 2439481,
+      "sha256": "6e829286967778cf8e22f888475dc7ad3be071afa7a063adde82a5c5efd236c5"
+    },
+    {
+      "path": "candidates/test/visobert_20260902.jsonl",
+      "bytes": 2436317,
+      "sha256": "9e66b9242357a415692c1172a4d10c455a98c609f38b2be044dffb3a63a26ed7"
+    },
+    {
+      "path": "candidates/test/visobert_20260903.jsonl",
+      "bytes": 2444054,
+      "sha256": "97a94ed626e15bb252696218f9b0cf59d572bc3f077593cdd7ef113173df91c1"
+    },
+    {
+      "path": "configs/final_config.yaml",
+      "bytes": 1433,
+      "sha256": "f45018fc60fbabc8b1c48356d515d261b21caa13771cfc5b84708eb724f5c396"
+    },
+    {
+      "path": "confusion_analysis.json",
+      "bytes": 1557,
+      "sha256": "10f87501123e9c60027ccfb60c23be9242a91456cb8c80da7d97c68ddec6a0b4"
+    },
+    {
+      "path": "experiment_summary.csv",
+      "bytes": 281,
+      "sha256": "ea17170449be1ee7ec74d8c9b5632aaf4bc215e7016f0d734007eea7ea6f64c0"
+    },
+    {
+      "path": "final_comparison.csv",
+      "bytes": 1027,
+      "sha256": "1b007925caac391ee4c2ba177bf633bd9ae92cc1c8a77fd9adf37f9dcb4d420d"
+    },
+    {
+      "path": "final_comparison.json",
+      "bytes": 2504,
+      "sha256": "3d49601ff9d8b16f80951454dac281de4b199177d1c88d9281211774faccd988"
+    },
+    {
+      "path": "final_selection.json",
+      "bytes": 4566,
+      "sha256": "2c908cafcd032ea559dda2c59d120ff033cf82078917851fa3139a062345c345"
+    },
+    {
+      "path": "predictions/final_dev_predictions.jsonl",
+      "bytes": 903438,
+      "sha256": "b7b578ee2f64da42d235dcbe0c210908b0b7ccfca43b4a7eb42cc66180e0a864"
+    },
+    {
+      "path": "predictions/final_test_predictions.jsonl",
+      "bytes": 905504,
+      "sha256": "f2648abf506c5d9f427ef59ea893b73a8a14f8d3996ef4154b8b62d4757d5b71"
+    },
+    {
+      "path": "tables/final_best_tuned_comparison.md",
+      "bytes": 631,
+      "sha256": "e0ab650a5dff5c723a18c83c8788fbbe01baae72567037f3da34f6fd7012dcb8"
+    },
+    {
+      "path": "tables/final_best_tuned_comparison.tex",
+      "bytes": 784,
+      "sha256": "97977d8be521ebee3b1bea259bf439ca2520519d76dc18b4087552db713819f1"
+    },
+    {
+      "path": "thresholds.json",
+      "bytes": 157,
+      "sha256": "b2356ed9b17759ee357b9e870753809d2a42f9d6feb0ed80e3375b31fac1f99a"
+    }
+  ]
+}
