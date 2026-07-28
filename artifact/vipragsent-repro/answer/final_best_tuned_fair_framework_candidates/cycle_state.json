@@ -1,0 +1,31 @@
+{
+  "run_id": "anchor-arbiter-cycle-v1",
+  "updated_at": "2026-07-28T18:47:23.437251+00:00",
+  "authoritative_runner": "scripts/run_anchor_arbiter_cycle.py",
+  "stage": "development_nested_arbiter_screen_complete",
+  "archived_non_authoritative": [
+    "FAIR_FRAMEWORK_CYCLE_REPORT.md",
+    "LOGIC_REVIEW.md",
+    "development_selection.json",
+    "experiment_registry.csv",
+    "status.json"
+  ],
+  "canonical_test_access": false,
+  "code_switching": {
+    "candidate": "phobert_3_reproduced+visobert_2+visobert_3",
+    "weights": [
+      0.35,
+      0.35,
+      0.3
+    ],
+    "status": "preserved",
+    "repeated_oof_f1": 81.6547422491286,
+    "median_repeated_delta": 1.7496468794744686,
+    "reason": "restored strong code candidate; the new historical-anchor screen was not a stronger, provenance-complete alternative"
+  },
+  "blockers": [
+    "Sailor and Vistral adapters have no paired canonical-train OOF or development probabilities",
+    "XLM-R idiom checkpoint has no canonical-train OOF",
+    "therefore no target can be frozen or selected for canonical-test inference"
+  ]
+}
