@@ -4,7 +4,7 @@
       "augmented": {
         "delta": 0.0,
         "n": 333,
-        "threshold": 0.5089462513104079
+        "threshold": 0.49698686729961383
       },
       "natural": {
         "n": 1667,
@@ -15,7 +15,7 @@
       "generated_candidate": {
         "delta": 0.0,
         "n": 333,
-        "threshold": 0.5089462513104079
+        "threshold": 0.49698686729961383
       },
       "mixed_facebook_tiktok_youtube": {
         "n": 1667,
@@ -26,7 +26,7 @@
       "VIVID_seed_and_irony_generation": {
         "delta": 0.0,
         "n": 333,
-        "threshold": 0.5089462513104079
+        "threshold": 0.49698686729961383
       },
       "visobert_local": {
         "n": 1667,
