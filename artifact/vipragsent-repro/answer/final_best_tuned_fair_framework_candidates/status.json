@@ -1,13 +1,4 @@
 {
-  "baseline_margins": {
-    "code_switching": -0.12937278288634957,
-    "idiom_figurative": -0.11376570897972726,
-    "implicit_sentiment": 7.135923442321435,
-    "irony": -0.3954157865491652,
-    "macro_pragmatic_f1": 1.5633049944732704,
-    "mocking": 0.07263071737256155,
-    "sarcasm": 0.2462594040814281
-  },
   "hashes_after": {
     "dev": "7076f39f06a6a409ce3f9f9736cc7adb14d705b10bcde0ca7fa03c69a6238edc",
     "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
@@ -18,43 +9,34 @@
     "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
     "train": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e"
   },
-  "protected_unchanged": [
-    "implicit_sentiment",
-    "sarcasm",
-    "mocking"
-  ],
-  "scores": {
-    "code_switching": 81.8164481314183,
-    "idiom_figurative": 97.18199608610567,
-    "implicit_sentiment": 67.98288340906893,
-    "irony": 97.0177342785546,
-    "macro_pragmatic_f1": 84.38832574644515,
-    "mocking": 82.05283323250656,
-    "sarcasm": 80.27805934101688
-  },
+  "phase": "development_selection",
+  "reason": "no genuinely changed target passed repeated OOF robustness; canonical test was not consumed",
   "selection": {
     "code_switching": {
       "candidate": "incumbent_unchanged",
-      "delta_vs_incumbent": 0.0,
-      "reason": "no candidate improved in at least 3/5 outer folds",
-      "score": 79.88993817514776,
-      "target": "code_switching"
+      "config": {
+        "kind": "incumbent",
+        "sources": []
+      },
+      "reason": "no paired candidate passed repeated OOF robustness"
     },
     "idiom_figurative": {
       "candidate": "incumbent_unchanged",
-      "delta_vs_incumbent": 0.0,
-      "reason": "no candidate improved in at least 3/5 outer folds",
-      "score": 97.00218761414368,
-      "target": "idiom_figurative"
+      "config": {
+        "kind": "incumbent",
+        "sources": []
+      },
+      "reason": "no paired candidate passed repeated OOF robustness"
     },
     "irony": {
       "candidate": "incumbent_unchanged",
-      "delta_vs_incumbent": 0.0,
-      "reason": "no candidate improved in at least 3/5 outer folds",
-      "score": 97.52069445348357,
-      "target": "irony"
+      "config": {
+        "kind": "incumbent",
+        "sources": []
+      },
+      "reason": "no paired candidate passed repeated OOF robustness"
     }
   },
   "status": "NOT_PROMOTED",
-  "test_evaluations": 1
+  "test_evaluations": 0
 }

@@ -429,61 +429,18 @@
     "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
     "train": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e"
   },
-  "incumbent_dev": {
-    "code_switching": {
-      "binary_macro_f1": 79.88993817514776,
-      "fn": 50,
-      "fp": 98,
-      "positive_precision": 0.5720524017467249,
-      "positive_recall": 0.7237569060773481,
-      "tn": 1721,
-      "tp": 131
-    },
-    "idiom_figurative": {
-      "binary_macro_f1": 97.00218761414368,
-      "fn": 19,
-      "fp": 0,
-      "positive_precision": 1.0,
-      "positive_recall": 0.8961748633879781,
-      "tn": 1817,
-      "tp": 164
-    },
-    "implicit_sentiment": {
-      "binary_macro_f1": 68.08619281045752,
-      "fn": 110,
-      "fp": 190,
-      "positive_precision": 0.391025641025641,
-      "positive_recall": 0.5258620689655172,
-      "tn": 1578,
-      "tp": 122
-    },
-    "irony": {
-      "binary_macro_f1": 97.52069445348357,
-      "fn": 16,
-      "fp": 0,
-      "positive_precision": 1.0,
-      "positive_recall": 0.9135135135135135,
-      "tn": 1815,
-      "tp": 169
-    },
-    "mocking": {
-      "binary_macro_f1": 81.4571883872825,
-      "fn": 111,
-      "fp": 70,
-      "positive_precision": 0.7348484848484849,
-      "positive_recall": 0.6360655737704918,
-      "tn": 1625,
-      "tp": 194
-    },
-    "sarcasm": {
-      "binary_macro_f1": 80.38339343025689,
-      "fn": 156,
-      "fp": 38,
-      "positive_precision": 0.8347826086956521,
-      "positive_recall": 0.5517241379310345,
-      "tn": 1614,
-      "tp": 192
-    }
+  "paired_test_sources": {
+    "phobert_1": "answer/final_best_tuned/candidates/test/phobert_20260901.jsonl",
+    "visobert_2": "answer/final_best_tuned/candidates/test/visobert_20260902.jsonl",
+    "visobert_3": "answer/final_best_tuned/candidates/test/visobert_20260903.jsonl"
+  },
+  "probability_bank": {
+    "phobert_1": "answer/final_best_tuned/candidates/dev/phobert_20260901.jsonl",
+    "phobert_2": "answer/final_best_tuned/candidates/dev/phobert_20260902.jsonl",
+    "phobert_3": "answer/final_best_tuned/candidates/dev/phobert_20260903.jsonl",
+    "visobert_1": "answer/final_best_tuned/candidates/dev/visobert_20260901.jsonl",
+    "visobert_2": "answer/final_best_tuned/candidates/dev/visobert_20260902.jsonl",
+    "visobert_3": "answer/final_best_tuned/candidates/dev/visobert_20260903.jsonl"
   },
   "records": {
     "dev": 2000,

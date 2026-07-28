@@ -1,31 +1,3 @@
 {
-  "baseline_max": {
-    "code_switching": 81.94582091430465,
-    "idiom_figurative": 97.2957617950854,
-    "implicit_sentiment": 60.8469599667475,
-    "irony": 97.41315006510376,
-    "macro_pragmatic_f1": 82.82502075197188,
-    "mocking": 81.980202515134,
-    "sarcasm": 80.03179993693546
-  },
-  "margins": {
-    "code_switching": -0.12937278288634957,
-    "idiom_figurative": -0.11376570897972726,
-    "implicit_sentiment": 7.135923442321435,
-    "irony": -0.3954157865491652,
-    "macro_pragmatic_f1": 1.5633049944732704,
-    "mocking": 0.07263071737256155,
-    "sarcasm": 0.2462594040814281
-  },
-  "scores": {
-    "code_switching": 81.8164481314183,
-    "idiom_figurative": 97.18199608610567,
-    "implicit_sentiment": 67.98288340906893,
-    "irony": 97.0177342785546,
-    "macro_pragmatic_f1": 84.38832574644515,
-    "mocking": 82.05283323250656,
-    "sarcasm": 80.27805934101688
-  },
-  "selected_on": "development only",
-  "test_evaluations": 1
+  "test_evaluations": 0
 }
