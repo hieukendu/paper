@@ -1,0 +1,133 @@
+{
+  "run_id": "anchor-arbiter-cycle-v1",
+  "split": "canonical development 5-fold OOF source bank",
+  "canonical_train_oof_complete": false,
+  "targets": {
+    "irony": {
+      "screen_anchor": "incumbent",
+      "metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "alternates": [
+        "pho1",
+        "pho2",
+        "pho3",
+        "viso1",
+        "viso2",
+        "viso3",
+        "target_cross"
+      ],
+      "binary_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      },
+      "probability_mean_absolute_difference": {
+        "pho1": 0.0,
+        "pho2": 0.01898925627255812,
+        "pho3": 0.020562051472952588,
+        "viso1": 0.03464498506422933,
+        "viso2": 0.029131201707350556,
+        "viso3": 0.03335852689611056,
+        "target_cross": 0.019107600850143958
+      },
+      "probability_max_absolute_difference": {
+        "pho1": 0.0,
+        "pho2": 0.8105251416563988,
+        "pho3": 0.6617687046527863,
+        "viso1": 0.777552530169487,
+        "viso2": 0.7747038826346397,
+        "viso3": 0.7312521105632186,
+        "target_cross": 0.5450492618605495
+      }
+    },
+    "idiom_figurative": {
+      "screen_anchor": "pho3ens",
+      "metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "alternates": [
+        "pho1",
+        "pho2",
+        "pho3",
+        "viso1",
+        "viso2",
+        "viso3",
+        "target_cross"
+      ],
+      "binary_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      },
+      "probability_mean_absolute_difference": {
+        "pho1": 0.00634292698065595,
+        "pho2": 0.007501064216718078,
+        "pho3": 0.006442980623532398,
+        "viso1": 0.02918576768223435,
+        "viso2": 0.02464971827032665,
+        "viso3": 0.029734809681162006,
+        "target_cross": 0.02608846573336359
+      },
+      "probability_max_absolute_difference": {
+        "pho1": 0.32926581675807637,
+        "pho2": 0.2958170858522256,
+        "pho3": 0.22156636665264767,
+        "viso1": 0.8866357368727525,
+        "viso2": 0.8796118659277757,
+        "viso3": 0.8985421818991502,
+        "target_cross": 0.8882632615665595
+      }
+    },
+    "code_switching": {
+      "screen_anchor": "code_screen_anchor",
+      "metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "alternates": [
+        "incumbent",
+        "pho3ens",
+        "viso3ens",
+        "target_cross"
+      ],
+      "binary_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      },
+      "probability_mean_absolute_difference": {
+        "incumbent": 0.08238557884983674,
+        "pho3ens": 0.08418536639958013,
+        "viso3ens": 0.034912873241404976,
+        "target_cross": 0.048662351391502545
+      },
+      "probability_max_absolute_difference": {
+        "incumbent": 0.7644118554890156,
+        "pho3ens": 0.9703164913225919,
+        "viso3ens": 0.675243688126405,
+        "target_cross": 0.688698483010133
+      }
+    }
+  }
+}

@@ -1,0 +1,1658 @@
+{
+  "run_id": "anchor-arbiter-cycle-v1",
+  "scope": "development nested OOF only; canonical test not accessed",
+  "repeated_seeds": [
+    701,
+    1701,
+    2701
+  ],
+  "records": [
+    {
+      "target": "irony",
+      "anchor": "incumbent",
+      "candidate": "conservative_logistic",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 97.35899971337379,
+            "tp": 168,
+            "tn": 1815,
+            "fp": 0,
+            "fn": 17
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9991927876656803,
+              "1": 0.9991157273379367,
+              "2": 0.9987078027104729,
+              "3": 0.9989004042131614,
+              "4": 0.9992500926061406
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 97.35899971337379,
+            "tp": 168,
+            "tn": 1815,
+            "fp": 0,
+            "fn": 17
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9991927876656803,
+              "1": 0.9991157273379367,
+              "2": 0.9987078027104729,
+              "3": 0.9989004042131614,
+              "4": 0.9992500926061406
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 97.35899971337379,
+            "tp": 168,
+            "tn": 1815,
+            "fp": 0,
+            "fn": 17
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9991927876656803,
+              "1": 0.9991157273379367,
+              "2": 0.9987078027104729,
+              "3": 0.9989004042131614,
+              "4": 0.9992500926061406
+            }
+          }
+        }
+      ],
+      "median_delta": 0.0,
+      "source_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      }
+    },
+    {
+      "target": "irony",
+      "anchor": "incumbent",
+      "candidate": "conservative_gradient_boosted",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 97.37243764369481,
+            "tp": 169,
+            "tn": 1814,
+            "fp": 1,
+            "fn": 16
+          },
+          "delta": 0.013437930321018143,
+          "corrections": {
+            "prediction_disagreement_count": 2,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9576424598792159,
+              "1": 0.9531098011674995,
+              "2": 0.26612094782849616,
+              "3": 0.2868429920409791,
+              "4": 0.27042691085741943
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 97.37243764369481,
+            "tp": 169,
+            "tn": 1814,
+            "fp": 1,
+            "fn": 16
+          },
+          "delta": 0.013437930321018143,
+          "corrections": {
+            "prediction_disagreement_count": 2,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9576424598792159,
+              "1": 0.9531098011674995,
+              "2": 0.26612094782849616,
+              "3": 0.2868429920409791,
+              "4": 0.27042691085741943
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 97.37243764369481,
+            "tp": 169,
+            "tn": 1814,
+            "fp": 1,
+            "fn": 16
+          },
+          "delta": 0.013437930321018143,
+          "corrections": {
+            "prediction_disagreement_count": 2,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9576424598792159,
+              "1": 0.9531098011674995,
+              "2": 0.26612094782849616,
+              "3": 0.2868429920409791,
+              "4": 0.27042691085741943
+            }
+          }
+        }
+      ],
+      "median_delta": 0.013437930321018143,
+      "source_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      }
+    },
+    {
+      "target": "irony",
+      "anchor": "incumbent",
+      "candidate": "nonnegative_probability_stacker",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 97.35899971337379,
+            "tp": 168,
+            "tn": 1815,
+            "fp": 0,
+            "fn": 17
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9820709226546263,
+              "1": 0.984715528794778,
+              "2": 0.987267706144387,
+              "3": 0.9850136570128601,
+              "4": 0.9893473341832283
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 97.35899971337379,
+            "tp": 168,
+            "tn": 1815,
+            "fp": 0,
+            "fn": 17
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9820709226546263,
+              "1": 0.984715528794778,
+              "2": 0.987267706144387,
+              "3": 0.9850136570128601,
+              "4": 0.9893473341832283
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 97.35899971337379,
+            "tp": 168,
+            "tn": 1815,
+            "fp": 0,
+            "fn": 17
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9820709226546263,
+              "1": 0.984715528794778,
+              "2": 0.987267706144387,
+              "3": 0.9850136570128601,
+              "4": 0.9893473341832283
+            }
+          }
+        }
+      ],
+      "median_delta": 0.0,
+      "source_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      }
+    },
+    {
+      "target": "irony",
+      "anchor": "incumbent",
+      "candidate": "selective_topk_1",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 96.9321295009495,
+            "tp": 169,
+            "tn": 1811,
+            "fp": 4,
+            "fn": 16
+          },
+          "delta": -0.4268702124242907,
+          "corrections": {
+            "prediction_disagreement_count": 5,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 4,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:topk1",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 1,
+            "chosen_positions": {
+              "0": [
+                1439
+              ],
+              "1": [
+                1362
+              ],
+              "2": [
+                1618
+              ],
+              "3": [
+                1601
+              ],
+              "4": [
+                303
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -0.4268702124242907,
+      "source_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      }
+    },
+    {
+      "target": "irony",
+      "anchor": "incumbent",
+      "candidate": "selective_topk_2",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 96.2127839749256,
+            "tp": 169,
+            "tn": 1806,
+            "fp": 9,
+            "fn": 16
+          },
+          "delta": -1.1462157384481912,
+          "corrections": {
+            "prediction_disagreement_count": 10,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 9,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:topk2",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 2,
+            "chosen_positions": {
+              "0": [
+                1439,
+                1519
+              ],
+              "1": [
+                1362,
+                1626
+              ],
+              "2": [
+                1618,
+                1408
+              ],
+              "3": [
+                1601,
+                1718
+              ],
+              "4": [
+                303,
+                1303
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -1.1462157384481912,
+      "source_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      }
+    },
+    {
+      "target": "irony",
+      "anchor": "incumbent",
+      "candidate": "selective_topk_3",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 97.35899971337379,
+        "tp": 168,
+        "tn": 1815,
+        "fp": 0,
+        "fn": 17
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 95.51091744876462,
+            "tp": 169,
+            "tn": 1801,
+            "fp": 14,
+            "fn": 16
+          },
+          "delta": -1.8480822646091752,
+          "corrections": {
+            "prediction_disagreement_count": 15,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 14,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "irony:topk3",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 3,
+            "chosen_positions": {
+              "0": [
+                1439,
+                1519,
+                1835
+              ],
+              "1": [
+                1362,
+                1626,
+                1699
+              ],
+              "2": [
+                1618,
+                1408,
+                850
+              ],
+              "3": [
+                1601,
+                1718,
+                1774
+              ],
+              "4": [
+                303,
+                1303,
+                1283
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -1.8480822646091752,
+      "source_prediction_disagreement": {
+        "pho1": 0,
+        "pho2": 4,
+        "pho3": 4,
+        "viso1": 1,
+        "viso2": 3,
+        "viso3": 2,
+        "target_cross": 1
+      }
+    },
+    {
+      "target": "idiom_figurative",
+      "anchor": "pho3ens",
+      "candidate": "conservative_logistic",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 96.55577299412916,
+            "tp": 164,
+            "tn": 1814,
+            "fp": 3,
+            "fn": 19
+          },
+          "delta": -0.14803857690488087,
+          "corrections": {
+            "prediction_disagreement_count": 1,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9987152374368229,
+              "1": 0.9991551574758372,
+              "2": 0.9989159293457984,
+              "3": 0.999105418985378,
+              "4": 0.988888006829745
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 96.55577299412916,
+            "tp": 164,
+            "tn": 1814,
+            "fp": 3,
+            "fn": 19
+          },
+          "delta": -0.14803857690488087,
+          "corrections": {
+            "prediction_disagreement_count": 1,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9987152374368229,
+              "1": 0.9991551574758372,
+              "2": 0.9989159293457984,
+              "3": 0.999105418985378,
+              "4": 0.988888006829745
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 96.55577299412916,
+            "tp": 164,
+            "tn": 1814,
+            "fp": 3,
+            "fn": 19
+          },
+          "delta": -0.14803857690488087,
+          "corrections": {
+            "prediction_disagreement_count": 1,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9987152374368229,
+              "1": 0.9991551574758372,
+              "2": 0.9989159293457984,
+              "3": 0.999105418985378,
+              "4": 0.988888006829745
+            }
+          }
+        }
+      ],
+      "median_delta": -0.14803857690488087,
+      "source_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      }
+    },
+    {
+      "target": "idiom_figurative",
+      "anchor": "pho3ens",
+      "candidate": "conservative_gradient_boosted",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 96.70381157103404,
+            "tp": 164,
+            "tn": 1815,
+            "fp": 2,
+            "fn": 19
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9541525423345584,
+              "1": 0.9569941624931809,
+              "2": 0.9571931935302274,
+              "3": 0.9403921832488185,
+              "4": 0.6809356552177249
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 96.70381157103404,
+            "tp": 164,
+            "tn": 1815,
+            "fp": 2,
+            "fn": 19
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9541525423345584,
+              "1": 0.9569941624931809,
+              "2": 0.9571931935302274,
+              "3": 0.9403921832488185,
+              "4": 0.6809356552177249
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 96.70381157103404,
+            "tp": 164,
+            "tn": 1815,
+            "fp": 2,
+            "fn": 19
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9541525423345584,
+              "1": 0.9569941624931809,
+              "2": 0.9571931935302274,
+              "3": 0.9403921832488185,
+              "4": 0.6809356552177249
+            }
+          }
+        }
+      ],
+      "median_delta": 0.0,
+      "source_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      }
+    },
+    {
+      "target": "idiom_figurative",
+      "anchor": "pho3ens",
+      "candidate": "nonnegative_probability_stacker",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 96.70381157103404,
+            "tp": 164,
+            "tn": 1815,
+            "fp": 2,
+            "fn": 19
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9799463029597894,
+              "1": 0.9927448439077878,
+              "2": 0.9859217035313919,
+              "3": 0.9873884132846241,
+              "4": 0.912908758850341
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 96.70381157103404,
+            "tp": 164,
+            "tn": 1815,
+            "fp": 2,
+            "fn": 19
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9799463029597894,
+              "1": 0.9927448439077878,
+              "2": 0.9859217035313919,
+              "3": 0.9873884132846241,
+              "4": 0.912908758850341
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 96.70381157103404,
+            "tp": 164,
+            "tn": 1815,
+            "fp": 2,
+            "fn": 19
+          },
+          "delta": 0.0,
+          "corrections": {
+            "prediction_disagreement_count": 0,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 0,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9799463029597894,
+              "1": 0.9927448439077878,
+              "2": 0.9859217035313919,
+              "3": 0.9873884132846241,
+              "4": 0.912908758850341
+            }
+          }
+        }
+      ],
+      "median_delta": 0.0,
+      "source_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      }
+    },
+    {
+      "target": "idiom_figurative",
+      "anchor": "pho3ens",
+      "candidate": "selective_topk_1",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 96.28104168022537,
+            "tp": 165,
+            "tn": 1811,
+            "fp": 6,
+            "fn": 18
+          },
+          "delta": -0.42276989080866656,
+          "corrections": {
+            "prediction_disagreement_count": 5,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 4,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:topk1",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 1,
+            "chosen_positions": {
+              "0": [
+                1528
+              ],
+              "1": [
+                1659
+              ],
+              "2": [
+                1548
+              ],
+              "3": [
+                1774
+              ],
+              "4": [
+                1355
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -0.42276989080866656,
+      "source_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      }
+    },
+    {
+      "target": "idiom_figurative",
+      "anchor": "pho3ens",
+      "candidate": "selective_topk_2",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 95.86877705855397,
+            "tp": 166,
+            "tn": 1807,
+            "fp": 10,
+            "fn": 17
+          },
+          "delta": -0.835034512480064,
+          "corrections": {
+            "prediction_disagreement_count": 10,
+            "rescued_FN": 2,
+            "removed_FP": 0,
+            "introduced_FP": 8,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:topk2",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 2,
+            "chosen_positions": {
+              "0": [
+                1528,
+                1516
+              ],
+              "1": [
+                1659,
+                1240
+              ],
+              "2": [
+                1548,
+                453
+              ],
+              "3": [
+                1774,
+                973
+              ],
+              "4": [
+                1355,
+                1469
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -0.835034512480064,
+      "source_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      }
+    },
+    {
+      "target": "idiom_figurative",
+      "anchor": "pho3ens",
+      "candidate": "selective_topk_3",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 96.70381157103404,
+        "tp": 164,
+        "tn": 1815,
+        "fp": 2,
+        "fn": 19
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 95.76880764999578,
+            "tp": 168,
+            "tn": 1804,
+            "fp": 13,
+            "fn": 15
+          },
+          "delta": -0.935003921038259,
+          "corrections": {
+            "prediction_disagreement_count": 15,
+            "rescued_FN": 4,
+            "removed_FP": 0,
+            "introduced_FP": 11,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "idiom_figurative:topk3",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 3,
+            "chosen_positions": {
+              "0": [
+                1528,
+                1516,
+                1995
+              ],
+              "1": [
+                1659,
+                1240,
+                1456
+              ],
+              "2": [
+                1548,
+                453,
+                862
+              ],
+              "3": [
+                1774,
+                973,
+                597
+              ],
+              "4": [
+                1355,
+                1469,
+                1518
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -0.935003921038259,
+      "source_prediction_disagreement": {
+        "pho1": 3,
+        "pho2": 3,
+        "pho3": 2,
+        "viso1": 4,
+        "viso2": 2,
+        "viso3": 3,
+        "target_cross": 2
+      }
+    },
+    {
+      "target": "code_switching",
+      "anchor": "code_screen_anchor",
+      "candidate": "conservative_logistic",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 80.28090173528064,
+            "tp": 110,
+            "tn": 1766,
+            "fp": 53,
+            "fn": 71
+          },
+          "delta": 0.10447196027816119,
+          "corrections": {
+            "prediction_disagreement_count": 2,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.9702058666429919,
+              "1": 0.96387383692681,
+              "2": 0.9687329323321169,
+              "3": 0.9775640730557023,
+              "4": 0.9690661493233238
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 80.28090173528064,
+            "tp": 110,
+            "tn": 1766,
+            "fp": 53,
+            "fn": 71
+          },
+          "delta": 0.10447196027816119,
+          "corrections": {
+            "prediction_disagreement_count": 2,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.9702058666429919,
+              "1": 0.96387383692681,
+              "2": 0.9687329323321169,
+              "3": 0.9775640730557023,
+              "4": 0.9690661493233238
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 80.28090173528064,
+            "tp": 110,
+            "tn": 1766,
+            "fp": 53,
+            "fn": 71
+          },
+          "delta": 0.10447196027816119,
+          "corrections": {
+            "prediction_disagreement_count": 2,
+            "rescued_FN": 1,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:conservative_logistic",
+            "family": "conservative_logistic",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.9702058666429919,
+              "1": 0.96387383692681,
+              "2": 0.9687329323321169,
+              "3": 0.9775640730557023,
+              "4": 0.9690661493233238
+            }
+          }
+        }
+      ],
+      "median_delta": 0.10447196027816119,
+      "source_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      }
+    },
+    {
+      "target": "code_switching",
+      "anchor": "code_screen_anchor",
+      "candidate": "conservative_gradient_boosted",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 80.27755009305052,
+            "tp": 111,
+            "tn": 1764,
+            "fp": 55,
+            "fn": 70
+          },
+          "delta": 0.10112031804804644,
+          "corrections": {
+            "prediction_disagreement_count": 5,
+            "rescued_FN": 2,
+            "removed_FP": 0,
+            "introduced_FP": 3,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.5077371461105374,
+              "1": 0.48853796462551013,
+              "2": 0.5654480502127566,
+              "3": 0.6167523814337933,
+              "4": 0.519809976217491
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 80.27755009305052,
+            "tp": 111,
+            "tn": 1764,
+            "fp": 55,
+            "fn": 70
+          },
+          "delta": 0.10112031804804644,
+          "corrections": {
+            "prediction_disagreement_count": 5,
+            "rescued_FN": 2,
+            "removed_FP": 0,
+            "introduced_FP": 3,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.5077371461105374,
+              "1": 0.48853796462551013,
+              "2": 0.5654480502127566,
+              "3": 0.6167523814337933,
+              "4": 0.519809976217491
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 80.27755009305052,
+            "tp": 111,
+            "tn": 1764,
+            "fp": 55,
+            "fn": 70
+          },
+          "delta": 0.10112031804804644,
+          "corrections": {
+            "prediction_disagreement_count": 5,
+            "rescued_FN": 2,
+            "removed_FP": 0,
+            "introduced_FP": 3,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:conservative_gradient_boosted",
+            "family": "conservative_gradient_boosted",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.5077371461105374,
+              "1": 0.48853796462551013,
+              "2": 0.5654480502127566,
+              "3": 0.6167523814337933,
+              "4": 0.519809976217491
+            }
+          }
+        }
+      ],
+      "median_delta": 0.10112031804804644,
+      "source_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      }
+    },
+    {
+      "target": "code_switching",
+      "anchor": "code_screen_anchor",
+      "candidate": "nonnegative_probability_stacker",
+      "kind": "nested_meta_oof",
+      "anchor_metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "runs": [
+        {
+          "seed": 701,
+          "metrics": {
+            "binary_macro_f1": 80.06937452116672,
+            "tp": 109,
+            "tn": 1766,
+            "fp": 53,
+            "fn": 72
+          },
+          "delta": -0.1070552538357532,
+          "corrections": {
+            "prediction_disagreement_count": 1,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 701,
+            "fold_thresholds": {
+              "0": 0.5749259334662611,
+              "1": 0.5033723063976466,
+              "2": 0.5553968563391042,
+              "3": 0.5801746611286137,
+              "4": 0.5562121837575447
+            }
+          }
+        },
+        {
+          "seed": 1701,
+          "metrics": {
+            "binary_macro_f1": 80.06937452116672,
+            "tp": 109,
+            "tn": 1766,
+            "fp": 53,
+            "fn": 72
+          },
+          "delta": -0.1070552538357532,
+          "corrections": {
+            "prediction_disagreement_count": 1,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 1701,
+            "fold_thresholds": {
+              "0": 0.5749259334662611,
+              "1": 0.5033723063976466,
+              "2": 0.5553968563391042,
+              "3": 0.5801746611286137,
+              "4": 0.5562121837575447
+            }
+          }
+        },
+        {
+          "seed": 2701,
+          "metrics": {
+            "binary_macro_f1": 80.06937452116672,
+            "tp": 109,
+            "tn": 1766,
+            "fp": 53,
+            "fn": 72
+          },
+          "delta": -0.1070552538357532,
+          "corrections": {
+            "prediction_disagreement_count": 1,
+            "rescued_FN": 0,
+            "removed_FP": 0,
+            "introduced_FP": 1,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:nonnegative_probability_stacker",
+            "family": "nonnegative_probability_stacker",
+            "seed": 2701,
+            "fold_thresholds": {
+              "0": 0.5749259334662611,
+              "1": 0.5033723063976466,
+              "2": 0.5553968563391042,
+              "3": 0.5801746611286137,
+              "4": 0.5562121837575447
+            }
+          }
+        }
+      ],
+      "median_delta": -0.1070552538357532,
+      "source_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      }
+    },
+    {
+      "target": "code_switching",
+      "anchor": "code_screen_anchor",
+      "candidate": "selective_topk_1",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 80.59310929156172,
+            "tp": 112,
+            "tn": 1765,
+            "fp": 54,
+            "fn": 69
+          },
+          "delta": 0.41667951655924185,
+          "corrections": {
+            "prediction_disagreement_count": 5,
+            "rescued_FN": 3,
+            "removed_FP": 0,
+            "introduced_FP": 2,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:topk1",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 1,
+            "chosen_positions": {
+              "0": [
+                840
+              ],
+              "1": [
+                1486
+              ],
+              "2": [
+                1698
+              ],
+              "3": [
+                1791
+              ],
+              "4": [
+                1273
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": 0.41667951655924185,
+      "source_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      }
+    },
+    {
+      "target": "code_switching",
+      "anchor": "code_screen_anchor",
+      "candidate": "selective_topk_2",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 80.3752990430622,
+            "tp": 113,
+            "tn": 1761,
+            "fp": 58,
+            "fn": 68
+          },
+          "delta": 0.19886926805972394,
+          "corrections": {
+            "prediction_disagreement_count": 10,
+            "rescued_FN": 4,
+            "removed_FP": 0,
+            "introduced_FP": 6,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:topk2",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 2,
+            "chosen_positions": {
+              "0": [
+                840,
+                1644
+              ],
+              "1": [
+                1486,
+                1786
+              ],
+              "2": [
+                1698,
+                1963
+              ],
+              "3": [
+                1791,
+                755
+              ],
+              "4": [
+                1273,
+                1813
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": 0.19886926805972394,
+      "source_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      }
+    },
+    {
+      "target": "code_switching",
+      "anchor": "code_screen_anchor",
+      "candidate": "selective_topk_3",
+      "kind": "nested_outer_fold_correction",
+      "anchor_metrics": {
+        "binary_macro_f1": 80.17642977500248,
+        "tp": 109,
+        "tn": 1767,
+        "fp": 52,
+        "fn": 72
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "binary_macro_f1": 80.1622543060595,
+            "tp": 114,
+            "tn": 1757,
+            "fp": 62,
+            "fn": 67
+          },
+          "delta": -0.014175468942980274,
+          "corrections": {
+            "prediction_disagreement_count": 15,
+            "rescued_FN": 5,
+            "removed_FP": 0,
+            "introduced_FP": 10,
+            "introduced_FN": 0
+          },
+          "detail": {
+            "candidate": "code_switching:topk3",
+            "family": "selective_top_k",
+            "k_per_outer_fold": 3,
+            "chosen_positions": {
+              "0": [
+                840,
+                1644,
+                1663
+              ],
+              "1": [
+                1486,
+                1786,
+                1267
+              ],
+              "2": [
+                1698,
+                1963,
+                1386
+              ],
+              "3": [
+                1791,
+                755,
+                1417
+              ],
+              "4": [
+                1273,
+                1813,
+                1204
+              ]
+            }
+          }
+        }
+      ],
+      "median_delta": -0.014175468942980274,
+      "source_prediction_disagreement": {
+        "incumbent": 81,
+        "pho3ens": 120,
+        "viso3ens": 50,
+        "target_cross": 53
+      }
+    }
+  ]
+}

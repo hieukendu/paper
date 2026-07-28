@@ -1,0 +1,89 @@
+{
+  "run_id": "anchor-arbiter-cycle-v1",
+  "sources": {
+    "incumbent": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/incumbent.oof.jsonl",
+      "sha256": "d13c88fa698eea593f63d28a0658ed34492a527e6485893e25a12817841d8f19",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "pho1": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/pho1.oof.jsonl",
+      "sha256": "fc6000cba43e57a4fd6dbb6116d1b3d0aa822516cec1fcc493c57f983d75aaeb",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "pho2": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/pho2.oof.jsonl",
+      "sha256": "08018bd1fd2201b6c16d2142d7fd3122b46c30094b5b73897bb2202c4fb1c5b4",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "pho3": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/pho3.oof.jsonl",
+      "sha256": "4cfa62d8c78fa10c37f4fa08ef1b416e0c6dde4dd51d8e8460fad30d1470872c",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "pho3ens": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/pho3ens.oof.jsonl",
+      "sha256": "d937f1e16fd5311fb0a0aa55f6c648a503ee10dd66579ff253c75ea4f19203aa",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "viso1": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/viso1.oof.jsonl",
+      "sha256": "4b8bec9ad052d37d39fac5f0d66dd503e1222d990228b021bb66d0afb62d84a9",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "viso2": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/viso2.oof.jsonl",
+      "sha256": "61771bb027481424d6ceb21f7263eef0bd4b111cff98f44267b42e358b11eb6c",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "viso3": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/viso3.oof.jsonl",
+      "sha256": "cb841711779f14649e6c3e4be1bfbbd0ee44fc74ca01271c427f043162f903ff",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "viso3ens": {
+      "path": "answer/final_best_tuned_candidates/oof/existing_sources/viso3ens.oof.jsonl",
+      "sha256": "ba746fc57f61872a98e0687e88f8cf2d0228c27801fdf8a228f08a4f1473d5de",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "target_cross": {
+      "path": "answer/final_best_tuned_candidates/oof/target_mixtures/target_cross.oof.jsonl",
+      "sha256": "66d35ac732672338fe10969dc577a83259faf99d77adf73f4d1d6e43851559aa",
+      "records": 2000,
+      "five_fold_oof": true
+    },
+    "code_screen_anchor": {
+      "path": "answer/final_best_tuned_candidates/oof/code_specialist_3seed/targetcross_codeens.oof.jsonl",
+      "sha256": "46e0f9978ee1c12b472434b9513c4abb2d9865f3756c6385ad863528e84466e4",
+      "records": 2000,
+      "five_fold_oof": true
+    }
+  },
+  "restored_code_candidate_evidence": {
+    "path": "answer/final_best_tuned_fair_framework_candidates/repeated_oof_summary.json",
+    "sha256": "bc4b6a15881316341204376e88ba188c91bdfd89b398ca3e1878a9986555d3b4",
+    "candidate": "phobert_3_reproduced+visobert_2+visobert_3",
+    "weights": [
+      0.35,
+      0.35,
+      0.3
+    ],
+    "pooled_oof_f1": 81.6547422491286,
+    "median_repeated_delta": 1.7496468794744686,
+    "note": "preserved from its completed repeated-OOF evaluation; it is not silently replaced by the lower-scoring historical screen anchor"
+  },
+  "unavailable_required_anchors": {
+    "sailor_irony_qlora": "adapter is present, but no canonical-train OOF or development prediction artifact exists; test predictions were not read",
+    "vistral_code_qlora": "adapter is present, but no canonical-train OOF or development prediction artifact exists; test predictions were not read",
+    "xlmr_idiom_anchor": "checkpoint is present, but no canonical-train OOF artifact exists"
+  }
+}
