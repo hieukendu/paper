@@ -1,31 +1,27 @@
-# ViPragSent Fair-Framework Cycle (Corrected Protocol)
+# ViPragSent Repeated-OOF Fair Framework
 
-**NOT_PROMOTED**. One frozen canonical-test evaluation was performed after all target choices were selected using same-split nested development OOF only.
+**NOT_PROMOTED**: no genuinely changed target passed repeated OOF robustness; no canonical-test candidate was evaluated.
 
-## Development selection
+## Methods actually run
 
-| Target | Selected method | OOF delta vs incumbent |
-| --- | --- | ---: |
-| irony | incumbent_unchanged | +0.0000000000 |
-| idiom_figurative | incumbent_unchanged | +0.0000000000 |
-| code_switching | incumbent_unchanged | +0.0000000000 |
+- Complete probability-bank screen: all individual sources, pairs, triples, and leave-one-out ensembles.
+- Selective incumbent-positive-preserving rescue using the paired heterogeneous source bank.
+- Repeated 5 outer folds × 5 deterministic seeds for every positive screen advanced by successive halving.
 
-Protected-label binary predictions were copied unchanged from the incumbent. The probability bank tested individual sources, all source pairs/triples, target experts, a preserving rescue, a separately reported non-negative logistic stacker, and a true softmax mixture-of-experts gate. Scalers were fit within each training fold; threshold plateaus used the prescribed 0.02 F1-point window.
+## Repeated candidates and exclusions
 
-No target candidate improved the incumbent in at least 3 of 5 outer folds, so the selected target predictions have zero TP/FP/FN changes and zero selection-induced fold/seed variance. Detailed fold scores, candidate confusion deltas, and all negative results are retained in `rejected/best_rejected_candidate.json`.
+| Target | Candidate | Median delta | Non-decreasing fold-runs | Exclusion |
+| --- | --- | ---: | ---: | --- |
+| code_switching | phobert_2+visobert_2+visobert_3 | +0.7438399160 | 60% | missing paired canonical-test probability artifact |
+| code_switching | phobert_3+visobert_2+visobert_3 | +1.4380840178 | 84% | missing paired canonical-test probability artifact |
+| code_switching | phobert_1+visobert_1+visobert_2 | +0.8954438393 | 64% | missing paired canonical-test probability artifact |
+| code_switching | phobert_3+visobert_1 | +1.3793201930 | 64% | missing paired canonical-test probability artifact |
+| code_switching | phobert_1+phobert_3+visobert_1+visobert_2+visobert_3 | +1.0515522003 | 68% | missing paired canonical-test probability artifact |
+| code_switching | phobert_1+visobert_2+visobert_3 | +0.7356782825 | 60% | fewer than 70% non-decreasing repeated fold-runs |
+| code_switching | paired_source_preserving_rescue | -0.0973470195 | 72% | non-positive median repeated OOF delta |
 
-## Frozen test gate
+The paired `phobert_1 + visobert_2 + visobert_3` code triple had a positive median delta but reached 60% non-decreasing fold-runs, below the required 70%. Stronger code triples lacked paired canonical-test source probabilities and were retained as excluded evidence, not inferred or fabricated.
 
-| Metric | Candidate | Baseline max | Margin |
-| --- | ---: | ---: | ---: |
-| implicit_sentiment | 67.9828834091 | 60.8469599667 | +7.1359234423 |
-| sarcasm | 80.2780593410 | 80.0317999369 | +0.2462594041 |
-| irony | 97.0177342786 | 97.4131500651 | -0.3954157865 |
-| idiom_figurative | 97.1819960861 | 97.2957617951 | -0.1137657090 |
-| code_switching | 81.8164481314 | 81.9458209143 | -0.1293727829 |
-| mocking | 82.0528332325 | 81.9802025151 | +0.0726307174 |
-| macro_pragmatic_f1 | 84.3883257464 | 82.8250207520 | +1.5633049945 |
-
-Raw baseline predictions were recomputed and verified against four-decimal display registry values before use. Dataset hashes are identical before and after.
+All dataset hashes remained unchanged. Protected-label predictions were never recalibrated or changed. Detailed TP/TN/FP/FN corrections, fold variance, seed variance, and disagreement are retained in `repeated_oof_summary.json`.
 
 NOT_PROMOTED
