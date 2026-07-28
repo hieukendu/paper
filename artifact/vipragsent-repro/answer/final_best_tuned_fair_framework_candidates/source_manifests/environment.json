@@ -1,0 +1,5 @@
+{
+  "python": "3.10",
+  "inference": "scripts/predict_target_binary_expert.py",
+  "label_free": true
+}

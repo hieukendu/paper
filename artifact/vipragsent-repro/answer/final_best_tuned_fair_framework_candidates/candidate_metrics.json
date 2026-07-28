@@ -1,4 +1,89 @@
 {
-  "reason": "development_selection_blocked_before_freeze",
+  "target_only_results": {
+    "code_switching": {
+      "candidate": "target_expert_nested_oof",
+      "candidate_oof_f1": 80.35680557701883,
+      "confusion": {
+        "binary_macro_f1": 80.35680557701883,
+        "fn": 50,
+        "fp": 93,
+        "positive_precision": 0.5848214285714286,
+        "positive_recall": 0.7237569060773481,
+        "tn": 1726,
+        "tp": 131
+      },
+      "eligible": true,
+      "incumbent_confusion": {
+        "binary_macro_f1": 79.88993817514776,
+        "fn": 50,
+        "fp": 98,
+        "positive_precision": 0.5720524017467249,
+        "positive_recall": 0.7237569060773481,
+        "tn": 1721,
+        "tp": 131
+      },
+      "incumbent_oof_f1": 79.88993817514776,
+      "introduced_FP": 42,
+      "reason": "development-selected",
+      "rescued_FN": 18,
+      "target_delta": 0.46686740187107034
+    },
+    "idiom_figurative": {
+      "candidate": "target_expert_nested_oof",
+      "candidate_oof_f1": 97.00218761414368,
+      "confusion": {
+        "binary_macro_f1": 97.00218761414368,
+        "fn": 19,
+        "fp": 0,
+        "positive_precision": 1.0,
+        "positive_recall": 0.8961748633879781,
+        "tn": 1817,
+        "tp": 164
+      },
+      "eligible": false,
+      "incumbent_confusion": {
+        "binary_macro_f1": 97.00218761414368,
+        "fn": 19,
+        "fp": 0,
+        "positive_precision": 1.0,
+        "positive_recall": 0.8961748633879781,
+        "tn": 1817,
+        "tp": 164
+      },
+      "incumbent_oof_f1": 97.00218761414368,
+      "introduced_FP": 0,
+      "reason": "non-positive same-split OOF delta",
+      "rescued_FN": 0,
+      "target_delta": 0.0
+    },
+    "irony": {
+      "candidate": "target_expert_nested_oof",
+      "candidate_oof_f1": 97.52069445348357,
+      "confusion": {
+        "binary_macro_f1": 97.52069445348357,
+        "fn": 16,
+        "fp": 0,
+        "positive_precision": 1.0,
+        "positive_recall": 0.9135135135135135,
+        "tn": 1815,
+        "tp": 169
+      },
+      "eligible": false,
+      "incumbent_confusion": {
+        "binary_macro_f1": 97.52069445348357,
+        "fn": 16,
+        "fp": 0,
+        "positive_precision": 1.0,
+        "positive_recall": 0.9135135135135135,
+        "tn": 1815,
+        "tp": 169
+      },
+      "incumbent_oof_f1": 97.52069445348357,
+      "introduced_FP": 0,
+      "reason": "non-positive same-split OOF delta",
+      "rescued_FN": 0,
+      "target_delta": 0.0
+    }
+  },
   "test_evaluations": 0
 }

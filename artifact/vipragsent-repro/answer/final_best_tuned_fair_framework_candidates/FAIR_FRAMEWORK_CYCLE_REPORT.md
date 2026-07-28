@@ -1,21 +1,13 @@
-# ViPragSent Fair-Framework Cycle v3
+# ViPragSent target-only development selection
 
-**NOT_PROMOTED** — canonical test was not consumed.
+## Target results
 
-## Outcome
+| Target | Candidate OOF | Incumbent OOF | Delta | Status |
+| --- | ---: | ---: | ---: | --- |
+| irony | 97.5206944535 | 97.5206944535 | +0.0000000000 | non-positive same-split OOF delta |
+| idiom_figurative | 97.0021876141 | 97.0021876141 | +0.0000000000 | non-positive same-split OOF delta |
+| code_switching | 80.3568055770 | 79.8899381751 | +0.4668674019 | development-selected |
 
-The strongest development candidate was retained rather than discarded. It cannot be frozen because exact registered checkpoint files needed for label-free paired inference are absent; legacy probability files lack verifiable checkpoint provenance and were not substituted.
-
-## Development selection
-
-| Target | Selected candidate | Median repeated delta | Bootstrap P(delta > 0) | Status |
-| --- | --- | ---: | ---: | --- |
-| irony | incumbent_unchanged | +0.0000000000 | 0.0000 | no development candidate satisfied all eligibility rules |
-| idiom_figurative | incumbent_unchanged | +0.0000000000 | 0.0000 | no development candidate satisfied all eligibility rules |
-| code_switching | phobert_3+visobert_2+visobert_3 | +1.7648040740 | 0.9712 | advanced; inference blocked |
-
-Raw baseline maxima were recomputed from raw baseline predictions before screening. Dataset hashes match before and after. Protected labels were not recalibrated or changed; no frozen manifest was created, and `final_best_tuned` was not modified.
-
-Required artifact recovery: restore the exact checkpoint(s) listed in `probability_artifact_registry.json` (matching their recorded SHA-256), then run a new cycle from the frozen development selection. Do not reuse legacy unverified probability files.
+Protected labels (`implicit_sentiment`, `sarcasm`, `mocking`) are copied unchanged from the incumbent and were not scored, selected, or rejected against test baselines. Canonical-test baseline maxima are reserved for the final promotion gate only.
 
 NOT_PROMOTED

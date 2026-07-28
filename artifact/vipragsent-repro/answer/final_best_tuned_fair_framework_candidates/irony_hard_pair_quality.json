@@ -1,0 +1,128 @@
+{
+  "similarity": {
+    "min": 0.22303562795965268,
+    "mean": 0.35686561966025304,
+    "median": 0.33572045316335913,
+    "max": 0.8727949111259259
+  },
+  "pairs": 74,
+  "unique_negatives": 70,
+  "duplicate_negative_usage": 4,
+  "source_positive": {
+    "visobert_local": 74
+  },
+  "source_negative": {
+    "visobert_local": 73,
+    "VIVID_seed_and_irony_generation": 1
+  },
+  "platform_positive": {
+    "mixed_facebook_tiktok_youtube": 74
+  },
+  "platform_negative": {
+    "mixed_facebook_tiktok_youtube": 73,
+    "generated_candidate": 1
+  },
+  "representative_pairs": [
+    {
+      "positive_id": "fresh_visobert_00002",
+      "negative_id": "fresh_visobert_02862",
+      "similarity": 0.3948267730376582
+    },
+    {
+      "positive_id": "fresh_visobert_00005",
+      "negative_id": "fresh_visobert_00569",
+      "similarity": 0.29712760265589766
+    },
+    {
+      "positive_id": "fresh_visobert_00021",
+      "negative_id": "fresh_visobert_08939",
+      "similarity": 0.3153873844402613
+    },
+    {
+      "positive_id": "fresh_visobert_00024",
+      "negative_id": "fresh_visobert_02837",
+      "similarity": 0.4363080918718915
+    },
+    {
+      "positive_id": "fresh_visobert_00026",
+      "negative_id": "fresh_visobert_10028",
+      "similarity": 0.4092872480929881
+    },
+    {
+      "positive_id": "fresh_visobert_00203",
+      "negative_id": "fresh_visobert_05520",
+      "similarity": 0.5286531601784731
+    },
+    {
+      "positive_id": "fresh_visobert_00216",
+      "negative_id": "fresh_visobert_07838",
+      "similarity": 0.2672850953748592
+    },
+    {
+      "positive_id": "fresh_visobert_00223",
+      "negative_id": "fresh_visobert_00478",
+      "similarity": 0.29697927336424235
+    },
+    {
+      "positive_id": "fresh_visobert_00295",
+      "negative_id": "fresh_visobert_04110",
+      "similarity": 0.5782540640302071
+    },
+    {
+      "positive_id": "fresh_visobert_00322",
+      "negative_id": "fresh_visobert_03069",
+      "similarity": 0.3591787811621274
+    },
+    {
+      "positive_id": "fresh_visobert_00343",
+      "negative_id": "fresh_visobert_01563",
+      "similarity": 0.29750606419883135
+    },
+    {
+      "positive_id": "fresh_visobert_00389",
+      "negative_id": "fresh_visobert_09135",
+      "similarity": 0.3991217516226221
+    },
+    {
+      "positive_id": "fresh_visobert_00413",
+      "negative_id": "fresh_visobert_09030",
+      "similarity": 0.44016889310010626
+    },
+    {
+      "positive_id": "fresh_visobert_00482",
+      "negative_id": "fresh_visobert_02965",
+      "similarity": 0.3807928095016705
+    },
+    {
+      "positive_id": "fresh_visobert_00529",
+      "negative_id": "fresh_visobert_09375",
+      "similarity": 0.3628421509750261
+    },
+    {
+      "positive_id": "fresh_visobert_00590",
+      "negative_id": "fresh_visobert_00352",
+      "similarity": 0.3161700573360361
+    },
+    {
+      "positive_id": "fresh_visobert_00621",
+      "negative_id": "fresh_visobert_04731",
+      "similarity": 0.3445233087056937
+    },
+    {
+      "positive_id": "fresh_visobert_00660",
+      "negative_id": "fresh_visobert_10678",
+      "similarity": 0.3830185665982455
+    },
+    {
+      "positive_id": "fresh_visobert_00663",
+      "negative_id": "fresh_visobert_02874",
+      "similarity": 0.22726764793674464
+    },
+    {
+      "positive_id": "fresh_visobert_01366",
+      "negative_id": "fresh_visobert_09927",
+      "similarity": 0.3598596826701794
+    }
+  ],
+  "id_label_verified": true
+}

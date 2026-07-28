@@ -1,0 +1,13 @@
+{
+  "source_name": "phobert_3_reproduced",
+  "architecture": "PhoBERT cls+mean+max residual binary code-switching expert with token auxiliary head",
+  "checkpoint_path": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/phobert_3_reproduced/20260903/best.pt",
+  "checkpoint_sha256": "9f55951c06ec46a303819549451d2409889e142e391da309e286fdc10e4da75e",
+  "config_path": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/phobert_3_reproduced/20260903/run_manifest.json",
+  "tokenizer_path": "/root/paper/huggingface/models/phobert-base",
+  "environment_path": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_fair_framework_candidates/source_manifests/environment.json",
+  "dev_probability_path": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/phobert_3_reproduced/20260903/dev_probabilities.jsonl",
+  "test_probability_path": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_fair_framework_candidates/source_manifests/inferred/phobert_3_reproduced_test.jsonl",
+  "predict_command": "PYTHONPATH=/root/paper/artifact/vipragsent-repro/src python /root/paper/artifact/vipragsent-repro/scripts/predict_target_binary_expert.py --checkpoint /root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/phobert_3_reproduced/20260903/best.pt --data /root/paper/artifact/vipragsent-repro/data/processed/vipragsent_{split}.jsonl --output {output}",
+  "status": "trained"
+}
