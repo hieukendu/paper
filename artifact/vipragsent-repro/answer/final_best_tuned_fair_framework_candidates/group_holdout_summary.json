@@ -1,0 +1,39 @@
+{
+  "code_switching": {
+    "naturalness": {
+      "augmented": {
+        "delta": 0.0,
+        "n": 333,
+        "threshold": 0.5089462513104079
+      },
+      "natural": {
+        "n": 1667,
+        "status": "infeasible_train_stratum"
+      }
+    },
+    "platform": {
+      "generated_candidate": {
+        "delta": 0.0,
+        "n": 333,
+        "threshold": 0.5089462513104079
+      },
+      "mixed_facebook_tiktok_youtube": {
+        "n": 1667,
+        "status": "infeasible_train_stratum"
+      }
+    },
+    "source": {
+      "VIVID_seed_and_irony_generation": {
+        "delta": 0.0,
+        "n": 333,
+        "threshold": 0.5089462513104079
+      },
+      "visobert_local": {
+        "n": 1667,
+        "status": "infeasible_train_stratum"
+      }
+    }
+  },
+  "idiom_figurative": {},
+  "irony": {}
+}

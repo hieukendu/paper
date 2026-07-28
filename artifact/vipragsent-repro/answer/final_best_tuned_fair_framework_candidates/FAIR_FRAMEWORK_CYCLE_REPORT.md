@@ -1,27 +1,21 @@
-# ViPragSent Repeated-OOF Fair Framework
+# ViPragSent Fair-Framework Cycle v3
 
-**NOT_PROMOTED**: no genuinely changed target passed repeated OOF robustness; no canonical-test candidate was evaluated.
+**NOT_PROMOTED** — canonical test was not consumed.
 
-## Methods actually run
+## Outcome
 
-- Complete probability-bank screen: all individual sources, pairs, triples, and leave-one-out ensembles.
-- Selective incumbent-positive-preserving rescue using the paired heterogeneous source bank.
-- Repeated 5 outer folds × 5 deterministic seeds for every positive screen advanced by successive halving.
+The strongest development candidate was retained rather than discarded. It cannot be frozen because exact registered checkpoint files needed for label-free paired inference are absent; legacy probability files lack verifiable checkpoint provenance and were not substituted.
 
-## Repeated candidates and exclusions
+## Development selection
 
-| Target | Candidate | Median delta | Non-decreasing fold-runs | Exclusion |
+| Target | Selected candidate | Median repeated delta | Bootstrap P(delta > 0) | Status |
 | --- | --- | ---: | ---: | --- |
-| code_switching | phobert_2+visobert_2+visobert_3 | +0.7438399160 | 60% | missing paired canonical-test probability artifact |
-| code_switching | phobert_3+visobert_2+visobert_3 | +1.4380840178 | 84% | missing paired canonical-test probability artifact |
-| code_switching | phobert_1+visobert_1+visobert_2 | +0.8954438393 | 64% | missing paired canonical-test probability artifact |
-| code_switching | phobert_3+visobert_1 | +1.3793201930 | 64% | missing paired canonical-test probability artifact |
-| code_switching | phobert_1+phobert_3+visobert_1+visobert_2+visobert_3 | +1.0515522003 | 68% | missing paired canonical-test probability artifact |
-| code_switching | phobert_1+visobert_2+visobert_3 | +0.7356782825 | 60% | fewer than 70% non-decreasing repeated fold-runs |
-| code_switching | paired_source_preserving_rescue | -0.0973470195 | 72% | non-positive median repeated OOF delta |
+| irony | incumbent_unchanged | +0.0000000000 | 0.0000 | no development candidate satisfied all eligibility rules |
+| idiom_figurative | incumbent_unchanged | +0.0000000000 | 0.0000 | no development candidate satisfied all eligibility rules |
+| code_switching | phobert_3+visobert_2+visobert_3 | +1.7648040740 | 0.9712 | advanced; inference blocked |
 
-The paired `phobert_1 + visobert_2 + visobert_3` code triple had a positive median delta but reached 60% non-decreasing fold-runs, below the required 70%. Stronger code triples lacked paired canonical-test source probabilities and were retained as excluded evidence, not inferred or fabricated.
+Raw baseline maxima were recomputed from raw baseline predictions before screening. Dataset hashes match before and after. Protected labels were not recalibrated or changed; no frozen manifest was created, and `final_best_tuned` was not modified.
 
-All dataset hashes remained unchanged. Protected-label predictions were never recalibrated or changed. Detailed TP/TN/FP/FN corrections, fold variance, seed variance, and disagreement are retained in `repeated_oof_summary.json`.
+Required artifact recovery: restore the exact checkpoint(s) listed in `probability_artifact_registry.json` (matching their recorded SHA-256), then run a new cycle from the frozen development selection. Do not reuse legacy unverified probability files.
 
 NOT_PROMOTED
