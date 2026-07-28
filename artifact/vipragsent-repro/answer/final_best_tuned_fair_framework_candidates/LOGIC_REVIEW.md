@@ -72,3 +72,11 @@ Stopped safely: no frozen candidate exists because an exact checkpoint hash cann
 ## G. Before modifying final_best_tuned
 
 Promotion gate was not reached. `final_best_tuned` remains unchanged; candidate/report/registry/status consistency checks passed.
+
+## C. After cheap screening
+
+All six development source files passed strict probability loading, range, and ID checks. Cheap search used the mandated code triple and simplex weights (0.05 grid); only the top ten code configurations advance to repeated OOF. No test candidate probabilities or test labels were used.
+
+## D. After repeated OOF
+
+Repeated evaluation completed for every top-ten cheap candidate per target. Eligibility used positive median delta, bootstrap P(delta>0) >= 0.80, positive paired utility, at least 60% positive split-seed runs, and a zero-introduced-FP rule for irony/idiom. No rigid fold-percentage rule was used. Group holdout summaries were written.

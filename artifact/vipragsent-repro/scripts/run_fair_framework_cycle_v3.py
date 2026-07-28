@@ -42,6 +42,9 @@ PAIRED = {
     "visobert_2": "answer/final_best_tuned/candidates/test/visobert_20260902.jsonl",
     "visobert_3": "answer/final_best_tuned/candidates/test/visobert_20260903.jsonl",
 }
+REPRODUCED = {
+    "phobert_3_reproduced": "outputs/final_best_tuned_fair_framework/phobert_3_reproduced/20260903/dev_probabilities.jsonl",
+}
 EXPECTED_CHECKPOINTS = {
     "visobert_1": ("outputs/final_best_tuned/visobert_corrected_uncertainty_probe/20260901/best.pt", "c38f0913f6da66ede9d6d8b44395b5bf91ef08a6bb68ec1fe1ee2936ef2aef2e"),
     "phobert_2": ("outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260902/best.pt", "de4a56ba297196d0e8e6ba4aef6d4234de4e3373518f6caecdef5e52d731baae"),
@@ -182,6 +185,9 @@ def main() -> int:
     baseline = core.raw_baseline_audit(test)
     if not baseline["passed"]: raise RuntimeError("raw baseline audit failed")
     bank = {name: core.load_probabilities(ROOT / path, ids) for name, path in DEV.items()}
+    for name, path in REPRODUCED.items():
+        values = core.load_expert(ROOT / path, ids, "code_switching")
+        bank[name] = {rid: {"code_switching": float(value)} for rid, value in zip(ids, values)}
     incumbent = core.load_binary(ROOT / "answer/final_best_tuned/predictions/final_dev_predictions.jsonl", ids)
     registry_artifacts = artifact_registry(ids); dump(OUT / "probability_artifact_registry.json", registry_artifacts)
     dump(OUT / "initial_verification.json", {"hashes_before": hashes, "records": {"train": len(train), "dev": len(dev), "test": len(test)}, "baseline_audit": baseline})
@@ -192,7 +198,7 @@ def main() -> int:
         y = np.asarray([r["labels"][label] for r in dev], dtype=int); inc = np.asarray([incumbent[rid][label] for rid in ids], dtype=int)
         candidates = []
         if label == "code_switching":
-            names = ("phobert_3", "visobert_2", "visobert_3")
+            names = ("phobert_3_reproduced", "visobert_2", "visobert_3")
             for a in np.arange(0, 1.0001, .05):
                 for b in np.arange(0, 1.0001 - a, .05):
                     c = round(1 - a - b, 10); weights = (float(a), float(b), float(c))

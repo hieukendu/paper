@@ -2,10 +2,100 @@
   "code_switching:1": {
     "bootstrap": {
       "delta_ci_95": [
-        -0.04544785091260265,
-        3.7055360286569847
+        -1.1527302620686584,
+        3.0474951212297565
       ],
-      "p_delta_gt_zero": 0.97125,
+      "p_delta_gt_zero": 0.799,
+      "replicates": 4000
+    },
+    "mcnemar": {
+      "candidate_only_correct": 44,
+      "incumbent_only_correct": 28,
+      "two_sided_exact_p": 0.07636915467183139
+    }
+  },
+  "code_switching:10": {
+    "bootstrap": {
+      "delta_ci_95": [
+        -0.20756661533107948,
+        3.5294168666275714
+      ],
+      "p_delta_gt_zero": 0.9595,
+      "replicates": 4000
+    },
+    "mcnemar": {
+      "candidate_only_correct": 40,
+      "incumbent_only_correct": 15,
+      "two_sided_exact_p": 0.0010158471941252856
+    }
+  },
+  "code_switching:2": {
+    "bootstrap": {
+      "delta_ci_95": [
+        -0.37978936562098936,
+        3.317197440961971
+      ],
+      "p_delta_gt_zero": 0.931,
+      "replicates": 4000
+    },
+    "mcnemar": {
+      "candidate_only_correct": 39,
+      "incumbent_only_correct": 17,
+      "two_sided_exact_p": 0.00456153274640822
+    }
+  },
+  "code_switching:3": {
+    "bootstrap": {
+      "delta_ci_95": [
+        -0.5395514649104868,
+        3.164146453332789
+      ],
+      "p_delta_gt_zero": 0.92,
+      "replicates": 4000
+    },
+    "mcnemar": {
+      "candidate_only_correct": 38,
+      "incumbent_only_correct": 17,
+      "two_sided_exact_p": 0.006455803109956637
+    }
+  },
+  "code_switching:4": {
+    "bootstrap": {
+      "delta_ci_95": [
+        -0.0011747662243631906,
+        3.7885807108404075
+      ],
+      "p_delta_gt_zero": 0.97475,
+      "replicates": 4000
+    },
+    "mcnemar": {
+      "candidate_only_correct": 42,
+      "incumbent_only_correct": 17,
+      "two_sided_exact_p": 0.0015471669302425245
+    }
+  },
+  "code_switching:5": {
+    "bootstrap": {
+      "delta_ci_95": [
+        -1.519993119365982,
+        2.876183167035711
+      ],
+      "p_delta_gt_zero": 0.728,
+      "replicates": 4000
+    },
+    "mcnemar": {
+      "candidate_only_correct": 45,
+      "incumbent_only_correct": 31,
+      "two_sided_exact_p": 0.1353851052994308
+    }
+  },
+  "code_switching:6": {
+    "bootstrap": {
+      "delta_ci_95": [
+        -0.08919918472950268,
+        3.6402391737593107
+      ],
+      "p_delta_gt_zero": 0.96825,
       "replicates": 4000
     },
     "mcnemar": {
@@ -14,139 +104,49 @@
       "two_sided_exact_p": 0.0005354355028570623
     }
   },
-  "code_switching:10": {
-    "bootstrap": {
-      "delta_ci_95": [
-        -0.07555080728876361,
-        3.164946356927097
-      ],
-      "p_delta_gt_zero": 0.968,
-      "replicates": 4000
-    },
-    "mcnemar": {
-      "candidate_only_correct": 33,
-      "incumbent_only_correct": 20,
-      "two_sided_exact_p": 0.09837064844049181
-    }
-  },
-  "code_switching:2": {
-    "bootstrap": {
-      "delta_ci_95": [
-        -0.06293799597431787,
-        3.5443647725246374
-      ],
-      "p_delta_gt_zero": 0.97125,
-      "replicates": 4000
-    },
-    "mcnemar": {
-      "candidate_only_correct": 36,
-      "incumbent_only_correct": 22,
-      "two_sided_exact_p": 0.08694889972991099
-    }
-  },
-  "code_switching:3": {
-    "bootstrap": {
-      "delta_ci_95": [
-        -0.32731063489310264,
-        3.316359457671486
-      ],
-      "p_delta_gt_zero": 0.94375,
-      "replicates": 4000
-    },
-    "mcnemar": {
-      "candidate_only_correct": 37,
-      "incumbent_only_correct": 15,
-      "two_sided_exact_p": 0.003185253447776759
-    }
-  },
-  "code_switching:4": {
-    "bootstrap": {
-      "delta_ci_95": [
-        -0.8247445858853204,
-        2.5699731682808498
-      ],
-      "p_delta_gt_zero": 0.85325,
-      "replicates": 4000
-    },
-    "mcnemar": {
-      "candidate_only_correct": 32,
-      "incumbent_only_correct": 15,
-      "two_sided_exact_p": 0.01862383661500644
-    }
-  },
-  "code_switching:5": {
-    "bootstrap": {
-      "delta_ci_95": [
-        -0.04583787413896089,
-        3.4484064654658204
-      ],
-      "p_delta_gt_zero": 0.9695,
-      "replicates": 4000
-    },
-    "mcnemar": {
-      "candidate_only_correct": 36,
-      "incumbent_only_correct": 12,
-      "two_sided_exact_p": 0.0007172696733945827
-    }
-  },
-  "code_switching:6": {
-    "bootstrap": {
-      "delta_ci_95": [
-        -0.4190314112269565,
-        3.1362925316084134
-      ],
-      "p_delta_gt_zero": 0.9345,
-      "replicates": 4000
-    },
-    "mcnemar": {
-      "candidate_only_correct": 35,
-      "incumbent_only_correct": 23,
-      "two_sided_exact_p": 0.14800580076020597
-    }
-  },
   "code_switching:7": {
     "bootstrap": {
       "delta_ci_95": [
-        -0.6373273604305328,
-        2.8325922927675875
+        -1.3373403246884021,
+        2.956870637007346
       ],
-      "p_delta_gt_zero": 0.90075,
+      "p_delta_gt_zero": 0.769,
       "replicates": 4000
     },
     "mcnemar": {
-      "candidate_only_correct": 34,
-      "incumbent_only_correct": 15,
-      "two_sided_exact_p": 0.009399241523873059
+      "candidate_only_correct": 43,
+      "incumbent_only_correct": 29,
+      "two_sided_exact_p": 0.12491820036864003
     }
   },
   "code_switching:8": {
     "bootstrap": {
       "delta_ci_95": [
-        -0.4892053388919397,
-        2.8937597310582612
+        -0.44135532395122035,
+        3.3222693511197066
       ],
-      "p_delta_gt_zero": 0.921,
+      "p_delta_gt_zero": 0.92525,
       "replicates": 4000
     },
     "mcnemar": {
-      "candidate_only_correct": 34,
-      "incumbent_only_correct": 15,
-      "two_sided_exact_p": 0.009399241523873059
+      "candidate_only_correct": 40,
+      "incumbent_only_correct": 18,
+      "two_sided_exact_p": 0.005354859650800292
     }
   },
   "code_switching:9": {
     "bootstrap": {
       "delta_ci_95": [
-        -0.5337683503014556,
-        3.675168864494856
+        -0.038758465821743776,
+        3.891211192451573
       ],
-      "p_delta_gt_zero": 0.92625,
+      "p_delta_gt_zero": 0.973,
       "replicates": 4000
     },
     "mcnemar": {
-      "candidate_only_correct": 46,
-      "incumbent_only_correct": 24,
-      "two_sided_exact_p": 0.011526409654363481
+      "candidate_only_correct": 44,
+      "incumbent_only_correct": 18,
+      "two_sided_exact_p": 0.0012990027709550095
     }
   },
   "idiom_figurative:1": {
