@@ -1,1 +1,338 @@
-{}
+{
+  "FFO-targeted-labelwise-screen": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 67.67740163966579,
+      "positive_precision": 0.38080495356037153,
+      "positive_recall": 0.5301724137931034,
+      "tp": 123,
+      "tn": 1568,
+      "fp": 200,
+      "fn": 109
+    },
+    "sarcasm": {
+      "binary_macro_f1": 79.4684158350609,
+      "positive_precision": 0.8295964125560538,
+      "positive_recall": 0.5316091954022989,
+      "tp": 185,
+      "tn": 1614,
+      "fp": 38,
+      "fn": 163
+    },
+    "irony": {
+      "binary_macro_f1": 97.52069445348357,
+      "positive_precision": 1.0,
+      "positive_recall": 0.9135135135135135,
+      "tp": 169,
+      "tn": 1815,
+      "fp": 0,
+      "fn": 16
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 97.00218761414368,
+      "positive_precision": 1.0,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1817,
+      "fp": 0,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 80.35680557701883,
+      "positive_precision": 0.5848214285714286,
+      "positive_recall": 0.7237569060773481,
+      "tp": 131,
+      "tn": 1726,
+      "fp": 93,
+      "fn": 50
+    },
+    "mocking": {
+      "binary_macro_f1": 81.32735808792147,
+      "positive_precision": 0.7338403041825095,
+      "positive_recall": 0.6327868852459017,
+      "tp": 193,
+      "tn": 1625,
+      "fp": 70,
+      "fn": 112
+    }
+  },
+  "FFO-convex-ensemble": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 66.71788654257192,
+      "positive_precision": 0.3741721854304636,
+      "positive_recall": 0.4870689655172414,
+      "tp": 113,
+      "tn": 1579,
+      "fp": 189,
+      "fn": 119
+    },
+    "sarcasm": {
+      "binary_macro_f1": 78.47702700947568,
+      "positive_precision": 0.6972789115646258,
+      "positive_recall": 0.5890804597701149,
+      "tp": 205,
+      "tn": 1563,
+      "fp": 89,
+      "fn": 143
+    },
+    "irony": {
+      "binary_macro_f1": 97.35899971337379,
+      "positive_precision": 1.0,
+      "positive_recall": 0.9081081081081082,
+      "tp": 168,
+      "tn": 1815,
+      "fp": 0,
+      "fn": 17
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 96.70381157103404,
+      "positive_precision": 0.9879518072289156,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1815,
+      "fp": 2,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 80.42532553852266,
+      "positive_precision": 0.6192893401015228,
+      "positive_recall": 0.6740331491712708,
+      "tp": 122,
+      "tn": 1744,
+      "fp": 75,
+      "fn": 59
+    },
+    "mocking": {
+      "binary_macro_f1": 80.34293932130178,
+      "positive_precision": 0.7089552238805971,
+      "positive_recall": 0.6229508196721312,
+      "tp": 190,
+      "tn": 1617,
+      "fp": 78,
+      "fn": 115
+    }
+  },
+  "FFO-regularized-logistic-gate": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 67.94389001430731,
+      "positive_precision": 0.39087947882736157,
+      "positive_recall": 0.5172413793103449,
+      "tp": 120,
+      "tn": 1581,
+      "fp": 187,
+      "fn": 112
+    },
+    "sarcasm": {
+      "binary_macro_f1": 79.10038011774714,
+      "positive_precision": 0.7275985663082437,
+      "positive_recall": 0.5833333333333334,
+      "tp": 203,
+      "tn": 1576,
+      "fp": 76,
+      "fn": 145
+    },
+    "irony": {
+      "binary_macro_f1": 97.35899971337379,
+      "positive_precision": 1.0,
+      "positive_recall": 0.9081081081081082,
+      "tp": 168,
+      "tn": 1815,
+      "fp": 0,
+      "fn": 17
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 96.55577299412916,
+      "positive_precision": 0.9820359281437125,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1814,
+      "fp": 3,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 79.42931029416086,
+      "positive_precision": 0.5569620253164557,
+      "positive_recall": 0.7292817679558011,
+      "tp": 132,
+      "tn": 1714,
+      "fp": 105,
+      "fn": 49
+    },
+    "mocking": {
+      "binary_macro_f1": 79.81804481930747,
+      "positive_precision": 0.7045454545454546,
+      "positive_recall": 0.6098360655737705,
+      "tp": 186,
+      "tn": 1617,
+      "fp": 78,
+      "fn": 119
+    }
+  },
+  "FFO-softmax-linear-gate": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 67.87138572584934,
+      "positive_precision": 0.382262996941896,
+      "positive_recall": 0.5387931034482759,
+      "tp": 125,
+      "tn": 1566,
+      "fp": 202,
+      "fn": 107
+    },
+    "sarcasm": {
+      "binary_macro_f1": 79.67324271453586,
+      "positive_precision": 0.7241379310344828,
+      "positive_recall": 0.603448275862069,
+      "tp": 210,
+      "tn": 1572,
+      "fp": 80,
+      "fn": 138
+    },
+    "irony": {
+      "binary_macro_f1": 97.19647129186603,
+      "positive_precision": 1.0,
+      "positive_recall": 0.9027027027027027,
+      "tp": 167,
+      "tn": 1815,
+      "fp": 0,
+      "fn": 18
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 96.4084918867051,
+      "positive_precision": 0.9761904761904762,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1813,
+      "fp": 4,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 79.62185549160222,
+      "positive_precision": 0.5707964601769911,
+      "positive_recall": 0.712707182320442,
+      "tp": 129,
+      "tn": 1722,
+      "fp": 97,
+      "fn": 52
+    },
+    "mocking": {
+      "binary_macro_f1": 78.85553272565973,
+      "positive_precision": 0.6842105263157895,
+      "positive_recall": 0.5967213114754099,
+      "tp": 182,
+      "tn": 1611,
+      "fp": 84,
+      "fn": 123
+    }
+  },
+  "FFO-bounded-residual-gate": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 64.80019287565548,
+      "positive_precision": 0.3739495798319328,
+      "positive_recall": 0.38362068965517243,
+      "tp": 89,
+      "tn": 1619,
+      "fp": 149,
+      "fn": 143
+    },
+    "sarcasm": {
+      "binary_macro_f1": 78.62422771403355,
+      "positive_precision": 0.6404494382022472,
+      "positive_recall": 0.6551724137931034,
+      "tp": 228,
+      "tn": 1524,
+      "fp": 128,
+      "fn": 120
+    },
+    "irony": {
+      "binary_macro_f1": 96.49838354727449,
+      "positive_precision": 0.9602272727272727,
+      "positive_recall": 0.9135135135135135,
+      "tp": 169,
+      "tn": 1808,
+      "fp": 7,
+      "fn": 16
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 96.4084918867051,
+      "positive_precision": 0.9761904761904762,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1813,
+      "fp": 4,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 78.20668869182171,
+      "positive_precision": 0.6149425287356322,
+      "positive_recall": 0.5911602209944752,
+      "tp": 107,
+      "tn": 1752,
+      "fp": 67,
+      "fn": 74
+    },
+    "mocking": {
+      "binary_macro_f1": 78.43837544311528,
+      "positive_precision": 0.7125,
+      "positive_recall": 0.5606557377049181,
+      "tp": 171,
+      "tn": 1626,
+      "fp": 69,
+      "fn": 134
+    }
+  },
+  "FFO-small-MLP-gate": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 59.32348533504603,
+      "positive_precision": 0.2597402597402597,
+      "positive_recall": 0.3448275862068966,
+      "tp": 80,
+      "tn": 1540,
+      "fp": 228,
+      "fn": 152
+    },
+    "sarcasm": {
+      "binary_macro_f1": 78.82059800664452,
+      "positive_precision": 0.839622641509434,
+      "positive_recall": 0.5114942528735632,
+      "tp": 178,
+      "tn": 1618,
+      "fp": 34,
+      "fn": 170
+    },
+    "irony": {
+      "binary_macro_f1": 97.52069445348357,
+      "positive_precision": 1.0,
+      "positive_recall": 0.9135135135135135,
+      "tp": 169,
+      "tn": 1815,
+      "fp": 0,
+      "fn": 16
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 97.00218761414368,
+      "positive_precision": 1.0,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1817,
+      "fp": 0,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 77.90170713594989,
+      "positive_precision": 0.6911764705882353,
+      "positive_recall": 0.5193370165745856,
+      "tp": 94,
+      "tn": 1777,
+      "fp": 42,
+      "fn": 87
+    },
+    "mocking": {
+      "binary_macro_f1": 80.06708569355922,
+      "positive_precision": 0.7723214285714286,
+      "positive_recall": 0.5672131147540984,
+      "tp": 173,
+      "tn": 1644,
+      "fp": 51,
+      "fn": 132
+    }
+  }
+}

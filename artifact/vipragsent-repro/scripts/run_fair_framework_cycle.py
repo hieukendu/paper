@@ -29,7 +29,7 @@ from vipragsent.utils.io import read_jsonl
 
 OUT = ROOT / "answer" / "final_best_tuned_fair_framework_candidates"
 CHECKPOINT_OUT = ROOT / "outputs" / "final_best_tuned_fair_framework"
-BASELINES = {
+DISPLAY_BASELINES = {
     "implicit_sentiment": 60.8470, "sarcasm": 80.0318,
     "irony": 97.4132, "idiom_figurative": 97.2958,
     "code_switching": 81.9458, "mocking": 81.9802,
@@ -135,6 +135,17 @@ def stable_threshold(y: np.ndarray, p: np.ndarray, folds: np.ndarray, lam: float
     return float((winners[0] + winners[-1]) / 2)
 
 
+def choose_robust_threshold(y: np.ndarray, p: np.ndarray, folds: np.ndarray) -> tuple[float, float, float]:
+    """Choose among the prescribed mean-minus-variance threshold criteria."""
+    options = []
+    for lam in (0.10, 0.25, 0.50, 1.00):
+        threshold = stable_threshold(y, p, folds, lam)
+        scores = [binary(y[folds == fold], (p[folds == fold] >= threshold).astype(int))["binary_macro_f1"] for fold in range(4)]
+        options.append((float(np.mean(scores) - lam * np.std(scores)), threshold, lam))
+    robust, threshold, lam = max(options, key=lambda item: (item[0], -item[2]))
+    return float(threshold), float(lam), float(robust)
+
+
 def inner_oof_model(factory, x: np.ndarray, y: np.ndarray, outer_train: np.ndarray, seed: int) -> tuple[np.ndarray, np.ndarray]:
     local_y = y[outer_train]
     strat = np.asarray([f"{label}_{i % 4}" for i, label in enumerate(local_y)])
@@ -154,10 +165,9 @@ def nested_gate(name: str, x: np.ndarray, y: np.ndarray, outer_folds: np.ndarray
     for outer in range(5):
         train = np.where(outer_folds != outer)[0]; held = np.where(outer_folds == outer)[0]
         inner_p, inner_folds = inner_oof_model(factory, x, y, train, 4100 + outer)
-        candidates = [(stable_threshold(y[train], inner_p, inner_folds, lam), lam) for lam in (0.10, 0.25, 0.50, 1.00)]
         # Threshold choice is based only on nested inner predictions.  For ties
-        # prefer the most robust lambda and a midpoint plateau threshold.
-        threshold, lam = candidates[-1]
+        # prefer the least variance penalty and a midpoint plateau threshold.
+        threshold, lam, _ = choose_robust_threshold(y[train], inner_p, inner_folds)
         model = factory(); model.fit(x[train], y[train])
         p = model.predict_proba(x[held])[:, 1]
         if residual_c is not None:
@@ -184,10 +194,9 @@ def source_ensemble(sources: dict[str, dict[str, dict[str, float]]], ids: list[s
         for alpha in np.linspace(0, 1, 21):
             p = alpha * viso[train] + (1 - alpha) * pho[train]
             local = np.arange(len(train)) % 4
-            best_pair = max((stable_threshold(y[train], p, local, lam), lam) for lam in (0.10, .25, .50, 1.00))
-            threshold, lam = best_pair
-            choices_inner.append((binary(y[train], (p >= threshold).astype(int))["binary_macro_f1"], alpha, threshold, lam))
-        _, alpha, threshold, lam = max(choices_inner)
+            threshold, lam, robust = choose_robust_threshold(y[train], p, local)
+            choices_inner.append((robust, alpha, threshold, lam))
+        _, alpha, threshold, lam = max(choices_inner, key=lambda item: item[0])
         p_test = alpha * viso[held] + (1 - alpha) * pho[held]
         pred[held] = p_test >= threshold; choices[str(outer)] = {"visobert_weight": float(alpha), "threshold": float(threshold), "lambda": float(lam)}
     return pred, {"name": "convex_nonuniform_pair", "outer_choices": choices}
@@ -217,17 +226,31 @@ def verify_baselines(test_rows: list[dict]) -> dict:
             if set(predictions) != set(ids): raise ValueError(f"baseline ID mismatch: {system} {raw}")
             score = {label: binary(np.asarray([gold[rid]["labels"][label] for rid in ids]), np.asarray([predictions[rid]["predictions"][label] for rid in ids]))["binary_macro_f1"] for label in PRAGMATIC_LABELS}
             score["macro_pragmatic_f1"] = float(np.mean(list(score.values()))); per_seed.append(score)
-        means = {label: float(np.mean([seed[label] for seed in per_seed])) for label in BASELINES}
+        means = {label: float(np.mean([seed[label] for seed in per_seed])) for label in DISPLAY_BASELINES}
         # The historical registry stores the pragmatic label in ``metric``;
         # macro is recomputed from the six raw seed metrics below.
-        expected = {row["metric"]: float(row["score"]) for row in entries}
-        expected["macro_pragmatic_f1"] = float(np.mean([expected[label] for label in PRAGMATIC_LABELS]))
-        delta = {label: means[label] - expected[label] for label in BASELINES}
-        valid = not any(abs(value) > 1e-6 for value in delta.values())
-        audit["systems"][system] = {"prediction_paths": paths, "seed_mean_metrics": means, "registry_delta": delta, "verified_within_1e-6": valid}
+        displayed = {row["metric"]: float(row["score"]) for row in entries}
+        displayed["macro_pragmatic_f1"] = float(np.mean([displayed[label] for label in PRAGMATIC_LABELS]))
+        delta = {label: means[label] - displayed[label] for label in DISPLAY_BASELINES}
+        # Registry values are historical four-decimal display values.  They are
+        # verified by their display representation, while raw metrics remain
+        # authoritative for every later comparison and promotion gate.
+        valid = all(f"{means[label]:.4f}" == f"{displayed[label]:.4f}" or abs(delta[label]) <= 1e-4 for label in DISPLAY_BASELINES)
+        audit["systems"][system] = {"prediction_paths": paths,
+            "displayed_registry_score": displayed,
+            "recomputed_full_precision_score": means,
+            "registry_delta": delta,
+            "verified_at_four_decimal_display_precision": valid}
         if not valid:
             audit["passed"] = False
-            audit["mismatches"].append({"system": system, "registry_delta": delta})
+            audit["mismatches"].append({"system": system, "displayed_registry_score": displayed, "recomputed_full_precision_score": means, "registry_delta": delta})
+    if audit["passed"]:
+        authoritative = {}
+        for metric in DISPLAY_BASELINES:
+            winner, values = max(((system, details["recomputed_full_precision_score"][metric]) for system, details in audit["systems"].items()), key=lambda item: item[1])
+            authoritative[metric] = float(values)
+        audit["authoritative_baseline_max"] = authoritative
+        audit["authoritative_baseline_system"] = {metric: max(audit["systems"], key=lambda system: audit["systems"][system]["recomputed_full_precision_score"][metric]) for metric in DISPLAY_BASELINES}
     return audit
 
 
@@ -235,7 +258,7 @@ rows_dev: list[dict] = []
 
 
 def main() -> int:
-    global rows_dev
+    global rows_dev, BASELINES
     OUT.mkdir(parents=True, exist_ok=True); CHECKPOINT_OUT.mkdir(parents=True, exist_ok=True)
     train_path = ROOT / "data/processed/vipragsent_train.jsonl"; dev_path = ROOT / "data/processed/vipragsent_dev.jsonl"; test_path = ROOT / "data/processed/vipragsent_test.jsonl"
     hashes_before = {path.name: sha(path) for path in (train_path, dev_path, test_path)}
@@ -267,6 +290,8 @@ def main() -> int:
         (CHECKPOINT_OUT / "README.md").write_text("No checkpoints created: the cycle stopped at mandatory baseline verification.\n")
         print(json.dumps(status, indent=2))
         return 0
+
+    BASELINES = baseline_audit["authoritative_baseline_max"]
 
     ids = [str(row["id"]) for row in dev_rows]; y = np.asarray([[row["labels"][label] for label in PRAGMATIC_LABELS] for row in dev_rows], dtype=int)
     sources = {name: load_probability(ROOT / path, ids) for name, path in SOURCE_PATHS.items()}
@@ -309,12 +334,12 @@ def main() -> int:
     (OUT / "candidate_confusion_matrices.json").write_text(json.dumps({item["candidate"]: item["confusion"] for item in candidates}, indent=2) + "\n")
     fields = ["candidate", "minimum_baseline_margin", "metrics_above_baseline", "mean_baseline_margin", "macro_pragmatic_f1"] + list(PRAGMATIC_LABELS)
     with (OUT / "experiment_registry.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields); writer.writeheader()
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n"); writer.writeheader()
         for item in candidates:
             writer.writerow({"candidate": item["candidate"], "minimum_baseline_margin": item["minimum_baseline_margin"], "metrics_above_baseline": item["metrics_above_baseline"], "mean_baseline_margin": item["mean_baseline_margin"], "macro_pragmatic_f1": item["metrics"]["macro_pragmatic_f1"], **{label: item["metrics"][label] for label in PRAGMATIC_LABELS}})
     best = candidates[0]
     with (OUT / "gap_to_baseline.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["metric", "candidate_score", "baseline_max", "margin", "pass"]); writer.writeheader()
+        writer = csv.DictWriter(handle, fieldnames=["metric", "candidate_score", "baseline_max", "margin", "pass"], lineterminator="\n"); writer.writeheader()
         for metric in BASELINES:
             writer.writerow({"metric": metric, "candidate_score": best["metrics"][metric], "baseline_max": BASELINES[metric], "margin": best["margins"][metric], "pass": best["margins"][metric] > 1e-9})
     hashes_after = {path.name: sha(path) for path in (train_path, dev_path, test_path)}
@@ -328,7 +353,7 @@ def main() -> int:
               "reason": "all development margins positive" if promoted else "no development-only candidate plausibly clears every baseline", "hashes_before": hashes_before, "hashes_after": hashes_after,
               "best_candidate": best}
     (OUT / "status.json").write_text(json.dumps(status, indent=2) + "\n")
-    report = ["# ViPragSent Fair-Framework Cycle", "", "## Outcome", "", f"Selected development-only candidate: `{best['candidate']}`. No candidate passed every required development safety margin, so the canonical test was not re-opened for a new candidate and `final_best_tuned` was not modified.", "", "## Verification", "", "- Recomputed all imported baseline means from their raw three-seed predictions; every registry value agreed within `1e-6`.", "- Verified exact prediction/gold ID alignment and 2,000 unique development and test records.", "- Hashed train/dev/test before and after; hashes are identical.", "", "## Best rejected development candidate", "", "| Metric | Candidate OOF F1 | Baseline maximum | Margin |", "| --- | ---: | ---: | ---: |"]
+    report = ["# ViPragSent Fair-Framework Cycle", "", "## Outcome", "", f"Selected development-only candidate: `{best['candidate']}`. No candidate passed every required development safety margin, so the canonical test was not re-opened for a new candidate and `final_best_tuned` was not modified.", "", "## Verification", "", "- Recomputed all imported baseline means from their raw three-seed predictions; each agrees with its immutable registry value after four-decimal rounding (absolute difference at most `1e-4`).", "- Recomputed full-precision baseline maxima are the authoritative optimization and promotion thresholds.", "- Verified exact prediction/gold ID alignment and 2,000 unique development and test records.", "- Hashed train/dev/test before and after; hashes are identical.", "", "## Best rejected development candidate", "", "| Metric | Candidate OOF F1 | Baseline maximum | Margin |", "| --- | ---: | ---: | ---: |"]
     for metric in list(PRAGMATIC_LABELS) + ["macro_pragmatic_f1"]:
         report.append(f"| {metric} | {best['metrics'][metric]:.10f} | {BASELINES[metric]:.10f} | {best['margins'][metric]:+.10f} |")
     report += ["", "The registry records robust thresholds (λ = 0.10, 0.25, 0.50, 1.00), a non-uniform convex ensemble, and all four requested nested dynamic gate families. All confusion counts and exact metrics are in the JSON artifacts beside this report.", "", "NOT_PROMOTED"]
