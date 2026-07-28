@@ -1,295 +1,60 @@
 {
-  "status": "NOT_PROMOTED",
-  "phase": "targeted_framework_retraining",
-  "branch": "agent/vipragsent-fair-framework-all-metrics",
-  "system": "FFO-targeted-labelwise-screen",
-  "selected_on": "development-only nested five-fold threshold OOF",
-  "test_candidate_evaluated": false,
-  "reason": "targeted single-seed screens did not clear all full-precision baseline margins; stopped before multi-seed confirmation and canonical candidate-test evaluation",
-  "hashes_before": {
-    "vipragsent_train.jsonl": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e",
-    "vipragsent_dev.jsonl": "7076f39f06a6a409ce3f9f9736cc7adb14d705b10bcde0ca7fa03c69a6238edc",
-    "vipragsent_test.jsonl": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba"
+  "baseline_margins": {
+    "code_switching": -0.12937278288634957,
+    "idiom_figurative": -0.11376570897972726,
+    "implicit_sentiment": 7.135923442321435,
+    "irony": -0.3954157865491652,
+    "macro_pragmatic_f1": 1.5633049944732704,
+    "mocking": 0.07263071737256155,
+    "sarcasm": 0.2462594040814281
   },
   "hashes_after": {
-    "vipragsent_train.jsonl": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e",
-    "vipragsent_dev.jsonl": "7076f39f06a6a409ce3f9f9736cc7adb14d705b10bcde0ca7fa03c69a6238edc",
-    "vipragsent_test.jsonl": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba"
+    "dev": "7076f39f06a6a409ce3f9f9736cc7adb14d705b10bcde0ca7fa03c69a6238edc",
+    "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
+    "train": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e"
   },
-  "best_candidate": {
-    "candidate": "FFO-targeted-labelwise-screen",
-    "metrics": {
-      "implicit_sentiment": 67.67740163966579,
-      "sarcasm": 79.4684158350609,
-      "irony": 97.52069445348357,
-      "idiom_figurative": 97.00218761414368,
-      "code_switching": 80.35680557701883,
-      "mocking": 81.32735808792147,
-      "macro_pragmatic_f1": 83.89214386788237
-    },
-    "margins": {
-      "implicit_sentiment": 6.83044167291829,
-      "sarcasm": -0.5633841018745613,
-      "irony": 0.10754438837980729,
-      "idiom_figurative": -0.29357418094171805,
-      "code_switching": -1.5890153372858151,
-      "mocking": -0.6528444272125284,
-      "macro_pragmatic_f1": 1.0671231159104906
-    },
-    "minimum_baseline_margin": -1.5890153372858151,
-    "metrics_above_baseline": 3,
-    "mean_baseline_margin": 0.700898732841995,
-    "confusion": {
-      "implicit_sentiment": {
-        "binary_macro_f1": 67.67740163966579,
-        "positive_precision": 0.38080495356037153,
-        "positive_recall": 0.5301724137931034,
-        "tp": 123,
-        "tn": 1568,
-        "fp": 200,
-        "fn": 109
-      },
-      "sarcasm": {
-        "binary_macro_f1": 79.4684158350609,
-        "positive_precision": 0.8295964125560538,
-        "positive_recall": 0.5316091954022989,
-        "tp": 185,
-        "tn": 1614,
-        "fp": 38,
-        "fn": 163
-      },
-      "irony": {
-        "binary_macro_f1": 97.52069445348357,
-        "positive_precision": 1.0,
-        "positive_recall": 0.9135135135135135,
-        "tp": 169,
-        "tn": 1815,
-        "fp": 0,
-        "fn": 16
-      },
-      "idiom_figurative": {
-        "binary_macro_f1": 97.00218761414368,
-        "positive_precision": 1.0,
-        "positive_recall": 0.8961748633879781,
-        "tp": 164,
-        "tn": 1817,
-        "fp": 0,
-        "fn": 19
-      },
-      "code_switching": {
-        "binary_macro_f1": 80.35680557701883,
-        "positive_precision": 0.5848214285714286,
-        "positive_recall": 0.7237569060773481,
-        "tp": 131,
-        "tn": 1726,
-        "fp": 93,
-        "fn": 50
-      },
-      "mocking": {
-        "binary_macro_f1": 81.32735808792147,
-        "positive_precision": 0.7338403041825095,
-        "positive_recall": 0.6327868852459017,
-        "tp": 193,
-        "tn": 1625,
-        "fp": 70,
-        "fn": 112
-      }
-    },
-    "details": {
-      "protocol": "five outer folds; thresholds fit only on outer-training rows",
-      "experts": {
-        "irony": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/irony_attention/20260701/dev_probabilities.jsonl",
-        "idiom_figurative": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/idiom_clsmeanmax/20260711/dev_probabilities.jsonl",
-        "code_switching": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/code_clsmeanmax_tokenaux/20260721/dev_probabilities.jsonl"
-      },
-      "per_label": {
-        "implicit_sentiment": {
-          "outer_folds": {
-            "0": {
-              "threshold": 0.545966452608506,
-              "lambda": 0.1,
-              "robust_score": 67.8893590509273
-            },
-            "1": {
-              "threshold": 0.5471378073096275,
-              "lambda": 0.1,
-              "robust_score": 67.94238340506547
-            },
-            "2": {
-              "threshold": 0.511505126953125,
-              "lambda": 0.1,
-              "robust_score": 68.39705482151028
-            },
-            "3": {
-              "threshold": 0.5555762372414275,
-              "lambda": 0.1,
-              "robust_score": 67.69728927046923
-            },
-            "4": {
-              "threshold": 0.5489385624726615,
-              "lambda": 0.1,
-              "robust_score": 68.09590938283391
-            }
-          }
-        },
-        "sarcasm": {
-          "outer_folds": {
-            "0": {
-              "threshold": 0.8712983727455139,
-              "lambda": 0.1,
-              "robust_score": 80.2090456550623
-            },
-            "1": {
-              "threshold": 0.9373649001121522,
-              "lambda": 0.1,
-              "robust_score": 80.21510314623133
-            },
-            "2": {
-              "threshold": 0.8615886370340984,
-              "lambda": 0.1,
-              "robust_score": 81.07283988465427
-            },
-            "3": {
-              "threshold": 0.8587339465071773,
-              "lambda": 0.1,
-              "robust_score": 79.74990475993138
-            },
-            "4": {
-              "threshold": 0.8712901592254639,
-              "lambda": 0.1,
-              "robust_score": 80.36233607771335
-            }
-          }
-        },
-        "irony": {
-          "outer_folds": {
-            "0": {
-              "threshold": 0.9537422313292827,
-              "lambda": 0.1,
-              "robust_score": 97.25518391808721
-            },
-            "1": {
-              "threshold": 0.9539791699250544,
-              "lambda": 0.1,
-              "robust_score": 97.81611651078664
-            },
-            "2": {
-              "threshold": 0.9382079721987322,
-              "lambda": 0.1,
-              "robust_score": 97.76704396146741
-            },
-            "3": {
-              "threshold": 0.9497258812189177,
-              "lambda": 0.1,
-              "robust_score": 97.02445108066203
-            },
-            "4": {
-              "threshold": 0.9467604392766984,
-              "lambda": 0.1,
-              "robust_score": 97.03014727707536
-            }
-          }
-        },
-        "idiom_figurative": {
-          "outer_folds": {
-            "0": {
-              "threshold": 0.5374936652680244,
-              "lambda": 0.1,
-              "robust_score": 97.18485032775293
-            },
-            "1": {
-              "threshold": 0.5447307890281092,
-              "lambda": 0.1,
-              "robust_score": 97.11591104187309
-            },
-            "2": {
-              "threshold": 0.5409653370827449,
-              "lambda": 0.1,
-              "robust_score": 97.17609582799014
-            },
-            "3": {
-              "threshold": 0.5459365484615166,
-              "lambda": 0.1,
-              "robust_score": 96.45400545425025
-            },
-            "4": {
-              "threshold": 0.7594083222001875,
-              "lambda": 0.1,
-              "robust_score": 96.59473954253332
-            }
-          }
-        },
-        "code_switching": {
-          "outer_folds": {
-            "0": {
-              "threshold": 0.5126111004501592,
-              "lambda": 0.1,
-              "robust_score": 81.00500251645764
-            },
-            "1": {
-              "threshold": 0.5139615657925609,
-              "lambda": 0.1,
-              "robust_score": 80.51482199100698
-            },
-            "2": {
-              "threshold": 0.5318163235982264,
-              "lambda": 0.1,
-              "robust_score": 79.98505329210717
-            },
-            "3": {
-              "threshold": 0.5564667760332427,
-              "lambda": 0.1,
-              "robust_score": 80.25750146225596
-            },
-            "4": {
-              "threshold": 0.5561333716909093,
-              "lambda": 0.1,
-              "robust_score": 80.66726870987304
-            }
-          }
-        },
-        "mocking": {
-          "outer_folds": {
-            "0": {
-              "threshold": 0.3537155389785767,
-              "lambda": 0.1,
-              "robust_score": 80.60062424070117
-            },
-            "1": {
-              "threshold": 0.3539773468176524,
-              "lambda": 0.1,
-              "robust_score": 81.66359942167206
-            },
-            "2": {
-              "threshold": 0.34737326701482185,
-              "lambda": 0.1,
-              "robust_score": 82.00025930623724
-            },
-            "3": {
-              "threshold": 0.33965216473572785,
-              "lambda": 0.1,
-              "robust_score": 81.1222346854986
-            },
-            "4": {
-              "threshold": 0.35419660571548683,
-              "lambda": 0.1,
-              "robust_score": 81.75124917159437
-            }
-          }
-        }
-      }
-    },
-    "test_labels_used": false,
-    "test_predictions_created": false,
-    "oof_prediction_path": "/root/paper/artifact/vipragsent-repro/answer/final_best_tuned_fair_framework_candidates/targeted_retraining_screen_oof_predictions.jsonl"
+  "hashes_before": {
+    "dev": "7076f39f06a6a409ce3f9f9736cc7adb14d705b10bcde0ca7fa03c69a6238edc",
+    "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
+    "train": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e"
   },
-  "authoritative_baseline_max": {
-    "implicit_sentiment": 60.8469599667475,
-    "sarcasm": 80.03179993693546,
-    "irony": 97.41315006510376,
-    "idiom_figurative": 97.2957617950854,
-    "code_switching": 81.94582091430465,
-    "mocking": 81.980202515134,
-    "macro_pragmatic_f1": 82.82502075197188
-  }
+  "protected_unchanged": [
+    "implicit_sentiment",
+    "sarcasm",
+    "mocking"
+  ],
+  "scores": {
+    "code_switching": 81.8164481314183,
+    "idiom_figurative": 97.18199608610567,
+    "implicit_sentiment": 67.98288340906893,
+    "irony": 97.0177342785546,
+    "macro_pragmatic_f1": 84.38832574644515,
+    "mocking": 82.05283323250656,
+    "sarcasm": 80.27805934101688
+  },
+  "selection": {
+    "code_switching": {
+      "candidate": "incumbent_unchanged",
+      "delta_vs_incumbent": 0.0,
+      "reason": "no candidate improved in at least 3/5 outer folds",
+      "score": 79.88993817514776,
+      "target": "code_switching"
+    },
+    "idiom_figurative": {
+      "candidate": "incumbent_unchanged",
+      "delta_vs_incumbent": 0.0,
+      "reason": "no candidate improved in at least 3/5 outer folds",
+      "score": 97.00218761414368,
+      "target": "idiom_figurative"
+    },
+    "irony": {
+      "candidate": "incumbent_unchanged",
+      "delta_vs_incumbent": 0.0,
+      "reason": "no candidate improved in at least 3/5 outer folds",
+      "score": 97.52069445348357,
+      "target": "irony"
+    }
+  },
+  "status": "NOT_PROMOTED",
+  "test_evaluations": 1
 }

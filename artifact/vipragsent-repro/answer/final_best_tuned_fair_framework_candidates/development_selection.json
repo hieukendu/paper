@@ -1,0 +1,31 @@
+{
+  "protected_labels": [
+    "implicit_sentiment",
+    "sarcasm",
+    "mocking"
+  ],
+  "rule": "same-split nested development OOF; improved target in >=3/5 outer folds",
+  "selection": {
+    "code_switching": {
+      "candidate": "incumbent_unchanged",
+      "delta_vs_incumbent": 0.0,
+      "reason": "no candidate improved in at least 3/5 outer folds",
+      "score": 79.88993817514776,
+      "target": "code_switching"
+    },
+    "idiom_figurative": {
+      "candidate": "incumbent_unchanged",
+      "delta_vs_incumbent": 0.0,
+      "reason": "no candidate improved in at least 3/5 outer folds",
+      "score": 97.00218761414368,
+      "target": "idiom_figurative"
+    },
+    "irony": {
+      "candidate": "incumbent_unchanged",
+      "delta_vs_incumbent": 0.0,
+      "reason": "no candidate improved in at least 3/5 outer folds",
+      "score": 97.52069445348357,
+      "target": "irony"
+    }
+  }
+}

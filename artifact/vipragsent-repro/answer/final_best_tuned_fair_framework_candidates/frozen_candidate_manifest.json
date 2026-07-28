@@ -1,0 +1,44 @@
+{
+  "baseline_max_reserved_for_final_test_gate": {
+    "code_switching": 81.94582091430465,
+    "idiom_figurative": 97.2957617950854,
+    "implicit_sentiment": 60.8469599667475,
+    "irony": 97.41315006510376,
+    "macro_pragmatic_f1": 82.82502075197188,
+    "mocking": 81.980202515134,
+    "sarcasm": 80.03179993693546
+  },
+  "expert_checkpoints": {
+    "code_switching": {
+      "path": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/code_clsmeanmax_tokenaux/20260721/best.pt",
+      "sha256": "f714685218ffc57ca2242c52ee380262f88edb8c202dfd057ca1a83d2592990a"
+    },
+    "idiom_figurative": {
+      "path": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/idiom_clsmeanmax/20260711/best.pt",
+      "sha256": "f40cdee7d961649afb516e04555a1f38476bba9f8a65a85365d6413520a7bcd6"
+    },
+    "irony": {
+      "path": "/root/paper/artifact/vipragsent-repro/outputs/final_best_tuned_fair_framework/irony_attention/20260701/best.pt",
+      "sha256": "6fd9d991d85c7ef2d97442a89e9cf634a1861578905f8d7c9b854c6311d43a59"
+    }
+  },
+  "full_development_thresholds": {},
+  "hashes_before": {
+    "dev": "7076f39f06a6a409ce3f9f9736cc7adb14d705b10bcde0ca7fa03c69a6238edc",
+    "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
+    "train": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e"
+  },
+  "protected_predictions": "exact incumbent binary predictions",
+  "protocol": "v2 corrected same-split OOF selection",
+  "target_selection": {
+    "code_switching": {
+      "kind": "incumbent"
+    },
+    "idiom_figurative": {
+      "kind": "incumbent"
+    },
+    "irony": {
+      "kind": "incumbent"
+    }
+  }
+}
