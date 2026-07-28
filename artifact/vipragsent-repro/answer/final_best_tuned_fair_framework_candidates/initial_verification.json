@@ -429,19 +429,6 @@
     "test": "02b3cabfc32ff69afa7dbc6a60d65171565ee1012d520b4173aff8234b449eba",
     "train": "758e29d13a469c1a6eb19374c9d575740f8f98a4a72acc5eb752504c01244e7e"
   },
-  "paired_test_sources": {
-    "phobert_1": "answer/final_best_tuned/candidates/test/phobert_20260901.jsonl",
-    "visobert_2": "answer/final_best_tuned/candidates/test/visobert_20260902.jsonl",
-    "visobert_3": "answer/final_best_tuned/candidates/test/visobert_20260903.jsonl"
-  },
-  "probability_bank": {
-    "phobert_1": "answer/final_best_tuned/candidates/dev/phobert_20260901.jsonl",
-    "phobert_2": "answer/final_best_tuned/candidates/dev/phobert_20260902.jsonl",
-    "phobert_3": "answer/final_best_tuned/candidates/dev/phobert_20260903.jsonl",
-    "visobert_1": "answer/final_best_tuned/candidates/dev/visobert_20260901.jsonl",
-    "visobert_2": "answer/final_best_tuned/candidates/dev/visobert_20260902.jsonl",
-    "visobert_3": "answer/final_best_tuned/candidates/dev/visobert_20260903.jsonl"
-  },
   "records": {
     "dev": 2000,
     "test": 2000,
