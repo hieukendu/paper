@@ -1,1 +1,58 @@
-{}
+{
+  "FFO-targeted-labelwise-screen": {
+    "implicit_sentiment": {
+      "binary_macro_f1": 67.67740163966579,
+      "positive_precision": 0.38080495356037153,
+      "positive_recall": 0.5301724137931034,
+      "tp": 123,
+      "tn": 1568,
+      "fp": 200,
+      "fn": 109
+    },
+    "sarcasm": {
+      "binary_macro_f1": 79.4684158350609,
+      "positive_precision": 0.8295964125560538,
+      "positive_recall": 0.5316091954022989,
+      "tp": 185,
+      "tn": 1614,
+      "fp": 38,
+      "fn": 163
+    },
+    "irony": {
+      "binary_macro_f1": 97.52069445348357,
+      "positive_precision": 1.0,
+      "positive_recall": 0.9135135135135135,
+      "tp": 169,
+      "tn": 1815,
+      "fp": 0,
+      "fn": 16
+    },
+    "idiom_figurative": {
+      "binary_macro_f1": 97.00218761414368,
+      "positive_precision": 1.0,
+      "positive_recall": 0.8961748633879781,
+      "tp": 164,
+      "tn": 1817,
+      "fp": 0,
+      "fn": 19
+    },
+    "code_switching": {
+      "binary_macro_f1": 80.35680557701883,
+      "positive_precision": 0.5848214285714286,
+      "positive_recall": 0.7237569060773481,
+      "tp": 131,
+      "tn": 1726,
+      "fp": 93,
+      "fn": 50
+    },
+    "mocking": {
+      "binary_macro_f1": 81.32735808792147,
+      "positive_precision": 0.7338403041825095,
+      "positive_recall": 0.6327868852459017,
+      "tp": 193,
+      "tn": 1625,
+      "fp": 70,
+      "fn": 112
+    }
+  }
+}

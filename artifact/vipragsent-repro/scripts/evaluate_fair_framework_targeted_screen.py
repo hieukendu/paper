@@ -92,6 +92,9 @@ def main() -> int:
     # Append, rather than overwrite, the Phase-1/2 registry so negative
     # targeted results remain traceable.
     current = json.loads((OUT / "candidate_metrics.json").read_text())
+    # v3 writes a summary object while this targeted screen owns a list of
+    # candidate records. Never reinterpret summary fields as candidates.
+    current = current if isinstance(current, list) else []
     current = [item for item in current if item.get("candidate") != candidate["candidate"]] + [candidate]
     current.sort(key=lambda item: (-item["minimum_baseline_margin"], -item["metrics_above_baseline"], -item["mean_baseline_margin"], -item["metrics"]["macro_pragmatic_f1"]))
     (OUT / "candidate_metrics.json").write_text(json.dumps(current, indent=2) + "\n")

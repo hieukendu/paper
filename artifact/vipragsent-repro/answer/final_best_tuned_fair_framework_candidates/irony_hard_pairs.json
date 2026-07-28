@@ -1,0 +1,377 @@
+{
+  "source": "canonical train + true train-OOF errors",
+  "positives": 74,
+  "negatives": 7245,
+  "pairs": [
+    {
+      "positive_id": "fresh_visobert_00002",
+      "negative_id": "fresh_visobert_02862",
+      "similarity": 0.3948267730376582
+    },
+    {
+      "positive_id": "fresh_visobert_00005",
+      "negative_id": "fresh_visobert_00569",
+      "similarity": 0.29712760265589766
+    },
+    {
+      "positive_id": "fresh_visobert_00021",
+      "negative_id": "fresh_visobert_08939",
+      "similarity": 0.3153873844402613
+    },
+    {
+      "positive_id": "fresh_visobert_00024",
+      "negative_id": "fresh_visobert_02837",
+      "similarity": 0.4363080918718915
+    },
+    {
+      "positive_id": "fresh_visobert_00026",
+      "negative_id": "fresh_visobert_10028",
+      "similarity": 0.4092872480929881
+    },
+    {
+      "positive_id": "fresh_visobert_00203",
+      "negative_id": "fresh_visobert_05520",
+      "similarity": 0.5286531601784731
+    },
+    {
+      "positive_id": "fresh_visobert_00216",
+      "negative_id": "fresh_visobert_07838",
+      "similarity": 0.2672850953748592
+    },
+    {
+      "positive_id": "fresh_visobert_00223",
+      "negative_id": "fresh_visobert_00478",
+      "similarity": 0.29697927336424235
+    },
+    {
+      "positive_id": "fresh_visobert_00295",
+      "negative_id": "fresh_visobert_04110",
+      "similarity": 0.5782540640302071
+    },
+    {
+      "positive_id": "fresh_visobert_00322",
+      "negative_id": "fresh_visobert_03069",
+      "similarity": 0.3591787811621274
+    },
+    {
+      "positive_id": "fresh_visobert_00343",
+      "negative_id": "fresh_visobert_01563",
+      "similarity": 0.29750606419883135
+    },
+    {
+      "positive_id": "fresh_visobert_00389",
+      "negative_id": "fresh_visobert_09135",
+      "similarity": 0.3991217516226221
+    },
+    {
+      "positive_id": "fresh_visobert_00413",
+      "negative_id": "fresh_visobert_09030",
+      "similarity": 0.44016889310010626
+    },
+    {
+      "positive_id": "fresh_visobert_00482",
+      "negative_id": "fresh_visobert_02965",
+      "similarity": 0.3807928095016705
+    },
+    {
+      "positive_id": "fresh_visobert_00529",
+      "negative_id": "fresh_visobert_09375",
+      "similarity": 0.3628421509750261
+    },
+    {
+      "positive_id": "fresh_visobert_00590",
+      "negative_id": "fresh_visobert_00352",
+      "similarity": 0.3161700573360361
+    },
+    {
+      "positive_id": "fresh_visobert_00621",
+      "negative_id": "fresh_visobert_04731",
+      "similarity": 0.3445233087056937
+    },
+    {
+      "positive_id": "fresh_visobert_00660",
+      "negative_id": "fresh_visobert_10678",
+      "similarity": 0.3830185665982455
+    },
+    {
+      "positive_id": "fresh_visobert_00663",
+      "negative_id": "fresh_visobert_02874",
+      "similarity": 0.22726764793674464
+    },
+    {
+      "positive_id": "fresh_visobert_01366",
+      "negative_id": "fresh_visobert_09927",
+      "similarity": 0.3598596826701794
+    },
+    {
+      "positive_id": "fresh_visobert_02032",
+      "negative_id": "fresh_visobert_01475",
+      "similarity": 0.37827826496519573
+    },
+    {
+      "positive_id": "fresh_visobert_02770",
+      "negative_id": "fresh_visobert_03069",
+      "similarity": 0.27554012040718256
+    },
+    {
+      "positive_id": "fresh_visobert_04085",
+      "negative_id": "fresh_visobert_02855",
+      "similarity": 0.27325103709017096
+    },
+    {
+      "positive_id": "fresh_visobert_06137",
+      "negative_id": "fresh_visobert_08600",
+      "similarity": 0.3139996826477684
+    },
+    {
+      "positive_id": "fresh_visobert_06770",
+      "negative_id": "fresh_visobert_04349",
+      "similarity": 0.8727949111259259
+    },
+    {
+      "positive_id": "fresh_visobert_07122",
+      "negative_id": "fresh_visobert_08560",
+      "similarity": 0.46260774542485705
+    },
+    {
+      "positive_id": "fresh_visobert_07145",
+      "negative_id": "fresh_visobert_01169",
+      "similarity": 0.28369585938136277
+    },
+    {
+      "positive_id": "fresh_visobert_07189",
+      "negative_id": "fresh_visobert_02973",
+      "similarity": 0.4319837184793448
+    },
+    {
+      "positive_id": "fresh_visobert_07215",
+      "negative_id": "fresh_visobert_02835",
+      "similarity": 0.4489551064595748
+    },
+    {
+      "positive_id": "fresh_visobert_07321",
+      "negative_id": "fresh_visobert_11171",
+      "similarity": 0.27925917282496404
+    },
+    {
+      "positive_id": "fresh_visobert_07337",
+      "negative_id": "fresh_visobert_00395",
+      "similarity": 0.2724000486621366
+    },
+    {
+      "positive_id": "fresh_visobert_07358",
+      "negative_id": "fresh_visobert_08044",
+      "similarity": 0.37298220563524176
+    },
+    {
+      "positive_id": "fresh_visobert_07587",
+      "negative_id": "fresh_visobert_08507",
+      "similarity": 0.3647703346273017
+    },
+    {
+      "positive_id": "fresh_visobert_07850",
+      "negative_id": "fresh_visobert_03996",
+      "similarity": 0.4755125960793135
+    },
+    {
+      "positive_id": "fresh_visobert_07936",
+      "negative_id": "fresh_visobert_01665",
+      "similarity": 0.34454119958043244
+    },
+    {
+      "positive_id": "fresh_visobert_08165",
+      "negative_id": "fresh_visobert_09581",
+      "similarity": 0.3785103044758063
+    },
+    {
+      "positive_id": "fresh_visobert_08495",
+      "negative_id": "fresh_visobert_09593",
+      "similarity": 0.31967733075578486
+    },
+    {
+      "positive_id": "fresh_visobert_08540",
+      "negative_id": "fresh_visobert_10392",
+      "similarity": 0.22303562795965268
+    },
+    {
+      "positive_id": "fresh_visobert_08790",
+      "negative_id": "fresh_visobert_07269",
+      "similarity": 0.33868437163958576
+    },
+    {
+      "positive_id": "fresh_visobert_08826",
+      "negative_id": "aug_irony_idiom_01279",
+      "similarity": 0.27468903342165046
+    },
+    {
+      "positive_id": "fresh_visobert_08988",
+      "negative_id": "fresh_visobert_04195",
+      "similarity": 0.3611259283044024
+    },
+    {
+      "positive_id": "fresh_visobert_09178",
+      "negative_id": "fresh_visobert_05656",
+      "similarity": 0.27104669590638325
+    },
+    {
+      "positive_id": "fresh_visobert_09351",
+      "negative_id": "fresh_visobert_02291",
+      "similarity": 0.2678793338527868
+    },
+    {
+      "positive_id": "fresh_visobert_09503",
+      "negative_id": "fresh_visobert_04003",
+      "similarity": 0.37506423129352295
+    },
+    {
+      "positive_id": "fresh_visobert_09853",
+      "negative_id": "fresh_visobert_10707",
+      "similarity": 0.43082141259150897
+    },
+    {
+      "positive_id": "fresh_visobert_10059",
+      "negative_id": "fresh_visobert_02345",
+      "similarity": 0.5625134155960038
+    },
+    {
+      "positive_id": "fresh_visobert_10145",
+      "negative_id": "fresh_visobert_02577",
+      "similarity": 0.22884137211539068
+    },
+    {
+      "positive_id": "fresh_visobert_10209",
+      "negative_id": "fresh_visobert_10715",
+      "similarity": 0.32241040873080223
+    },
+    {
+      "positive_id": "fresh_visobert_10332",
+      "negative_id": "fresh_visobert_10087",
+      "similarity": 0.4555640746076488
+    },
+    {
+      "positive_id": "fresh_visobert_10748",
+      "negative_id": "fresh_visobert_03739",
+      "similarity": 0.4700397566778083
+    },
+    {
+      "positive_id": "fresh_visobert_10899",
+      "negative_id": "fresh_visobert_05346",
+      "similarity": 0.27969849396241764
+    },
+    {
+      "positive_id": "fresh_visobert_11013",
+      "negative_id": "fresh_visobert_09737",
+      "similarity": 0.3098431232746225
+    },
+    {
+      "positive_id": "fresh_visobert_11108",
+      "negative_id": "fresh_visobert_01497",
+      "similarity": 0.8713109971444399
+    },
+    {
+      "positive_id": "fresh_visobert_11390",
+      "negative_id": "fresh_visobert_03500",
+      "similarity": 0.289613137627838
+    },
+    {
+      "positive_id": "fresh_visobert_11413",
+      "negative_id": "fresh_visobert_11905",
+      "similarity": 0.38838121818702476
+    },
+    {
+      "positive_id": "fresh_visobert_11452",
+      "negative_id": "fresh_visobert_09073",
+      "similarity": 0.2593753165172217
+    },
+    {
+      "positive_id": "fresh_visobert_11464",
+      "negative_id": "fresh_visobert_07861",
+      "similarity": 0.2741471599908265
+    },
+    {
+      "positive_id": "fresh_visobert_11472",
+      "negative_id": "fresh_visobert_04956",
+      "similarity": 0.25737999435465664
+    },
+    {
+      "positive_id": "fresh_visobert_11480",
+      "negative_id": "fresh_visobert_04832",
+      "similarity": 0.3327565346871325
+    },
+    {
+      "positive_id": "fresh_visobert_11532",
+      "negative_id": "fresh_visobert_04261",
+      "similarity": 0.3570608548318425
+    },
+    {
+      "positive_id": "fresh_visobert_11574",
+      "negative_id": "fresh_visobert_01665",
+      "similarity": 0.2658279238892539
+    },
+    {
+      "positive_id": "fresh_visobert_11589",
+      "negative_id": "fresh_visobert_09073",
+      "similarity": 0.3041983722555649
+    },
+    {
+      "positive_id": "fresh_visobert_11640",
+      "negative_id": "fresh_visobert_08228",
+      "similarity": 0.3387103682309419
+    },
+    {
+      "positive_id": "fresh_visobert_11668",
+      "negative_id": "fresh_visobert_05785",
+      "similarity": 0.27118074259016045
+    },
+    {
+      "positive_id": "fresh_visobert_11757",
+      "negative_id": "fresh_visobert_04711",
+      "similarity": 0.32700150211760043
+    },
+    {
+      "positive_id": "fresh_visobert_11760",
+      "negative_id": "fresh_visobert_07201",
+      "similarity": 0.267288445796778
+    },
+    {
+      "positive_id": "fresh_visobert_11840",
+      "negative_id": "fresh_visobert_06864",
+      "similarity": 0.25211122385940643
+    },
+    {
+      "positive_id": "fresh_visobert_11910",
+      "negative_id": "fresh_visobert_07786",
+      "similarity": 0.3669926514627909
+    },
+    {
+      "positive_id": "fresh_visobert_11916",
+      "negative_id": "fresh_visobert_08047",
+      "similarity": 0.3998568962506108
+    },
+    {
+      "positive_id": "fresh_visobert_11953",
+      "negative_id": "fresh_visobert_09262",
+      "similarity": 0.23899888692498197
+    },
+    {
+      "positive_id": "fresh_visobert_11963",
+      "negative_id": "fresh_visobert_08760",
+      "similarity": 0.31847397661267945
+    },
+    {
+      "positive_id": "fresh_visobert_11966",
+      "negative_id": "fresh_visobert_07501",
+      "similarity": 0.35708099630682977
+    },
+    {
+      "positive_id": "fresh_visobert_11970",
+      "negative_id": "fresh_visobert_08374",
+      "similarity": 0.2766169176762725
+    },
+    {
+      "positive_id": "fresh_visobert_11981",
+      "negative_id": "fresh_visobert_00395",
+      "similarity": 0.2791164121335561
+    }
+  ]
+}
