@@ -1,0 +1,25 @@
+{
+  "run_id": "true-anchor-arbiter-cycle-v2",
+  "status": "stopped_by_user",
+  "stopped_at_utc": "2026-07-29",
+  "canonical_test_access": false,
+  "preserved_code_switching_candidate": "0.35 phobert_3_reproduced + 0.35 visobert_2 + 0.30 visobert_3",
+  "completed": {
+    "idiom_phobert_attention_oof": {
+      "records": 8000,
+      "folds": 5,
+      "coverage_exact_once": true,
+      "binary_macro_f1": 97.38612770180399,
+      "probability_sha256": "76a1adda767c4279bf85f7145a6e912e8b9cc58509ecfaba418da86f591679b7",
+      "full_train_development_probability_sha256": "df9c8dbffe3cbf78953e7e10777080149b747d15bbc1a8a15d9f74f7fa37e710"
+    }
+  },
+  "not_run": [
+    "Sailor irony anchor OOF",
+    "Vistral code-switching anchor OOF",
+    "XLM-R-large idiom anchor OOF",
+    "corrected disagreement-only arbiter evaluation",
+    "canonical test"
+  ],
+  "selection": "none; the cycle was intentionally stopped before all three target methods had complete development selection and inference provenance"
+}
