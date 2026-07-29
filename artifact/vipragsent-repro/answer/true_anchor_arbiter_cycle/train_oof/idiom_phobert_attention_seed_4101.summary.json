@@ -1,0 +1,52 @@
+{
+  "status": "ok",
+  "label": "idiom_figurative",
+  "records": 8000,
+  "coverage_exact_once": true,
+  "folds": 5,
+  "test_access": false,
+  "binary_macro_f1": 97.38612770180399,
+  "provenance": {
+    "0": {
+      "checkpoint": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_0/best.pt",
+      "checkpoint_sha256": "6ab87ede4a5f740f5ce1b9da7c4d1833ea98398c9e551a6152a904cba669185c",
+      "threshold": 0.5045763184316456,
+      "prediction_path": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_0/heldout_probabilities.jsonl",
+      "prediction_sha256": "24a569987f14517eb95d9d4797041458e675b99894711894e1bf5ff045f0ab38",
+      "training_records": 5746
+    },
+    "1": {
+      "checkpoint": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_1/best.pt",
+      "checkpoint_sha256": "28cd0339212faf7fb7987bca62e3b614f41fa0ed78975c9dc369f17e2cf78abd",
+      "threshold": 0.8735645413398743,
+      "prediction_path": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_1/heldout_probabilities.jsonl",
+      "prediction_sha256": "f4c654ec5605ab3dbc357d90351da37a18da67f79452db9dcc7781c51dd0cbd1",
+      "training_records": 5783
+    },
+    "2": {
+      "checkpoint": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_2/best.pt",
+      "checkpoint_sha256": "99e90b99a9ca1fbaf2408cb860c62516d1bf0a63dd800e9003aa42b2984ed72e",
+      "threshold": 0.5386444628238678,
+      "prediction_path": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_2/heldout_probabilities.jsonl",
+      "prediction_sha256": "dc1ac8e1447319395ba5827d12041a8ce54c97535f760cb731198b5f2537d0f8",
+      "training_records": 5753
+    },
+    "3": {
+      "checkpoint": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_3/best.pt",
+      "checkpoint_sha256": "4218fb620667d7887e4de6d83407cff10600fd059863e84401a7cf9e29bf2df3",
+      "threshold": 0.6820364147424698,
+      "prediction_path": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_3/heldout_probabilities.jsonl",
+      "prediction_sha256": "ebf53aec6ef9527ebe30d4b13a1dda6ca7577f5090dd14d477a13acf0af16a0d",
+      "training_records": 5753
+    },
+    "4": {
+      "checkpoint": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_4/best.pt",
+      "checkpoint_sha256": "430cdeabf567604712d4c592bae4764ffd533797ed4f1e3fdcb523127154ea00",
+      "threshold": 0.6482520252466202,
+      "prediction_path": "outputs/true_anchor_arbiter_cycle/idiom_phobert_attention/fold_4/heldout_probabilities.jsonl",
+      "prediction_sha256": "6db5da49dd4d56343585e25b46ecc18de86a5702c923e79877b956ba6ae55877",
+      "training_records": 5769
+    }
+  },
+  "output": "answer/true_anchor_arbiter_cycle/train_oof/idiom_phobert_attention_seed_4101.jsonl"
+}
