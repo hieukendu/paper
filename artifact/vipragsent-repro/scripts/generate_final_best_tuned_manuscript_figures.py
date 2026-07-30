@@ -34,14 +34,14 @@ def save(fig: plt.Figure, name: str) -> None:
 
 def macro_comparison(rows: list[dict], final: dict) -> None:
     systems = [row for row in rows if row["regime"] == "best_tuned"] + [final]
-    names = [row["system"].replace(" best-tuned", "") for row in systems]
+    names = ["PhoBERT", "XLM-R", "Sailor", "Vistral", "Final"]
     values = [float(row["macro_pragmatic_f1"]) for row in systems]
     colors = ["#8da0cb"] * (len(systems) - 1) + ["#1b9e77"]
     fig, ax = plt.subplots(figsize=(3.35, 2.35))
     bars = ax.bar(names, values, color=colors)
     ax.set_ylabel("Macro pragmatic F1")
     ax.set_ylim(0, 100)
-    ax.tick_params(axis="x", labelrotation=35, labelsize=7)
+    ax.tick_params(axis="x", labelrotation=0, labelsize=6)
     ax.grid(axis="y", color="#dddddd", linewidth=0.6)
     ax.set_axisbelow(True)
     for bar, value in zip(bars, values):
@@ -59,7 +59,7 @@ def label_gaps(rows: list[dict], final: dict) -> None:
     ax.axhline(0, color="black", linewidth=0.8)
     ax.set_ylabel("F1 difference (points)")
     ax.set_ylim(-1, 8)
-    ax.tick_params(axis="x", labelrotation=35, labelsize=7)
+    ax.tick_params(axis="x", labelrotation=0, labelsize=6)
     ax.grid(axis="y", color="#dddddd", linewidth=0.6)
     ax.set_axisbelow(True)
     for bar, value in zip(bars, gaps):

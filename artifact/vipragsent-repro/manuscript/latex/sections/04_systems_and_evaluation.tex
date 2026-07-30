@@ -9,7 +9,7 @@ Original and previous optimized ViPragSent configurations, the archived incumben
 
 \subsection{ViPragSent-Final Label-wise Ensemble}
 
-ViPragSent-Final is a frozen label-wise prediction ensemble, not a single encoder. Three-seed ViSoBERT sources supply implicit sentiment and sarcasm; irony and code-switching use probability $0.6\,p_{\mathrm{ViSoBERT}}+0.4\,p_{\mathrm{PhoBERT}}$; uniform three-seed ViSoBERT supplies idiom/figurative language; and a targeted uniform three-seed component supplies mocking. This description makes the system auditable and does not attribute its performance to an individual component or claim architectural novelty.
+ViPragSent-Final is a frozen label-wise prediction ensemble, not a single encoder. The configured retained ViSoBERT sources \texttt{visobert\_20260902} and \texttt{visobert\_20260903} supply implicit sentiment and sarcasm, respectively; irony and code-switching use probability $0.6\,p_{\mathrm{ViSoBERT}}+0.4\,p_{\mathrm{PhoBERT}}$; uniform three-seed ViSoBERT supplies idiom/figurative language; and a targeted uniform three-seed component supplies mocking. This description makes the system auditable and does not attribute its performance to an individual component or claim architectural novelty.
 
 \subsection{Development-only Selection, OOF Procedure, and Freeze}
 
