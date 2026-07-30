@@ -1,0 +1,3 @@
+# Phase 4 — Method Audit
+
+**PASS WITH REPRODUCIBILITY LIMITATION DISCLOSED.** Configuration-to-prose checks confirm baseline scope, QLoRA/encoder settings, label assignments, 0.6/0.4 blends, five-fold development-only OOF selection, threshold refit, canonical-test freeze, promotion rule, binary macro-F1, and 1,000-resample bootstrap protocol. Leakage verdict: PASS; test labels are recorded as unused for selection. Baseline fairness: PASS WITH SCOPE QUALIFICATION; compute and seed differences are disclosed. Locally absent checkpoints preclude an independent rerun claim. XeLaTeX/BibTeX compilation completed without undefined citations or references.
