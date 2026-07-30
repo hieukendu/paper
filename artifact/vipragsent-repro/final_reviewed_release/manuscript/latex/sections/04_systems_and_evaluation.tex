@@ -1,0 +1,26 @@
+\section{Systems and Evaluation}
+\label{sec:systems-evaluation}
+
+\subsection{Baseline System Families and Original ViPragSent}
+
+The complete retained baselines are PhoBERT, XLM-R-large, Sailor-7B, and Vistral-7B. PhoBERT and XLM-R-large are encoder fine-tunes; the encoder configuration uses learning rate $2\times10^{-5}$, maximum sequence length 128, effective batch size 32, up to 10 epochs, and patience-two early stopping. Sailor-7B and Vistral-7B are NF4 four-bit QLoRA SFT systems (learning rate $10^{-4}$, length 256, effective batch size 16, three epochs, LoRA $r=16$, $\alpha=32$, dropout 0.05). Their base revisions are recorded as download-time provenance rather than independently logged runtime fields. Learned encoder and 7B results retain their recorded three-seed scope; prompted API baselines are single recorded runs. These differences in scale and tuning budget are reported rather than treated as equal compute.
+
+Original and previous optimized ViPragSent configurations, the archived incumbent (84.0904), and historical ablations are progression evidence only. They are not independent external baselines and are not substituted for the promoted system.
+
+\subsection{ViPragSent-Final Label-wise Ensemble}
+
+ViPragSent-Final is a frozen label-wise prediction ensemble, not a single encoder. The configured retained ViSoBERT sources assigned to implicit sentiment and sarcasm supply those labels, respectively; their opaque run identifiers are retained in the traceability artifact rather than displayed as date-like names in the manuscript. Irony and code-switching use probability $0.6\,p_{\mathrm{ViSoBERT}}+0.4\,p_{\mathrm{PhoBERT}}$; uniform three-seed ViSoBERT supplies idiom/figurative language; and a targeted uniform three-seed component supplies mocking. This description makes the system auditable and does not attribute its performance to an individual component or claim architectural novelty.
+
+\subsection{Development-only Selection, OOF Procedure, and Freeze}
+
+Candidates were generated and compared on development data only through deterministic five-fold multilabel OOF evaluation. The stored objective is mean target-label F1 minus $0.25$ times cross-fold standard deviation; test labels are explicitly recorded as unused for selection. Rejected development candidates include character TF--IDF code-switch experts, a residual specialist, rank blending, and fixed-weight/logistic stackers. After source selection, thresholds were refit on full development data and frozen at 0.55, 0.87, 0.96, 0.99, 0.50, and 0.35 for implicit sentiment, sarcasm, irony, idiom/figurative language, code-switching, and mocking.
+
+The frozen configuration was evaluated once on the canonical 2,000-record test partition. Saved prediction IDs exactly match canonical test IDs. Promotion required a strictly higher macro score than the incumbent, an improved target, and no label drop exceeding 0.10 points.
+
+\subsection{Metrics and Statistical Protocol}
+
+For each pragmatic label, binary macro-F1 averages negative- and positive-class F1. Macro pragmatic F1 is the equal-weight mean over the six labels, so aggregate leadership does not imply per-label leadership. Where aligned stored predictions exist, repository evaluation uses 1,000 bootstrap resamples for 95\% intervals, and the recorded paired comparison uses a paired non-parametric bootstrap over aligned test records with 1,000 resamples. Historical intervals and tests remain scoped to their named systems and comparisons. Three-seed normal intervals are descriptive, and no unrecorded multiple-comparison correction is claimed for the development label-wise search.
+
+\subsection{Reproducibility, Compute, and Artifact Traceability}
+
+The promoted bundle records source assignments, threshold metadata, prediction files, an archived incumbent, and artifact hashes. Its 53 indexed files match after CRLF-to-LF transport normalization. Publicly archived checkpoints and QLoRA adapters are available outside this workspace with associated configuration and provenance records. This supports artifact access and reuse, but the study does not claim that an independent retraining reproduction has been completed. Legacy ablation, source-stratified, low-resource, calibration, and external diagnostics retain their original system-version scope and are not final-ensemble evidence unless explicitly re-evaluated.

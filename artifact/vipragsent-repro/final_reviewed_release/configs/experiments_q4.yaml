@@ -1,0 +1,12 @@
+experiment: q4_calibration_and_error
+status: complete
+outputs:
+  calibration: results/calibration.json
+  confusion: results/error_confusion.json
+  learning_curves: results/learning_curves.json
+metrics:
+  ece_bins: 10
+  confusion_matrix: row_normalised
+  learning_curves: per_epoch_macro_pragmatic_f1
+calibrated_systems: [phobert_finetune, xlmr_large, vipragsent_full]
+training: evaluated_from_imported_predictions

@@ -1,0 +1,43 @@
+schema_version: "1.0"
+pragmatic_binary:
+  - implicit_sentiment
+  - sarcasm
+  - irony
+  - idiom_figurative
+  - code_switching
+  - mocking
+polarity:
+  - positive
+  - neutral
+  - negative
+emotion:
+  - enjoyment
+  - sadness
+  - anger
+  - disgust
+  - fear
+  - surprise
+  - other
+label_status:
+  - unlabeled
+  - silver_agent
+  - reviewed
+  - adjudicated
+rare_label_minimums_for_pool_20k:
+  sarcasm: 1200
+  mocking: 600
+  irony: 900
+  idiom_figurative: 900
+  code_switching: 1500
+  implicit_sentiment: 1500
+split_positive_floor:
+  sarcasm_dev_test_percent: 5
+cue_terms_for_enrichment:
+  - "=))"
+  - ":))"
+  - "hay qua"
+  - "dinh"
+  - "vibe"
+  - "GG"
+  - "NASA"
+  - "thien tai"

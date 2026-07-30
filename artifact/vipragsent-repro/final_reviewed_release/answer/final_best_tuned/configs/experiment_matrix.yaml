@@ -1,0 +1,9 @@
+name: final_best_tuned_continuation
+selection: five-fold deterministic multilabel OOF
+incumbent_macro_pragmatic_f1: 84.0904
+selected_candidate: target_cross
+surviving_encoder_expert: visobert_code_specialist_residual (rejected after three-seed OOF ensemble)
+selected_sources:
+  irony: 0.6 * ViSoBERT_3seed + 0.4 * PhoBERT_3seed
+  idiom_figurative: ViSoBERT_3seed
+  code_switching: 0.6 * ViSoBERT_3seed + 0.4 * PhoBERT_3seed

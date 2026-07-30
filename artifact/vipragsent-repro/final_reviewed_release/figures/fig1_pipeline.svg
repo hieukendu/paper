@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="180" viewBox="0 0 820 180"><defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e96"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
+<rect x="20" y="55" width="120" height="55" rx="8" fill="#eaf0f9" stroke="#1f4e96"/>
+<text x="80" y="87" text-anchor="middle" font-size="12">Gold JSONL</text>
+<rect x="170" y="55" width="120" height="55" rx="8" fill="#eaf0f9" stroke="#1f4e96"/>
+<text x="230" y="87" text-anchor="middle" font-size="12">Prediction JSONL</text>
+<rect x="340" y="55" width="120" height="55" rx="8" fill="#eaf0f9" stroke="#1f4e96"/>
+<text x="400" y="87" text-anchor="middle" font-size="12">Metric engine</text>
+<rect x="500" y="55" width="120" height="55" rx="8" fill="#eaf0f9" stroke="#1f4e96"/>
+<text x="560" y="87" text-anchor="middle" font-size="12">results/*.json</text>
+<rect x="660" y="55" width="120" height="55" rx="8" fill="#eaf0f9" stroke="#1f4e96"/>
+<text x="720" y="87" text-anchor="middle" font-size="12">tables/figures</text>
+<line x1="140" y1="82" x2="165" y2="82" stroke="#1f4e96" marker-end="url(#arrow)"/>
+<line x1="290" y1="82" x2="315" y2="82" stroke="#1f4e96" marker-end="url(#arrow)"/>
+<line x1="460" y1="82" x2="485" y2="82" stroke="#1f4e96" marker-end="url(#arrow)"/>
+<line x1="620" y1="82" x2="645" y2="82" stroke="#1f4e96" marker-end="url(#arrow)"/>
+</svg>

@@ -1,0 +1,54 @@
+# Label-focused ViPragSent expert triage.
+#
+# The test diagnosis motivates the hypotheses but is not used for model,
+# epoch, threshold, or source selection.  All such choices use dev only.
+protocol:
+  train: data/processed/vipragsent_train.jsonl
+  dev: data/processed/vipragsent_dev.jsonl
+  test_used_for_selection: false
+  test_prediction_during_search: false
+  stage_1_rule: >
+    Run each predefined expert once. A candidate advances to its two
+    replication seeds only when its calibrated development score for its
+    target label is at least the locked source's development score.
+  common:
+    epochs: 14
+    patience: 3
+    batch_size: 16
+    grad_accum: 2
+    lr: 2.0e-5
+    max_length: 128
+    pooling: cls
+    dropout: 0.10
+    auxiliary_tasks: disabled
+    uncertainty_weighting: disabled
+    threshold_selection: dev_grid_0.01_to_0.99
+
+candidates:
+  - id: visobert_irony_expert
+    model: huggingface/vipragsent-experiment-checkpoints/pretrained/visobert
+    target_label: irony
+    label_weights: [0, 0, 1, 0, 0, 0]
+    positive_weight_power: 0.75
+    seed_stage_1: 20260801
+    replication_seeds: [20260802, 20260803]
+    locked_dev_reference: 97.6816
+    hypothesis: Improve recall on low-confidence irony examples without adding many false positives.
+  - id: phobert_idiom_expert
+    model: huggingface/vipragsent-experiment-checkpoints/pretrained/phobert-base
+    target_label: idiom_figurative
+    label_weights: [0, 0, 0, 1, 0, 0]
+    positive_weight_power: 0.0
+    seed_stage_1: 20260811
+    replication_seeds: [20260812, 20260813]
+    locked_dev_reference: 97.0483
+    hypothesis: Reduce idiom false positives by removing broad class upweighting.
+  - id: visobert_mocking_expert
+    model: huggingface/vipragsent-experiment-checkpoints/pretrained/visobert
+    target_label: mocking
+    label_weights: [0, 0, 0, 0, 0, 1]
+    positive_weight_power: 0.0
+    seed_stage_1: 20260821
+    replication_seeds: [20260822, 20260823]
+    locked_dev_reference: 80.5806
+    hypothesis: Improve mocking precision by removing positive-class upweighting while preserving target-only representation learning.

@@ -1,0 +1,8 @@
+{
+  "status": "waived",
+  "audit_fraction": 0.0,
+  "requested_fraction": 0.05,
+  "decision": "Project owner explicitly waived manual rationale audit.",
+  "training_policy": "Treat GPT-4.1-mini rationales as accepted auxiliary targets after coverage and non-empty validation.",
+  "caveat": "No human faithfulness audit was performed; reports and papers must state this deviation."
+}

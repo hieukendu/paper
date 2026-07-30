@@ -1,0 +1,8 @@
+{
+  "implicit_sentiment": 0.55,
+  "sarcasm": 0.87,
+  "irony": 0.88,
+  "idiom_figurative": 0.59,
+  "code_switching": 0.59,
+  "mocking": 0.35000000000000003
+}
