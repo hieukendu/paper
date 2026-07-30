@@ -37,12 +37,9 @@ The aggregate comparison and the per-label-leader comparison answer different qu
   \label{fig:final-gaps}
 \end{figure}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{figures/final_vs_label_leaders}
-  \caption{ViPragSent-Final versus the strongest best-tuned baseline score for each pragmatic label. Three bars remain below their respective label leaders even though the final system leads on the aggregate macro metric.}
-  \label{fig:final-label-leaders}
-\end{figure}
+\subsection{Uncertainty and Paired Comparisons}
+
+The promoted bundle contains a post-hoc paired bootstrap over fixed test predictions for the final continuation versus its archived incumbent, using 1,000 replicates. The observed macro difference is +0.2979 points with a 95\% bootstrap interval of [-0.0714, 0.6463]; 94.4\% of replicates are positive. This interval is descriptive and was not used for selection. Comparable aligned prediction files for a paired final-versus-Vistral test and final-versus-each-label-leader tests are not present in the promoted bundle. We therefore report their point-estimate differences without a significance claim or invented interval, and do not apply Holm correction because no formal multi-hypothesis family is reported.
 
 \subsection{Interpretation of Mixed Leadership}
 
@@ -54,6 +51,6 @@ The progression from ViPragSent original (73.7469) through the previous optimize
 
 Existing ablation, source-stratified, low-resource, external-diagnostic, calibration, confusion, and annotation-agreement artifacts remain valid only for the system version named in each artifact.  In particular, the older 73.75 ablation behavior must not be attributed to ViPragSent-Final.
 
-\subsection{Result Summary}
+\subsection{Answer to the Research Questions}
 
 ViPragSent-Final has the strongest aggregate macro pragmatic F1 among the evaluated systems, with a +1.5633-point margin over Vistral-7B.  This bounded aggregate result does not establish strict per-label superiority.
