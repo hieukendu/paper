@@ -1,54 +1,59 @@
 \section{Results}
 \label{sec:results}
 
-This section reports the stored evaluation artifacts under the protocol in Section~\ref{sec:systems-evaluation}. It distinguishes the registered main comparison, the three-seed P0 configuration comparison, and the separate external evaluations. The latter are qualified diagnostics, not replacements for the main pragmatic evaluation.
+\subsection{Final Aggregate Comparison}
 
-\subsection{Main Pragmatic Comparison}
+Table~\ref{tab:main-pragmatic} reports the complete best-tuned baseline comparison and ViPragSent-Final.  ViPragSent-Final reaches 84.3883 macro pragmatic F1, compared with 82.8250 for Vistral-7B, the strongest complete baseline.  The resulting aggregate difference is +1.5633 points.  Within the evaluated systems and this fixed evaluation, this is the highest recorded aggregate macro pragmatic F1.
 
-% TRACE: S5-C01 | answer/results/main_pragmatic.json; answer/results/p0_visobert_baseline.json; manuscript/latex/tables/table_main_pragmatic.tex | complete table | three-seed versus single-run qualification in caption
-Table~\ref{tab:main-pragmatic} gives the complete registered pragmatic comparison, including every label-level macro F1 and the evaluated ViSoBERT baseline.
 \begin{table*}[t]
   \centering
   \input{tables/table_main_pragmatic}
-  \caption{Main pragmatic detection results (macro F1 percentages). Stored 95\% intervals are retained in the verified result artifacts. PhoBERT, XLM-R-large, Sailor-7B SFT, Vistral-7B SFT, ViPragSent (ours), and ViSoBERT fine-tune aggregate three recorded seeds; GPT-4.1-mini zero-shot and GPT-4.1-mini 8-shot are single recorded runs.}
+  \caption{Final pragmatic results (binary macro-F1 percentages). Bold indicates the best value in each column among the compared best-tuned baseline systems and ViPragSent-Final. The final system is a frozen, development-selected label-wise ensemble evaluated once on the canonical test set; the aggregate result does not imply per-label dominance.}
   \label{tab:main-pragmatic}
 \end{table*}
 
-% TRACE: S5-C02 | answer/results/main_pragmatic.json | $.systems.vistral_7b_sft.metrics.macro_pragmatic_f1.mean; answer/results/p0_visobert_baseline.json | $.system.aggregate.macro_pragmatic_f1 | strongest recorded/evaluated only
-Vistral-7B SFT is the strongest recorded evaluated system, with macro pragmatic F1 of 82.83. ViSoBERT fine-tune records 82.25 [81.61, 82.90], and ViPragSent (ours) records 73.75 [73.72, 73.78].
-% TRACE: S5-C03 | answer/results/main_pragmatic.json | $.systems.{sailor_7b_sft,phobert_finetune,xlmr_large,gpt41_mini_8_shot,gpt41_mini_zero_shot}.metrics.macro_pragmatic_f1.mean | descriptive ordering only
-The remaining stored macro scores are 82.19 for Sailor-7B SFT, 81.71 for PhoBERT fine-tune, 80.82 for XLM-R-large, 69.23 for GPT-4.1-mini 8-shot, and 60.67 for GPT-4.1-mini zero-shot. This ordering answers the comparative portion of the research question within the registered systems and fixed test data; it does not make a claim about systems not evaluated here. In particular, the proposed multi-task encoder is not the best-performing system in the recorded main comparison.
-% TRACE: S5-C03a | answer/results/main_pragmatic.json; answer/results/p0_visobert_baseline.json | $.system.aggregate.macro_pragmatic_f1.n_seeds | seed/run qualification only
-The stored intervals provide a scope qualification rather than a common uncertainty estimate for all rows. The learned-system intervals summarize the three retained seeds described in Section~\ref{sec:systems-evaluation}, while each prompted row reflects its single recorded API run. The increase from zero-shot to 8-shot prompting is consequently an observation about those two recorded runs, not a multi-seed comparison. Similarly, the tables report macro F1 for the six pragmatic labels rather than an overall accuracy measure, so a row's ordering follows the specified macro aggregation.
-
-% TRACE: S5-C04 | answer/figures/fig2_per_phenomenon.svg; answer/tables/main_pragmatic.md | graphic scope only
-Figure~\ref{fig:per-phenomenon} presents the stored per-phenomenon comparison for the five non-API systems represented in the source graphic.
-\begin{figure*}[t]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/fig1_per_phenomenon}
-  \caption{Stored per-phenomenon macro F1 for the five non-API systems shown in the source graphic. The graphic is reproduced from the verified result artifact; Table~\ref{tab:main-pragmatic} provides the complete eight-system comparison and stored intervals.}
-  \label{fig:per-phenomenon}
-\end{figure*}
-% TRACE: S5-C05 | answer/results/main_pragmatic.json | $.systems.vistral_7b_sft.metrics.{implicit_sentiment,irony}.mean; $.systems.sailor_7b_sft.metrics.irony.mean | descriptive per-phenomenon observation only
-For example, Vistral-7B SFT ranges from 59.59 on implicit sentiment to 97.05 on irony, while Sailor-7B SFT records 97.41 on irony. The plot and Table~\ref{tab:main-pragmatic} show that ordering varies by phenomenon; this descriptive variation is not attributed to a particular modeling mechanism or data property.
+  \includegraphics[width=\linewidth]{figures/final_macro_comparison}
+  \caption{Macro pragmatic F1 for the complete best-tuned baseline systems and ViPragSent-Final. The comparison is an aggregate, equal-weight metric over six pragmatic labels.}
+  \label{fig:final-macro}
+\end{figure}
 
-\subsection{Three-seed Ablation and External Diagnostics}
+\subsection{Label-wise Comparison}
 
-% TRACE: S5-C07 | answer/results/p0_multi_seed_ablation.json | $.systems.*.aggregate.macro_pragmatic_f1; manuscript/latex/tables/table_ablation_ordinary.tex | three-seed means and normal 95% intervals only
-Table~\ref{tab:ablation-ordinary} reports the P0 ablation as three-seed macro pragmatic F1 means with normal 95\% intervals.
+The aggregate comparison and the per-label-leader comparison answer different questions and are kept separate.  Relative to the strongest best-tuned baseline result for each label, ViPragSent-Final is ahead by 7.1359 points on implicit sentiment, 0.2463 on sarcasm, and 0.0726 on mocking.  It is below the label leader by 0.3955 points on irony, 0.1138 on idiom/figurative language, and 0.1294 on code-switching (Table~\ref{tab:final-gap}).
+
 \begin{table*}[t]
   \centering
-  \input{tables/table_ablation_ordinary}
-  \caption{P0 multi-seed ablation on the fixed ViPragSent test partition. Values are mean macro pragmatic F1 [normal 95\% interval] across seeds 20260520, 20260521, and 20260522. Configuration labels describe recorded variants; the table does not identify causal effects of individual auxiliary objectives.}
-  \label{tab:ablation-ordinary}
+  \input{tables/table_final_gap}
+  \caption{Two comparison definitions. The first row compares aggregate system performance with Vistral-7B, the strongest complete baseline. The remaining rows compare each ViPragSent-Final label score with the strongest best-tuned baseline score for that label.}
+  \label{tab:final-gap}
 \end{table*}
 
-% TRACE: S5-C08 | answer/results/p0_multi_seed_ablation.json | $.systems.{vipragsent_full,phobert_finetune,vipragsent_no_rationale,vipragsent_no_emotion,vipragsent_no_polarity,vipragsent_no_uncertainty}.aggregate.macro_pragmatic_f1 | descriptive configuration differences only
-The full configuration records 73.75 [73.72, 73.78], compared with 81.71 [81.48, 81.94] for the PhoBERT fine-tune reference. The four recorded ablation means range from 73.56 to 74.34. These configuration-level differences are three-seed observations, not evidence that an auxiliary task causes the difference or that the pattern will hold for other data, systems, or objectives.
-% TRACE: S5-C09 | answer/results/p0_multi_seed_ablation.json | $.external_benchmarks; answer/results/p0_visobert_baseline.json | $.external_benchmarks | external datasets, systems, and three-seed aggregation only
-The updated external diagnostics contain three-seed prediction and aggregate records for the four P0 ablation variants and ViSoBERT on UIT-VSFC, UIT-VSMEC, and AIVIVN-2019; Appendix Table~\ref{tab:external-diagnostics} reports their stored aggregate metrics and intervals. They extend the recorded evaluation coverage, but their distinct datasets, label spaces, and evaluation-only role preclude treating them as a pooled result or as evidence of universal transfer.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/final_label_gaps}
+  \caption{Per-label difference between ViPragSent-Final and the strongest best-tuned baseline result for each label. The zero line distinguishes positive margins from localized deficits; the vertical scale is not truncated to exaggerate small differences.}
+  \label{fig:final-gaps}
+\end{figure}
 
-\subsection{Result Summary for the Research Question}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/final_vs_label_leaders}
+  \caption{ViPragSent-Final versus the strongest best-tuned baseline score for each pragmatic label. Three bars remain below their respective label leaders even though the final system leads on the aggregate macro metric.}
+  \label{fig:final-label-leaders}
+\end{figure}
 
-% TRACE: S5-C10 | answer/results/main_pragmatic.json; answer/results/p0_visobert_baseline.json; answer/results/p0_multi_seed_ablation.json | bounded RQ summary only
-The recorded evaluation supports two bounded conclusions. First, the strongest recorded main-comparison result belongs to Vistral-7B SFT, not to the proposed multi-task encoder; ViSoBERT is now an evaluated three-seed baseline. Second, the P0 ablation records multi-seed configuration differences on the fixed pragmatic test set, while the external diagnostics remain distinct, qualified evaluations. Together, these findings position ViPragSent as a traceable empirical Vietnamese pragmatic-sentiment evaluation rather than a model-superiority result. Source-stratified and low-resource analyses are considered separately in Section~\ref{sec:analysis}.
+\subsection{Interpretation of Mixed Leadership}
+
+The result is an aggregate-performance lead, not strict dominance of every pragmatic label.  All three localized deficits are below 0.40 points, while the implicit-sentiment gain is 7.1359 points and sarcasm and mocking also have positive margins.  Thus, the aggregate advantage is driven primarily by the large implicit-sentiment gain, supplemented by smaller gains on sarcasm and mocking.  These gains coexist with three localized deficits, producing the highest equal-weight macro pragmatic F1 among the evaluated complete systems.
+
+\subsection{Development Progression and Legacy Analyses}
+
+The progression from ViPragSent original (73.7469) through the previous optimized system (82.0699) and final incumbent (84.0904) to the promoted continuation (84.3883) is shown in Appendix~\ref{app:final-progression}.  These rows document development history and are not additional external baselines.
+
+Existing ablation, source-stratified, low-resource, external-diagnostic, calibration, confusion, and annotation-agreement artifacts remain valid only for the system version named in each artifact.  In particular, the older 73.75 ablation behavior must not be attributed to ViPragSent-Final.
+
+\subsection{Result Summary}
+
+ViPragSent-Final has the strongest aggregate macro pragmatic F1 among the evaluated systems, with a +1.5633-point margin over Vistral-7B.  This bounded aggregate result does not establish strict per-label superiority.

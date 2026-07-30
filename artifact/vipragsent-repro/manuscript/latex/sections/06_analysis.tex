@@ -1,7 +1,15 @@
 \section{Analysis}
 \label{sec:analysis}
 
-This section separates observations stored in the analysis artifacts from their permitted interpretation.  It does not add a new system comparison, and it does not use error, confidence, or low-resource outputs to revise the main result ordering in Section~\ref{sec:results}.
+This section separates observations stored in the analysis artifacts from their permitted interpretation.  It does not use error, confidence, or low-resource outputs to revise the final-system ordering in Section~\ref{sec:results}.
+
+\subsection{Final Aggregate Balance}
+
+\textbf{OBSERVED EVIDENCE.} ViPragSent-Final has the highest recorded equal-weight macro pragmatic F1 (84.3883) among the compared complete systems, a +1.5633-point aggregate difference from Vistral-7B.  Its per-label comparison contains a large implicit-sentiment margin (+7.1359), smaller positive sarcasm and mocking margins, and deficits of -0.3955 on irony, -0.1138 on idiom/figurative language, and -0.1294 on code-switching.
+
+\textbf{PLAUSIBLE INTERPRETATION.} The aggregate score can lead despite mixed per-label leadership because it is the equal-weight mean of six binary macro-F1 values.  The final label-wise source selection may allow specialized prediction sources to contribute where their development evidence was strongest.  This is an interpretation of the stored configuration and values, not a causal isolation of any component.
+
+\textbf{UNTESTED HYPOTHESIS.} Alternative source assignments, blend weights, or thresholds could change the balance of margins and deficits.  The available evidence does not estimate this sensitivity beyond the stored development-selection procedure.
 
 \subsection{Confusion Analysis}
 
