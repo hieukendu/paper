@@ -1,0 +1,58 @@
+{
+  "selected_source": {
+    "implicit_sentiment": "visobert_20260902",
+    "sarcasm": "visobert_20260903",
+    "irony": "probability_blend(visobert_3seed=0.6, phobert_3seed=0.4)",
+    "idiom_figurative": "visobert_3seed_uniform",
+    "code_switching": "probability_blend(visobert_3seed=0.6, phobert_3seed=0.4)",
+    "mocking": "targeted_mocking_uniform_3seed"
+  },
+  "thresholds": {
+    "implicit_sentiment": 0.55,
+    "sarcasm": 0.87,
+    "irony": 0.96,
+    "idiom_figurative": 0.99,
+    "code_switching": 0.5,
+    "mocking": 0.35
+  },
+  "fold_selection": {
+    "folds": 5,
+    "selection_score": "mean target label F1 - 0.25 * standard deviation across folds",
+    "test_labels_used_for_selection": false
+  },
+  "checkpoint_paths": {
+    "visobert_seed_20260901": "outputs/final_best_tuned/visobert_corrected_uncertainty_probe/20260901/best.pt",
+    "visobert_seed_20260902": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
+    "visobert_seed_20260903": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt",
+    "phobert_seed_20260901": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
+    "phobert_seed_20260902": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260902/best.pt",
+    "phobert_seed_20260903": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260903/best.pt",
+    "mocking_seed_20260833": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt",
+    "mocking_seed_20260834": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt",
+    "mocking_seed_20260835": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt"
+  },
+  "checkpoint_sha256": {
+    "visobert_seed_20260901": "c38f0913f6da66ede9d6d8b44395b5bf91ef08a6bb68ec1fe1ee2936ef2aef2e",
+    "visobert_seed_20260902": "9fe982bc000d187c8f56aa789c37674f251f86d0bd5381ef5795d852ba518c90",
+    "visobert_seed_20260903": "8b760f882fbf0f9903ace9e7fa282f038ef834e8b16554582ea0df234e72583f",
+    "phobert_seed_20260901": "0886551dca660c8d1320277af129fcfa5e490d707ad62c4ea1e7219d6da83c78",
+    "phobert_seed_20260902": "de4a56ba297196d0e8e6ba4aef6d4234de4e3373518f6caecdef5e52d731baae",
+    "phobert_seed_20260903": "9d37f96c550d4e05fda10bb5a347925df94a6c056601754a073de9760412bc65",
+    "mocking_seed_20260833": "a8ce7751320fcfb507ec30ffac70e7268e0bb243f54a8eeef7844b3a071a9c09",
+    "mocking_seed_20260834": "a9771f2d8b5d6e9f739007505100deeba68eaef5de634f93500a1cb33c586ea0",
+    "mocking_seed_20260835": "f009480513c5121f5e08c11f037bcd3f8704333a1ce8874e64d7c2100dd9e93c"
+  },
+  "rejected_candidates": [
+    "character TF-IDF code-switch experts",
+    "three-seed residual code-switch specialist",
+    "rank blend",
+    "fixed-weight and logistic stacker candidates from the incumbent cycle"
+  ],
+  "repository_commit_sha": "38fa5fc",
+  "promotion_rule": {
+    "macro_strictly_higher": true,
+    "target_improved": true,
+    "no_label_drop_over_0_10": true,
+    "eligible": true
+  }
+}

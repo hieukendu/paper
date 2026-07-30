@@ -1,0 +1,14 @@
+% TRACE: S3-T01 | configs/labels.yaml; answer/data_provenance/gold_build_report.json
+\begin{tabularx}{\textwidth}{@{}lXl@{}}
+\toprule
+Component & Verified labels or value & Role \\
+\midrule
+Pragmatic vector & implicit\_sentiment; sarcasm; irony; idiom\_figurative; code\_switching; mocking & Binary, multi-label target \\
+Intended polarity & positive; neutral; negative & Auxiliary target \\
+Emotion & enjoyment; sadness; anger; disgust; fear; surprise; other & Auxiliary target \\
+Gold corpus & 12,000 adjudicated records & ViPragSent evaluation corpus \\
+Gold-text composition & 10,000 retained local social-media export rows; 2,000 author-created, context-augmented derivatives based on VIVID idiom/proverb materials & Fixed experimental corpus \\
+Fixed split & 8,000 / 2,000 / 2,000 (train/dev/test) & Experimental partitions \\
+Access boundary & Private, non-commercial research only; no public raw-text release & Data governance \\
+\bottomrule
+\end{tabularx}

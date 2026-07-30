@@ -1,0 +1,51 @@
+run_mode: setup_only
+backbones:
+  phobert_base:
+    model_id: vinai/phobert-base
+    local_path: null
+    download_status: removed_local_not_required_for_no_finetune
+    downloaded_weights: []
+    tokenizer: phobert
+    local_training: disabled
+  xlmr_large:
+    model_id: FacebookAI/xlm-roberta-large
+    local_path: null
+    download_status: removed_local_not_required_for_no_finetune
+    downloaded_weights: []
+    tokenizer: sentencepiece
+    local_training: disabled
+  visobert:
+    model_id: uitnlp/visobert
+    revision: 196a62afad9cbe4f52a54aabad828b13f0eec59a
+    local_path: models/huggingface/visobert
+    download_status: resolved_for_supplementary_baseline
+    tokenizer: sentencepiece
+    local_training: enabled_for_supplementary_baseline
+  vistral_7b:
+    model_id: Viet-Mistral/Vistral-7B-Chat
+    revision: d331b64e61b935cc43c2b3010ae9fb4fde599b45
+    revision_status: user_attested_download_time_pin_2026-07-14;_upstream_main_requeried_2026-07-19
+    local_path: null
+    download_status: historical_download_attested_2026-07-14_not_retained_locally
+    size_note: HF reports about 29.2 GB used storage; access approval is required before git clone.
+    adapter: qlora
+    local_training: archived_run_only_no_current_local_training
+  sailor_7b:
+    model_id: sail/Sailor-7B-Chat
+    revision: 19066fae0a8a3ba029c190d8e3dacccf4d1234b8
+    revision_status: user_attested_download_time_pin_2026-07-14;_upstream_main_requeried_2026-07-19
+    local_path: null
+    download_status: historical_download_attested_2026-07-14_not_retained_locally
+    size_note: Sailor-7B-Chat was the historical QLoRA base; use the pinned upstream revision and archived prediction JSONL for inspection rather than asserting a retained local base-model copy.
+    adapter: qlora
+    local_training: archived_run_only_no_current_local_training
+heads:
+  pragmatic_binary: 6
+  polarity: 3
+  emotion: 7
+  rationale_decoder:
+    train_only: true
+    layers: 2
+    hidden_size: 128
+    attention_heads: 4
+    dropout: 0.1

@@ -1,0 +1,65 @@
+ViPragSent Private Research Use Terms
+Version 1.0, 16 July 2026
+
+Copyright (c) 2026 Lê Minh Hiếu. All rights reserved.
+
+1. Scope
+
+These terms apply only to original code, documentation, annotations, experiment
+configurations, evaluation outputs, and model modifications created by the
+ViPragSent project (the "Project Materials"). They do not grant rights to any
+third-party material, including source social-media text, the ViSoBERT export,
+external evaluation datasets, or base-model weights.
+
+2. Permitted use
+
+The copyright holder permits authorized project collaborators and confidential
+academic peer reviewers to access and use the Project Materials solely for
+private, non-commercial research, verification, and reproduction of the
+ViPragSent experiments.
+
+3. Restrictions
+
+Unless the copyright holder gives prior written permission, recipients may not:
+
+  a. publish, sublicense, sell, redistribute, or make the Project Materials or
+     any raw social-media text available to third parties;
+  b. use the Project Materials for commercial, production, surveillance,
+     profiling, or other high-impact automated decision-making purposes;
+  c. attempt to identify or contact individuals represented in the data;
+  d. remove copyright, provenance, privacy, or third-party notices; or
+  e. represent generated rationales or model outputs as human-verified facts.
+
+4. Data and third-party rights
+
+No license to redistribute raw ViPragSent text is granted. Access to the local
+ViSoBERT export is limited to private research while its source terms are being
+confirmed. UIT-VSFC, UIT-VSMEC, and AIVIVN are external evaluation benchmarks,
+not components of ViPragSent, and remain governed by their respective terms.
+
+PhoBERT, XLM-R, Sailor-7B, Vistral-7B, and all other base models remain governed
+by their respective licenses and access conditions. Project checkpoints and
+adapters do not include or relicense base-model weights.
+
+5. Publication
+
+Aggregate statistics, metrics, tables, figures, and methodological descriptions
+may be included in an academic paper provided that they do not disclose raw
+restricted text, personal information, credentials, or third-party materials.
+
+6. Termination
+
+Permission terminates automatically upon breach of these terms. On termination,
+the recipient must stop using and delete all copies of restricted Project
+Materials, except copies retained solely where required by law.
+
+7. Disclaimer
+
+THE PROJECT MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, NON-INFRINGEMENT, OR ACCURACY. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING
+FROM THE PROJECT MATERIALS OR THEIR USE.
+
+These terms document the project's private-research access policy and are not a
+substitute for permission from third-party rights holders.

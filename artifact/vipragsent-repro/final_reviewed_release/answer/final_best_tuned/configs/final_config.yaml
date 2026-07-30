@@ -1,0 +1,39 @@
+protocol:
+  selection_split: development only
+  folds: 5
+  selection_score: mean(irony, idiom_figurative, code_switching) - 0.25 * std_across_folds
+  test_labels_used_for_selection: false
+  final_metric: binary macro-F1
+sources:
+  implicit_sentiment: visobert_20260902
+  sarcasm: visobert_20260903
+  irony:
+    type: probability_blend
+    visobert_3seed_weight: 0.6
+    phobert_3seed_weight: 0.4
+  idiom_figurative: visobert_3seed_uniform
+  code_switching:
+    type: probability_blend
+    visobert_3seed_weight: 0.6
+    phobert_3seed_weight: 0.4
+  mocking: targeted_mocking_uniform_3seed
+thresholds_refit_full_development:
+  implicit_sentiment: 0.55
+  sarcasm: 0.87
+  irony: 0.96
+  idiom_figurative: 0.99
+  code_switching: 0.50
+  mocking: 0.35
+checkpoints:
+  visobert:
+    - outputs/final_best_tuned/visobert_corrected_uncertainty_probe/20260901/best.pt
+    - outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt
+    - outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt
+  phobert:
+    - outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt
+    - outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260902/best.pt
+    - outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_ensemble/20260903/best.pt
+  mocking:
+    - outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt
+    - outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt
+    - outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330"><defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e96"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
+<text x="20" y="25" font-size="16">Reliability diagram accuracy by confidence bin</text>
+<line x1="70" y1="265" x2="670" y2="265" stroke="#333"/>
+<line x1="70" y1="45" x2="70" y2="265" stroke="#333"/>
+<polyline points="203.3,179.8 270.0,215.9 336.7,171.2" fill="none" stroke="#5b8ec9" stroke-width="2"/>
+<circle cx="203.3" cy="179.8" r="3" fill="#5b8ec9"/>
+<circle cx="270.0" cy="215.9" r="3" fill="#5b8ec9"/>
+<circle cx="336.7" cy="171.2" r="3" fill="#5b8ec9"/>
+<rect x="690" y="45" width="10" height="10" fill="#5b8ec9"/>
+<text x="705" y="54" font-size="10">PhoBERT fine-tune</text>
+<polyline points="203.3,177.0 270.0,169.5 336.7,137.5 403.3,135.4 470.0,114.9 536.7,90.0 603.3,65.8" fill="none" stroke="#7aa17a" stroke-width="2"/>
+<circle cx="203.3" cy="177.0" r="3" fill="#7aa17a"/>
+<circle cx="270.0" cy="169.5" r="3" fill="#7aa17a"/>
+<circle cx="336.7" cy="137.5" r="3" fill="#7aa17a"/>
+<circle cx="403.3" cy="135.4" r="3" fill="#7aa17a"/>
+<circle cx="470.0" cy="114.9" r="3" fill="#7aa17a"/>
+<circle cx="536.7" cy="90.0" r="3" fill="#7aa17a"/>
+<circle cx="603.3" cy="65.8" r="3" fill="#7aa17a"/>
+<rect x="690" y="63" width="10" height="10" fill="#7aa17a"/>
+<text x="705" y="72" font-size="10">ViPragSent (ours)</text>
+<polyline points="203.3,240.6 270.0,194.1 336.7,115.8 403.3,145.6 470.0,142.8 536.7,136.0 603.3,125.8 670.0,82.2" fill="none" stroke="#a892c9" stroke-width="2"/>
+<circle cx="203.3" cy="240.6" r="3" fill="#a892c9"/>
+<circle cx="270.0" cy="194.1" r="3" fill="#a892c9"/>
+<circle cx="336.7" cy="115.8" r="3" fill="#a892c9"/>
+<circle cx="403.3" cy="145.6" r="3" fill="#a892c9"/>
+<circle cx="470.0" cy="142.8" r="3" fill="#a892c9"/>
+<circle cx="536.7" cy="136.0" r="3" fill="#a892c9"/>
+<circle cx="603.3" cy="125.8" r="3" fill="#a892c9"/>
+<circle cx="670.0" cy="82.2" r="3" fill="#a892c9"/>
+<rect x="690" y="81" width="10" height="10" fill="#a892c9"/>
+<text x="705" y="90" font-size="10">XLM-R-large</text>
+<text x="70.0" y="285" text-anchor="middle" font-size="10">0</text>
+<text x="136.7" y="285" text-anchor="middle" font-size="10">1</text>
+<text x="203.3" y="285" text-anchor="middle" font-size="10">2</text>
+<text x="270.0" y="285" text-anchor="middle" font-size="10">3</text>
+<text x="336.7" y="285" text-anchor="middle" font-size="10">4</text>
+<text x="403.3" y="285" text-anchor="middle" font-size="10">5</text>
+<text x="470.0" y="285" text-anchor="middle" font-size="10">6</text>
+<text x="536.7" y="285" text-anchor="middle" font-size="10">7</text>
+<text x="603.3" y="285" text-anchor="middle" font-size="10">8</text>
+<text x="670.0" y="285" text-anchor="middle" font-size="10">9</text>
+</svg>

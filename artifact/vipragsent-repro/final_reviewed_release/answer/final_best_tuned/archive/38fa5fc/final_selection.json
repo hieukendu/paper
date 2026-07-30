@@ -1,0 +1,116 @@
+{
+  "selected_source": {
+    "implicit_sentiment": "visobert_seed2",
+    "sarcasm": "visobert_seed3",
+    "irony": "phobert_seed1",
+    "idiom_figurative": "phobert_seed1",
+    "code_switching": "visobert_seed2",
+    "mocking": "targeted_mocking_3seed"
+  },
+  "checkpoints": {
+    "implicit_sentiment": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
+    "sarcasm": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt",
+    "irony": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
+    "idiom_figurative": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
+    "code_switching": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
+    "mocking": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt|outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt|outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt"
+  },
+  "seed_lists": {
+    "visobert": [
+      20260901,
+      20260902,
+      20260903
+    ],
+    "phobert": [
+      20260901,
+      20260902,
+      20260903
+    ],
+    "mocking": [
+      20260833,
+      20260834,
+      20260835
+    ]
+  },
+  "ensemble_weights": {
+    "mocking": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ]
+  },
+  "thresholds": {
+    "implicit_sentiment": 0.55,
+    "sarcasm": 0.87,
+    "irony": 0.88,
+    "idiom_figurative": 0.59,
+    "code_switching": 0.59,
+    "mocking": 0.35000000000000003
+  },
+  "development_metrics_after_freeze": {
+    "implicit_sentiment": 68.0862,
+    "sarcasm": 80.3834,
+    "irony": 97.5207,
+    "idiom_figurative": 97.0022,
+    "code_switching": 79.8899,
+    "mocking": 81.4572,
+    "macro_pragmatic_f1": 84.0566
+  },
+  "test_labels_used_for_selection": false,
+  "repository_commit_sha": "22add211d9a378b41211af91fa1528af39a52977",
+  "rejected_candidates": [
+    "fixed-weight uncertainty probes",
+    "irony logistic stacker",
+    "mocking logistic stacker",
+    "idiom agreement gate"
+  ],
+  "checkpoint_hashes": {
+    "implicit_sentiment": [
+      {
+        "path": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
+        "sha256": "9fe982bc000d187c8f56aa789c37674f251f86d0bd5381ef5795d852ba518c90"
+      }
+    ],
+    "sarcasm": [
+      {
+        "path": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260903/best.pt",
+        "sha256": "8b760f882fbf0f9903ace9e7fa282f038ef834e8b16554582ea0df234e72583f"
+      }
+    ],
+    "irony": [
+      {
+        "path": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
+        "sha256": "0886551dca660c8d1320277af129fcfa5e490d707ad62c4ea1e7219d6da83c78"
+      }
+    ],
+    "idiom_figurative": [
+      {
+        "path": "outputs/final_best_tuned/phobert_corrected_uncertainty_idiom0_probe/20260901/best.pt",
+        "sha256": "0886551dca660c8d1320277af129fcfa5e490d707ad62c4ea1e7219d6da83c78"
+      }
+    ],
+    "code_switching": [
+      {
+        "path": "outputs/final_best_tuned/visobert_corrected_uncertainty_ensemble/20260902/best.pt",
+        "sha256": "9fe982bc000d187c8f56aa789c37674f251f86d0bd5381ef5795d852ba518c90"
+      }
+    ],
+    "mocking": [
+      {
+        "path": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260833/best.pt",
+        "sha256": "a8ce7751320fcfb507ec30ffac70e7268e0bb243f54a8eeef7844b3a071a9c09"
+      },
+      {
+        "path": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260834/best.pt",
+        "sha256": "a9771f2d8b5d6e9f739007505100deeba68eaef5de634f93500a1cb33c586ea0"
+      },
+      {
+        "path": "outputs/label_gap_experts/visobert_mocking_joint_targeted/20260835/best.pt",
+        "sha256": "f009480513c5121f5e08c11f037bcd3f8704333a1ce8874e64d7c2100dd9e93c"
+      }
+    ]
+  },
+  "development_selection_protocol": "Candidate sources were compared only on a deterministic SHA-256 ID-derived development selection partition after threshold calibration on its disjoint development calibration partition.",
+  "final_inference_protocol": "After final_config.yaml and selected sources were frozen, thresholds were fitted on the full development split and applied once to the adjudicated test split.",
+  "test_metric_validation": "Final reported metrics were directly recomputed from frozen test predictions and canonical test labels using sklearn binary macro-F1 (average=\"macro\"), matching the baseline registry."
+}

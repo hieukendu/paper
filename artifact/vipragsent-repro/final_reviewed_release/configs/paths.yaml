@@ -1,0 +1,15 @@
+project:
+  name: vipragsent-repro
+  run_mode: setup_only
+paths:
+  data_root: data
+  local_visobert_export: D:\hf_cache\exports\visobert_12000_api
+  manifest_dir: data/manifest
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  annotation_dir: data/annotation
+  generated_dir: data/generated
+  results_dir: results
+  figures_dir: figures
+  tables_dir: tables

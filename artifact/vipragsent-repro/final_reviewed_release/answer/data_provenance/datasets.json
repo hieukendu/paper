@@ -1,0 +1,78 @@
+{
+  "datasets": [
+    {
+      "label_status": "silver_agent_rule_based",
+      "license": "unknown_or_dataset_card_manual_review_required",
+      "name": "visobert_local",
+      "path": "D:\\hf_cache\\exports\\visobert_12000_api",
+      "records": 12000,
+      "split_counts": {
+        "unassigned": 12000
+      },
+      "task": "social_text_pool"
+    },
+    {
+      "label_status": "reviewed_source_labels",
+      "labels": [
+        "positive",
+        "neutral",
+        "negative"
+      ],
+      "license": "manual_review_required",
+      "name": "UIT-VSFC",
+      "path": "data/raw/uit_vsfc",
+      "preserve_original_splits": true,
+      "records": 16175,
+      "split_counts": {
+        "dev": 1583,
+        "test": 3166,
+        "train": 11426
+      },
+      "task": "3-way sentiment"
+    },
+    {
+      "label_status": "reviewed_source_labels",
+      "labels": [
+        "enjoyment",
+        "sadness",
+        "anger",
+        "disgust",
+        "fear",
+        "surprise",
+        "other"
+      ],
+      "license": "manual_review_required",
+      "name": "UIT-VSMEC",
+      "path": "data/raw/uit_vsmec",
+      "preserve_original_splits": true,
+      "records": 6927,
+      "split_counts": {
+        "dev": 686,
+        "test": 693,
+        "train": 5548
+      },
+      "task": "7-way emotion"
+    },
+    {
+      "label_status": "reviewed_source_labels",
+      "labels": [
+        "negative",
+        "positive"
+      ],
+      "license": "manual_review_required",
+      "name": "AIVIVN-2019 Kaggle mirror",
+      "notes": "Source has train/test only; dev was sampled from train. Not the 3-way split expected by workflow.",
+      "path": "data/raw/aivivn_2019",
+      "preserve_original_splits": false,
+      "records": 16087,
+      "split_counts": {
+        "dev": 1287,
+        "test": 3217,
+        "train": 11583
+      },
+      "task": "binary sentiment"
+    }
+  ],
+  "schema_version": "1.0",
+  "status": "DATA_READY_FOR_HUMAN_REVIEW_NOT_GOLD"
+}

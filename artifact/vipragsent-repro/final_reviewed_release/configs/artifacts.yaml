@@ -1,0 +1,24 @@
+status: results_generated
+results_dir: results
+pending_dir: results/pending
+figures_dir: figures
+tables_dir: tables
+claim_ledger: results/claim_ledger.csv
+required_result_files:
+  - main_pragmatic.json
+  - ordinary_sentiment.json
+  - multitask_ablation.json
+  - low_resource_sarcasm.json
+  - error_confusion.json
+  - calibration.json
+  - cost_breakdown.json
+  - learning_curves.json
+  - annotation_agreement.json
+  - significance.json
+  - paper_readiness.json
+  - artifact_index.json
+  - claim_ledger.csv
+dryrun_policy:
+  allow_pending_results: false
+  mark_mock_values: false
+  forbid_final_claims: false

@@ -1,0 +1,68 @@
+{
+  "metrics": {
+    "implicit_sentiment": 67.9829,
+    "sarcasm": 80.2781,
+    "irony": 96.9009,
+    "idiom_figurative": 97.1965,
+    "code_switching": 80.1313,
+    "mocking": 82.0528,
+    "macro_pragmatic_f1": 84.0904
+  },
+  "per_label": {
+    "implicit_sentiment": {
+      "tp": 117,
+      "tn": 1590,
+      "fp": 178,
+      "fn": 115,
+      "binary_macro_f1": 0.679829,
+      "positive_class_f1": 0.444022770398482
+    },
+    "sarcasm": {
+      "tp": 194,
+      "tn": 1609,
+      "fp": 43,
+      "fn": 154,
+      "binary_macro_f1": 0.802781,
+      "positive_class_f1": 0.6632478632478632
+    },
+    "irony": {
+      "tp": 167,
+      "tn": 1813,
+      "fp": 3,
+      "fn": 17,
+      "binary_macro_f1": 0.9690089999999999,
+      "positive_class_f1": 0.943502824858757
+    },
+    "idiom_figurative": {
+      "tp": 167,
+      "tn": 1815,
+      "fp": 1,
+      "fn": 17,
+      "binary_macro_f1": 0.971965,
+      "positive_class_f1": 0.9488636363636364
+    },
+    "code_switching": {
+      "tp": 136,
+      "tn": 1714,
+      "fp": 105,
+      "fn": 45,
+      "binary_macro_f1": 0.8013129999999999,
+      "positive_class_f1": 0.6445497630331753
+    },
+    "mocking": {
+      "tp": 201,
+      "tn": 1621,
+      "fp": 74,
+      "fn": 104,
+      "binary_macro_f1": 0.820528,
+      "positive_class_f1": 0.6931034482758621
+    }
+  },
+  "id_validation": {
+    "test_count": 2000,
+    "duplicate_ids": false,
+    "missing_ids": false,
+    "exact_match": true
+  },
+  "metric_definition": "binary macro-F1 per label; aggregate is the arithmetic mean across six labels"
+}

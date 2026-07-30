@@ -1,0 +1,26 @@
+# Section 3 traceability record
+
+**Target:** `latex/sections/03_task_and_data.tex`  
+**Status:** DRAFTED; each numerical prose sentence has a preceding LaTeX `TRACE` comment.
+
+| Claim ID | Section claim or artifact | Evidence source | Evidence locator | Status |
+| --- | --- | --- | --- | --- |
+| S3-C01 | The task has six binary pragmatic labels and their names. | `configs/labels.yaml`; `src/vipragsent/data/schema.py` | `pragmatic_binary`; `PRAGMATIC_LABELS` | VERIFIED |
+| S3-C01a | Operational descriptions of implicit sentiment, sarcasm, irony, idiom/figurative language, code-switching, and mocking. | `docs/annotation_guidelines_v1.md` | `Pragmatic labels`; `Annotation and adjudication procedure` | VERIFIED (author-team-defined, versioned project protocol; not an external-literature attribution) |
+| S3-C02 | Polarity is a distinct positive/neutral/negative auxiliary and emotion is a distinct seven-value auxiliary. | `configs/labels.yaml`; `src/vipragsent/data/schema.py`; `src/vipragsent/annotation/prompts.py` | `polarity`; `emotion`; `POLARITY_EMOTION_PROMPT` | VERIFIED |
+| S3-C03 / Table 1 | Table 1's labels, corpus size, source composition, split, and access boundary. | `configs/labels.yaml`; `configs/data_governance.yaml`; `answer/data_provenance/gold_build_report.json`; final JSONL record metadata | label fields; `dataset_construction`; `$.final_gold_records`, `$.split_counts`; `$.source.dataset` | VERIFIED for counts and stored identifiers; source permissions/licenses remain pending documentation. |
+| S3-C04 | The final gold corpus has 12,000 adjudicated records. | `answer/data_provenance/gold_build_report.json` | `$.final_gold_records` | VERIFIED |
+| S3-C04a | Final gold composition is 10,000 retained local ViSoBERT-export records plus 2,000 VIVID-derived, context-augmented candidate records. | `data/processed/vipragsent_{train,dev,test}.jsonl`; `answer/data_provenance/gold_build_report.json`; `answer/data_provenance/source_registry.json` | `$.source.dataset`; `$.split_counts.*.platforms`; `sources.vivid_seed_and_irony_generation` | VERIFIED for stored composition and counts; upstream VIVID revision is pinned; source permissions/licenses remain pending documentation. |
+| S3-C04b | The 2,000 VIVID-identified rows replace earlier ViSoBERT rows and the replaced rows are not in the fixed gold corpus. | `scripts/12_import_annotation_workbooks.py`; final JSONL record metadata | lines 109--110; `$.source.dataset` | VERIFIED for the canonical build procedure and final membership |
+| S3-C05 | The fixed split is 8,000/2,000/2,000 with no cross-split ID overlap. | `answer/data_provenance/gold_build_report.json`; `answer/reproducibility/id_set_manifest.json` | `$.split_counts.*.total`; `$.global.pairwise_split_overlap_count` | VERIFIED locally against private processed JSONL. |
+| S3-C05a | No missing reviews, unresolved disagreements, or invalid records remain in the final gold build. | `answer/data_provenance/gold_build_report.json` | `$.status`, `$.missing_review_records`, `$.disagreements`, `$.invalid_records` | VERIFIED |
+| S3-C05b | Private, non-commercial boundary; no raw or processed text redistribution before applicable source permission or a documented, reviewed license. | `configs/data_governance.yaml`; `answer/THIRD_PARTY_NOTICES.md`; `docs/external_dataset_access_and_license_status.md` | `dataset_construction.access_policy`; `public_release_status`; `Decision` | VERIFIED as project policy; external source licenses remain unresolved |
+| S3-C05c | UIT-VSFC, UIT-VSMEC, and the AIVIVN mirror are external evaluation only, not incorporated into ViPragSent. | `configs/data_governance.yaml`; `README.md` | `external_evaluation`; `dataset_construction.note`; external-datasets section | VERIFIED |
+| S3-C06 | Agreement uses two reviewers and a fixed adjudicator whose labels define the gold split; it is post-adjudication rather than independent third-rater agreement. | `answer/results/annotation_agreement.json`; `README.md` | `$.reviewers`; `$.protocol_note`; annotation-agreement procedure | VERIFIED |
+| S3-C06b | The two reviewers initially differed on at least one recorded field in 5,261 of 12,000 shared records; the fixed adjudicator resolved them for the final gold labels. | `answer/data_provenance/annotation_import_report.json`; `answer/data_provenance/gold_build_report.json` | `$.records_with_disagreement`; `$.reviewer_comparable_records`; `$.pre_adjudication_reviewer_comparison` | VERIFIED; the count covers six pragmatic fields plus polarity and emotion. |
+| S3-C06a | Macro agreement is 0.933; macro Cohen's $\kappa$ is 0.822; Fleiss' $\kappa$ and Krippendorff's $\alpha$ are 0.819. | `answer/results/annotation_agreement.json` | `$.macro.mean_pairwise_percent_agreement`, `$.macro.mean_pairwise_cohen_kappa`, `$.macro.fleiss_kappa_nominal`, `$.macro.krippendorff_alpha_nominal` | VERIFIED |
+| S3-A01 | Appendix agreement table values. | `answer/tables/annotation_agreement.md`; `answer/results/annotation_agreement.json` | Complete table; `$.per_label` and `$.macro` | VERIFIED |
+
+## Scope note
+
+The appendix table is saved at `latex/appendix/table_annotation_agreement.tex` and is included by `latex/main.tex` after `\appendix`. No raw source text is reproduced in the section, table, or trace record.

@@ -1,0 +1,11 @@
+{
+  "analysis": "paired bootstrap over fixed test predictions; post-hoc only, not used for selection",
+  "replicates": 1000,
+  "seed": 20261024,
+  "macro_f1_delta_observed": 0.2979,
+  "delta_ci95": [
+    -0.07144073415449874,
+    0.646291008137252
+  ],
+  "fraction_positive": 0.944
+}

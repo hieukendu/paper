@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+% XeLaTeX-compatible implementation of the ACL Times requirement.
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\newfontfamily\headingfont{Times New Roman}
+\newcommand{\headingstyle}{\headingfont\bfseries}
+\usepackage{latexsym}
+
+% Packages reserved for verified planned tables and figures.
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{needspace}
+
+% Keep the official ACL style file unchanged while ensuring that the local
+% XeLaTeX font fallback renders the document hierarchy visibly in bold.
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{-2.0ex plus -0.5ex minus -.2ex}{1.5ex plus .3ex minus .2ex}{\large\headingstyle\raggedright}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-1.8ex plus -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\headingstyle\raggedright}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1.5ex plus -0.5ex minus -.2ex}{0.5ex plus .2ex}{\normalsize\headingstyle\raggedright}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{1.5ex plus .5ex minus .2ex}{-1em}{\normalsize\headingstyle}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}{1.5ex plus .5ex minus .2ex}{-1em}{\normalsize\headingstyle}}
+\makeatother
+% The ACL abstract environment already centers and bolds its heading.  The
+% local font fallback needs the same explicit bold face as the section hierarchy.
+\renewcommand{\abstractname}{{\headingstyle Abstract}}
+
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+
+\title{\headingstyle ViPragSent-Final: A Development-Selected Ensemble for Vietnamese Pragmatic Sentiment Evaluation}
+\author{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Pragmatic interpretation in Vietnamese-language text can depend on signals beyond surface polarity. We evaluate six pragmatic phenomena in the fixed ViPragSent setting, which has a documented social-media source component and a private-data boundary. ViPragSent-Final is a frozen label-wise ensemble selected with five-fold development out-of-fold evidence: it combines retained ViSoBERT and PhoBERT sources, probability blends for irony and code-switching, and a targeted mocking component. On one post-freeze canonical-test evaluation, it reaches 84.39 macro pragmatic F1, 1.56 points above Vistral-7B, the strongest complete best-tuned baseline. The aggregate lead does not establish strict per-label dominance: the final system remains 0.40 points below the strongest irony result, 0.11 below the strongest idiom/figurative-language result, and 0.13 below the strongest code-switching result. Stored predictions, configuration, and artifact hashes are traceable, but this is not an independent training reproduction; raw source text remains private.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_task_and_data}
+\input{sections/04_systems_and_evaluation}
+\input{sections/05_results}
+\input{sections/06_analysis}
+\input{sections/07_conclusion}
+\input{sections/08_limitations}
+\input{sections/09_ethics}
+
+\bibliography{references}
+
+\clearpage
+\appendix
+\section{Annotation Agreement}
+\label{app:annotation-agreement}
+This appendix reports the per-label post-adjudication agreement values summarized in Section~\ref{sec:task-data}.
+\input{appendix/table_annotation_agreement}
+
+\section{Label Prevalence}
+\label{app:label-prevalence}
+\input{appendix/table_label_prevalence}
+
+\section{Source-stratified and Low-resource Results}
+\label{app:source-lowresource}
+% TRACE: APP-C01 | answer/results/p1_source_stratified_sensitivity.json | $.test_source_counts; $.systems.*.{visobert_local,VIVID_seed_and_irony_generation}.aggregate.macro_pragmatic_f1; answer/results/p2_multi_seed_low_resource.json | $.budgets.*.{phobert_finetune,vipragsent_full}.aggregate.sarcasm; configs/experiments_p0_p1_p2.yaml | $.p2.multi_seed_low_resource.{budgets,positive_to_other_ratio,total_training_sizes} | descriptive/exploratory appendix only
+\begin{table}[!ht]
+  \centering
+  \input{tables/table_source_lowresource}
+  \caption{Supplementary three-seed analyses (mean macro F1 [normal 95\% interval]). The upper panel is a descriptive source-stratified sensitivity analysis on 1,666 ViSoBERT-local and 334 VIVID-labelled test records; it displays ViPragSent, PhoBERT, and ViSoBERT. The lower panel reports sarcasm macro F1 for the two systems at the five verified positive-label budgets. Each budget uses a 1:3 positive-to-other training composition, giving total training sizes of 256, 512, 1,024, 2,048, and 4,096. Neither panel identifies a causal source effect or a data-efficiency advantage.}
+  \label{tab:source-lowresource}
+\end{table}
+
+\clearpage
+\twocolumn[
+  \section{External Diagnostics}
+  \label{app:external-diagnostics}
+  % TRACE: APP-C02 | answer/results/p0_multi_seed_ablation.json; answer/results/p0_visobert_baseline.json | external_benchmarks aggregates | three-seed, evaluation-only diagnostics
+  \centering
+  \input{tables/table_external_diagnostics}
+  \captionof{table}{Three-seed external diagnostic macro F1 (mean [normal 95\% interval]) for the four P0 ablations and ViSoBERT. UIT-VSFC and AIVIVN-2019 use polarity macro F1; UIT-VSMEC uses emotion macro F1. These datasets have distinct label spaces and are evaluation-only diagnostics, not a pooled transfer result.}
+  \label{tab:external-diagnostics}
+  \vspace{1.0em}
+  \section{Final-System Progression}
+  \label{app:final-progression}
+  \input{appendix/table_final_progression}
+  \captionof{table}{Historical ViPragSent progression. These rows document development and must not be interpreted as independent external baselines.}
+]
+
+\end{document}

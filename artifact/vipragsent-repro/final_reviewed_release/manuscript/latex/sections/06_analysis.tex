@@ -1,0 +1,66 @@
+\section{Analysis}
+\label{sec:analysis}
+
+This section separates observations stored in the analysis artifacts from their permitted interpretation.  It does not use error, confidence, or low-resource outputs to revise the final-system ordering in Section~\ref{sec:results}.
+
+\subsection{Final Aggregate Balance}
+
+\textbf{OBSERVED EVIDENCE.} ViPragSent-Final has the highest recorded equal-weight macro pragmatic F1 (84.3883) among the compared complete systems, a +1.5633-point aggregate difference from Vistral-7B.  Its per-label comparison contains a large implicit-sentiment margin (+7.1359), smaller positive sarcasm and mocking margins, and deficits of -0.3955 on irony, -0.1138 on idiom/figurative language, and -0.1294 on code-switching.
+
+\textbf{PLAUSIBLE INTERPRETATION.} The aggregate score can lead despite mixed per-label leadership because it is the equal-weight mean of six binary macro-F1 values.  The final label-wise source selection may allow specialized prediction sources to contribute where their development evidence was strongest.  This is an interpretation of the stored configuration and values, not a causal isolation of any component.
+
+\textbf{UNTESTED HYPOTHESIS.} Alternative source assignments, blend weights, or thresholds could change the balance of margins and deficits.  The available evidence does not estimate this sensitivity beyond the stored development-selection procedure.
+
+\subsection{Final-system Error Profile and Historical Confusion Diagnostic}
+
+\textbf{OBSERVED EVIDENCE.} Final-system confusion counts are available label by label for the 2,000 canonical test records. The largest false-positive count is implicit sentiment (178), followed by mocking (74) and code-switching (67); the largest false-negative count is sarcasm (154), followed by implicit sentiment (115) and mocking (104). Irony and idiom/figurative language have no recorded false positives and 19 and 18 false negatives, respectively. These counts, together with the recorded label prevalences, show that error behavior differs substantially across labels.
+
+\textbf{PLAUSIBLE INTERPRETATION.} The large implicit-sentiment margin can contribute strongly to the equal-weight aggregate gain despite remaining false positives and false negatives. The narrow deficits for irony, idiom/figurative language, and code-switching are consistent with a balance-improving label-wise mixture rather than uniform dominance.
+
+\textbf{UNTESTED HYPOTHESIS.} Whether these patterns arise from specialized sources, thresholds, label prevalence, or development-selection complexity would require controlled component ablations evaluated with the frozen final protocol.
+
+% TRACE: S6-C01 | answer/results/error_confusion.json | $.system, $.label, $.labels, $.row_normalised | exact matrix system and scope
+\textbf{OBSERVED EVIDENCE.} The stored row-normalized pragmatic-polarity confusion matrix is for ViPragSent (ours), using its seed-20260520 prediction file, with six recorded classes: positive, negative, neutral, ironic-positive, sarcastic-negative, and mocking.  Rows are gold classes and columns are predicted classes.  It is therefore a single-seed diagnostic for this evaluated system and class construction, rather than an error analysis of the other systems or a three-seed aggregate from the main comparison.  The source graphic is retained in the verified artifact bundle rather than included in the current appendix, so that its six class labels remain legible when inspected.
+% TRACE: S6-C02 | answer/results/error_confusion.json | $.row_normalised[1][2], $.row_normalised[2][2], $.row_normalised[4][4], $.row_normalised[5][5] | descriptive matrix entries only
+The recorded neutral diagonal is 79.76\%, whereas the negative row assigns 47.06\% of its records to neutral; the sarcastic-negative and mocking diagonals are 55.04\% and 55.08\%, respectively.
+The ironic-positive row has no counts in this stored matrix, so it cannot support a row-level recall observation.  These values are descriptive entries in a row-normalized artifact, not independent estimates for every pragmatic label in the study.
+
+\textbf{PLAUSIBLE INTERPRETATION.} The concentration of some negative and pragmatic-polarity records outside their diagonal cells identifies where this particular prediction set can be inspected more closely.  It supports a bounded statement that the recorded decision behavior is uneven across the represented classes, without establishing whether the source of an error is wording, annotation boundary, class prevalence, or the learned representation.
+
+\textbf{UNTESTED HYPOTHESIS.} A targeted experiment could test whether rebalancing, alternative class construction, or a different prediction interface changes these off-diagonal patterns.  No such experiment is present in the artifact bundle, so these possibilities are not used as conclusions about the model architecture or the data.
+
+\subsection{Calibration}
+
+% TRACE: S6-C03 | answer/results/calibration.json | $.provenance.reporting_scope, $.systems.{phobert_finetune,xlmr_large,vipragsent_full} | eligible-system scope
+\textbf{OBSERVED EVIDENCE.} Calibration is reported only for seed-20260520 prediction files with stored pragmatic-polarity confidence scores: PhoBERT fine-tune, XLM-R-large, and ViPragSent (ours).  The artifact excludes systems without those recorded scores, so it does not justify a calibration ranking across all eight main-comparison systems or a three-seed calibration estimate.
+% TRACE: S6-C04 | answer/results/calibration.json | $.systems.{phobert_finetune,vipragsent_full,xlmr_large}.{n,ece,missing_confidence}; answer/tables/calibration.md | stored calibration values only
+Each eligible system has 2,000 scored records and zero missing confidence entries; the stored ECE values are 0.09 for PhoBERT fine-tune, 0.07 for ViPragSent (ours), and 0.15 for XLM-R-large.
+The bin-level reliability outputs and their visual detail are retained in the verified artifact bundle rather than included in the current appendix; they should be read with the corresponding confidence-scope qualification.
+
+\textbf{PLAUSIBLE INTERPRETATION.} Within this restricted set of recorded confidence outputs, ViPragSent has the lowest stored ECE.  This statement concerns calibration error on the defined pragmatic-polarity target; it neither changes the macro-F1 ordering nor implies that the same ordering would hold for systems without archived confidence values.
+
+\textbf{UNTESTED HYPOTHESIS.} Whether calibration post-processing or a different confidence extraction procedure would alter these values is not tested here.  Accordingly, no causal account of the ECE differences is made.
+
+\subsection{Source-stratified Sensitivity}
+
+The source-stratified, calibration, confusion, and low-resource analyses below are historical-system diagnostics unless explicitly marked otherwise; they are not analyses of ViPragSent-Final.
+
+% TRACE: S6-C05 | answer/results/p1_source_stratified_sensitivity.json | $.test_source_counts; manuscript/latex/tables/table_source_lowresource.tex | fixed source-labelled sample sizes and three-seed coverage | descriptive sensitivity only
+\textbf{OBSERVED EVIDENCE.} P1 splits the fixed test partition into 1,666 ViSoBERT-local records and 334 VIVID-labelled records, with all reported systems scored separately across three seeds. Appendix Table~\ref{tab:source-lowresource} displays ViPragSent, PhoBERT, and ViSoBERT to make the scale and uncertainty of the source-stratified results inspectable.
+% TRACE: S6-C06 | answer/results/p1_source_stratified_sensitivity.json | $.systems.{vipragsent_full,phobert_finetune,visobert_finetune}.{visobert_local,VIVID_seed_and_irony_generation}.aggregate.macro_pragmatic_f1 | descriptive stratum estimates and intervals only
+For ViPragSent, PhoBERT, and ViSoBERT respectively, macro pragmatic F1 is 52.56 [52.38, 52.73], 60.60 [58.63, 62.57], and 62.08 [60.69, 63.47] on the ViSoBERT-local stratum, versus 79.84 [79.71, 79.96], 87.21 [85.48, 88.95], and 93.04 [90.55, 95.54] on the VIVID-labelled stratum. The latter stratum is smaller, so its intervals should be read with its 334-record scope in view.
+
+\textbf{PLAUSIBLE INTERPRETATION.} These results describe the recorded, source-labelled composition of this test partition. They do not identify a source-domain cause, establish that one source is intrinsically easier, or generalize to a broader domain-transfer setting.
+
+\textbf{UNTESTED HYPOTHESIS.} Differences between strata could reflect the constructed labels, class composition, source provenance, or other coupled properties. The present observational split does not isolate those alternatives.
+
+\subsection{Exploratory Low-resource Sarcasm}
+
+% TRACE: S6-C07 | answer/results/p2_multi_seed_low_resource.json | $.budgets.*.{phobert_finetune,vipragsent_full}.aggregate.sarcasm; configs/experiments_p0_p1_p2.yaml | $.p2.multi_seed_low_resource.{budgets,positive_to_other_ratio,total_training_sizes} | three-seed exploratory budget scope only
+\textbf{OBSERVED EVIDENCE.} P2 compares PhoBERT fine-tune and ViPragSent (ours) at sarcasm-positive budgets of 64, 128, 256, 512, and 1,024, corresponding to total training sizes of 256, 512, 1,024, 2,048, and 4,096 under the verified 1:3 positive-to-other composition. Every system--budget condition has three recorded seeds; Appendix Table~\ref{tab:source-lowresource} reports the aggregate sarcasm macro F1 and normal 95\% intervals.
+% TRACE: S6-C08 | answer/results/p2_multi_seed_low_resource.json | $.budgets.{64,128,256,512,1024}.{phobert_finetune,vipragsent_full}.aggregate.sarcasm | mixed-monotonicity descriptive outcome only
+The PhoBERT means are 45.24, 45.15, 75.72, 75.41, and 76.34, whereas the ViPragSent means are 47.45, 47.79, 64.44, 74.35, and 74.89 across the increasing positive budgets. The PhoBERT sequence is non-monotonic, whereas the recorded ViPragSent sequence increases across the five budgets; the ViPragSent interval at 256 is wide [45.57, 83.30].
+
+\textbf{PLAUSIBLE INTERPRETATION.} The mixed patterns across systems show that the recorded positive-budget increase does not yield one uniform response across the two systems. They provide a three-seed exploratory characterization of these sampled training subsets, not a comparative data-efficiency conclusion.
+
+\textbf{UNTESTED HYPOTHESIS.} The changes could depend on subset composition, optimization variation, or other unrecorded factors. The present design does not isolate those alternatives or establish an architectural explanation.

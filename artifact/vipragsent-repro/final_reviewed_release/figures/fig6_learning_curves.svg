@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330"><defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e96"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}</style>
+<text x="20" y="25" font-size="16">Mean development macro pragmatic F1</text>
+<line x1="70" y1="265" x2="670" y2="265" stroke="#333"/>
+<line x1="70" y1="45" x2="70" y2="265" stroke="#333"/>
+<polyline points="70.0,135.3 136.7,123.5 203.3,113.9 270.0,113.1 336.7,103.8 403.3,94.5 470.0,92.7 536.7,92.4 603.3,92.0 670.0,96.3" fill="none" stroke="#5b8ec9" stroke-width="2"/>
+<circle cx="70.0" cy="135.3" r="3" fill="#5b8ec9"/>
+<circle cx="136.7" cy="123.5" r="3" fill="#5b8ec9"/>
+<circle cx="203.3" cy="113.9" r="3" fill="#5b8ec9"/>
+<circle cx="270.0" cy="113.1" r="3" fill="#5b8ec9"/>
+<circle cx="336.7" cy="103.8" r="3" fill="#5b8ec9"/>
+<circle cx="403.3" cy="94.5" r="3" fill="#5b8ec9"/>
+<circle cx="470.0" cy="92.7" r="3" fill="#5b8ec9"/>
+<circle cx="536.7" cy="92.4" r="3" fill="#5b8ec9"/>
+<circle cx="603.3" cy="92.0" r="3" fill="#5b8ec9"/>
+<circle cx="670.0" cy="96.3" r="3" fill="#5b8ec9"/>
+<rect x="690" y="45" width="10" height="10" fill="#5b8ec9"/>
+<text x="705" y="54" font-size="10">PhoBERT fine-tune</text>
+<polyline points="70.0,152.3 136.7,134.8 203.3,129.1 270.0,108.0 336.7,106.4 403.3,106.2 470.0,106.3 536.7,106.1 603.3,108.9 670.0,108.7" fill="none" stroke="#7aa17a" stroke-width="2"/>
+<circle cx="70.0" cy="152.3" r="3" fill="#7aa17a"/>
+<circle cx="136.7" cy="134.8" r="3" fill="#7aa17a"/>
+<circle cx="203.3" cy="129.1" r="3" fill="#7aa17a"/>
+<circle cx="270.0" cy="108.0" r="3" fill="#7aa17a"/>
+<circle cx="336.7" cy="106.4" r="3" fill="#7aa17a"/>
+<circle cx="403.3" cy="106.2" r="3" fill="#7aa17a"/>
+<circle cx="470.0" cy="106.3" r="3" fill="#7aa17a"/>
+<circle cx="536.7" cy="106.1" r="3" fill="#7aa17a"/>
+<circle cx="603.3" cy="108.9" r="3" fill="#7aa17a"/>
+<circle cx="670.0" cy="108.7" r="3" fill="#7aa17a"/>
+<rect x="690" y="63" width="10" height="10" fill="#7aa17a"/>
+<text x="705" y="72" font-size="10">ViPragSent (ours)</text>
+<polyline points="70.0,127.5 136.7,105.1 203.3,103.4 270.0,103.3 336.7,103.5 403.3,103.1 470.0,102.5 536.7,101.3 603.3,100.7 670.0,100.5" fill="none" stroke="#a892c9" stroke-width="2"/>
+<circle cx="70.0" cy="127.5" r="3" fill="#a892c9"/>
+<circle cx="136.7" cy="105.1" r="3" fill="#a892c9"/>
+<circle cx="203.3" cy="103.4" r="3" fill="#a892c9"/>
+<circle cx="270.0" cy="103.3" r="3" fill="#a892c9"/>
+<circle cx="336.7" cy="103.5" r="3" fill="#a892c9"/>
+<circle cx="403.3" cy="103.1" r="3" fill="#a892c9"/>
+<circle cx="470.0" cy="102.5" r="3" fill="#a892c9"/>
+<circle cx="536.7" cy="101.3" r="3" fill="#a892c9"/>
+<circle cx="603.3" cy="100.7" r="3" fill="#a892c9"/>
+<circle cx="670.0" cy="100.5" r="3" fill="#a892c9"/>
+<rect x="690" y="81" width="10" height="10" fill="#a892c9"/>
+<text x="705" y="90" font-size="10">vipragsent_no_emotion</text>
+<polyline points="70.0,114.5 136.7,104.1 203.3,104.6 270.0,104.2" fill="none" stroke="#f0a04b" stroke-width="2"/>
+<circle cx="70.0" cy="114.5" r="3" fill="#f0a04b"/>
+<circle cx="136.7" cy="104.1" r="3" fill="#f0a04b"/>
+<circle cx="203.3" cy="104.6" r="3" fill="#f0a04b"/>
+<circle cx="270.0" cy="104.2" r="3" fill="#f0a04b"/>
+<rect x="690" y="99" width="10" height="10" fill="#f0a04b"/>
+<text x="705" y="108" font-size="10">vipragsent_no_polarity</text>
+<polyline points="70.0,126.4 136.7,105.3 203.3,103.1 270.0,103.8 336.7,104.0" fill="none" stroke="#1f4e96" stroke-width="2"/>
+<circle cx="70.0" cy="126.4" r="3" fill="#1f4e96"/>
+<circle cx="136.7" cy="105.3" r="3" fill="#1f4e96"/>
+<circle cx="203.3" cy="103.1" r="3" fill="#1f4e96"/>
+<circle cx="270.0" cy="103.8" r="3" fill="#1f4e96"/>
+<circle cx="336.7" cy="104.0" r="3" fill="#1f4e96"/>
+<rect x="690" y="117" width="10" height="10" fill="#1f4e96"/>
+<text x="705" y="126" font-size="10">vipragsent_no_rationale</text>
+<polyline points="70.0,144.9 136.7,103.7 203.3,103.3 270.0,103.8 336.7,103.8" fill="none" stroke="#c98686" stroke-width="2"/>
+<circle cx="70.0" cy="144.9" r="3" fill="#c98686"/>
+<circle cx="136.7" cy="103.7" r="3" fill="#c98686"/>
+<circle cx="203.3" cy="103.3" r="3" fill="#c98686"/>
+<circle cx="270.0" cy="103.8" r="3" fill="#c98686"/>
+<circle cx="336.7" cy="103.8" r="3" fill="#c98686"/>
+<rect x="690" y="135" width="10" height="10" fill="#c98686"/>
+<text x="705" y="144" font-size="10">vipragsent_no_uncertainty</text>
+<polyline points="70.0,106.2 136.7,102.7 203.3,102.1 270.0,98.1 336.7,96.3 403.3,93.8 470.0,90.9 536.7,89.9 603.3,88.9 670.0,88.5" fill="none" stroke="#8c8c8c" stroke-width="2"/>
+<circle cx="70.0" cy="106.2" r="3" fill="#8c8c8c"/>
+<circle cx="136.7" cy="102.7" r="3" fill="#8c8c8c"/>
+<circle cx="203.3" cy="102.1" r="3" fill="#8c8c8c"/>
+<circle cx="270.0" cy="98.1" r="3" fill="#8c8c8c"/>
+<circle cx="336.7" cy="96.3" r="3" fill="#8c8c8c"/>
+<circle cx="403.3" cy="93.8" r="3" fill="#8c8c8c"/>
+<circle cx="470.0" cy="90.9" r="3" fill="#8c8c8c"/>
+<circle cx="536.7" cy="89.9" r="3" fill="#8c8c8c"/>
+<circle cx="603.3" cy="88.9" r="3" fill="#8c8c8c"/>
+<circle cx="670.0" cy="88.5" r="3" fill="#8c8c8c"/>
+<rect x="690" y="153" width="10" height="10" fill="#8c8c8c"/>
+<text x="705" y="162" font-size="10">XLM-R-large</text>
+<text x="70.0" y="285" text-anchor="middle" font-size="10">1</text>
+<text x="136.7" y="285" text-anchor="middle" font-size="10">2</text>
+<text x="203.3" y="285" text-anchor="middle" font-size="10">3</text>
+<text x="270.0" y="285" text-anchor="middle" font-size="10">4</text>
+<text x="336.7" y="285" text-anchor="middle" font-size="10">5</text>
+<text x="403.3" y="285" text-anchor="middle" font-size="10">6</text>
+<text x="470.0" y="285" text-anchor="middle" font-size="10">7</text>
+<text x="536.7" y="285" text-anchor="middle" font-size="10">8</text>
+<text x="603.3" y="285" text-anchor="middle" font-size="10">9</text>
+<text x="670.0" y="285" text-anchor="middle" font-size="10">10</text>
+</svg>
