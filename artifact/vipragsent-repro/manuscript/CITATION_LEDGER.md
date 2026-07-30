@@ -2,6 +2,15 @@
 
 Verification date: 2026-07-18.  This ledger records source metadata and citation readiness only; it does not authorize new empirical claims.
 
+## Phase 1 additions (verified 2026-07-30)
+
+| Citation key | Primary record | Verified metadata | Exact supported claim |
+| --- | --- | --- | --- |
+| `tran-etal-2026-vigoemotions` | ACL Anthology, EACL 2026 | Tran, Pham, Luu, and Nguyen; pp. 2805--2831; DOI `10.18653/v1/2026.eacl-long.129` | Vietnamese social-media comments can support a fine-grained emotion benchmark; it does not define ViPragSent labels. |
+| `toukmaji-flanigan-2025-adapting` | ACL Anthology, GEM 2025 | Toukmaji and Flanigan; pp. 670--704; official proceedings URL | Prompting, translation, fine-tuning, and instruction tuning are compared empirically in lower-resource language settings; it does not predict a ViPragSent winner. |
+
+The synchronized bibliography contains 14 records. Each Related Work paragraph has a task/dataset/model distinction, a bounded gap statement, and no unsupported claim of architectural novelty.
+
 ## Required-citation coverage
 
 | Required citation in `DETAILED_OUTLINE.md` | Citation key | Planned sections | Status | Basis / remaining condition |
