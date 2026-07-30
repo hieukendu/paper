@@ -14,6 +14,7 @@
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{needspace}
 
 % Keep the official ACL style file unchanged while ensuring that the local
 % XeLaTeX font fallback renders the document hierarchy visibly in bold.
@@ -74,23 +75,19 @@ This appendix reports the per-label post-adjudication agreement values summarize
 \end{table}
 
 \clearpage
-\onecolumn
-\section{External Diagnostics}
-\label{app:external-diagnostics}
-% TRACE: APP-C02 | answer/results/p0_multi_seed_ablation.json; answer/results/p0_visobert_baseline.json | external_benchmarks aggregates | three-seed, evaluation-only diagnostics
-\begin{table}[!ht]
+\twocolumn[
+  \section{External Diagnostics}
+  \label{app:external-diagnostics}
+  % TRACE: APP-C02 | answer/results/p0_multi_seed_ablation.json; answer/results/p0_visobert_baseline.json | external_benchmarks aggregates | three-seed, evaluation-only diagnostics
   \centering
   \input{tables/table_external_diagnostics}
-  \caption{Three-seed external diagnostic macro F1 (mean [normal 95\% interval]) for the four P0 ablations and ViSoBERT. UIT-VSFC and AIVIVN-2019 use polarity macro F1; UIT-VSMEC uses emotion macro F1. These datasets have distinct label spaces and are evaluation-only diagnostics, not a pooled transfer result.}
+  \captionof{table}{Three-seed external diagnostic macro F1 (mean [normal 95\% interval]) for the four P0 ablations and ViSoBERT. UIT-VSFC and AIVIVN-2019 use polarity macro F1; UIT-VSMEC uses emotion macro F1. These datasets have distinct label spaces and are evaluation-only diagnostics, not a pooled transfer result.}
   \label{tab:external-diagnostics}
-\end{table}
-
-\section{Final-System Progression}
-\label{app:final-progression}
-\begin{table}[!ht]
-  \centering
+  \vspace{1.0em}
+  \section{Final-System Progression}
+  \label{app:final-progression}
   \input{appendix/table_final_progression}
-  \caption{Historical ViPragSent progression. These rows document development and must not be interpreted as independent external baselines.}
-\end{table}
+  \captionof{table}{Historical ViPragSent progression. These rows document development and must not be interpreted as independent external baselines.}
+]
 
 \end{document}

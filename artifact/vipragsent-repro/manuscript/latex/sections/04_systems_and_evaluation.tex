@@ -9,7 +9,7 @@ Original and previous optimized ViPragSent configurations, the archived incumben
 
 \subsection{ViPragSent-Final Label-wise Ensemble}
 
-ViPragSent-Final is a frozen label-wise prediction ensemble, not a single encoder. The configured retained ViSoBERT sources \texttt{visobert\_20260902} and \texttt{visobert\_20260903} supply implicit sentiment and sarcasm, respectively; irony and code-switching use probability $0.6\,p_{\mathrm{ViSoBERT}}+0.4\,p_{\mathrm{PhoBERT}}$; uniform three-seed ViSoBERT supplies idiom/figurative language; and a targeted uniform three-seed component supplies mocking. This description makes the system auditable and does not attribute its performance to an individual component or claim architectural novelty.
+ViPragSent-Final is a frozen label-wise prediction ensemble, not a single encoder. The configured retained ViSoBERT sources assigned to implicit sentiment and sarcasm supply those labels, respectively; their opaque run identifiers are retained in the traceability artifact rather than displayed as date-like names in the manuscript. Irony and code-switching use probability $0.6\,p_{\mathrm{ViSoBERT}}+0.4\,p_{\mathrm{PhoBERT}}$; uniform three-seed ViSoBERT supplies idiom/figurative language; and a targeted uniform three-seed component supplies mocking. This description makes the system auditable and does not attribute its performance to an individual component or claim architectural novelty.
 
 \subsection{Development-only Selection, OOF Procedure, and Freeze}
 
@@ -19,7 +19,7 @@ The frozen configuration was evaluated once on the canonical 2,000-record test p
 
 \subsection{Metrics and Statistical Protocol}
 
-For each pragmatic label, binary macro-F1 averages negative- and positive-class F1. Macro pragmatic F1 is the equal-weight mean over the six labels, so aggregate leadership does not imply per-label leadership. Repository evaluation uses 1,000 bootstrap resamples for 95\% intervals; stored paired comparisons use a paired non-parametric bootstrap over aligned test records with 1,000 resamples. Historical intervals and tests remain scoped to their named systems and comparisons. Three-seed normal intervals are descriptive, and no unrecorded multiple-comparison correction is claimed for the development label-wise search.
+For each pragmatic label, binary macro-F1 averages negative- and positive-class F1. Macro pragmatic F1 is the equal-weight mean over the six labels, so aggregate leadership does not imply per-label leadership. Where aligned stored predictions exist, repository evaluation uses 1,000 bootstrap resamples for 95\% intervals, and the recorded paired comparison uses a paired non-parametric bootstrap over aligned test records with 1,000 resamples. Historical intervals and tests remain scoped to their named systems and comparisons. Three-seed normal intervals are descriptive, and no unrecorded multiple-comparison correction is claimed for the development label-wise search.
 
 \subsection{Reproducibility, Compute, and Artifact Traceability}
 

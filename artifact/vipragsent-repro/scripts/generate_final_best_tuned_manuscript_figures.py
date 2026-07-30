@@ -51,7 +51,9 @@ def macro_comparison(rows: list[dict], final: dict) -> None:
 
 def label_gaps(rows: list[dict], final: dict) -> None:
     baselines = [row for row in rows if row["regime"] == "best_tuned"]
-    names = [display for _, display in LABELS]
+    # Compact category names and angled labels keep the six categories legible
+    # at single-column width in the ACL review format.
+    names = ["Implicit", "Sarcasm", "Irony", "Idiom", "Code", "Mocking"]
     gaps = [float(final[key]) - max(float(row[key]) for row in baselines) for key, _ in LABELS]
     colors = ["#1b9e77" if value >= 0 else "#d95f02" for value in gaps]
     fig, ax = plt.subplots(figsize=(3.35, 2.35))
@@ -59,7 +61,10 @@ def label_gaps(rows: list[dict], final: dict) -> None:
     ax.axhline(0, color="black", linewidth=0.8)
     ax.set_ylabel("F1 difference (points)")
     ax.set_ylim(-1, 8)
-    ax.tick_params(axis="x", labelrotation=0, labelsize=6)
+    ax.tick_params(axis="x", labelrotation=25, labelsize=5.5)
+    for label in ax.get_xticklabels():
+        label.set_horizontalalignment("right")
+    fig.subplots_adjust(bottom=0.27)
     ax.grid(axis="y", color="#dddddd", linewidth=0.6)
     ax.set_axisbelow(True)
     for bar, value in zip(bars, gaps):

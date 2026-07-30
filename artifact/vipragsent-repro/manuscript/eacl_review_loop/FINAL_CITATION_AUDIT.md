@@ -1,5 +1,7 @@
 # Final Citation Audit
 
-Status: **INCOMPLETE — NOT SUBMISSION CLEARANCE.**
+Status: **PASS WITH EXPLICIT SOURCE-TYPE BOUNDARIES.**
 
-This loop corrected two metadata defects using official ACL Anthology records: Ghosh et al. (2020, SCiL) and Hung et al. (2026, EACL). The duplicate bibliography files remain synchronized. A full item-by-item primary-source review of every remaining in-text use has not yet been completed; this is agent-fixable work that remains open.
+On 2026-07-30, the continuation independently enumerated all 13 cited keys, checked every citation's local sentence context, and verified the listed primary record and metadata. Both bibliography files remain byte-identical; the rebuilt manuscript has no undefined citation, duplicate key, or unused bibliography entry. The item-level results, including model-card and repository boundaries, are in `CONTINUATION_CITATION_AUDIT.md`.
+
+The audit corrected the misleading 2019 Ghosh citation key to `ghosh-etal-2020-interpreting` and added the ACL DOI to the Toukmaji--Flanigan record. Vistral and VIVID remain correctly represented as a model card and a pinned official repository, respectively; neither is presented as an archival paper.

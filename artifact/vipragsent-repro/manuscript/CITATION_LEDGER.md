@@ -1,6 +1,6 @@
 # Citation Ledger
 
-Verification date: 2026-07-18.  This ledger records source metadata and citation readiness only; it does not authorize new empirical claims.
+Verification dates: 2026-07-18 and continuation audit 2026-07-30. This ledger records source metadata and citation readiness only; it does not authorize new empirical claims.
 
 ## Phase 1 additions (verified 2026-07-30)
 
@@ -17,7 +17,7 @@ The synchronized bibliography contains 14 records. Each Related Work paragraph h
 | --- | --- | --- | --- | --- |
 | Nguyen et al. (2023), ViSoBERT | `nguyen-etal-2023-visobert` | 1, 2 | VERIFIED | Existing ACL Anthology record retained. |
 | ReML-AI (2026), VIVID repository | `rem-lab-2026-vivid` | 3 | VERIFIED | Official repository; data-source provenance only. |
-| Ghosh et al. (2019), verbal irony | `ghosh-etal-2019-verbal-irony` | 3 | VERIFIED | Conceptual context for contextualization; not a data-source claim. |
+| Ghosh et al. (2020), verbal irony | `ghosh-etal-2020-interpreting` | 3 | VERIFIED | Official ACL Anthology SCiL 2020 record; conceptual context for contextualization, not a data-source claim. |
 | Nguyen and Tuan Nguyen (2020), PhoBERT | `nguyen-tuan-nguyen-2020-phobert` | 2, 4 | VERIFIED | Existing ACL Anthology record retained. |
 | Conneau et al. (2020), XLM-R | `conneau-etal-2020-unsupervised` | 2, 4 | VERIFIED | Existing ACL Anthology record retained. |
 | UIT-VSFC primary paper | `nguyen-etal-2018-uit-vsfc` | 2, 5 | VERIFIED | Primary IEEE conference paper. |

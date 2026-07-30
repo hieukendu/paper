@@ -16,9 +16,9 @@ The question is unlocked for future phase-specific refinement; Phase 0 makes no 
 - The historical 73.7469 ViPragSent configuration is retained only as progression/ablation evidence.
 - The 12,000-record gold corpus is 10,000 retained local ViSoBERT-export records plus 2,000 VIVID-derived, context-augmented candidate records; split sizes are 8,000/2,000/2,000. Access and authorization limitations remain active.
 
-## Phase-0 boundaries
+## Current control boundaries
 
 - Numerical authority: `answer/final_best_tuned/` for final-system claims; older `answer/results/` artifacts only for explicitly historical analyses.
 - Method/provenance authority: repository configuration, processed-split provenance, and final-bundle metadata.
-- No Section 1–9 LaTeX prose is changed in Phase 0.
-- `main.pdf` is not tracked at `manuscript/latex/main.pdf`; the untracked local PDF matches the current final-source abstract, but the committed-PDF state is **STALE** until Phase 8 rebuilds and commits it.
+- The canonical PDF is the tracked `manuscript/latex/main.pdf`; its current checksum and build evidence are recorded in `eacl_review_loop/CANONICAL_BUILD_RECORD.md`.
+- The item-by-item citation audit is complete and recorded in `eacl_review_loop/FINAL_CITATION_AUDIT.md`. Source authorization and licensing remain author-owned legal questions, not citation-audit failures.
