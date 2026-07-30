@@ -4,6 +4,7 @@ Status: **Phase-0 dependency map; not manuscript prose.**
 
 | Section | Later-phase dependency | Truth lock |
 | --- | --- | --- |
+| Introduction | Problem--gap--RQ--contribution chain | RQ1 compares aggregate/per-label results; RQ2 interprets mixed leadership; use 84.3883 vs. 82.8250 only with the three label deficits |
 | Abstract / Introduction | Final RQ and headline comparison | 84.3883 final macro; +1.5633 vs Vistral-7B; disclose three label deficits |
 | Task and Data | Gold-build report and processed-split provenance | 12,000 = 10,000 local ViSoBERT-export + 2,000 VIVID-derived candidate records; 8k/2k/2k |
 | Systems and Evaluation | `final_selection.json` | Five-fold development OOF selection; one post-freeze canonical test; frozen label-wise ensemble |
