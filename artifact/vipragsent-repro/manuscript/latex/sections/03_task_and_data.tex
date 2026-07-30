@@ -33,6 +33,7 @@ Its stored source metadata identifies 10,000 retained local ViSoBERT-export reco
 Those 2,000 rows replace earlier ViSoBERT rows and are present in the fixed gold partitions used for all reported experiments; the replaced rows are not corpus members.
 % TRACE: S3-C05 | answer/data_provenance/gold_build_report.json | $.split_counts.train.total, $.split_counts.dev.total, $.split_counts.test.total
 Its fixed split is 8,000 training records, 2,000 development records, and 2,000 test records.
+The source-composition report records 6,667/1,333 local/generated-candidate records in train, 1,667/333 in development, and 1,666/334 in test, respectively; these are source metadata strata, not mutually exclusive pragmatic classes.
 The build report records no missing reviews, unresolved disagreements, or invalid records in the final gold build. The repository's fixed partitions determine all reported experiments; this paper neither infers a sampling protocol nor alters membership. Table~\ref{tab:task-data} traces corpus size and split fields to the gold-build report, rather than to the earlier silver-label registry.
 
 % TRACE: S3-C05b | configs/data_governance.yaml | dataset_construction, access_policy, public_release_status; answer/THIRD_PARTY_NOTICES.md | Dataset source
