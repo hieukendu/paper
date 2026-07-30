@@ -13,6 +13,14 @@ This section separates observations stored in the analysis artifacts from their 
 
 \subsection{Confusion Analysis}
 
+\subsection{Final-system Error Profile}
+
+\textbf{OBSERVED EVIDENCE.} Final-system confusion counts are available label by label for the 2,000 canonical test records. The largest false-positive count is implicit sentiment (178), followed by mocking (74) and code-switching (67); the largest false-negative count is sarcasm (154), followed by implicit sentiment (115) and mocking (104). Irony and idiom/figurative language have no recorded false positives and 19 and 18 false negatives, respectively. These counts, together with the recorded label prevalences, show that error behavior differs substantially across labels.
+
+\textbf{PLAUSIBLE INTERPRETATION.} The large implicit-sentiment margin can contribute strongly to the equal-weight aggregate gain despite remaining false positives and false negatives. The narrow deficits for irony, idiom/figurative language, and code-switching are consistent with a balance-improving label-wise mixture rather than uniform dominance.
+
+\textbf{UNTESTED HYPOTHESIS.} Whether these patterns arise from specialized sources, thresholds, label prevalence, or development-selection complexity would require controlled component ablations evaluated with the frozen final protocol.
+
 % TRACE: S6-C01 | answer/results/error_confusion.json | $.system, $.label, $.labels, $.row_normalised | exact matrix system and scope
 \textbf{OBSERVED EVIDENCE.} The stored row-normalized pragmatic-polarity confusion matrix is for ViPragSent (ours), using its seed-20260520 prediction file, with six recorded classes: positive, negative, neutral, ironic-positive, sarcastic-negative, and mocking.  Rows are gold classes and columns are predicted classes.  It is therefore a single-seed diagnostic for this evaluated system and class construction, rather than an error analysis of the other systems or a three-seed aggregate from the main comparison.  The source graphic is retained in the verified artifact bundle rather than included in the current appendix, so that its six class labels remain legible when inspected.
 % TRACE: S6-C02 | answer/results/error_confusion.json | $.row_normalised[1][2], $.row_normalised[2][2], $.row_normalised[4][4], $.row_normalised[5][5] | descriptive matrix entries only
@@ -36,6 +44,8 @@ The bin-level reliability outputs and their visual detail are retained in the ve
 \textbf{UNTESTED HYPOTHESIS.} Whether calibration post-processing or a different confidence extraction procedure would alter these values is not tested here.  Accordingly, no causal account of the ECE differences is made.
 
 \subsection{Source-stratified Sensitivity}
+
+The source-stratified, calibration, confusion, and low-resource analyses below are historical-system diagnostics unless explicitly marked otherwise; they are not analyses of ViPragSent-Final.
 
 % TRACE: S6-C05 | answer/results/p1_source_stratified_sensitivity.json | $.test_source_counts; manuscript/latex/tables/table_source_lowresource.tex | fixed source-labelled sample sizes and three-seed coverage | descriptive sensitivity only
 \textbf{OBSERVED EVIDENCE.} P1 splits the fixed test partition into 1,666 ViSoBERT-local records and 334 VIVID-labelled records, with all reported systems scored separately across three seeds. Appendix Table~\ref{tab:source-lowresource} displays ViPragSent, PhoBERT, and ViSoBERT to make the scale and uncertainty of the source-stratified results inspectable.
