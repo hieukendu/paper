@@ -37,7 +37,7 @@
 \maketitle
 
 \begin{abstract}
-Pragmatic interpretation in Vietnamese-language text can depend on signals beyond surface polarity. We evaluate six pragmatic phenomena in the fixed ViPragSent setting, which has a documented social-media source component and a private-data boundary. ViPragSent-Final is a frozen label-wise ensemble selected with five-fold development out-of-fold evidence: it combines three-seed ViSoBERT and PhoBERT sources, probability blends for irony and code-switching, and a targeted mocking component. On one post-freeze canonical-test evaluation, it reaches 84.39 macro pragmatic F1, 1.56 points above Vistral-7B, the strongest complete best-tuned baseline. The aggregate lead does not establish strict per-label dominance: the final system remains 0.40 points below the strongest irony result, 0.11 below the strongest idiom/figurative-language result, and 0.13 below the strongest code-switching result. Stored predictions, configuration, and artifact hashes are traceable, but this is not an independent training reproduction; raw source text remains private.
+Pragmatic interpretation in Vietnamese-language text can depend on signals beyond surface polarity. We evaluate six pragmatic phenomena in the fixed ViPragSent setting, which has a documented social-media source component and a private-data boundary. ViPragSent-Final is a frozen label-wise ensemble selected with five-fold development out-of-fold evidence: it combines retained ViSoBERT and PhoBERT sources, probability blends for irony and code-switching, and a targeted mocking component. On one post-freeze canonical-test evaluation, it reaches 84.39 macro pragmatic F1, 1.56 points above Vistral-7B, the strongest complete best-tuned baseline. The aggregate lead does not establish strict per-label dominance: the final system remains 0.40 points below the strongest irony result, 0.11 below the strongest idiom/figurative-language result, and 0.13 below the strongest code-switching result. Stored predictions, configuration, and artifact hashes are traceable, but this is not an independent training reproduction; raw source text remains private.
 \end{abstract}
 
 \input{sections/01_introduction}
@@ -73,15 +73,17 @@ This appendix reports the per-label post-adjudication agreement values summarize
   \label{tab:source-lowresource}
 \end{table}
 
+\clearpage
+\onecolumn
 \section{External Diagnostics}
 \label{app:external-diagnostics}
 % TRACE: APP-C02 | answer/results/p0_multi_seed_ablation.json; answer/results/p0_visobert_baseline.json | external_benchmarks aggregates | three-seed, evaluation-only diagnostics
-\begin{table*}[!ht]
+\begin{table}[!ht]
   \centering
   \input{tables/table_external_diagnostics}
   \caption{Three-seed external diagnostic macro F1 (mean [normal 95\% interval]) for the four P0 ablations and ViSoBERT. UIT-VSFC and AIVIVN-2019 use polarity macro F1; UIT-VSMEC uses emotion macro F1. These datasets have distinct label spaces and are evaluation-only diagnostics, not a pooled transfer result.}
   \label{tab:external-diagnostics}
-\end{table*}
+\end{table}
 
 \section{Final-System Progression}
 \label{app:final-progression}
