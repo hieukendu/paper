@@ -1,6 +1,6 @@
 # Section 1 Traceability Record
 
-Status: **VERIFIED FOR DRAFTING AND RESULTS-CONSISTENT**. The Introduction contains the revised evidence-bounded research question and C1--C7.
+Status: **VERIFIED FOR PHASE-2 INTRODUCTION**. The Introduction contains RQ1/RQ2, an evidence-bounded gap, and five contribution claims.
 
 | Claim ID | Introduction claim | Evidence | Permitted scope | Status |
 | --- | --- | --- | --- | --- |
@@ -13,3 +13,5 @@ Status: **VERIFIED FOR DRAFTING AND RESULTS-CONSISTENT**. The Introduction conta
 | C6 | P2 records exploratory three-seed low-resource sarcasm results over five positive-label budgets. | `answer/results/p2_multi_seed_low_resource.json`; Section 6 and Appendix | No data-efficiency superiority claim. | VERIFIED, QUALIFIED |
 | C7 | P1 records descriptive source-stratified sensitivity on the 1,666/334 evaluated source-labelled strata. | `answer/results/p1_source_stratified_sensitivity.json`; Section 6 and Appendix | No causal source effect, source superiority, or general transfer claim. | VERIFIED, QUALIFIED |
 | C5 | Reported comparisons link to predictions, manifests, hashes, and pinned archives. | `answer/results/claim_ledger.csv`; `answer/reproducibility/verification_manifest.json`; `answer/reproducibility/artifact_registry.json`; Section 4 | Artifact-level traceability only; not a fresh rerun. | VERIFIED |
+| I-C03 | RQ1 compares aggregate and per-label results; RQ2 interprets aggregate gain with label-specific exceptions. | `answer/final_best_tuned/final_comparison.json`; `FINAL_BEST_TUNED_CLAIM_LOCK.md` | No universal-superiority inference. | VERIFIED |
+| I-C04 | The five introduction contributions map to Task/Data, governance, Systems/Evaluation, Results, and reproducibility evidence. | Sections 3--5; `answer/final_best_tuned/`; provenance and validation records | Contribution map only; later sections remain the evidentiary detail. | VERIFIED |

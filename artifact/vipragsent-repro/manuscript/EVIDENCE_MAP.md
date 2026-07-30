@@ -5,6 +5,7 @@ All paths are relative to the repository root. “Evidence” identifies what is
 | Planned item | Evidence | Inference allowed | Status |
 | --- | --- | --- | --- |
 | Split and data scale | `answer/data_provenance/gold_build_report.json`; `README.md` | 12,000 adjudicated records; 8,000/2,000/2,000 split | Verified |
+| Introduction RQs and contribution chain | `answer/final_best_tuned/final_comparison.json`; `manuscript/FINAL_BEST_TUNED_CLAIM_LOCK.md`; provenance records | Aggregate/per-label comparison and bounded traceability claims | Verified, qualified |
 | Annotation quality | `answer/results/annotation_agreement.json`; `answer/tables/annotation_agreement.md` | Report observed agreement, with fixed-adjudicator/post-adjudication qualification | Verified |
 | Promoted final comparative result | `answer/final_best_tuned/final_comparison.json`; `answer/final_best_tuned/FINAL_RESULTS.md`; `answer/final_best_tuned/final_selection.json` | ViPragSent-Final is the aggregate leader at 84.3883 macro F1, +1.5633 over Vistral-7B; irony, idiom, and code-switching remain below label leaders | Verified, qualified |
 | Per-phenomenon behavior | `answer/figures/fig2_per_phenomenon.svg`; `answer/tables/main_pragmatic.md` | Phenomena differ in difficulty across evaluated systems | Verified |
