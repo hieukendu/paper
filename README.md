@@ -16,7 +16,7 @@ This repository is the evidence source for the accompanying paper. Reported valu
 
 ### Dataset source and composition
 
-ViPragSent contains 12,000 Vietnamese social-media comments derived solely from the local ViSoBERT export. UIT-VSFC, UIT-VSMEC, and AIVIVN are external ordinary-task evaluation benchmarks; they are not incorporated into ViPragSent.
+The final adjudicated ViPragSent gold corpus contains 12,000 records: 10,000 retained local ViSoBERT-export records plus 2,000 context-augmented, VIVID-derived candidate records identified in stored provenance. The latter are separately labelled in the processed splits and remain subject to source-authorization and licence review. UIT-VSFC, UIT-VSMEC, and AIVIVN are external ordinary-task evaluation benchmarks; they are not incorporated into ViPragSent.
 
 The adjudicated split is 8,000 train, 2,000 development, and 2,000 test records. Each record follows the unified JSONL schema documented in the reproduction artifact and includes six binary pragmatic labels, polarity, emotion, provenance, and annotation status.
 
@@ -66,4 +66,4 @@ not create redistribution rights over third-party material.
 
 ## Current evidence status
 
-Completed evidence includes three-seed encoder and 7B runs, low-resource experiments, implemented multi-task ablations with ordinary-task retention, calibration, confusion analysis, IAA, bootstrap confidence intervals, paired significance tests, provenance manifests, and archived checkpoints. Remaining non-compute action is preparation of the final manuscript from the generated artifacts; source permission is additionally required only before any public raw-text dataset release.
+The promoted manuscript result is `answer/final_best_tuned/`: ViPragSent-Final reaches 84.3883 macro pragmatic F1 on one post-freeze canonical-test evaluation, versus 82.8250 for the strongest complete best-tuned baseline (Vistral-7B). This aggregate lead does not imply per-label dominance. The later `true_anchor_arbiter_cycle/` is stopped and not promoted. Completed supporting evidence includes three-seed encoder and 7B runs, historical ablations, calibration, confusion analysis, IAA, provenance manifests, and archived checkpoints. Source permission remains required before any public raw-text release.
