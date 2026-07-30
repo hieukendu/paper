@@ -6,7 +6,7 @@ All paths are relative to the repository root. “Evidence” identifies what is
 | --- | --- | --- | --- |
 | Split and data scale | `answer/data_provenance/gold_build_report.json`; `README.md` | 12,000 adjudicated records; 8,000/2,000/2,000 split | Verified |
 | Annotation quality | `answer/results/annotation_agreement.json`; `answer/tables/annotation_agreement.md` | Report observed agreement, with fixed-adjudicator/post-adjudication qualification | Verified |
-| Main comparative result | `answer/results/main_pragmatic.json`; `answer/results/p0_visobert_baseline.json`; `answer/tables/main_pragmatic.md` | Vistral-7B SFT is the strongest recorded system at 82.83 macro F1; ViPragSent is 73.75; ViSoBERT is an evaluated three-seed baseline | Verified |
+| Promoted final comparative result | `answer/final_best_tuned/final_comparison.json`; `answer/final_best_tuned/FINAL_RESULTS.md`; `answer/final_best_tuned/final_selection.json` | ViPragSent-Final is the aggregate leader at 84.3883 macro F1, +1.5633 over Vistral-7B; irony, idiom, and code-switching remain below label leaders | Verified, qualified |
 | Per-phenomenon behavior | `answer/figures/fig2_per_phenomenon.svg`; `answer/tables/main_pragmatic.md` | Phenomena differ in difficulty across evaluated systems | Verified |
 | Statistical comparisons | `answer/results/significance.json`; `answer/tables/significance.md` | Report stored paired-bootstrap intervals and uncorrected finite-resample tail proportions descriptively for named comparisons; no p-value-based conclusion | Verified, qualified |
 | Multi-task trade-off | `answer/results/p0_multi_seed_ablation.json`; `answer/results/p0_p1_p2_summary.json`; `answer/tables/p0_p1_p2_experiments.md` | Three-seed recorded trade-off association only; no causal, universal, or robustness claim | Verified, qualified |
@@ -37,4 +37,4 @@ For every numerical sentence, record a comment or drafting note containing:
 
 `claim_id | answer artifact path | JSON path or ledger anchor | interpretation qualifier`
 
-Example: `C3 | answer/results/main_pragmatic.json | $.systems.vistral_7b_sft.metrics.macro_pragmatic_f1.mean | strongest evaluated system, not SOTA`
+Example: `C3 | answer/final_best_tuned/final_comparison.json | macro_pragmatic_f1 | aggregate lead only; disclose all three per-label deficits`
