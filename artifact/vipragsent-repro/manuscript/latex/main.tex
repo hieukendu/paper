@@ -30,22 +30,14 @@
 
 \newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
 
-\title{\headingstyle ViPragSent: Comparative Evaluation of Vietnamese Pragmatic Sentiment with a Social-Media Source Component}
+\title{\headingstyle ViPragSent-Final: A Development-Selected Ensemble for Vietnamese Pragmatic Sentiment Evaluation}
 \author{}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Pragmatic interpretation in Vietnamese-language text can depend on signals that extend beyond surface polarity. Such phenomena can shift apparent polarity or communicative intent, making a single polarity label insufficient for the defined evaluation considered here.
-% TRACE: ABS-S1 | configs/labels.yaml; answer/data_provenance/gold_build_report.json | six phenomena | bounded setting only
-We present ViPragSent, an adjudicated evaluation setting combining a documented social-media source component with author-created, context-augmented figurative-language derivatives. It covers six pragmatic phenomena: implicit sentiment, sarcasm, irony, idiom/figurative language, code-switching, and mocking, without claiming comprehensive coverage of Vietnamese pragmatics.
-% TRACE: ABS-S2 | answer/results/main_pragmatic.json; answer/results/p0_visobert_baseline.json; configs/experiments_p0_p1_p2.yaml | evaluated systems and pinned ViSoBERT revision | protocol scope only
-We compare Vietnamese, multilingual, and Vietnamese-social-media encoders, including ViSoBERT, alongside 7B QLoRA SFT models, prompted API baselines, and a multi-task encoder under a common protocol.
-% TRACE: ABS-S3 | answer/results/main_pragmatic.json | vistral_7b_sft macro pragmatic F1 mean | strongest recorded evaluated system
-Vistral-7B SFT is the strongest recorded evaluated system, with macro pragmatic F1 of 82.83.
-% TRACE: ABS-S4 | answer/results/p0_multi_seed_ablation.json | $.systems.*.aggregate.macro_pragmatic_f1; three seeds | descriptive association only; no causal or universal auxiliary-task claim
-ViPragSent is not the leading recorded system; its three-seed ablation instead records a pragmatic-performance difference between the full configuration (73.75) and the PhoBERT no-multitask reference (81.71), with the recorded ablation variants spanning 73.56--74.34. Source-stratified and low-resource analyses are descriptive or exploratory and do not establish causal source effects or data-efficiency superiority. Reported comparisons are traceable to prediction files, run manifests, result hashes, and pinned external model archives. Source text remains private and is not redistributed: the manuscript reports aggregate results and provenance, not a public raw-text release.
+Pragmatic interpretation in Vietnamese-language text can depend on signals beyond surface polarity. We evaluate six pragmatic phenomena in the fixed ViPragSent setting, which has a documented social-media source component and a private-data boundary. ViPragSent-Final is a frozen label-wise ensemble selected with five-fold development out-of-fold evidence: it combines three-seed ViSoBERT and PhoBERT sources, probability blends for irony and code-switching, and a targeted mocking component. On one post-freeze canonical-test evaluation, it reaches 84.39 macro pragmatic F1, 1.56 points above Vistral-7B, the strongest complete best-tuned baseline. The aggregate lead does not establish strict per-label dominance: the final system remains 0.40 points below the strongest irony result, 0.11 below the strongest idiom/figurative-language result, and 0.13 below the strongest code-switching result. Stored predictions, configuration, and artifact hashes are traceable, but this is not an independent training reproduction; raw source text remains private.
 \end{abstract}
 
 \input{sections/01_introduction}
@@ -90,5 +82,13 @@ This appendix reports the per-label post-adjudication agreement values summarize
   \caption{Three-seed external diagnostic macro F1 (mean [normal 95\% interval]) for the four P0 ablations and ViSoBERT. UIT-VSFC and AIVIVN-2019 use polarity macro F1; UIT-VSMEC uses emotion macro F1. These datasets have distinct label spaces and are evaluation-only diagnostics, not a pooled transfer result.}
   \label{tab:external-diagnostics}
 \end{table*}
+
+\section{Final-System Progression}
+\label{app:final-progression}
+\begin{table}[!ht]
+  \centering
+  \input{appendix/table_final_progression}
+  \caption{Historical ViPragSent progression. These rows document development and must not be interpreted as independent external baselines.}
+\end{table}
 
 \end{document}
