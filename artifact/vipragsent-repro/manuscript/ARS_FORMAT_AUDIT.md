@@ -1,7 +1,5 @@
 # ARS Format Audit
 
-Status: PASS WITH LOG WARNING.
+Status: SUPERSEDED BY EACL REVIEW LOOP.
 
-The anonymous ACL-style manuscript compiled with XeLaTeX and BibTeX. The final rendered PDF has 12 pages and was visually inspected page by page. New tables and figures are readable; no clipped text, broken captions, or identifying front-matter content was observed.
-
-The LaTeX log retains an overfull `\\hbox` warning. Visual inspection did not show a clipped object, but the warning remains for final human layout confirmation.
+The prior 12-page count and overfull-box warning are stale. The canonical current-build checksum, page count, compiler-log result, and visual review status are maintained in `eacl_review_loop/`.

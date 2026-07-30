@@ -1,5 +1,5 @@
 # ARS Final Integrity Report
 
-Status: PASS WITH HUMAN-ONLY CITATION VERIFICATION PENDING.
+Status: SUPERSEDED BY EACL REVIEW LOOP; FULL CITATION VERIFICATION PENDING.
 
-The final-system numerical, provenance, comparison-definition, anonymity, figure, and PDF-layout checks pass. The manuscript compiles with XeLaTeX/BibTeX and the rendered 12-page PDF was visually inspected. A full item-by-item external citation WebSearch audit was not performed in this run; therefore this report does not certify citation existence beyond the pre-existing bibliography.
+The prior report's 12-page PDF statement is stale. The current canonical PDF is recorded in `eacl_review_loop/CANONICAL_BUILD_RECORD.md`. A full item-by-item external citation audit remains pending and this report must not be interpreted as submission clearance.
