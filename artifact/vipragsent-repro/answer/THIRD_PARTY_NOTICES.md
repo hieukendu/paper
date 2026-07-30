@@ -4,9 +4,13 @@ ViPragSent does not relicense third-party datasets or base models.
 
 ## Dataset source
 
-- The 12,000-record ViPragSent collection is derived solely from a local
-  ViSoBERT export. Raw text is restricted to private research and is not
-  licensed for redistribution by this repository.
+- The final 12,000-record ViPragSent gold corpus contains 10,000 retained
+  local ViSoBERT-export records and 2,000 author-created, context-augmented
+  derivative records based on Vietnamese idiom/proverb materials from VIVID.
+  The 2,000 VIVID-derived records replaced earlier ViSoBERT rows; those
+  replaced rows are not members of the final partitions. Raw text is
+  restricted to private research and is not licensed for redistribution by
+  this repository.
 - UIT-VSFC, UIT-VSMEC, and AIVIVN are used only as external evaluation
   benchmarks. They are not incorporated into ViPragSent and remain subject to
   their original terms and citation requirements.
