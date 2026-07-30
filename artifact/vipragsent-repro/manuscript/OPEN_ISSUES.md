@@ -11,7 +11,7 @@
 
 | ID | Issue | Required treatment |
 | --- | --- | --- |
-| P-01 | `manuscript/latex/main.pdf` is untracked; the local copy matches current source but no committed PDF is available. | Mark PDF state STALE; rebuild/commit only in Phase 8. |
-| P-02 | Citation and source-authorization review remain incomplete. | Do not advance submission claims without their designated phases. |
-| P-03 | Final system checkpoints are absent locally. | Describe result validation as artifact analysis, not independent training reproduction. |
+| P-01 | Canonical-PDF state | Resolved: `manuscript/latex/main.pdf` is tracked; checksum and clean-build evidence are in `eacl_review_loop/CANONICAL_BUILD_RECORD.md`. |
+| P-02 | Citation review | Resolved: all in-text citation occurrences have a primary/official-source audit in `eacl_review_loop/FINAL_CITATION_AUDIT.md`. Source authorization remains a separate author/legal dependency. |
+| P-03 | Final-system checkpoint access | Public checkpoint and QLoRA archives are verified; local workspace absence and public availability must remain distinct. The evidence supports artifact access, not an independent full training rerun. |
 | P-04 | Three label-specific baseline leaders exceed ViPragSent-Final. | Preserve the aggregate-only qualification in all future prose. |
