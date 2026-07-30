@@ -1,6 +1,6 @@
 # Section 2 Traceability Record
 
-Status: **VERIFIED FOR DRAFTING**.  This record distinguishes the verified scholarly AIVIVN description from unresolved organizer provenance and local-mirror licensing.
+Status: **VERIFIED FOR PHASE-1 RELATED WORK**. This record distinguishes literature-supported positioning from the repository's final-system claims and from unresolved AIVIVN mirror licensing.
 
 | Claim ID | Section claim | Evidence | Permitted scope | Status |
 | --- | --- | --- | --- | --- |
@@ -10,3 +10,6 @@ Status: **VERIFIED FOR DRAFTING**.  This record distinguishes the verified schol
 | S2-C03 | Nguyen et al. (2020) is a scholarly description of a binary AIVIVN-2019 Vietnamese e-commerce-review setting and records the historical challenge URL. | `references.bib`: `nguyen-etal-2020-efficient`; publisher PDF, DOI `10.3233/FAIA200579` | Scholarly description only; not canonical organizer attribution. | VERIFIED |
 | S2-C03a | The local evaluated AIVIVN artifact is a hash-identified Kaggle mirror; its canonical-release identity and license remain unresolved. | `answer/data_provenance/source_registry.json`; `answer/data_provenance/checksums.json` | Mirror provenance and artifact identity only; do not call it an organizer release or canonical split. | VERIFIED_LOCAL_HASH / UNRESOLVED_LICENSE |
 | S2-C04 | Auxiliary-task learning is a design family whose effect requires empirical evaluation. | `references.bib`: `moore-barnes-2021-multi`; `answer/results/p0_multi_seed_ablation.json` | Positioning only; no general benefit or causal claim. | VERIFIED |
+| S2-C05 | Vietnamese social-media emotion resources provide task/domain context but not the six-label ViPragSent formulation. | `references.bib`: `tran-etal-2026-vigoemotions`; Section 2 | Dataset-context claim only; no shared annotation/provenance claim. | VERIFIED |
+| S2-C06 | Low-resource instruction-tuned and prompted baselines require empirical comparison rather than assumed superiority. | `references.bib`: `toukmaji-flanigan-2025-adapting`; `dou-etal-2024-sailor`; `nguyen-etal-2023-vistral` | Baseline-family positioning only; no predicted ranking or independent-reproduction claim. | VERIFIED / PARTIAL for Vistral archival metadata |
+| S2-C07 | The final label-wise ensemble is a documented development-selected evaluation protocol, not an asserted architectural novelty. | `answer/final_best_tuned/final_selection.json`; Section 2 | Repository-method claim; not an external-literature priority claim. | VERIFIED |
